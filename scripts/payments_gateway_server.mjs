@@ -30,10 +30,25 @@ const wompi = new WompiGateway({
 const server = http.createServer(async (req, res) => {
   applyBankingSecurityHeaders(res);
 
-  // CORS seguro
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // CORS blindado con whitelist fiduciaria
+  const ALLOWED_ORIGINS = new Set([
+    'https://destraba.ai',
+    'https://app.destraba.ai',
+    'https://rick2818.github.io',
+    'http://localhost:8765',
+    'http://localhost:8766',
+    'http://127.0.0.1:8765'
+  ]);
+  const reqOrigin = req.headers.origin;
+  if (reqOrigin && ALLOWED_ORIGINS.has(reqOrigin)) {
+    res.setHeader('Access-Control-Allow-Origin', reqOrigin);
+  } else if (!reqOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Herramientas locales o curl sin cabecera origin
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', 'https://destraba.ai');
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Webhook-Signature, X-Idempotency-Key');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Webhook-Signature, X-Strike-Signature, X-Event-Checksum, X-Idempotency-Key');
 
   if (req.method === 'OPTIONS') {
     res.writeHead(200);
@@ -59,10 +74,27 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Leer cuerpo de la solicitud
+  // Leer cuerpo de la solicitud con protecci?n anti-DoS (l?mite 512 KB)
+  const MAX_PAYLOAD_BYTES = 512 * 1024; // 512 KB max
   let bodyStr = '';
-  req.on('data', chunk => { bodyStr += chunk; });
+  let bodyOverflow = false;
+
+  req.on('data', chunk => {
+    bodyStr += chunk;
+    if (Buffer.byteLength(bodyStr) > MAX_PAYLOAD_BYTES) {
+      bodyOverflow = true;
+      res.writeHead(413, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Payload Too Large. L?mite de seguridad de 512 KB excedido.' }));
+      req.destroy();
+    }
+  });
+
+  req.on('error', err => {
+    console.error('?? [HTTP ERROR]: Error en stream entrante:', err.message);
+  });
+
   req.on('end', async () => {
+    if (bodyOverflow) return;
     let payload = {};
     if (bodyStr) {
       try { payload = JSON.parse(bodyStr); } catch (e) { payload = {}; }
@@ -116,10 +148,18 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
-    // Endpoint 5: Webhook Listener Strike (Firmado HMAC SHA-256)
+    // Endpoint 5: Webhook Listener Strike (Firmado HMAC SHA-256 con verificaci?n obligatoria)
     if (req.method === 'POST' && url.pathname === '/api/webhooks/strike') {
       const signature = req.headers['x-strike-signature'] || '';
       const isValid = strike.verifyWebhookSignature(bodyStr, signature);
+
+      // Bloqueo inmediato de fraude (SEC-PAY-01)
+      if (!isValid && process.env.NODE_ENV === 'production') {
+        console.warn(`?? [SEGURIDAD]: Firma inv?lida en Strike Webhook. Petici?n rechazada.`);
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Firma criptogr?fica inv?lida o no autorizada.' }));
+        return;
+      }
 
       const txId = payload.data?.id || `strike_${Date.now()}`;
       const idempotency = recordAndVerifyIdempotency(txId);

@@ -213,10 +213,22 @@ class OrchestratorAgent(BaseAgent):
         }
 
     def export_to_filesystem(self, specification: FullAgentSpecification, base_path: str) -> List[str]:
-        """Writes the generated Antigravity files directly to the filesystem."""
+        """Writes the generated Antigravity files directly to the filesystem with directory traversal protection."""
         written_paths: List[str] = []
+        normalized_base = os.path.abspath(base_path)
+
         for file in specification.antigravity_artifacts:
-            full_path = os.path.join(base_path, file.path.replace("/", os.sep))
+            # Defensive validation: reject relative paths with .. or escaping separators
+            clean_rel = os.path.normpath(file.path.replace("/", os.sep))
+            if clean_rel.startswith(".." + os.sep) or clean_rel == "..":
+                raise ValueError(f"Security Alert: Directory traversal detected for path: {file.path}")
+
+            full_path = os.path.abspath(os.path.join(normalized_base, clean_rel))
+
+            # Fiduciary containment check: path must resolve inside normalized_base
+            if os.path.commonpath([normalized_base, full_path]) != normalized_base:
+                raise PermissionError(f"Security Alert: Directory traversal outside target workspace blocked: {full_path}")
+
             os.makedirs(os.path.dirname(full_path), exist_ok=True)
             with open(full_path, "w", encoding="utf-8") as f:
                 f.write(file.content)

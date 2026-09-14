@@ -5,605 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Destraba AI ? Creador Fiduciario de Custom Agents con Gemini Flash 2.5</title>
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com">
-    // =========================================================================
-    // ?? MICROSAAS REVENUE ENGINE (SOCIAL AUTH, AFFILIATES & LIVE ROI)
-    // =========================================================================
-    const SUPABASE_PROJECT_URL = 'https://iocwkuvkjeyonqosetvj.supabase.co';
-    let supabaseClient = null;
-
-    if (window.supabase) {
-      try {
-        supabaseClient = window.supabase.createClient(
-          SUPABASE_PROJECT_URL,
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvY3drdXZramV5b25xb3NldHZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYzMDU2MDAsImV4cCI6MjA0MTg4MTYwMH0.placeholder'
-        );
-      } catch (e) {
-        console.warn('Supabase client initialized in offline fallback mode.');
-      }
-    }
-
-    async function loginWithGoogle() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'google',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Google fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.google@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Google (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    async function loginWithFacebook() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'facebook',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Facebook fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.meta@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Facebook (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    function openAffiliateModal() {
-      const user = localStorage.getItem('antigravity_user') || 'ricardo';
-      const cleanUser = user.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '');
-      const refLink = window.location.origin + window.location.pathname + '?ref=' + (cleanUser || 'ricardo_sv');
-      const display = document.getElementById('affiliate-link-display');
-      if (display) display.textContent = refLink;
-      document.getElementById('affiliate-modal').classList.remove('hidden');
-    }
-
-    function closeAffiliateModal() {
-      document.getElementById('affiliate-modal').classList.add('hidden');
-    }
-
-    function copyAffiliateLink() {
-      const display = document.getElementById('affiliate-link-display');
-      if (display) {
-        navigator.clipboard.writeText(display.textContent);
-        alert('? Enlace de Afiliado copiado al portapapeles: ' + display.textContent);
-      }
-    }
-
-    function openMrrModal() {
-      document.getElementById('mrr-modal').classList.remove('hidden');
-    }
-
-    function closeMrrModal() {
-      document.getElementById('mrr-modal').classList.add('hidden');
-    }
-
-    function updateFinancialRoiCard(painText, agentSpec) {
-      const roiCard = document.getElementById('financial-roi-card');
-      if (!roiCard) return;
-
-      let lossUsd = 1480;
-      let planRate = 79;
-      let hours = 85;
-
-      const lower = (painText || '').toLowerCase();
-      if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('cliente')) {
-        lossUsd = 1250;
-        planRate = 49;
-        hours = 90;
-      } else if (lower.includes('cobranza') || lower.includes('factura') || lower.includes('moros')) {
-        lossUsd = 2100;
-        planRate = 89;
-        hours = 65;
-      } else if (lower.includes('inventario') || lower.includes('stock') || lower.includes('entrega')) {
-        lossUsd = 1680;
-        planRate = 69;
-        hours = 80;
-      } else if (lower.includes('ventas') || lower.includes('prospectos') || lower.includes('lead')) {
-        lossUsd = 2800;
-        planRate = 79;
-        hours = 110;
-      }
-
-      const netSavings = lossUsd - planRate;
-      const roiMultiple = ((netSavings / planRate) * 10).toFixed(1);
-
-      document.getElementById('roi-loss-amount').textContent = `$${lossUsd.toLocaleString()} USD/mes`;
-      document.getElementById('roi-plan-price').textContent = `$${planRate} USD/mes`;
-      document.getElementById('roi-net-savings').textContent = `$${netSavings.toLocaleString()} USD/mes`;
-      document.getElementById('roi-explanation').innerHTML = `Tener a tu personal atendiendo este cuello de botella cuesta ~${hours} horas/mes de n?mina improductiva. Activar este agente fiduciario lo erradica en 60 segundos con un <strong>Retorno de Inversi?n (ROI) estimado de ${roiMultiple}x</strong>.`;
-
-      roiCard.classList.remove('hidden');
-    }
-
-    function openCheckoutForGeneratedAgent() {
-      openPaymentModal();
-    }
-
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <!-- JSZip for 1-click ZIP package download -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js">
-    // =========================================================================
-    // ?? MICROSAAS REVENUE ENGINE (SOCIAL AUTH, AFFILIATES & LIVE ROI)
-    // =========================================================================
-    const SUPABASE_PROJECT_URL = 'https://iocwkuvkjeyonqosetvj.supabase.co';
-    let supabaseClient = null;
-
-    if (window.supabase) {
-      try {
-        supabaseClient = window.supabase.createClient(
-          SUPABASE_PROJECT_URL,
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvY3drdXZramV5b25xb3NldHZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYzMDU2MDAsImV4cCI6MjA0MTg4MTYwMH0.placeholder'
-        );
-      } catch (e) {
-        console.warn('Supabase client initialized in offline fallback mode.');
-      }
-    }
-
-    async function loginWithGoogle() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'google',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Google fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.google@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Google (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    async function loginWithFacebook() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'facebook',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Facebook fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.meta@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Facebook (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    function openAffiliateModal() {
-      const user = localStorage.getItem('antigravity_user') || 'ricardo';
-      const cleanUser = user.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '');
-      const refLink = window.location.origin + window.location.pathname + '?ref=' + (cleanUser || 'ricardo_sv');
-      const display = document.getElementById('affiliate-link-display');
-      if (display) display.textContent = refLink;
-      document.getElementById('affiliate-modal').classList.remove('hidden');
-    }
-
-    function closeAffiliateModal() {
-      document.getElementById('affiliate-modal').classList.add('hidden');
-    }
-
-    function copyAffiliateLink() {
-      const display = document.getElementById('affiliate-link-display');
-      if (display) {
-        navigator.clipboard.writeText(display.textContent);
-        alert('? Enlace de Afiliado copiado al portapapeles: ' + display.textContent);
-      }
-    }
-
-    function openMrrModal() {
-      document.getElementById('mrr-modal').classList.remove('hidden');
-    }
-
-    function closeMrrModal() {
-      document.getElementById('mrr-modal').classList.add('hidden');
-    }
-
-    function updateFinancialRoiCard(painText, agentSpec) {
-      const roiCard = document.getElementById('financial-roi-card');
-      if (!roiCard) return;
-
-      let lossUsd = 1480;
-      let planRate = 79;
-      let hours = 85;
-
-      const lower = (painText || '').toLowerCase();
-      if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('cliente')) {
-        lossUsd = 1250;
-        planRate = 49;
-        hours = 90;
-      } else if (lower.includes('cobranza') || lower.includes('factura') || lower.includes('moros')) {
-        lossUsd = 2100;
-        planRate = 89;
-        hours = 65;
-      } else if (lower.includes('inventario') || lower.includes('stock') || lower.includes('entrega')) {
-        lossUsd = 1680;
-        planRate = 69;
-        hours = 80;
-      } else if (lower.includes('ventas') || lower.includes('prospectos') || lower.includes('lead')) {
-        lossUsd = 2800;
-        planRate = 79;
-        hours = 110;
-      }
-
-      const netSavings = lossUsd - planRate;
-      const roiMultiple = ((netSavings / planRate) * 10).toFixed(1);
-
-      document.getElementById('roi-loss-amount').textContent = `$${lossUsd.toLocaleString()} USD/mes`;
-      document.getElementById('roi-plan-price').textContent = `$${planRate} USD/mes`;
-      document.getElementById('roi-net-savings').textContent = `$${netSavings.toLocaleString()} USD/mes`;
-      document.getElementById('roi-explanation').innerHTML = `Tener a tu personal atendiendo este cuello de botella cuesta ~${hours} horas/mes de n?mina improductiva. Activar este agente fiduciario lo erradica en 60 segundos con un <strong>Retorno de Inversi?n (ROI) estimado de ${roiMultiple}x</strong>.`;
-
-      roiCard.classList.remove('hidden');
-    }
-
-    function openCheckoutForGeneratedAgent() {
-      openPaymentModal();
-    }
-
-</script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-    // =========================================================================
-    // ?? MICROSAAS REVENUE ENGINE (SOCIAL AUTH, AFFILIATES & LIVE ROI)
-    // =========================================================================
-    const SUPABASE_PROJECT_URL = 'https://iocwkuvkjeyonqosetvj.supabase.co';
-    let supabaseClient = null;
-
-    if (window.supabase) {
-      try {
-        supabaseClient = window.supabase.createClient(
-          SUPABASE_PROJECT_URL,
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvY3drdXZramV5b25xb3NldHZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYzMDU2MDAsImV4cCI6MjA0MTg4MTYwMH0.placeholder'
-        );
-      } catch (e) {
-        console.warn('Supabase client initialized in offline fallback mode.');
-      }
-    }
-
-    async function loginWithGoogle() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'google',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Google fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.google@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Google (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    async function loginWithFacebook() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'facebook',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Facebook fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.meta@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Facebook (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    function openAffiliateModal() {
-      const user = localStorage.getItem('antigravity_user') || 'ricardo';
-      const cleanUser = user.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '');
-      const refLink = window.location.origin + window.location.pathname + '?ref=' + (cleanUser || 'ricardo_sv');
-      const display = document.getElementById('affiliate-link-display');
-      if (display) display.textContent = refLink;
-      document.getElementById('affiliate-modal').classList.remove('hidden');
-    }
-
-    function closeAffiliateModal() {
-      document.getElementById('affiliate-modal').classList.add('hidden');
-    }
-
-    function copyAffiliateLink() {
-      const display = document.getElementById('affiliate-link-display');
-      if (display) {
-        navigator.clipboard.writeText(display.textContent);
-        alert('? Enlace de Afiliado copiado al portapapeles: ' + display.textContent);
-      }
-    }
-
-    function openMrrModal() {
-      document.getElementById('mrr-modal').classList.remove('hidden');
-    }
-
-    function closeMrrModal() {
-      document.getElementById('mrr-modal').classList.add('hidden');
-    }
-
-    function updateFinancialRoiCard(painText, agentSpec) {
-      const roiCard = document.getElementById('financial-roi-card');
-      if (!roiCard) return;
-
-      let lossUsd = 1480;
-      let planRate = 79;
-      let hours = 85;
-
-      const lower = (painText || '').toLowerCase();
-      if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('cliente')) {
-        lossUsd = 1250;
-        planRate = 49;
-        hours = 90;
-      } else if (lower.includes('cobranza') || lower.includes('factura') || lower.includes('moros')) {
-        lossUsd = 2100;
-        planRate = 89;
-        hours = 65;
-      } else if (lower.includes('inventario') || lower.includes('stock') || lower.includes('entrega')) {
-        lossUsd = 1680;
-        planRate = 69;
-        hours = 80;
-      } else if (lower.includes('ventas') || lower.includes('prospectos') || lower.includes('lead')) {
-        lossUsd = 2800;
-        planRate = 79;
-        hours = 110;
-      }
-
-      const netSavings = lossUsd - planRate;
-      const roiMultiple = ((netSavings / planRate) * 10).toFixed(1);
-
-      document.getElementById('roi-loss-amount').textContent = `$${lossUsd.toLocaleString()} USD/mes`;
-      document.getElementById('roi-plan-price').textContent = `$${planRate} USD/mes`;
-      document.getElementById('roi-net-savings').textContent = `$${netSavings.toLocaleString()} USD/mes`;
-      document.getElementById('roi-explanation').innerHTML = `Tener a tu personal atendiendo este cuello de botella cuesta ~${hours} horas/mes de n?mina improductiva. Activar este agente fiduciario lo erradica en 60 segundos con un <strong>Retorno de Inversi?n (ROI) estimado de ${roiMultiple}x</strong>.`;
-
-      roiCard.classList.remove('hidden');
-    }
-
-    function openCheckoutForGeneratedAgent() {
-      openPaymentModal();
-    }
-
-</script>
-  <script>
-
-    // =========================================================================
-    // ?? IN-APP USER PROFILE & CREDENTIALS
-    // =========================================================================
-    function toggleUserDropdown() {
-      const panel = document.getElementById('user-profile-panel');
-      if (panel) panel.classList.toggle('hidden');
-    }
-
-    function saveInAppUser() {
-      const user = document.getElementById('app-user-input')?.value.trim() || 'ricardo@destraba.ai';
-      const pass = document.getElementById('app-pass-input')?.value || 'antigravity2026!';
-      localStorage.setItem('antigravity_user', user);
-      localStorage.setItem('platform_master_key', pass);
-      const display = document.getElementById('nav-user-display');
-      if (display) display.textContent = user;
-      alert('? Usuario actualizado: ' + user);
-      toggleUserDropdown();
-    }
-
-    function initUserProfile() {
-      const user = localStorage.getItem('antigravity_user') || 'ricardo@destraba.ai';
-      const display = document.getElementById('nav-user-display');
-      const input = document.getElementById('app-user-input');
-      if (display) display.textContent = user;
-      if (input) input.value = user;
-    }
-
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#eff6ff',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              900: '#1e3a8a',
-            },
-            dark: {
-              800: '#0f172a',
-              900: '#090d16',
-              950: '#05070c'
-            }
-          }
-        }
-      }
-    }
-  
-    // =========================================================================
-    // ?? MICROSAAS REVENUE ENGINE (SOCIAL AUTH, AFFILIATES & LIVE ROI)
-    // =========================================================================
-    const SUPABASE_PROJECT_URL = 'https://iocwkuvkjeyonqosetvj.supabase.co';
-    let supabaseClient = null;
-
-    if (window.supabase) {
-      try {
-        supabaseClient = window.supabase.createClient(
-          SUPABASE_PROJECT_URL,
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvY3drdXZramV5b25xb3NldHZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYzMDU2MDAsImV4cCI6MjA0MTg4MTYwMH0.placeholder'
-        );
-      } catch (e) {
-        console.warn('Supabase client initialized in offline fallback mode.');
-      }
-    }
-
-    async function loginWithGoogle() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'google',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Google fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.google@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Google (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    async function loginWithFacebook() {
-      if (supabaseClient && supabaseClient.auth) {
-        try {
-          const { error } = await supabaseClient.auth.signInWithOAuth({
-            provider: 'facebook',
-            options: { redirectTo: window.location.href }
-          });
-          if (error) throw error;
-          return;
-        } catch (err) {
-          console.warn('OAuth Facebook fallback to direct login:', err.message);
-        }
-      }
-      // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.meta@destraba.ai');
-      initUserProfile();
-      alert('? Sesi?n iniciada con Facebook (Modo Producci?n Supabase).');
-      toggleUserDropdown();
-    }
-
-    function openAffiliateModal() {
-      const user = localStorage.getItem('antigravity_user') || 'ricardo';
-      const cleanUser = user.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '');
-      const refLink = window.location.origin + window.location.pathname + '?ref=' + (cleanUser || 'ricardo_sv');
-      const display = document.getElementById('affiliate-link-display');
-      if (display) display.textContent = refLink;
-      document.getElementById('affiliate-modal').classList.remove('hidden');
-    }
-
-    function closeAffiliateModal() {
-      document.getElementById('affiliate-modal').classList.add('hidden');
-    }
-
-    function copyAffiliateLink() {
-      const display = document.getElementById('affiliate-link-display');
-      if (display) {
-        navigator.clipboard.writeText(display.textContent);
-        alert('? Enlace de Afiliado copiado al portapapeles: ' + display.textContent);
-      }
-    }
-
-    function openMrrModal() {
-      document.getElementById('mrr-modal').classList.remove('hidden');
-    }
-
-    function closeMrrModal() {
-      document.getElementById('mrr-modal').classList.add('hidden');
-    }
-
-    function updateFinancialRoiCard(painText, agentSpec) {
-      const roiCard = document.getElementById('financial-roi-card');
-      if (!roiCard) return;
-
-      let lossUsd = 1480;
-      let planRate = 79;
-      let hours = 85;
-
-      const lower = (painText || '').toLowerCase();
-      if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('cliente')) {
-        lossUsd = 1250;
-        planRate = 49;
-        hours = 90;
-      } else if (lower.includes('cobranza') || lower.includes('factura') || lower.includes('moros')) {
-        lossUsd = 2100;
-        planRate = 89;
-        hours = 65;
-      } else if (lower.includes('inventario') || lower.includes('stock') || lower.includes('entrega')) {
-        lossUsd = 1680;
-        planRate = 69;
-        hours = 80;
-      } else if (lower.includes('ventas') || lower.includes('prospectos') || lower.includes('lead')) {
-        lossUsd = 2800;
-        planRate = 79;
-        hours = 110;
-      }
-
-      const netSavings = lossUsd - planRate;
-      const roiMultiple = ((netSavings / planRate) * 10).toFixed(1);
-
-      document.getElementById('roi-loss-amount').textContent = `$${lossUsd.toLocaleString()} USD/mes`;
-      document.getElementById('roi-plan-price').textContent = `$${planRate} USD/mes`;
-      document.getElementById('roi-net-savings').textContent = `$${netSavings.toLocaleString()} USD/mes`;
-      document.getElementById('roi-explanation').innerHTML = `Tener a tu personal atendiendo este cuello de botella cuesta ~${hours} horas/mes de n?mina improductiva. Activar este agente fiduciario lo erradica en 60 segundos con un <strong>Retorno de Inversi?n (ROI) estimado de ${roiMultiple}x</strong>.`;
-
-      roiCard.classList.remove('hidden');
-    }
-
-    function openCheckoutForGeneratedAgent() {
-      openPaymentModal();
-    }
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    /* Custom scrollbars */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.6);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(51, 65, 85, 0.8);
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(71, 85, 105, 1);
-    }
-    .fade-in {
-      animation: fadeIn 0.3s ease-in-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .pulse-dot {
-      animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
     @keyframes pulseDot {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(1.15); }
+    }
+    .pulse-dot { animation: pulseDot 2s infinite ease-in-out; }
+    .fade-in { animation: fadeIn 0.3s ease-out forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -1410,6 +826,132 @@
   <script>
 
     // =========================================================================
+    // ?? BILINGUAL DICTIONARY & SWITCHER (ES: Destraba AI | EN: Unblock AI)
+    // =========================================================================
+    let currentLang = localStorage.getItem('destraba_lang') || 'es';
+
+    const I18N = {
+      es: {
+        pageTitle: 'Destraba AI ? Creador Fiduciario de Custom Agents con Gemini Flash 2.5',
+        brand: 'Destraba AI',
+        subBrand: 'Plataforma Fiduciaria de Custom Agents Desatendidos',
+        navManual: '?? Manual',
+        navSupport: '?? Soporte',
+        navPricing: '??? Precios por Agente',
+        navRuntime: '?? D?nde Vive el Agente',
+        navConfig: '?? Configuraci?n',
+        heroBadge: '?? Soluci?n Fiduciaria de Dolores de Negocio',
+        heroTitle: '?Qu? dolor operativo no has podido resolver?',
+        heroSlogan: '"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto autom?tico."',
+        heroSub: 'Escr?belo libremente con tus palabras. La IA crear? un agente especializado con la arquitectura oficial de Custom Agents.',
+        painPlaceholder: 'Ej: Tengo una empresa de servicios y perdemos horas persiguiendo clientes para que env?en sus facturas y comprobantes. El equipo responde tarde por WhatsApp, hay ?rdenes duplicadas y los clientes se quejan de falta de atenci?n...',
+        pillsLabel: 'Dolores frecuentes:',
+        pill1: '?? Clientes esperando horas en WhatsApp',
+        pill2: '?? Demoras en entregas y stock desincronizado',
+        pill3: '?? Cobranza manual y clientes morosos',
+        pill4: '?? Fuga de prospectos sin seguimiento',
+        btnGenerate: '? Destrabar mi Operaci?n (Crear Agente)',
+        supportEmail: 'soporte@destraba.ai'
+      },
+      en: {
+        pageTitle: 'Unblock AI ? Autonomous Custom Agent Studio with Gemini Flash 2.5',
+        brand: 'Unblock AI',
+        subBrand: 'Fiduciary Platform for Autonomous Custom Agents',
+        navManual: '?? Manual',
+        navSupport: '?? Support',
+        navPricing: '??? Agent Pricing',
+        navRuntime: '?? Runtime & Hosting',
+        navConfig: '?? Settings',
+        heroBadge: '?? Autonomous Friction Elimination Engine',
+        heroTitle: 'What unsolved operational bottleneck is holding you back?',
+        heroSlogan: '"Unblock your business in 60 seconds. Deploy your autonomous agent today and put operations on autopilot."',
+        heroSub: 'Describe your operational bottleneck in plain words. AI will synthesize a custom agent adhering to the official Custom Agents architecture.',
+        painPlaceholder: 'E.g., We run a B2B service company and waste hours chasing clients for invoices and payment confirmations. Inbound leads wait hours on WhatsApp, orders duplicate, and operations are bottlenecked...',
+        pillsLabel: 'Frequent bottlenecks:',
+        pill1: '?? Leads waiting hours on WhatsApp',
+        pill2: '?? Delivery delays & out-of-sync inventory',
+        pill3: '?? Manual collections & overdue accounts',
+        pill4: '?? Lost pipeline & zero follow-up',
+        btnGenerate: '? Unblock My Business (Deploy Agent)',
+        supportEmail: 'support@unblock.ai'
+      }
+    };
+
+    function switchLanguage(lang) {
+      if (!I18N[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('destraba_lang', lang);
+
+      const d = I18N[lang];
+      const btnEs = document.getElementById('btn-lang-es');
+      const btnEn = document.getElementById('btn-lang-en');
+      if (btnEs && btnEn) {
+        if (lang === 'es') {
+          btnEs.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all bg-blue-600 text-white shadow-sm';
+          btnEn.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all text-slate-400 hover:text-white';
+        } else {
+          btnEn.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all bg-blue-600 text-white shadow-sm';
+          btnEs.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all text-slate-400 hover:text-white';
+        }
+      }
+
+      document.title = d.pageTitle;
+      const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      const setHtml = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
+
+      setTxt('brand-header-title', d.brand);
+      setTxt('brand-header-sub', d.subBrand);
+      setTxt('lbl-nav-manual', d.navManual);
+      setTxt('lbl-nav-support', d.navSupport);
+      setTxt('lbl-nav-pricing', d.navPricing);
+      setTxt('lbl-nav-runtime', d.navRuntime);
+      setTxt('lbl-nav-config', d.navConfig);
+
+      setTxt('lbl-hero-badge', d.heroBadge);
+      setTxt('lbl-hero-title', d.heroTitle);
+      setTxt('lbl-hero-slogan', d.heroSlogan);
+      setHtml('lbl-hero-sub', d.heroSub);
+
+      const painInput = document.getElementById('pain-input');
+      if (painInput) painInput.placeholder = d.painPlaceholder;
+
+      setTxt('lbl-pills-label', d.pillsLabel);
+      setTxt('lbl-pill-1', d.pill1);
+      setTxt('lbl-pill-2', d.pill2);
+      setTxt('lbl-pill-3', d.pill3);
+      setTxt('lbl-pill-4', d.pill4);
+      setTxt('lbl-btn-generate', d.btnGenerate);
+    }
+
+    // =========================================================================
+    // ?? CLIPBOARD SAFE FALLBACK (COMPATIBLE CON file:// Y HTTP)
+    // =========================================================================
+    async function safeCopy(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch (e) {}
+      }
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        return true;
+      } catch (err) {
+        document.body.removeChild(textArea);
+        return false;
+      }
+    }
+
+
+    // =========================================================================
     // ?? IN-APP USER PROFILE & CREDENTIALS
     // =========================================================================
     function toggleUserDropdown() {
@@ -1446,6 +988,7 @@
     // Check session on load
     window.addEventListener('DOMContentLoaded', () => {
       initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
 
       const savedKey = localStorage.getItem('gemini_api_key') || '';
       const savedModel = localStorage.getItem('gemini_model') || 'gemini-2.5-flash';
@@ -1517,6 +1060,7 @@
     function lockPlatform() {
       sessionStorage.removeItem('antigravity_authenticated');
       initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
     }
 
     function toggleGateKeyVisibility() {
@@ -2180,13 +1724,25 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
 
       const replyMsg = document.createElement('div');
       replyMsg.className = "p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 max-w-xl text-xs";
-      replyMsg.innerHTML = `<span class="text-blue-400 font-bold block mb-1">ðŸ¤– ${currentSpec.agent_name}:</span> ${escapeHtml(agentResponse).replace(/\n/g, '<br/>')}`;
+      const safeAgentName = escapeHtml(currentSpec.agent_name || 'Agente');
+      replyMsg.innerHTML = `<span class="text-blue-400 font-bold block mb-1">?? ${safeAgentName}:</span> ${escapeHtml(agentResponse).replace(/
+/g, '<br/>')}`;
       container.appendChild(replyMsg);
       container.scrollTop = container.scrollHeight;
     }
 
     async function downloadAgentZip() {
       if (!currentSpec || !generatedFiles) return;
+
+      if (typeof JSZip === 'undefined') {
+        alert('?? La librer?a de compresi?n ZIP no carg? por falta de conexi?n. Descargando especificaci?n en JSON...');
+        const blob = new Blob([JSON.stringify(currentSpec, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `custom_agent_${currentSpec.slug}.json`;
+        a.click();
+        return;
+      }
 
       const zip = new JSZip();
       const agentsFolder = zip.folder(".agents");
@@ -2254,6 +1810,7 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
       // Demo fallback login
       localStorage.setItem('antigravity_user', 'ricardo.google@destraba.ai');
       initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
       alert('? Sesi?n iniciada con Google (Modo Producci?n Supabase).');
       toggleUserDropdown();
     }
@@ -2274,6 +1831,7 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
       // Demo fallback login
       localStorage.setItem('antigravity_user', 'ricardo.meta@destraba.ai');
       initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
       alert('? Sesi?n iniciada con Facebook (Modo Producci?n Supabase).');
       toggleUserDropdown();
     }

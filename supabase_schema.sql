@@ -86,7 +86,7 @@ BEGIN
 
     RETURN v_client_id;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
 -- 7. FunciÃ³n fiduciaria para AUTENTICAR clientes de forma segura (Timing-Safe)
 CREATE OR REPLACE FUNCTION public.verify_client_login(
@@ -115,7 +115,7 @@ BEGIN
       AND c.subscription_status = 'active'
     LIMIT 1;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
 -- 8. ConfiguraciÃ³n de PolÃ­ticas RLS (Row Level Security)
 ALTER TABLE public.clients ENABLE ROW LEVEL SECURITY;
@@ -202,6 +202,24 @@ CREATE TABLE IF NOT EXISTS public.referral_conversions (
     created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
+
+-- Habilitar RLS en tablas de afiliados (SEC-DB-02)
+ALTER TABLE public.referrals ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.referral_conversions ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Aislamiento de afiliados para service_role"
+ON public.referrals FOR ALL
+USING (auth.role() = 'service_role' OR auth.role() = 'postgres');
+
+CREATE POLICY "Aislamiento de conversiones para service_role"
+ON public.referral_conversions FOR ALL
+USING (auth.role() = 'service_role' OR auth.role() = 'postgres');
+
+-- ?ndices en Foreign Keys para evitar bloqueos y sequential scans (PERF-DB-05)
+CREATE INDEX IF NOT EXISTS idx_referrals_client_id ON public.referrals (client_id);
+CREATE INDEX IF NOT EXISTS idx_referral_conversions_affiliate_code ON public.referral_conversions (affiliate_code);
+CREATE INDEX IF NOT EXISTS idx_referral_conversions_referred_client ON public.referral_conversions (referred_client_id);
+
 -- =============================================================================
 -- 11. VISTA DE M?TRICAS FINANCIERAS Y MRR HUB ($300 USD/D?A - $9,000 USD/MES)
 -- =============================================================================
@@ -218,4 +236,4 @@ SELECT
 FROM public.clients;
 
 -- Permisos de lectura para la vista de m?tricas
-GRANT SELECT ON public.view_mrr_metrics TO anon, authenticated, service_role;
+GRANT SELECT ON public.view_mrr_metrics TO authenticated, service_role;
