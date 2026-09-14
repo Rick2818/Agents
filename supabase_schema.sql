@@ -1,10 +1,10 @@
-﻿-- =============================================================================
+-- =============================================================================
 -- DESTRABA AI â€” ESQUEMA DE BASE DE DATOS SUPABASE PARA CLIENTES
 -- Proyecto Supabase: https://iocwkuvkjeyonqosetvj.supabase.co
--- Ciberseguridad: CriptografÃ­a pgcrypto (Bcrypt/Blowfish) + Row Level Security
+-- Ciberseguridad: Criptografía pgcrypto (Bcrypt/Blowfish) + Row Level Security
 -- =============================================================================
 
--- 1. Habilitar extensiÃ³n criptogrÃ¡fica para hashing seguro de contraseÃ±as
+-- 1. Habilitar extensión criptográfica para hashing seguro de contraseñas
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 -- 2. Eliminar tabla si existe previamente para asegurar idempotencia limpia
@@ -26,16 +26,16 @@ CREATE TABLE IF NOT EXISTS public.clients (
 );
 
 -- Comentarios explicativos sobre columnas fiduciarias
-COMMENT ON TABLE public.clients IS 'Ledger central de clientes fiduciarios de DESTRABA AI con tarifas en USD y contraseÃ±as hasheadas.';
-COMMENT ON COLUMN public.clients.password_hash IS 'Hash criptogrÃ¡fico irreversible generado con crypt(password, gen_salt("bf", 10)). CERO contraseÃ±as en texto plano.';
+COMMENT ON TABLE public.clients IS 'Ledger central de clientes fiduciarios de DESTRABA AI con tarifas en USD y contraseñas hasheadas.';
+COMMENT ON COLUMN public.clients.password_hash IS 'Hash criptográfico irreversible generado con crypt(password, gen_salt("bf", 10)). CERO contraseñas en texto plano.';
 COMMENT ON COLUMN public.clients.subscription_tier IS 'Tarifa contratada: flash_audit ($19), support_concierge ($49), outbound_sales ($79), financial_audit ($89), inventory_logistics ($69), marketing_authority ($59), suite_elite ($249).';
 
--- 4. Ãndices para consultas ultra-rÃ¡pidas en login y auditorÃ­a
+-- 4. Índices para consultas ultra-rápidas en login y auditoría
 CREATE INDEX IF NOT EXISTS idx_clients_email ON public.clients (email);
 CREATE INDEX IF NOT EXISTS idx_clients_username ON public.clients (username);
 CREATE INDEX IF NOT EXISTS idx_clients_status ON public.clients (subscription_status);
 
--- 5. Trigger para actualizar automÃ¡ticamente el campo updated_at
+-- 5. Trigger para actualizar automáticamente el campo updated_at
 CREATE OR REPLACE FUNCTION public.handle_updated_at()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -50,7 +50,7 @@ BEFORE UPDATE ON public.clients
 FOR EACH ROW
 EXECUTE FUNCTION public.handle_updated_at();
 
--- 6. FunciÃ³n fiduciaria para REGISTRAR un nuevo cliente con contraseÃ±a hasheada
+-- 6. Función fiduciaria para REGISTRAR un nuevo cliente con contraseña hasheada
 CREATE OR REPLACE FUNCTION public.register_client(
     p_full_name VARCHAR,
     p_email VARCHAR,
@@ -77,7 +77,7 @@ BEGIN
         p_full_name,
         LOWER(TRIM(p_email)),
         LOWER(TRIM(p_username)),
-        crypt(p_plain_password, gen_salt('bf', 10)), -- Hashing seguro Bcrypt con sal Ãºnica
+        crypt(p_plain_password, gen_salt('bf', 10)), -- Hashing seguro Bcrypt con sal única
         p_tier,
         p_rate_usd,
         p_gateway
@@ -88,7 +88,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
--- 7. FunciÃ³n fiduciaria para AUTENTICAR clientes de forma segura (Timing-Safe)
+-- 7. Función fiduciaria para AUTENTICAR clientes de forma segura (Timing-Safe)
 CREATE OR REPLACE FUNCTION public.verify_client_login(
     p_identifier VARCHAR, -- Puede ser email o username
     p_plain_password TEXT
@@ -117,10 +117,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER SET search_path = public, pg_temp;
 
--- 8. ConfiguraciÃ³n de PolÃ­ticas RLS (Row Level Security)
+-- 8. Configuración de Políticas RLS (Row Level Security)
 ALTER TABLE public.clients ENABLE ROW LEVEL SECURITY;
 
--- PolÃ­tica: Los administradores de servicio pueden ver y gestionar todos los clientes
+-- Política: Los administradores de servicio pueden ver y gestionar todos los clientes
 CREATE POLICY "Permitir lectura fiduciaria de servicio"
 ON public.clients
 FOR ALL
@@ -141,9 +141,9 @@ SELECT public.register_client(
     'wompi_sv'
 );
 
--- Cliente 2: Empresa de LogÃ­stica (Agente de Inventario & EnvÃ­os)
+-- Cliente 2: Empresa de Logística (Agente de Inventario & Envíos)
 SELECT public.register_client(
-    'Carlos Mendoza â€” LogÃ­stica RÃ¡pida S.A.',
+    'Carlos Mendoza â€” Logística Rápida S.A.',
     'carlos.mendoza@logisticarapida.com',
     'cmendoza_log',
     'LogisticaSegura2026!',
@@ -152,7 +152,7 @@ SELECT public.register_client(
     'wompi_sv'
 );
 
--- Cliente 3: Despacho JurÃ­dico / Contable (Agente de Cobranza & ConciliaciÃ³n)
+-- Cliente 3: Despacho Jurídico / Contable (Agente de Cobranza & Conciliación)
 SELECT public.register_client(
     'Dra. Elena Ramos â€” Ramos & Asociados Consultores',
     'eramos@ramosasociados.com',
@@ -165,7 +165,7 @@ SELECT public.register_client(
 
 -- Cliente 4: E-Commerce B2B (Agente de Soporte WhatsApp & Web)
 SELECT public.register_client(
-    'Manuel Torres â€” CafÃ© Don Manuel B2B',
+    'Manuel Torres â€” Café Don Manuel B2B',
     'manuel@cafedonmanuel.com',
     'mtorres_cafe',
     'CafeSoporte2026!',
@@ -174,7 +174,7 @@ SELECT public.register_client(
     'strike_lightning'
 );
 
--- VerificaciÃ³n de inserciÃ³n exitosa
+-- Verificación de inserción exitosa
 SELECT id, full_name, email, username, subscription_tier, monthly_rate_usd, created_at 
 FROM public.clients 
 ORDER BY created_at DESC;

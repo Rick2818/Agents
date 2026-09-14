@@ -1,4 +1,4 @@
-﻿/**
+/**
  * =============================================================================
  * DESTRABA AI â€” SERVIDOR DE PASARELAS Y WEBHOOKS BLINDADOS
  * Pasarelas: Wompi SV y Strike Lightning (rick2818@strike.me)
@@ -61,13 +61,13 @@ const server = http.createServer(async (req, res) => {
   // Anti-DDoS / Anti-Carding
   if (!checkRateLimit(clientIp, 15, 60000)) {
     res.writeHead(429, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'Demasiadas solicitudes. LÃ­mite de seguridad alcanzado.' }));
+    res.end(JSON.stringify({ error: 'Demasiadas solicitudes. Límite de seguridad alcanzado.' }));
     return;
   }
 
   const url = new URL(req.url, `http://${req.headers.host}`);
 
-  // Endpoint 1: CatÃ¡logo Oficial de Precios en USD
+  // Endpoint 1: Catálogo Oficial de Precios en USD
   if (req.method === 'GET' && url.pathname === '/api/payments/catalog') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ success: true, catalog: CATALOGO_PRECIOS_USD }));
@@ -133,6 +133,13 @@ const server = http.createServer(async (req, res) => {
       const signature = req.headers['x-wompi-signature'] || '';
       const isValid = wompi.verifyWebhookSignature(bodyStr, signature);
 
+      if (!isValid) {
+        console.warn('[SEGURIDAD]: Firma inválida en Wompi Webhook. Petición rechazada.');
+        res.writeHead(401, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Firma criptográfica inválida o no autorizada.' }));
+        return;
+      }
+
       const txId = payload.idTransaccion || payload.referencia || `tx_${Date.now()}`;
       const idempotency = recordAndVerifyIdempotency(txId);
 
@@ -153,11 +160,11 @@ const server = http.createServer(async (req, res) => {
       const signature = req.headers['x-strike-signature'] || '';
       const isValid = strike.verifyWebhookSignature(bodyStr, signature);
 
-      // Bloqueo inmediato de fraude (SEC-PAY-01)
-      if (!isValid && process.env.NODE_ENV === 'production') {
-        console.warn(`?? [SEGURIDAD]: Firma inv?lida en Strike Webhook. Petici?n rechazada.`);
+      // Bloqueo inmediato de fraude (SEC-PAY-01) — se aplica siempre, no solo en producción
+      if (!isValid) {
+        console.warn('[SEGURIDAD]: Firma inválida en Strike Webhook. Petición rechazada.');
         res.writeHead(401, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Firma criptogr?fica inv?lida o no autorizada.' }));
+        res.end(JSON.stringify({ error: 'Firma criptográfica inválida o no autorizada.' }));
         return;
       }
 

@@ -1,14 +1,23 @@
-﻿import {
-  PRICING_CATALOG,
-  buildWompiCheckoutUrl,
-  createStrikeInvoice,
-  verifyWompiSignature,
-  verifyStrikeSignature,
+
+import {
+  StrikeLightningGateway,
+  WompiGateway,
+  CATALOGO_PRECIOS_USD,
+  applyBankingSecurityHeaders,
   checkRateLimit,
-  isIdempotent
+  recordAndVerifyIdempotency
 } from '../lib/payment_security.js';
 
+// Instancias reutilizadas entre invocaciones cálidas (evita recrear el cliente en cada request)
+const strike = new StrikeLightningGateway({ lightningAddress: 'rick2818@strike.me' });
+const wompi = new WompiGateway({
+  appId: process.env.WOMPI_APP_ID || '',
+  apiSecret: process.env.WOMPI_API_SECRET || '',
+  webhookSecret: process.env.WOMPI_WEBHOOK_SECRET || ''
+});
+
 export default async function handler(req, res) {
+  applyBankingSecurityHeaders(res);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Strike-Signature, X-Event-Checksum');
@@ -32,73 +41,80 @@ export default async function handler(req, res) {
         brand: 'Destraba AI / Unblock AI',
         supportEmail: 'soporte@destraba.ai',
         strikeLightningAddress: 'rick2818@strike.me',
-        catalog: PRICING_CATALOG
+        catalog: CATALOGO_PRECIOS_USD
       });
     }
 
     if (req.method === 'POST' && (pathname === '/api/strike/invoice' || pathname.endsWith('/strike/invoice'))) {
-      const { planId, customerEmail, customerName } = req.body || {};
-      const plan = PRICING_CATALOG[planId];
-      if (!plan) {
-        return res.status(400).json({ error: 'Invalid planId' });
-      }
-
-      const invoice = await createStrikeInvoice({
-        amountUsd: plan.priceUsd,
-        description: `Destraba AI: Licencia ${plan.name} para ${customerName || customerEmail || 'Cliente'}`,
-        correlationId: `destraba_${planId}_${Date.now()}`
-      });
-
+      const { planId, customerEmail } = req.body || {};
+      const invoice = await strike.createLightningPayment(planId, customerEmail);
       return res.status(200).json({ success: true, invoice });
     }
 
     if (req.method === 'POST' && (pathname === '/api/wompi/checkout' || pathname.endsWith('/wompi/checkout'))) {
       const { planId, customerEmail, redirectUrl } = req.body || {};
-      const plan = PRICING_CATALOG[planId];
-      if (!plan) {
-        return res.status(400).json({ error: 'Invalid planId' });
-      }
-
-      const checkout = buildWompiCheckoutUrl({
+      const checkout = await wompi.createPaymentLink(
         planId,
-        amountInCents: plan.priceUsd * 100,
-        currency: 'USD',
         customerEmail,
-        redirectUrl: redirectUrl || `https://${req.headers.host}/dashboard.html?status=paid`
-      });
-
+        redirectUrl || `https://${req.headers.host}/dashboard.html?status=paid`
+      );
       return res.status(200).json({ success: true, checkout });
     }
 
+    // --- Webhooks: fallan CERRADOS si el secreto no está configurado (antes caían a un ---
+    // --- string por defecto público en el repo, lo que permitía falsificar pagos).      ---
     if (req.method === 'POST' && (pathname === '/api/webhooks/wompi' || pathname.endsWith('/webhooks/wompi'))) {
+      if (!process.env.WOMPI_WEBHOOK_SECRET) {
+        console.error('[CONFIG] WOMPI_WEBHOOK_SECRET no está definido — webhook rechazado por seguridad.');
+        return res.status(503).json({ error: 'Webhook receiver not configured' });
+      }
+
       const checksumHeader = req.headers['x-event-checksum'];
       const rawBody = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
-      const secret = process.env.WOMPI_INTEGRITY_SECRET || 'destraba_default_secret';
 
-      if (!verifyWompiSignature(rawBody, checksumHeader, secret)) {
+      if (!wompi.verifyWebhookSignature(rawBody, checksumHeader)) {
         return res.status(401).json({ error: 'Invalid Wompi Signature' });
       }
 
-      const eventId = req.body?.data?.transaction?.id || `wompi_${Date.now()}`;
-      if (!isIdempotent(eventId)) {
-        return res.status(200).json({ status: 'ignored_duplicate' });
+      const eventId = req.body?.data?.transaction?.id || req.body?.idTransaccion;
+      if (!eventId) {
+        return res.status(400).json({ error: 'Missing transaction id' });
+      }
+
+      // NOTA: este ledger de idempotencia vive en memoria del proceso. En Vercel cada
+      // invocación puede caer en una instancia distinta o "fría", así que NO garantiza
+      // deduplicación real entre eventos. Para producción, mover a una tabla de Supabase
+      // (p. ej. webhook_events con UNIQUE(event_id)) o a Upstash Redis.
+      const idempotency = recordAndVerifyIdempotency(`wompi_${eventId}`);
+      if (idempotency.isDuplicate) {
+        return res.status(200).json({ status: 'ignored_duplicate', transactionId: eventId });
       }
 
       return res.status(200).json({ status: 'processed', transactionId: eventId });
     }
 
     if (req.method === 'POST' && (pathname === '/api/webhooks/strike' || pathname.endsWith('/webhooks/strike'))) {
+      if (!process.env.STRIKE_WEBHOOK_SECRET) {
+        console.error('[CONFIG] STRIKE_WEBHOOK_SECRET no está definido — webhook rechazado por seguridad.');
+        return res.status(503).json({ error: 'Webhook receiver not configured' });
+      }
+
       const strikeSig = req.headers['x-strike-signature'];
       const rawBody = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
-      const webhookSecret = process.env.STRIKE_WEBHOOK_SECRET || 'strike_default_secret';
 
-      if (!verifyStrikeSignature(rawBody, strikeSig, webhookSecret)) {
+      if (!strike.verifyWebhookSignature(rawBody, strikeSig)) {
         return res.status(401).json({ error: 'Invalid Strike Signature' });
       }
 
-      const invoiceId = req.body?.data?.id || `strike_${Date.now()}`;
-      if (!isIdempotent(invoiceId)) {
-        return res.status(200).json({ status: 'ignored_duplicate' });
+      const invoiceId = req.body?.data?.id;
+      if (!invoiceId) {
+        return res.status(400).json({ error: 'Missing invoice id' });
+      }
+
+      // Ver nota de idempotencia arriba — mismo riesgo en instancias serverless.
+      const idempotency = recordAndVerifyIdempotency(`strike_${invoiceId}`);
+      if (idempotency.isDuplicate) {
+        return res.status(200).json({ status: 'ignored_duplicate', invoiceId });
       }
 
       return res.status(200).json({ status: 'processed', invoiceId });
@@ -106,6 +122,8 @@ export default async function handler(req, res) {
 
     return res.status(404).json({ error: 'Not Found', path: pathname });
   } catch (err) {
-    return res.status(500).json({ error: 'Internal Server Error', message: err.message });
+    // No se expone err.message al cliente: puede filtrar detalles internos.
+    console.error('[API ERROR]', err);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
