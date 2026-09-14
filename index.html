@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Destraba AI — Creador de Custom Agents con Gemini Flash 2.5</title>
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">
+    function openAboutModal() {
+      const modal = document.getElementById('about-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+    function closeAboutModal() {
+      const modal = document.getElementById('about-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+  
+</script>
   <!-- JSZip for 1-click ZIP package download -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <!-- Supabase JS CDN -->
@@ -77,6 +87,10 @@
       </div>
 
       <!-- Precios -->
+      <button onclick="openAboutModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all flex items-center gap-1.5">
+        <span>🏛️</span>
+        <span>Quiénes Somos</span>
+      </button>
       <button onclick="openPricingModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all">
         Precios
       </button>
@@ -93,7 +107,9 @@
 
     <!-- Section 1: Customer Pain Input (Clean, Minimalist & Focused) -->
     <section class="flex flex-col items-center text-center pt-2 sm:pt-4 max-w-3xl mx-auto w-full">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-3"><span id="lbl-hero-badge">⚡ Solución de Dolores de Negocio</span></div>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium mb-3">
+        <span>🛡️ Empresa Fiduciaria de Automatización • Soluciones Reales y Auditadas</span>
+      </div>
       <h2 id="lbl-hero-title" class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">¿Qué dolor operativo no has podido resolver?</h2>
       <p id="lbl-hero-slogan" class="text-sm font-medium text-blue-400 mb-1 max-w-xl">"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."</p>
       <p id="lbl-hero-sub" class="text-xs text-slate-400 mb-6 max-w-xl">Escríbelo con tus palabras. La IA creará un agente especializado con la arquitectura oficial de Custom Agents.</p>
@@ -1753,6 +1769,72 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
 
   
 
+
+  <!-- ========================================================================= -->
+  <!-- 🏛️ MODAL: QUIÉNES SOMOS & RESPALDO INSTITUCIONAL                          -->
+  <!-- ========================================================================= -->
+  <div id="about-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
+    <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-base">
+            🏛️
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Quiénes Somos — Destraba AI</h3>
+            <p class="text-[11px] text-slate-400">Automatización e Inteligencia Artificial Fiduciaria B2B</p>
+          </div>
+        </div>
+        <button onclick="closeAboutModal()" class="text-slate-400 hover:text-white text-base">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+          <h4 class="font-bold text-white text-sm flex items-center gap-2">
+            <span>🛡️ Una empresa seria creada para aliviar la asfixia operativa</span>
+          </h4>
+          <p>
+            En <strong>Destraba AI</strong> no vendemos herramientas vacías ni experimentos. Somos una firma de ingeniería y arquitectura de software especializada en <strong>erradicar los cuellos de botella reales</strong> que frenan a las empresas: cobranzas morosas, desorden de stock, lentitud en atención a clientes y fuga de prospectos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+            <span class="text-[11px] font-bold text-blue-400 uppercase tracking-wider block mb-1.5">💼 Qué Hacemos:</span>
+            <p class="text-slate-300 text-[11px] leading-relaxed">
+              Diseñamos y desplegamos <strong>agentes autónomos soberanos</strong> construidos con la tecnología más avanzada de Google Antigravity y Gemini Flash 2.5, que asumen las tareas mecánicas de tu empresa 24/7 sin cometer errores humanos.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1.5">🤝 Nuestro Respaldo:</span>
+            <p class="text-slate-300 text-[11px] leading-relaxed">
+              Hemos auditado y desahogado procesos en empresas de <strong>logística 3PL, retail, comercio internacional y firmas de servicios</strong>, recuperando más de 100 horas mensuales de nómina improductiva por negocio.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 text-[11px] space-y-1.5">
+          <span class="font-bold text-emerald-300 flex items-center gap-1.5">
+            <span>✅ Transparencia y Garantía Fiduciaria:</span>
+          </span>
+          <p class="text-slate-300">
+            • <strong>Cero Simulación:</strong> Cada agente opera con datos reales y bitácora verificable.<br/>
+            • <strong>Liquidación Directa:</strong> Cobros claros y trazables sin tarifas ocultas ni letras pequeñas.<br/>
+            • <strong>Soporte Directo con Ingenieros:</strong> Canales abiertos de contacto fiduciario en <span class="text-blue-400 font-mono">soporte@destraba.ai</span>.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-between items-center">
+        <span class="text-[11px] text-slate-500">Destraba AI • Creadores de Software Soberano</span>
+        <button onclick="closeAboutModal()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+  
 </body>
 </html>
 
