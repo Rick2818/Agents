@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="page-title">Destraba AI ? Creador Fiduciario de Custom Agents con Gemini Flash 2.5</title>
+  <title id="page-title">Destraba AI — Creador de Custom Agents con Gemini Flash 2.5</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- JSZip for 1-click ZIP package download -->
@@ -26,140 +26,64 @@
 <body class="min-h-full flex flex-col font-sans antialiased selection:bg-blue-500 selection:text-white bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-200">
 
   <!-- ========================================================================= -->
-  <!-- ðŸ›¡ï¸ CYBERSECURITY GATE / ESCUDO PERIMETRAL DE AUTENTICACIÃ“N                -->
+  <!-- 🛡️ CYBERSECURITY GATE / ESCUDO PERIMETRAL DE AUTENTICACIÓN                -->
   <!-- ========================================================================= -->
   <!-- Minimalist Top Navigation -->
-  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-8 py-3.5 flex items-center justify-between">
+  <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-8 py-3 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-sky-400 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-blue-500/20">
-        âš¡
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-base shadow-md shadow-blue-500/20">
+        ⚡
       </div>
       <div>
         <div class="flex items-center gap-2">
-          <h1 id="brand-header-title" class="text-sm font-bold tracking-tight text-white">Destraba AI</h1>
+          <h1 class="text-sm font-bold tracking-tight text-white">Destraba AI</h1>
           <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">
-            Google Antigravity
-          </span>
-          <span class="hidden md:inline-flex items-center gap-1 text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
-            ðŸ›¡ï¸ Protegido
+            Gemini Flash 2.5
           </span>
         </div>
-        <p id="brand-header-sub" class="text-[11px] text-slate-400">Plataforma Fiduciaria de Custom Agents Desatendidos</p>
+        <p class="text-[11px] text-slate-400">Agentes Autónomos para Empresas</p>
       </div>
     </div>
 
-    <div class="flex items-center gap-2 sm:gap-3">
-      <!-- In-App User Profile & Credentials Space -->
+    <div class="flex items-center gap-3">
+      <!-- Usuario y Clave desplegable simple -->
       <div class="relative">
-        <button onclick="toggleUserDropdown()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-200 transition-all shadow-sm" title="Usuario y Credenciales">
+        <button onclick="toggleUserDropdown()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-200 transition-all shadow-sm">
           <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span>??</span>
-          <span id="nav-user-display" class="font-mono text-slate-300 hidden md:inline text-[11px]">ricardo@destraba.ai</span>
-          <span class="text-[10px] text-slate-400">?</span>
+          <span id="nav-user-display" class="font-mono text-slate-300 text-[11px]">ricardo@destraba.ai</span>
+          <span class="text-[10px] text-slate-500">▼</span>
         </button>
 
-        <!-- In-App Dropdown for User and Password -->
         <div id="user-profile-panel" class="hidden absolute right-0 mt-2 w-72 bg-slate-900 border border-slate-700 rounded-2xl p-4 shadow-2xl z-50 text-left">
           <div class="flex items-center justify-between pb-2 border-b border-slate-800 mb-3">
-            <span class="text-xs font-bold text-white flex items-center gap-1">
-              <span>?? Usuario y Contrase?a</span>
-            </span>
-            <button onclick="toggleUserDropdown()" class="text-slate-400 hover:text-white text-xs">?</button>
+            <span class="text-xs font-bold text-white">Credenciales de Acceso</span>
+            <button onclick="toggleUserDropdown()" class="text-slate-400 hover:text-white text-xs">✕</button>
           </div>
           <div class="space-y-3">
             <div>
               <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Usuario / Correo</label>
-              <input
-                type="text"
-                id="app-user-input"
-                value="ricardo@destraba.ai"
-                placeholder="ej: ricardo@destraba.ai o admin"
-                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono"
-              />
-              <span class="text-[10px] text-slate-500 mt-0.5 block">Usuario de sesi?n</span>
+              <input type="text" id="app-user-input" value="ricardo@destraba.ai" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
             </div>
             <div>
-              <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Contrase?a</label>
-              <input
-                type="password"
-                id="app-pass-input"
-                value="antigravity2026!"
-                placeholder="????????????"
-                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono"
-              />
+              <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Contraseña</label>
+              <input type="password" id="app-pass-input" value="antigravity2026!" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
             </div>
             <div class="pt-2 flex items-center justify-between">
-                          <div class="pt-2 border-t border-slate-800 space-y-2">
-              <span class="text-[10px] text-slate-400 block font-semibold">O ingresa con tu cuenta corporativa:</span>
-              <button type="button" onclick="loginWithGoogle()" class="w-full py-1.5 px-3 rounded-lg bg-white hover:bg-slate-100 text-slate-900 text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-sm">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-                <span>Continuar con Google</span>
-              </button>
-              <button type="button" onclick="loginWithFacebook()" class="w-full py-1.5 px-3 rounded-lg bg-[#1877F2] hover:bg-[#166fe5] text-white text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-sm">
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                <span>Continuar con Facebook</span>
-              </button>
-            </div>
-            <span class="text-[10px] text-emerald-400 font-mono">? Conectado</span>
-              <button onclick="saveInAppUser()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">
-                Guardar
-              </button>
+              <span class="text-[10px] text-emerald-400 font-mono">Conectado</span>
+              <button onclick="saveInAppUser()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all">Guardar</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- Language Switcher (ES / EN) -->
-      <div class="flex items-center bg-slate-900 p-0.5 rounded-lg border border-slate-700/80 mr-1">
-        <button id="btn-lang-es" onclick="switchLanguage('es')" class="px-2.5 py-1 rounded text-xs font-bold transition-all bg-blue-600 text-white shadow-sm" title="Espa?ol (Destraba AI)">
-          ???? ES
-        </button>
-        <button id="btn-lang-en" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded text-xs font-bold transition-all text-slate-400 hover:text-white" title="English (Unblock AI)">
-          ???? EN
-        </button>
-      </div>
-            <!-- B2B Affiliates Button -->
-      <button onclick="openAffiliateModal()" class="px-2.5 py-1.5 rounded-lg bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-500/40 text-xs font-bold text-emerald-300 transition-all flex items-center gap-1.5 shadow-sm" title="Programa de Afiliados (Gana 20% recurrente)">
-        <span>?? Afiliados 20%</span>
+
+      <!-- Precios -->
+      <button onclick="openPricingModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all">
+        Precios
       </button>
 
-      <!-- Admin MRR Hub Button -->
-      <button onclick="openMrrModal()" class="px-2.5 py-1.5 rounded-lg bg-blue-950/60 hover:bg-blue-900/70 border border-blue-500/40 text-xs font-bold text-blue-300 transition-all flex items-center gap-1.5 shadow-sm" title="Panel Financiero del Due?o ($300 USD/d?a)">
-        <span>?? MRR Hub</span>
-      </button>
-      <!-- User Manual Button -->
-      <a href="MANUAL_DE_USUARIO_APP.md" target="_blank" class="hidden md:flex px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-300 transition-all items-center gap-1 shadow-sm">
-        <span id="lbl-nav-manual">?? Manual</span>
-      </a>
-
-      <!-- Support Modal Button -->
-      <button onclick="openSupportModal()" class="px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-300 transition-all flex items-center gap-1 shadow-sm">
-        <span id="lbl-nav-support">?? Soporte</span>
-      </button>
-
-      <!-- Pricing Catalog Button -->
-      <button onclick="openPricingModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all flex items-center gap-1.5 shadow-sm">
-        <span id="lbl-nav-pricing">??? Precios por Agente</span>
-      </button>
-
-      <!-- Deployment Info Button -->
-      <button onclick="openRuntimeModal()" class="hidden sm:flex px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all items-center gap-1.5 shadow-sm">
-        <span>â˜ï¸ DÃ³nde Vive el Agente</span>
-      </button>
-
-      <!-- Active Model Status Badge -->
-      <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-        <span class="font-medium text-slate-200" id="current-model-badge">Gemini Flash 2.5</span>
-      </div>
-
-      <!-- Settings Button -->
-      <button onclick="openConfigModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all flex items-center gap-1.5 shadow-sm">
-        <span>âš™ï¸ ConfiguraciÃ³n</span>
-      </button>
-
-      <!-- Lock/Logout Button -->
-      <button onclick="lockPlatform()" title="Bloquear plataforma de inmediato" class="px-2.5 py-1.5 rounded-lg bg-red-950/50 hover:bg-red-900/60 border border-red-800/50 text-xs font-medium text-red-300 transition-all flex items-center gap-1">
-        <span id="lbl-nav-lock">?? Salir</span>
+      <!-- Configuración -->
+      <button onclick="openConfigModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all">
+        Configuración
       </button>
     </div>
   </header>
@@ -169,34 +93,34 @@
 
     <!-- Section 1: Customer Pain Input (Clean, Minimalist & Focused) -->
     <section class="flex flex-col items-center text-center pt-2 sm:pt-4 max-w-3xl mx-auto w-full">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-3"><span id="lbl-hero-badge">?? Soluci?n Fiduciaria de Dolores de Negocio</span></div>
-      <h2 id="lbl-hero-title" class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">?Qu? dolor operativo no has podido resolver?</h2>
-      <p id="lbl-hero-slogan" class="text-sm font-medium text-blue-400 mb-1 max-w-xl">"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto autom?tico."</p>
-      <p id="lbl-hero-sub" class="text-xs text-slate-400 mb-6 max-w-xl">Escr?belo libremente con tus palabras. La IA crear? un agente especializado con la arquitectura oficial de <span class="text-slate-200 font-medium">Custom Agents</span>.</p>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-3"><span id="lbl-hero-badge">⚡ Solución de Dolores de Negocio</span></div>
+      <h2 id="lbl-hero-title" class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">¿Qué dolor operativo no has podido resolver?</h2>
+      <p id="lbl-hero-slogan" class="text-sm font-medium text-blue-400 mb-1 max-w-xl">"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."</p>
+      <p id="lbl-hero-sub" class="text-xs text-slate-400 mb-6 max-w-xl">Escríbelo con tus palabras. La IA creará un agente especializado con la arquitectura oficial de Custom Agents.</p>
 
       <!-- Pain Input Card -->
       <div class="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl relative transition-all focus-within:border-blue-500/60 focus-within:ring-1 focus-within:ring-blue-500/30">
         <textarea
           id="pain-input"
           rows="4"
-          placeholder="Ej: Tengo una empresa de servicios y perdemos horas persiguiendo clientes para que envÃ­en sus facturas y comprobantes. El equipo responde tarde por WhatsApp, hay Ã³rdenes duplicadas y los clientes se quejan de falta de atenciÃ³n..."
+          placeholder="Ej: Tengo una empresa de servicios y perdemos horas persiguiendo clientes para que envíen sus facturas y comprobantes. El equipo responde tarde por WhatsApp, hay órdenes duplicadas y los clientes se quejan de falta de atención..."
           class="w-full bg-transparent text-sm sm:text-base text-slate-100 placeholder-slate-500 border-0 focus:outline-none resize-none leading-relaxed"
         ></textarea>
 
         <!-- Quick Pain Suggestions (Pills) -->
         <div class="mt-3 pt-3 border-t border-slate-800/80 flex flex-wrap items-center gap-1.5 sm:gap-2">
           <span id="lbl-pills-label" class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mr-1">Dolores frecuentes:</span>
-          <button onclick="fillSamplePain(\'soporte\')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-1">?? Clientes esperando horas en WhatsApp</span></button>
-          <button onclick="fillSamplePain(\'logistica\')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-2">?? Demoras en entregas y stock desincronizado</span></button>
-          <button onclick="fillSamplePain(\'cobranza\')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-3">?? Cobranza manual y clientes morosos</span></button>
-          <button onclick="fillSamplePain(\'ventas\')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-4">?? Fuga de prospectos sin seguimiento</span></button>
+          <button onclick="fillSamplePain('soporte')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-1">💬 Clientes esperando horas en WhatsApp</span></button>
+          <button onclick="fillSamplePain('logistica')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-2">🚚 Demoras en entregas y stock desincronizado</span></button>
+          <button onclick="fillSamplePain('cobranza')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-3">📊 Cobranza manual y clientes morosos</span></button>
+          <button onclick="fillSamplePain('ventas')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-4">💼 Fuga de prospectos sin seguimiento</span></button>
         </div>
 
         <!-- Action Row -->
         <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-800/60">
           <div class="flex items-center gap-2 text-xs text-slate-400">
-            <span class="text-blue-400 font-semibold">âš¡ Motor:</span>
-            <span id="active-model-label">Gemini Flash 2.5 (AutomÃ¡tico)</span>
+            <span class="text-blue-400 font-semibold">⚡ Motor:</span>
+            <span id="active-model-label">Gemini Flash 2.5 (Automático)</span>
           </div>
 
           <button
@@ -204,7 +128,7 @@
             onclick="generateCustomAgent()"
             class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2"
           >
-            <span id="btn-icon">âš¡</span>
+            <span id="btn-icon">⚡</span>
             <span id="btn-text">Crear Agente a mi Medida con Gemini Flash 2.5</span>
           </button>
         </div>
@@ -215,7 +139,7 @@
     <div id="loading-state" class="hidden max-w-2xl mx-auto w-full p-5 rounded-2xl bg-slate-900 border border-blue-500/30 text-center fade-in">
       <div class="w-10 h-10 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
       <h3 class="text-sm font-semibold text-white mb-1" id="loading-title">Analizando el dolor operativo...</h3>
-      <p class="text-xs text-slate-400" id="loading-step">Gemini Flash 2.5 estÃ¡ diseÃ±ando el rol, reglas de gobernanza y herramientas necesarias.</p>
+      <p class="text-xs text-slate-400" id="loading-step">Gemini Flash 2.5 está diseñando el rol, reglas de gobernanza y herramientas necesarias.</p>
     </div>
 
     <!-- Section 2: Generated Agent Result & Architecture (Hidden until generated) -->
@@ -226,28 +150,28 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
           <div class="flex items-start gap-4">
             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-500/30 flex items-center justify-center text-3xl shadow-inner shrink-0" id="agent-avatar">
-              ðŸ¤–
+              🤖
             </div>
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-1">
                 <h3 class="text-lg font-bold text-white tracking-tight" id="agent-name">
-                  Agente de ResoluciÃ³n Inmediata
+                  Agente de Resolución Inmediata
                 </h3>
                 <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 font-semibold" id="agent-model-tag">
                   gemini-2.5-flash
                 </span>
                 <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                  Cero SimulaciÃ³n
+                  Cero Simulación
                 </span>
                 <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">
-                  SÃ­ntesis 50%
+                  Síntesis 50%
                 </span>
                 <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
                   â˜ï¸ Cloud 24/7 & Local
                 </span>
               </div>
               <p class="text-xs text-slate-300 max-w-2xl leading-relaxed" id="agent-description">
-                Especialista fiduciario diseÃ±ado para erradicar las demoras operativas y coordinar respuestas en tiempo real sin intervenciÃ³n humana redundante.
+                Especialista fiduciario diseñado para erradicar las demoras operativas y coordinar respuestas en tiempo real sin intervención humana redundante.
               </p>
             </div>
           </div>
@@ -255,10 +179,10 @@
           <!-- Direct Actions -->
           <div class="flex flex-wrap items-center gap-2 shrink-0">
             <button onclick="toggleChatTester()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs shadow-md shadow-indigo-500/20 transition-all flex items-center gap-1.5">
-              <span>ðŸ’¬ Probar Agente</span>
+              <span>💬 Probar Agente</span>
             </button>
             <button onclick="downloadAgentZip()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs shadow-md shadow-blue-500/20 transition-all flex items-center gap-1.5">
-              <span>ðŸ’¾ Descargar Paquete .agents (.zip)</span>
+              <span>💾 Descargar Paquete .zip</span>
             </button>
           </div>
         </div>
@@ -270,25 +194,25 @@
               <span>âš ï¸ Dolor Operativo Detectado</span>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed" id="card-pain-text">
-              Demoras crÃ­ticas y pÃ©rdida de visibilidad que afectan la satisfacciÃ³n del cliente.
+              Demoras críticas y pérdida de visibilidad que afectan la satisfacción del cliente.
             </p>
           </div>
 
           <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
             <div class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-              <span>ðŸ›¡ï¸ SoluciÃ³n & AutomatizaciÃ³n</span>
+              <span>🛡️ Solución & Automatización</span>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed" id="card-solution-text">
-              Despacho autÃ³nomo de respuestas, trazabilidad en tiempo real y triaje inteligente.
+              Despacho autónomo de respuestas, trazabilidad en tiempo real y triaje inteligente.
             </p>
           </div>
 
           <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
             <div class="text-[11px] font-bold text-blue-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-              <span>âš¡ DÃ³nde Vive & Gobernanza</span>
+              <span>⚡ Dónde Vive & Gobernanza</span>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed" id="card-governance-text">
-              Desplegado en Cloud 24/7 (serverless) o local (.agents), 100% ProducciÃ³n Real.
+              Desplegado en Cloud 24/7 (serverless) o local (.agents), 100% Producción Real.
             </p>
           </div>
         </div>
@@ -300,15 +224,15 @@
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
             <span class="text-xs font-bold text-white">Consola de Prueba con el Agente</span>
-            <span class="text-[10px] text-slate-400 font-mono">Modo Real â€¢ Brevedad 50%</span>
+            <span class="text-[10px] text-slate-400 font-mono">Modo Real • Brevedad 50%</span>
           </div>
-          <button onclick="toggleChatTester()" class="text-slate-400 hover:text-white text-xs">âœ• Cerrar</button>
+          <button onclick="toggleChatTester()" class="text-slate-400 hover:text-white text-xs">✕ Cerrar</button>
         </div>
 
         <div id="chat-messages" class="flex flex-col gap-2.5 max-h-60 overflow-y-auto pr-1 text-xs mb-3">
           <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 max-w-xl">
-            <span class="text-blue-400 font-bold block mb-1">ðŸ¤– Agente:</span>
-            Â¡Hola! Soy tu agente configurado con Gemini Flash 2.5. Estoy listo para procesar y resolver el dolor planteado con cero simulaciÃ³n y alta precisiÃ³n. Â¿QuÃ© orden o caso deseas que revise?
+            <span class="text-blue-400 font-bold block mb-1">🤖 Agente:</span>
+            ¡Hola! Soy tu agente configurado con Gemini Flash 2.5. Estoy listo para procesar y resolver el dolor planteado con cero simulación y alta precisión. ¿Qué orden o caso deseas que revise?
           </div>
         </div>
 
@@ -316,7 +240,7 @@
           <input
             type="text"
             id="chat-input"
-            placeholder="Escribe una consulta o instrucciÃ³n al agente (ej: 'Revisa la orden #409 con reclamo de demora')..."
+            placeholder="Escribe una consulta o instrucción al agente (ej: 'Revisa la orden #409 con reclamo de demora')..."
             onkeydown="if(event.key === 'Enter') sendChatMessage()"
             class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
           />
@@ -340,19 +264,19 @@
           </p>
           <div class="flex items-center gap-3 text-[11px] text-slate-400 pt-1">
             <span>Inversi?n del Agente: <strong id="roi-plan-price" class="text-emerald-400 font-mono">$79 USD/mes</strong></span>
-            <span>?</span>
+            <span>•</span>
             <span>Ahorro Neto: <strong id="roi-net-savings" class="text-emerald-400 font-mono">$1,401 USD/mes</strong></span>
           </div>
         </div>
 
         <div class="flex flex-col sm:flex-row md:flex-col gap-2 w-full md:w-auto shrink-0">
           <button onclick="openCheckoutForGeneratedAgent()" class="px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold text-xs shadow-lg shadow-emerald-500/30 transition-all flex items-center justify-center gap-2">
-            <span>?? Activar este Agente en 60 Segundos</span>
+            <span>⚡ Activar este Agente en 60 Segundos</span>
           </button>
           <div class="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-mono">
-            <span>? Strike ($0 fee)</span>
-            <span>?</span>
-            <span>?? Wompi SV (3DS)</span>
+            <span>⚡ Strike ($0 comisiones)</span>
+            <span>•</span>
+            <span>💳 Wompi SV (3DS)</span>
           </div>
         </div>
       </div>
@@ -377,19 +301,19 @@
         <!-- Tabs Navigation -->
         <div class="flex flex-wrap gap-1.5 border-b border-slate-800/80 pb-2" id="file-tabs">
           <button onclick="selectTab('agent')" id="tab-agent" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 text-white transition-all">
-            ðŸ“„ Perfil del Agente (.agents/agents/*.md)
+            📄 Perfil del Agente (.agents/agents/*.md)
           </button>
           <button onclick="selectTab('rules')" id="tab-rules" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
-            ðŸ›¡ï¸ Reglas de Oro (.agents/rules/)
+            🛡️ Reglas de Oro (.agents/rules/)
           </button>
           <button onclick="selectTab('skill')" id="tab-skill" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
-            ðŸ§  Habilidad (.agents/skills/*/SKILL.md)
+            🧠 Habilidad (.agents/skills/*/SKILL.md)
           </button>
           <button onclick="selectTab('knowledge')" id="tab-knowledge" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
-            ðŸ“‹ DiagnÃ³stico (.agents/knowledge/*.md)
+            📋 Diagnóstico (.agents/knowledge/*.md)
           </button>
           <button onclick="selectTab('mcp')" id="tab-mcp" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
-            âš™ï¸ Conexiones MCP (.agents/mcp_config.json)
+            ⚙️ Conexiones MCP (.agents/mcp_config.json)
           </button>
         </div>
 
@@ -408,19 +332,19 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- ðŸ·ï¸ MODAL: CATÃLOGO Y PRECIOS OFICIALES POR AGENTE                         -->
+  <!-- ðŸ·ï¸ MODAL: CATÁLOGO Y PRECIOS OFICIALES POR AGENTE                         -->
   <!-- ========================================================================= -->
   <div id="pricing-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
     <div class="bg-slate-900 border border-slate-800 max-w-3xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
         <div>
           <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <span>ðŸ·ï¸ CatÃ¡logo Oficial de Precios por Agente Fiduciario</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">Meta: $300 USD/dÃ­a</span>
+            <span>ðŸ·ï¸ Catálogo Oficial de Precios por Agente Fiduciario</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">Meta: $300 USD/día</span>
           </h3>
           <p class="text-xs text-slate-400 mt-0.5">Estrategia de pricing en USD para cumplimiento del presupuesto (\$9,000 USD/mes).</p>
         </div>
-        <button onclick="closePricingModal()" class="text-slate-400 hover:text-white text-base">âœ•</button>
+        <button onclick="closePricingModal()" class="text-slate-400 hover:text-white text-base">✕</button>
       </div>
 
       <!-- Pricing Table -->
@@ -430,56 +354,56 @@
           <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">ðŸ’¬ Agente de Soporte & Concierge</span>
+                <span class="font-bold text-white text-sm">💬 Agente de Soporte & Concierge</span>
                 <span class="font-mono text-xs font-bold text-blue-400">$49 USD/mes</span>
               </div>
               <p class="text-slate-400 text-[11px] mb-2">WhatsApp Business & Web. Responde reclamos y dudas en milisegundos.</p>
               <div class="text-[10px] text-emerald-400 font-medium">ROI: Ahorra 120 hrs/mes de soporte manual.</div>
             </div>
             <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$490 USD/aÃ±o</strong> (2 meses gratis)
+              Licencia Anual: <strong>$490 USD/año</strong> (2 meses gratis)
             </div>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">ðŸ’¼ Agente de Ventas Outbound B2B</span>
+                <span class="font-bold text-white text-sm">💼 Agente de Ventas Outbound B2B</span>
                 <span class="font-mono text-xs font-bold text-blue-400">$79 USD/mes</span>
               </div>
-              <p class="text-slate-400 text-[11px] mb-2">Cadencias de 3 impactos, calificaciÃ³n y despacho de links de pago en 1 clic.</p>
+              <p class="text-slate-400 text-[11px] mb-2">Cadencias de 3 impactos, calificación y despacho de links de pago en 1 clic.</p>
               <div class="text-[10px] text-emerald-400 font-medium">ROI: Genera de 4 a 10 reuniones calificadas/mes.</div>
             </div>
             <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$790 USD/aÃ±o</strong> (2 meses gratis)
+              Licencia Anual: <strong>$790 USD/año</strong> (2 meses gratis)
             </div>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">ðŸ“Š Agente de Cobranza & ConciliaciÃ³n</span>
+                <span class="font-bold text-white text-sm">📊 Agente de Cobranza & Conciliación</span>
                 <span class="font-mono text-xs font-bold text-blue-400">$89 USD/mes</span>
               </div>
-              <p class="text-slate-400 text-[11px] mb-2">Emparejamiento de extractos bancarios contra facturas y cobro cortÃ©s.</p>
-              <div class="text-[10px] text-emerald-400 font-medium">ROI: Recupera cartera vencida 3x mÃ¡s rÃ¡pido.</div>
+              <p class="text-slate-400 text-[11px] mb-2">Emparejamiento de extractos bancarios contra facturas y cobro cortés.</p>
+              <div class="text-[10px] text-emerald-400 font-medium">ROI: Recupera cartera vencida 3x más rápido.</div>
             </div>
             <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$890 USD/aÃ±o</strong> (2 meses gratis)
+              Licencia Anual: <strong>$890 USD/año</strong> (2 meses gratis)
             </div>
           </div>
 
           <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">ðŸšš Agente de Control de Inventario</span>
+                <span class="font-bold text-white text-sm">🚚 Agente de Control de Inventario</span>
                 <span class="font-mono text-xs font-bold text-blue-400">$69 USD/mes</span>
               </div>
-              <p class="text-slate-400 text-[11px] mb-2">ConciliaciÃ³n de stock fÃ­sico vs tiendas online y seguimiento de envÃ­os.</p>
+              <p class="text-slate-400 text-[11px] mb-2">Conciliación de stock físico vs tiendas online y seguimiento de envíos.</p>
               <div class="text-[10px] text-emerald-400 font-medium">ROI: Cero ventas de producto agotado y reclamos.</div>
             </div>
             <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$690 USD/aÃ±o</strong> (2 meses gratis)
+              Licencia Anual: <strong>$690 USD/año</strong> (2 meses gratis)
             </div>
           </div>
 
@@ -489,11 +413,11 @@
                 <span class="font-bold text-white text-sm">ðŸ“¢ Agente de Mercadeo & Autoridad</span>
                 <span class="font-mono text-xs font-bold text-blue-400">$59 USD/mes</span>
               </div>
-              <p class="text-slate-400 text-[11px] mb-2">Siembra en Buffer y LinkedIn 2 veces al dÃ­a con cero repeticiÃ³n visual.</p>
-              <div class="text-[10px] text-emerald-400 font-medium">ROI: TracciÃ³n orgÃ¡nica B2B continua y autoridad.</div>
+              <p class="text-slate-400 text-[11px] mb-2">Siembra en Buffer y LinkedIn 2 veces al día con cero repetición visual.</p>
+              <div class="text-[10px] text-emerald-400 font-medium">ROI: Tracción orgánica B2B continua y autoridad.</div>
             </div>
             <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$590 USD/aÃ±o</strong> (2 meses gratis)
+              Licencia Anual: <strong>$590 USD/año</strong> (2 meses gratis)
             </div>
           </div>
 
@@ -502,7 +426,7 @@
             <div>
               <div class="flex items-center justify-between mb-1">
                 <span class="font-bold text-white text-sm flex items-center gap-1.5">
-                  <span>ðŸ‘‘ Pack Suite Ã‰lite (5 Agentes)</span>
+                  <span>👑 Pack Suite Élite (5 Agentes)</span>
                 </span>
                 <span class="font-mono text-xs font-bold text-emerald-400">$249 USD/mes</span>
               </div>
@@ -510,7 +434,7 @@
               <div class="text-[10px] text-blue-300 font-medium">Ahorro: \$96 USD/mes vs comprarlos por separado.</div>
             </div>
             <div class="mt-3 pt-2 border-t border-blue-500/30 text-[10px] text-slate-400">
-              Licencia Anual: <strong>$2,490 USD/aÃ±o</strong> (Sustituye 2 empleados de $3,500/mes)
+              Licencia Anual: <strong>$2,490 USD/año</strong> (Sustituye 2 empleados de $3,500/mes)
             </div>
           </div>
 
@@ -518,8 +442,8 @@
 
         <!-- Budget Achievement Callout -->
         <div class="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-[11px] leading-relaxed mt-4">
-          <strong>ðŸŽ¯ Cumplimiento de la Meta Presupuestaria ($9,000 USD/mes = $300 USD/dÃ­a):</strong>
-          Con solo <strong>120 agentes individuales activos</strong> o <strong>36 clientes con el Pack Suite Ã‰lite</strong>, se garantiza el cumplimiento del 100% de la meta fiduciaria con un margen neto superior al 88%.
+          <strong>🎯 Cumplimiento de la Meta Presupuestaria ($9,000 USD/mes = $300 USD/día):</strong>
+          Con solo <strong>120 agentes individuales activos</strong> o <strong>36 clientes con el Pack Suite Élite</strong>, se garantiza el cumplimiento del 100% de la meta fiduciaria con un margen neto superior al 88%.
         </div>
       </div>
 
@@ -532,75 +456,24 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- â˜ï¸ MODAL: DÃ“NDE VIVE EL AGENTE & CICLO DE VIDA                           -->
+  <!-- â˜ï¸ MODAL: DÓNDE VIVE EL AGENTE & CICLO DE VIDA                           -->
   <!-- ========================================================================= -->
-  <div id="runtime-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
-    <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
-        <div>
-          <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <span>â˜ï¸ Ciclo de Vida y Arquitectura Dual del Agente</span>
-          </h3>
-          <p class="text-xs text-slate-400 mt-0.5">Â¿En quÃ© momento se entrega? Â¿DÃ³nde vive? y Â¿CÃ³mo realiza la automatizaciÃ³n?</p>
-        </div>
-        <button onclick="closeRuntimeModal()" class="text-slate-400 hover:text-white text-base">âœ•</button>
-      </div>
-
-      <div class="space-y-4 text-xs leading-relaxed text-slate-300">
-        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="font-bold text-white block mb-1 text-sm">âš¡ 1. Â¿En quÃ© momento se entrega el agente?</span>
-          <p>
-            El agente se entrega <strong>en menos de 60 segundos</strong> tras describir el dolor de negocio. Gemini Flash 2.5 sintetiza el rol, reglas de gobernanza, herramientas y esquemas RLS al instante sin esperas de desarrollo tradicional.
-          </p>
-        </div>
-
-        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="font-bold text-white block mb-1 text-sm">ðŸŒ 2. Â¿DÃ³nde vive el agente? (Arquitectura Dual)</span>
-          <ul class="list-disc pl-4 space-y-1.5 text-slate-400 mt-2">
-            <li>
-              <strong class="text-slate-200">OpciÃ³n A â€” Cloud 24/7 (Desatendido en la Nube):</strong> Vive alojado en infraestructura MicroSaaS serverless (Vercel / Node.js + Supabase PostgreSQL RLS). El cliente <strong>no necesita tener su computadora encendida ni ninguna ventana abierta</strong>. El agente escucha webhooks continuos (WhatsApp API, Wompi, Stripe) y se dispara de forma 100% autÃ³noma.
-            </li>
-            <li>
-              <strong class="text-slate-200">OpciÃ³n B â€” Local Soberano (.agents en Antigravity):</strong> Vive en la carpeta local <code class="text-blue-400 font-mono">.agents</code> del proyecto del cliente. Opera a travÃ©s de Google Antigravity o Cursor con herramientas MCP locales y claves privadas.
-            </li>
-          </ul>
-        </div>
-
-        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="font-bold text-white block mb-1 text-sm">ðŸ”„ 3. Â¿CÃ³mo realiza la automatizaciÃ³n sin intervenciÃ³n humana?</span>
-          <p>
-            Al recibir un evento (un reclamo de cliente, una factura pendiente o una alerta de stock), el agente:
-          </p>
-          <ol class="list-decimal pl-4 space-y-1 text-slate-400 mt-1.5">
-            <li>EvalÃºa los datos en milisegundos aplicando las reglas inmutables de Cero SimulaciÃ³n.</li>
-            <li>Ejecuta las herramientas autorizadas sin alucinaciones mediante el estÃ¡ndar MCP.</li>
-            <li>Registra la transacciÃ³n auditada en la base de datos y despacha el reporte sintÃ©tico al responsable.</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-end">
-        <button onclick="closeRuntimeModal()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold">
-          Cerrar
-        </button>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- ========================================================================= -->
-  <!-- ðŸ’³ MODAL: PASARELA DE PAGO FIDUCIARIA (WOMPI SV & STRIKE LIGHTNING)       -->
+  <!-- 💳 MODAL: PASARELA DE PAGO FIDUCIARIA (WOMPI SV & STRIKE LIGHTNING)       -->
   <!-- ========================================================================= -->
   <div id="payment-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
     <div class="bg-slate-900 border border-slate-800 max-w-xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
         <div>
           <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <span>ðŸ’³ Pasarela de Pago Fiduciaria</span>
+            <span>💳 Pasarela de Pago Fiduciaria</span>
             <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">Seguridad Bancaria</span>
           </h3>
-          <p class="text-xs text-slate-400 mt-0.5">LiquidaciÃ³n Segura en USD con Wompi SV y Strike Lightning.</p>
+          <p class="text-xs text-slate-400 mt-0.5">Liquidación Segura en USD con Wompi SV y Strike Lightning.</p>
         </div>
-        <button onclick="closePaymentModal()" class="text-slate-400 hover:text-white text-base">âœ•</button>
+        <button onclick="closePaymentModal()" class="text-slate-400 hover:text-white text-base">✕</button>
       </div>
 
       <!-- Selected License Info -->
@@ -608,7 +481,7 @@
         <div>
           <span class="text-[10px] uppercase font-bold text-slate-400 block">Licencia Seleccionada</span>
           <span class="text-sm font-bold text-white" id="pay-product-name">Agente de Soporte & Concierge Inmediato</span>
-          <div class="text-[11px] text-emerald-400 font-mono mt-0.5" id="pay-product-desc">SuscripciÃ³n Mensual Desatendida</div>
+          <div class="text-[11px] text-emerald-400 font-mono mt-0.5" id="pay-product-desc">Suscripción Mensual Desatendida</div>
         </div>
         <div class="text-right">
           <span class="text-xs text-slate-400 block">Total a Pagar</span>
@@ -620,42 +493,42 @@
       <div class="grid grid-cols-2 gap-2 mb-4">
         <button type="button" onclick="selectGatewayTab('strike')" id="tab-gw-strike" class="p-3 rounded-xl border-2 border-amber-500/60 bg-amber-500/10 text-left transition-all">
           <div class="flex items-center gap-2 mb-1">
-            <span class="text-lg">âš¡</span>
+            <span class="text-lg">⚡</span>
             <span class="font-bold text-white text-xs">Strike Lightning</span>
           </div>
-          <p class="text-[10px] text-slate-400">Micropagos instantÃ¡neos en satoshis a <code class="text-amber-300 font-bold">rick2818@strike.me</code></p>
+          <p class="text-[10px] text-slate-400">Micropagos instantáneos en satoshis a <code class="text-amber-300 font-bold">rick2818@strike.me</code></p>
         </button>
 
         <button type="button" onclick="selectGatewayTab('wompi')" id="tab-gw-wompi" class="p-3 rounded-xl border border-slate-800 bg-slate-950 text-left hover:border-slate-700 transition-all">
           <div class="flex items-center gap-2 mb-1">
-            <span class="text-lg">ðŸ’³</span>
+            <span class="text-lg">💳</span>
             <span class="font-bold text-white text-xs">Wompi SV</span>
           </div>
-          <p class="text-[10px] text-slate-400">Tarjetas de CrÃ©dito/DÃ©bito y Transferencia 365 en USD.</p>
+          <p class="text-[10px] text-slate-400">Tarjetas de Crédito/Débito y Transferencia 365 en USD.</p>
         </button>
       </div>
 
       <!-- Tab Content: Strike Lightning -->
       <div id="content-gw-strike" class="space-y-3">
         <div class="p-4 rounded-xl bg-slate-950 border border-amber-500/30 text-center">
-          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider block mb-1">DirecciÃ³n Lightning Fiduciaria Oficial:</span>
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider block mb-1">Dirección Lightning Fiduciaria Oficial:</span>
           <div class="p-2.5 rounded-lg bg-black/60 border border-slate-800 font-mono text-sm font-bold text-white select-all flex items-center justify-between gap-2 max-w-sm mx-auto">
             <span>rick2818@strike.me</span>
-            <button onclick="navigator.clipboard.writeText('rick2818@strike.me'); alert('âœ… DirecciÃ³n Lightning copiada: rick2818@strike.me');" class="text-xs px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/40 text-amber-300">
+            <button onclick="navigator.clipboard.writeText('rick2818@strike.me'); alert('✅ Dirección Lightning copiada: rick2818@strike.me');" class="text-xs px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/40 text-amber-300">
               Copiar
             </button>
           </div>
           <p class="text-[11px] text-slate-400 mt-2">
-            Abre tu billetera Lightning favorita (Strike, Blink, Phoenix, Wallet of Satoshi) y envÃ­a el equivalente en satoshis.
+            Abre tu billetera Lightning favorita (Strike, Blink, Phoenix, Wallet of Satoshi) y envía el equivalente en satoshis.
           </p>
           <a href="https://strike.me/rick2818" target="_blank" class="inline-flex items-center gap-1.5 mt-3 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all">
-            <span>âš¡ Pagar Directo en Strike.me/rick2818</span>
+            <span>⚡ Pagar Directo en Strike.me/rick2818</span>
           </a>
         </div>
 
         <div class="text-[10px] text-slate-500 bg-black/40 p-2 rounded-lg border border-slate-800/80 flex items-center justify-between">
-          <span>ðŸ”’ Firma criptogrÃ¡fica: HMAC SHA-256</span>
-          <span>LiquidaciÃ³n: Inmediata en USD</span>
+          <span>🔒 Firma criptográfica: HMAC SHA-256</span>
+          <span>Liquidación: Inmediata en USD</span>
         </div>
       </div>
 
@@ -663,25 +536,25 @@
       <div id="content-gw-wompi" class="hidden space-y-3">
         <div class="p-4 rounded-xl bg-slate-950 border border-blue-500/30">
           <div class="flex items-center justify-between mb-3">
-            <span class="font-bold text-white text-xs">Pago Seguro con Wompi SV (El Salvador / CentroamÃ©rica)</span>
+            <span class="font-bold text-white text-xs">Pago Seguro con Wompi SV (El Salvador / Centroamérica)</span>
             <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-mono">EnlacePago Protegido</span>
           </div>
           <p class="text-[11px] text-slate-300 mb-4 leading-relaxed">
             Acepta tarjetas Visa, Mastercard y transferencias bancarias directas mediante Transferencia 365 con montos cifrados y no modificables por el cliente.
           </p>
           <button onclick="proceedWompiCheckout()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition-all flex items-center justify-center gap-2">
-            <span>ðŸ’³ Ir al Checkout Seguro de Wompi SV</span>
+            <span>💳 Ir al Checkout Seguro de Wompi SV</span>
           </button>
         </div>
 
         <div class="text-[10px] text-slate-500 bg-black/40 p-2 rounded-lg border border-slate-800/80 flex items-center justify-between">
-          <span>ðŸ”’ CertificaciÃ³n PCI-DSS Nivel 1</span>
-          <span>ProtecciÃ³n Antifraude 3D Secure</span>
+          <span>🔒 Certificación PCI-DSS Nivel 1</span>
+          <span>Protección Antifraude 3D Secure</span>
         </div>
       </div>
 
       <div class="mt-5 pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
-        <span class="text-[11px] text-slate-400">Â¿Dudas con tu pago? <a href="mailto:soporte@destraba.ai" class="text-blue-400 underline">soporte@destraba.ai</a></span>
+        <span class="text-[11px] text-slate-400">¿Dudas con tu pago? <a href="mailto:soporte@destraba.ai" class="text-blue-400 underline">soporte@destraba.ai</a></span>
         <button onclick="closePaymentModal()" class="px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium">
           Cerrar
         </button>
@@ -690,43 +563,43 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- âœ‰ï¸ MODAL: SOPORTE TÃ‰CNICO OFICIAL                                          -->
+  <!-- ✉️ MODAL: SOPORTE TÉCNICO OFICIAL                                          -->
   <!-- ========================================================================= -->
   <div id="support-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
     <div class="bg-slate-900 border border-slate-800 max-w-md w-full rounded-2xl p-6 shadow-2xl relative">
       <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
         <div class="flex items-center gap-2">
-          <span class="text-lg">âœ‰ï¸</span>
-          <h3 class="text-base font-bold text-white">Soporte TÃ©cnico Oficial</h3>
+          <span class="text-lg">✉️</span>
+          <h3 class="text-base font-bold text-white">Soporte Técnico Oficial</h3>
         </div>
-        <button onclick="closeSupportModal()" class="text-slate-400 hover:text-white text-base">âœ•</button>
+        <button onclick="closeSupportModal()" class="text-slate-400 hover:text-white text-base">✕</button>
       </div>
 
       <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
         <p>
-          Si requieres asistencia tÃ©cnica para el despliegue de tus Custom Agents, configuraciÃ³n de webhooks o pasarelas de pago, contÃ¡ctanos directamente:
+          Si requieres asistencia técnica para el despliegue de tus Custom Agents, configuración de webhooks o pasarelas de pago, contáctanos directamente:
         </p>
 
         <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Correo de Soporte TÃ©cnico Directo</span>
+          <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Correo de Soporte Técnico Directo</span>
           <div class="flex items-center justify-between gap-2 font-mono text-sm font-bold text-blue-400">
             <span>soporte@destraba.ai</span>
-            <button onclick="navigator.clipboard.writeText('soporte@destraba.ai'); alert('âœ… Correo copiado: soporte@destraba.ai');" class="text-xs px-2 py-0.5 rounded bg-blue-500/20 hover:bg-blue-500/40 text-blue-300">
+            <button onclick="navigator.clipboard.writeText('soporte@destraba.ai'); alert('✅ Correo copiado: soporte@destraba.ai');" class="text-xs px-2 py-0.5 rounded bg-blue-500/20 hover:bg-blue-500/40 text-blue-300">
               Copiar
             </button>
           </div>
           <div class="text-[10px] text-slate-500 mt-2">
-            Tiempo de respuesta fiduciario: <strong>Menos de 4 horas hÃ¡biles</strong>.
+            Tiempo de respuesta fiduciario: <strong>Menos de 4 horas hábiles</strong>.
           </div>
         </div>
 
         <a href="mailto:soporte@destraba.ai?subject=Solicitud%20de%20Soporte%20Destraba AI%20AI" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md shadow-blue-500/20">
-          <span>ðŸ“¨ Abrir Cliente de Correo</span>
+          <span>📨 Abrir Cliente de Correo</span>
         </a>
 
         <div class="pt-2 text-center">
           <a href="MANUAL_DE_USUARIO_APP.md" target="_blank" class="text-[11px] text-blue-400 hover:underline">
-            ðŸ“– Consultar el Manual de Usuario Oficial
+            📖 Consultar el Manual de Usuario Oficial
           </a>
         </div>
       </div>
@@ -738,10 +611,10 @@
     <div class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 shadow-2xl relative">
       <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
         <div class="flex items-center gap-2">
-          <span class="text-lg">âš™ï¸</span>
-          <h3 class="text-base font-bold text-white">ConfiguraciÃ³n del Sistema</h3>
+          <span class="text-lg">⚙️</span>
+          <h3 class="text-base font-bold text-white">Configuración del Sistema</h3>
         </div>
-        <button onclick="closeConfigModal()" class="text-slate-400 hover:text-white text-sm">âœ•</button>
+        <button onclick="closeConfigModal()" class="text-slate-400 hover:text-white text-sm">✕</button>
       </div>
 
       <div class="space-y-4 text-xs">
@@ -751,11 +624,11 @@
             Modelo de Inteligencia Artificial
           </label>
           <select id="cfg-model" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-blue-500">
-            <option value="gemini-2.5-flash" selected>â­ Gemini Flash 2.5 (gemini-2.5-flash) [Recomendado - UltrarrÃ¡pido]</option>
+            <option value="gemini-2.5-flash" selected>â­ Gemini Flash 2.5 (gemini-2.5-flash) [Recomendado - Ultrarrápido]</option>
             <option value="gemini-1.5-flash">Gemini 1.5 Flash (gemini-1.5-flash)</option>
             <option value="gemini-1.5-pro">Gemini 1.5 Pro (gemini-1.5-pro)</option>
           </select>
-          <p class="text-[11px] text-slate-500 mt-1">Gemini Flash 2.5 proporciona sÃ­ntesis en milisegundos con alta fidelidad a directivas fiduciarias.</p>
+          <p class="text-[11px] text-slate-500 mt-1">Gemini Flash 2.5 proporciona síntesis en milisegundos con alta fidelidad a directivas fiduciarias.</p>
         </div>
 
         <!-- Google Gemini API Key -->
@@ -775,20 +648,20 @@
             </button>
           </div>
           <p class="text-[11px] text-slate-500 mt-1">
-            Si ingresas tu clave de Google AI Studio, las peticiones se procesarÃ¡n 100% en vivo con tu cuenta. Si la dejas vacÃ­a, el sistema utiliza el sintetizador fiduciario inteligente integrado.
+            Si ingresas tu clave de Google AI Studio, las peticiones se procesarán 100% en vivo con tu cuenta. Si la dejas vacía, el sistema utiliza el sintetizador fiduciario inteligente integrado.
           </p>
         </div>
 
         <!-- Cybersecurity Master Key Update -->
         <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/80 space-y-2">
-          <span class="block font-semibold text-slate-300 text-[10px] uppercase tracking-wider">ðŸ”’ Clave Maestra de Seguridad (Cambio)</span>
+          <span class="block font-semibold text-slate-300 text-[10px] uppercase tracking-wider">🔒 Clave Maestra de Seguridad (Cambio)</span>
           <input
             type="text"
             id="cfg-master-key"
             placeholder="antigravity2026!"
             class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200 font-mono text-xs focus:outline-none focus:border-blue-500"
           />
-          <p class="text-[10px] text-slate-500">Clave requerida para entrar a la plataforma. GuÃ¡rdala en lugar seguro.</p>
+          <p class="text-[10px] text-slate-500">Clave requerida para entrar a la plataforma. Guárdala en lugar seguro.</p>
         </div>
 
         <!-- Directives Configuration -->
@@ -797,12 +670,12 @@
           
           <label class="flex items-center gap-2 text-slate-300 cursor-pointer">
             <input type="checkbox" id="cfg-zero-sim" checked class="rounded border-slate-700 text-blue-600 focus:ring-0 bg-slate-900" />
-            <span>Exigir Regla Cero SimulaciÃ³n (100% OperaciÃ³n Real)</span>
+            <span>Exigir Regla Cero Simulación (100% Operación Real)</span>
           </label>
 
           <label class="flex items-center gap-2 text-slate-300 cursor-pointer">
             <input type="checkbox" id="cfg-brevity" checked class="rounded border-slate-700 text-blue-600 focus:ring-0 bg-slate-900" />
-            <span>Exigir Regla de SÃ­ntesis Ejecutiva (-50% longitud de respuesta)</span>
+            <span>Exigir Regla de Síntesis Ejecutiva (-50% longitud de respuesta)</span>
           </label>
         </div>
       </div>
@@ -812,15 +685,26 @@
           Cancelar
         </button>
         <button onclick="saveConfiguration()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">
-          Guardar ConfiguraciÃ³n
+          Guardar Configuración
         </button>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800/80 py-4 px-6 text-center text-xs text-slate-500 shrink-0">
-    Custom Agent Studio â€¢ DiseÃ±ado para Google Antigravity â€¢ Gemini Flash 2.5 â€¢ Escudo de Ciberseguridad Activo
+  <footer class="border-t border-slate-800/80 py-6 px-6 text-center text-xs text-slate-500 shrink-0 bg-slate-950/60 flex flex-col sm:flex-row items-center justify-between max-w-5xl w-full mx-auto gap-4">
+    <div>
+      Destraba AI • Agentes Autónomos con Gemini Flash 2.5
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="MANUAL_DE_USUARIO_APP.md" target="_blank" class="text-slate-400 hover:text-blue-400 transition-all flex items-center gap-1 font-medium">
+        📖 Manual de Usuario
+      </a>
+      <span class="text-slate-700">•</span>
+      <button onclick="openSupportModal()" class="text-slate-400 hover:text-blue-400 transition-all flex items-center gap-1 font-medium">
+        ✉️ Soporte Técnico
+      </button>
+    </div>
   </footer>
 
   <script>
@@ -828,99 +712,10 @@
     // =========================================================================
     // ?? BILINGUAL DICTIONARY & SWITCHER (ES: Destraba AI | EN: Unblock AI)
     // =========================================================================
-    let currentLang = localStorage.getItem('destraba_lang') || 'es';
+    let currentLang = 'es';
 
-    const I18N = {
-      es: {
-        pageTitle: 'Destraba AI ? Creador Fiduciario de Custom Agents con Gemini Flash 2.5',
-        brand: 'Destraba AI',
-        subBrand: 'Plataforma Fiduciaria de Custom Agents Desatendidos',
-        navManual: '?? Manual',
-        navSupport: '?? Soporte',
-        navPricing: '??? Precios por Agente',
-        navRuntime: '?? D?nde Vive el Agente',
-        navConfig: '?? Configuraci?n',
-        heroBadge: '?? Soluci?n Fiduciaria de Dolores de Negocio',
-        heroTitle: '?Qu? dolor operativo no has podido resolver?',
-        heroSlogan: '"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto autom?tico."',
-        heroSub: 'Escr?belo libremente con tus palabras. La IA crear? un agente especializado con la arquitectura oficial de Custom Agents.',
-        painPlaceholder: 'Ej: Tengo una empresa de servicios y perdemos horas persiguiendo clientes para que env?en sus facturas y comprobantes. El equipo responde tarde por WhatsApp, hay ?rdenes duplicadas y los clientes se quejan de falta de atenci?n...',
-        pillsLabel: 'Dolores frecuentes:',
-        pill1: '?? Clientes esperando horas en WhatsApp',
-        pill2: '?? Demoras en entregas y stock desincronizado',
-        pill3: '?? Cobranza manual y clientes morosos',
-        pill4: '?? Fuga de prospectos sin seguimiento',
-        btnGenerate: '? Destrabar mi Operaci?n (Crear Agente)',
-        supportEmail: 'soporte@destraba.ai'
-      },
-      en: {
-        pageTitle: 'Unblock AI ? Autonomous Custom Agent Studio with Gemini Flash 2.5',
-        brand: 'Unblock AI',
-        subBrand: 'Fiduciary Platform for Autonomous Custom Agents',
-        navManual: '?? Manual',
-        navSupport: '?? Support',
-        navPricing: '??? Agent Pricing',
-        navRuntime: '?? Runtime & Hosting',
-        navConfig: '?? Settings',
-        heroBadge: '?? Autonomous Friction Elimination Engine',
-        heroTitle: 'What unsolved operational bottleneck is holding you back?',
-        heroSlogan: '"Unblock your business in 60 seconds. Deploy your autonomous agent today and put operations on autopilot."',
-        heroSub: 'Describe your operational bottleneck in plain words. AI will synthesize a custom agent adhering to the official Custom Agents architecture.',
-        painPlaceholder: 'E.g., We run a B2B service company and waste hours chasing clients for invoices and payment confirmations. Inbound leads wait hours on WhatsApp, orders duplicate, and operations are bottlenecked...',
-        pillsLabel: 'Frequent bottlenecks:',
-        pill1: '?? Leads waiting hours on WhatsApp',
-        pill2: '?? Delivery delays & out-of-sync inventory',
-        pill3: '?? Manual collections & overdue accounts',
-        pill4: '?? Lost pipeline & zero follow-up',
-        btnGenerate: '? Unblock My Business (Deploy Agent)',
-        supportEmail: 'support@unblock.ai'
-      }
-    };
-
-    function switchLanguage(lang) {
-      if (!I18N[lang]) return;
-      currentLang = lang;
-      localStorage.setItem('destraba_lang', lang);
-
-      const d = I18N[lang];
-      const btnEs = document.getElementById('btn-lang-es');
-      const btnEn = document.getElementById('btn-lang-en');
-      if (btnEs && btnEn) {
-        if (lang === 'es') {
-          btnEs.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all bg-blue-600 text-white shadow-sm';
-          btnEn.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all text-slate-400 hover:text-white';
-        } else {
-          btnEn.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all bg-blue-600 text-white shadow-sm';
-          btnEs.className = 'px-2.5 py-1 rounded text-xs font-bold transition-all text-slate-400 hover:text-white';
-        }
-      }
-
-      document.title = d.pageTitle;
-      const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-      const setHtml = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
-
-      setTxt('brand-header-title', d.brand);
-      setTxt('brand-header-sub', d.subBrand);
-      setTxt('lbl-nav-manual', d.navManual);
-      setTxt('lbl-nav-support', d.navSupport);
-      setTxt('lbl-nav-pricing', d.navPricing);
-      setTxt('lbl-nav-runtime', d.navRuntime);
-      setTxt('lbl-nav-config', d.navConfig);
-
-      setTxt('lbl-hero-badge', d.heroBadge);
-      setTxt('lbl-hero-title', d.heroTitle);
-      setTxt('lbl-hero-slogan', d.heroSlogan);
-      setHtml('lbl-hero-sub', d.heroSub);
-
-      const painInput = document.getElementById('pain-input');
-      if (painInput) painInput.placeholder = d.painPlaceholder;
-
-      setTxt('lbl-pills-label', d.pillsLabel);
-      setTxt('lbl-pill-1', d.pill1);
-      setTxt('lbl-pill-2', d.pill2);
-      setTxt('lbl-pill-3', d.pill3);
-      setTxt('lbl-pill-4', d.pill4);
-      setTxt('lbl-btn-generate', d.btnGenerate);
+    function switchLanguage() {
+      // Interfaz fijada en español
     }
 
     // =========================================================================
@@ -979,7 +774,7 @@
     }
 
     // =========================================================================
-    // ðŸ›¡ï¸ CYBERSECURITY LOGIC (SHA-256 & ANTI-BRUTE FORCE)
+    // 🛡️ CYBERSECURITY LOGIC (SHA-256 & ANTI-BRUTE FORCE)
     // =========================================================================
     const DEFAULT_MASTER_KEY = "antigravity2026!";
     let failedAttempts = 0;
@@ -987,6 +782,18 @@
 
     // Check session on load
     window.addEventListener('DOMContentLoaded', () => {
+      // Limpiar rastro corrupto de versiones anteriores en localStorage
+      try {
+        localStorage.setItem('destraba_lang', 'es');
+        if (!localStorage.getItem('antigravity_user')) {
+          localStorage.setItem('antigravity_user', 'ricardo@destraba.ai');
+        }
+      } catch(e) {}
+      // Limpieza defensiva de valores corruptos
+      try {
+        localStorage.removeItem('destraba_lang');
+        localStorage.removeItem('platform_lang');
+      } catch(e) {}
       initUserProfile();
       switchLanguage(localStorage.getItem('destraba_lang') || 'es');
 
@@ -1094,18 +901,18 @@
       id: 'support_concierge_49',
       name: 'Agente de Soporte & Concierge Inmediato (WhatsApp/Web)',
       price: '$49.00 USD',
-      desc: 'SuscripciÃ³n Mensual Desatendida'
+      desc: 'Suscripción Mensual Desatendida'
     };
 
     function openPaymentModal(productId = 'support_concierge_49') {
       const catalog = {
-        'flash_audit_19': { name: 'Flash Audit License (DiagnÃ³stico en RAM)', price: '$19.00 USD', desc: 'Pago Ãšnico â€” DiagnÃ³stico en 60s' },
-        'support_concierge_49': { name: 'Agente de Soporte & Concierge Inmediato', price: '$49.00 USD', desc: 'SuscripciÃ³n Mensual Desatendida' },
-        'marketing_authority_59': { name: 'Agente Directora de Mercadeo & Redes', price: '$59.00 USD', desc: 'SuscripciÃ³n Mensual Desatendida' },
-        'inventory_logistics_69': { name: 'Agente de Control de Inventario & EnvÃ­os', price: '$69.00 USD', desc: 'SuscripciÃ³n Mensual Desatendida' },
-        'outbound_sales_79': { name: 'Agente de Ventas Outbound & ProspecciÃ³n B2B', price: '$79.00 USD', desc: 'SuscripciÃ³n Mensual Desatendida' },
-        'financial_audit_89': { name: 'Agente de Cobranza & ConciliaciÃ³n Bancaria', price: '$89.00 USD', desc: 'SuscripciÃ³n Mensual Desatendida' },
-        'suite_elite_249': { name: 'Pack Suite Ã‰lite (Los 5 Agentes Integrados)', price: '$249.00 USD', desc: 'SuscripciÃ³n Mensual Todo Incluido' }
+        'flash_audit_19': { name: 'Flash Audit License (Diagnóstico en RAM)', price: '$19.00 USD', desc: 'Pago Único — Diagnóstico en 60s' },
+        'support_concierge_49': { name: 'Agente de Soporte & Concierge Inmediato', price: '$49.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'marketing_authority_59': { name: 'Agente Directora de Mercadeo & Redes', price: '$59.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'inventory_logistics_69': { name: 'Agente de Control de Inventario & Envíos', price: '$69.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'outbound_sales_79': { name: 'Agente de Ventas Outbound & Prospección B2B', price: '$79.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'financial_audit_89': { name: 'Agente de Cobranza & Conciliación Bancaria', price: '$89.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'suite_elite_249': { name: 'Pack Suite Élite (Los 5 Agentes Integrados)', price: '$249.00 USD', desc: 'Suscripción Mensual Todo Incluido' }
       };
 
       const item = catalog[productId] || catalog['support_concierge_49'];
@@ -1142,7 +949,7 @@
 
     function proceedWompiCheckout() {
       const ref = `wompi_${selectedPaymentProduct.id}_${Date.now()}`;
-      alert(`ðŸ’³ Redirigiendo a Wompi SV con liquidaciÃ³n protegida para ${selectedPaymentProduct.name} (${selectedPaymentProduct.price}). Ref: ${ref}`);
+      alert(`💳 Redirigiendo a Wompi SV con liquidación protegida para ${selectedPaymentProduct.name} (${selectedPaymentProduct.price}). Ref: ${ref}`);
       window.open(`https://wompi.sv/enlace-pago?ref=${ref}`, '_blank');
     }
 
@@ -1169,7 +976,7 @@
 
       updateModelBadges(model);
       closeConfigModal();
-      alert('âœ… ConfiguraciÃ³n y Clave Maestra fiduciaria guardadas correctamente.');
+      alert('✅ Configuración y Clave Maestra fiduciaria guardadas correctamente.');
     }
 
     function updateModelBadges(modelName) {
@@ -1183,13 +990,13 @@
       const input = document.getElementById('pain-input');
       switch (type) {
         case 'soporte':
-          input.value = "Los clientes se quejan diariamente de demoras en soporte por WhatsApp y correo. El equipo tarda mÃ¡s de 4 horas en responder preguntas frecuentes, reclamos de garantÃ­a y estado de pedidos, lo que provoca cancelaciones y quejas en redes.";
+          input.value = "Los clientes se quejan diariamente de demoras en soporte por WhatsApp y correo. El equipo tarda más de 4 horas en responder preguntas frecuentes, reclamos de garantía y estado de pedidos, lo que provoca cancelaciones y quejas en redes.";
           break;
         case 'logistica':
-          input.value = "Tenemos graves descuadres entre el inventario fÃ­sico y las tiendas online. Vendemos productos agotados, los repartidores sufren retrasos en entregas y nadie notifica proactivamente al cliente antes de que reclame.";
+          input.value = "Tenemos graves descuadres entre el inventario físico y las tiendas online. Vendemos productos agotados, los repartidores sufren retrasos en entregas y nadie notifica proactivamente al cliente antes de que reclame.";
           break;
         case 'cobranza':
-          input.value = "Perdemos mÃ¡s de 12 horas a la semana conciliando extractos bancarios contra facturas emitidas. Muchos clientes pagan tarde y el seguimiento de cobros se hace manualmente en hojas de Excel desactualizadas.";
+          input.value = "Perdemos más de 12 horas a la semana conciliando extractos bancarios contra facturas emitidas. Muchos clientes pagan tarde y el seguimiento de cobros se hace manualmente en hojas de Excel desactualizadas.";
           break;
         case 'ventas':
           input.value = "Recibimos prospectos de empresas por la web pero tardamos hasta 48 horas en calificarlos y enviarles cotizaciones personalizadas. Para cuando los contactamos, ya contrataron a la competencia.";
@@ -1245,7 +1052,7 @@
         document.getElementById('loading-state').classList.add('hidden');
         document.getElementById('result-section').classList.remove('hidden');
         document.getElementById('btn-generate').disabled = false;
-        document.getElementById('btn-icon').textContent = 'âš¡';
+        document.getElementById('btn-icon').textContent = '⚡';
         document.getElementById('btn-text').textContent = 'Crear Agente a mi Medida con Gemini Flash 2.5';
         document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
       }
@@ -1256,22 +1063,22 @@
 Un cliente describe este dolor operativo en su negocio:
 "${pain}"
 
-DiseÃ±a un agente especializado para resolver este dolor de forma fiduciaria, sin simulaciÃ³n y con un 50% de sÃ­ntesis ejecutiva.
-Responde ÃšNICAMENTE un objeto JSON vÃ¡lido con esta estructura exacta:
+Diseña un agente especializado para resolver este dolor de forma fiduciaria, sin simulación y con un 50% de síntesis ejecutiva.
+Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta:
 {
   "agent_name": "Nombre profesional y fiduciario del agente",
   "slug": "nombre-slug-en-kebab-case",
   "role": "Rol ejecutivo conciso",
   "avatar": "Emoji representativo",
-  "pain_analysis": "ExplicaciÃ³n del dolor raÃ­z detectado en 2 frases",
-  "solution_summary": "CÃ³mo el agente erradica el problema de forma autÃ³noma",
-  "governance": "Reglas de control y auditorÃ­a",
+  "pain_analysis": "Explicación del dolor raíz detectado en 2 frases",
+  "solution_summary": "Cómo el agente erradica el problema de forma autónoma",
+  "governance": "Reglas de control y auditoría",
   "system_prompt": "System prompt fiduciario completo para el agente",
   "tools": [
-    {"name": "nombre_herramienta", "description": "QuÃ© hace", "access_tier": "read_only o write_sandbox o requires_human_approval"}
+    {"name": "nombre_herramienta", "description": "Qué hace", "access_tier": "read_only o write_sandbox o requires_human_approval"}
   ],
   "mcp_servers": [
-    {"name": "servidor-mcp", "description": "PropÃ³sito de integraciÃ³n"}
+    {"name": "servidor-mcp", "description": "Propósito de integración"}
   ]
 }`;
 
@@ -1317,82 +1124,82 @@ Responde ÃšNICAMENTE un objeto JSON vÃ¡lido con esta estructura exacta:
     function buildSmartAgentSpec(pain, model) {
       const lower = pain.toLowerCase();
       let domainName = "Operaciones Generales";
-      let agentName = "Agente de ResoluciÃ³n Fiduciaria";
+      let agentName = "Agente de Resolución Fiduciaria";
       let slug = "agente-resolucion-operativa";
-      let avatar = "âš¡";
-      let role = "Especialista en AutomatizaciÃ³n de Cuellos de Botella";
-      let painSummary = "FricciÃ³n operativa recurrente y demoras en atenciÃ³n o procesamiento.";
-      let solution = "Triaje autÃ³nomo, procesamiento desatendido y comunicaciÃ³n fiduciaria inmediata.";
+      let avatar = "⚡";
+      let role = "Especialista en Automatización de Cuellos de Botella";
+      let painSummary = "Fricción operativa recurrente y demoras en atención o procesamiento.";
+      let solution = "Triaje autónomo, procesamiento desatendido y comunicación fiduciaria inmediata.";
       let tools = [];
       let mcpServers = [];
 
       if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('cliente') || lower.includes('queja')) {
-        domainName = "AtenciÃ³n y RetenciÃ³n de Clientes";
-        agentName = "Concierge AutÃ³nomo de Soporte & Respuestas Inmediatas";
+        domainName = "Atención y Retención de Clientes";
+        agentName = "Concierge Autónomo de Soporte & Respuestas Inmediatas";
         slug = "customer-support-and-retention-concierge";
-        avatar = "ðŸ’¬";
-        role = "ResoluciÃ³n InstantÃ¡nea de Dudas y GestiÃ³n de Incidencias";
-        painSummary = "Clientes con tiempos de espera inaceptables por WhatsApp y canales de soporte, generando fricciÃ³n y pÃ©rdida de fidelidad.";
-        solution = "Respuestas en milisegundos a preguntas frecuentes, triaje de reclamos y escalaciÃ³n prioritaria con trazabilidad completa.";
+        avatar = "💬";
+        role = "Resolución Instantánea de Dudas y Gestión de Incidencias";
+        painSummary = "Clientes con tiempos de espera inaceptables por WhatsApp y canales de soporte, generando fricción y pérdida de fidelidad.";
+        solution = "Respuestas en milisegundos a preguntas frecuentes, triaje de reclamos y escalación prioritaria con trazabilidad completa.";
         tools = [
-          { name: "whatsapp_message_dispatcher", description: "EnvÃ­a confirmaciones y respuestas oficiales por WhatsApp API.", access_tier: "write_sandbox" },
+          { name: "whatsapp_message_dispatcher", description: "Envía confirmaciones y respuestas oficiales por WhatsApp API.", access_tier: "write_sandbox" },
           { name: "ticket_history_auditor", description: "Consulta el historial completo de pedidos o incidencias del cliente.", access_tier: "read_only" },
           { name: "escalate_to_human_supervisor", description: "Transfiere incidencias de alto riesgo al supervisor de turno.", access_tier: "requires_human_approval" }
         ];
         mcpServers = [
-          { name: "whatsapp-business-bridge", description: "Conector oficial para recepciÃ³n y despacho de mensajes WhatsApp." },
-          { name: "customer-crm-sync", description: "SincronizaciÃ³n con base de datos de tickets y clientes." }
+          { name: "whatsapp-business-bridge", description: "Conector oficial para recepción y despacho de mensajes WhatsApp." },
+          { name: "customer-crm-sync", description: "Sincronización con base de datos de tickets y clientes." }
         ];
       } else if (lower.includes('logistica') || lower.includes('entrega') || lower.includes('stock') || lower.includes('inventario')) {
-        domainName = "LogÃ­stica y Despacho";
-        agentName = "Orquestador de Inventario & Seguimiento de EnvÃ­os";
+        domainName = "Logística y Despacho";
+        agentName = "Orquestador de Inventario & Seguimiento de Envíos";
         slug = "inventory-and-fulfillment-guard";
-        avatar = "ðŸšš";
-        role = "Control en Tiempo Real de Stock y NotificaciÃ³n de EnvÃ­os";
-        painSummary = "DesincronizaciÃ³n entre ventas y almacÃ©n, generando ventas de producto agotado y reclamos por falta de seguimiento.";
-        solution = "ConciliaciÃ³n autÃ³noma de stock multicanal y alertas de seguimiento antes de que el cliente reclame.";
+        avatar = "🚚";
+        role = "Control en Tiempo Real de Stock y Notificación de Envíos";
+        painSummary = "Desincronización entre ventas y almacén, generando ventas de producto agotado y reclamos por falta de seguimiento.";
+        solution = "Conciliación autónoma de stock multicanal y alertas de seguimiento antes de que el cliente reclame.";
         tools = [
-          { name: "reconcile_warehouse_stock", description: "Compara el inventario fÃ­sico con las tiendas activas.", access_tier: "read_only" },
-          { name: "carrier_tracking_poller", description: "Consulta el estado en vivo de guÃ­as con las empresas de mensajerÃ­a.", access_tier: "read_only" },
-          { name: "freeze_out_of_stock_item", description: "Pausa automÃ¡ticamente publicaciones sin stock real disponible.", access_tier: "write_sandbox" }
+          { name: "reconcile_warehouse_stock", description: "Compara el inventario físico con las tiendas activas.", access_tier: "read_only" },
+          { name: "carrier_tracking_poller", description: "Consulta el estado en vivo de guías con las empresas de mensajería.", access_tier: "read_only" },
+          { name: "freeze_out_of_stock_item", description: "Pausa automáticamente publicaciones sin stock real disponible.", access_tier: "write_sandbox" }
         ];
         mcpServers = [
-          { name: "ecommerce-inventory-bridge", description: "ConexiÃ³n a Shopify, WooCommerce y ERP de almacÃ©n." },
+          { name: "ecommerce-inventory-bridge", description: "Conexión a Shopify, WooCommerce y ERP de almacén." },
           { name: "courier-tracking-mcp", description: "Consulta de estados con transportistas locales y regionales." }
         ];
       } else if (lower.includes('cobro') || lower.includes('factura') || lower.includes('bancari') || lower.includes('extracto') || lower.includes('pago')) {
-        domainName = "GestiÃ³n Financiera & Cobranza";
-        agentName = "Auditor de ConciliaciÃ³n Bancaria & Cobranza Fiduciaria";
+        domainName = "Gestión Financiera & Cobranza";
+        agentName = "Auditor de Conciliación Bancaria & Cobranza Fiduciaria";
         slug = "financial-audit-and-collections-specialist";
-        avatar = "ðŸ“Š";
-        role = "Custodia de Flujo de Caja y RecuperaciÃ³n de Cuentas por Cobrar";
+        avatar = "📊";
+        role = "Custodia de Flujo de Caja y Recuperación de Cuentas por Cobrar";
         painSummary = "Horas desperdiciadas conciliando comprobantes manuales y demoras en el cobro de facturas emitidas.";
-        solution = "Emparejamiento automÃ¡tico de depÃ³sitos contra facturas y recordatorios de pago corteses y fiduciarios.";
+        solution = "Emparejamiento automático de depósitos contra facturas y recordatorios de pago corteses y fiduciarios.";
         tools = [
           { name: "match_bank_transfers", description: "Cruza extractos bancarios con facturas pendientes por conciliar.", access_tier: "read_only" },
-          { name: "dispatch_payment_reminder", description: "EnvÃ­a recordatorios de vencimiento con enlace directo de pago.", access_tier: "write_sandbox" },
-          { name: "authorize_late_fee_waiver", description: "AprobaciÃ³n de excepciones de recargo con firma ejecutiva.", access_tier: "requires_human_approval" }
+          { name: "dispatch_payment_reminder", description: "Envía recordatorios de vencimiento con enlace directo de pago.", access_tier: "write_sandbox" },
+          { name: "authorize_late_fee_waiver", description: "Aprobación de excepciones de recargo con firma ejecutiva.", access_tier: "requires_human_approval" }
         ];
         mcpServers = [
           { name: "bank-open-banking-bridge", description: "Lectura segura de movimientos bancarios y extractos." },
-          { name: "invoicing-fiscal-engine", description: "EmisiÃ³n y consulta de facturas electrÃ³nicas." }
+          { name: "invoicing-fiscal-engine", description: "Emisión y consulta de facturas electrónicas." }
         ];
       } else {
         domainName = "Crecimiento y Operaciones B2B";
-        agentName = "Especialista Fiduciario de CalificaciÃ³n & Cotizaciones";
+        agentName = "Especialista Fiduciario de Calificación & Cotizaciones";
         slug = "b2b-lead-qualification-and-proposal-agent";
-        avatar = "ðŸ’¼";
-        role = "AceleraciÃ³n de Oportunidades y Cierre de Propuestas";
-        painSummary = "PÃ©rdida de prospectos calificados por lentitud en la primera respuesta y elaboraciÃ³n de cotizaciones.";
-        solution = "CalificaciÃ³n instantÃ¡nea con datos pÃºblicos de empresas y armado automÃ¡tico de presupuestos en minutos.";
+        avatar = "💼";
+        role = "Aceleración de Oportunidades y Cierre de Propuestas";
+        painSummary = "Pérdida de prospectos calificados por lentitud en la primera respuesta y elaboración de cotizaciones.";
+        solution = "Calificación instantánea con datos públicos de empresas y armado automático de presupuestos en minutos.";
         tools = [
-          { name: "enrich_corporate_lead", description: "Verifica tamaÃ±o, industria y decisores reales de la empresa prospecto.", access_tier: "read_only" },
-          { name: "generate_custom_proposal", description: "Redacta la propuesta fiduciaria con desglose de inversiÃ³n en USD.", access_tier: "write_sandbox" },
-          { name: "book_executive_calendar_slot", description: "Agenda reuniÃ³n en el calendario del director correspondiente.", access_tier: "write_sandbox" }
+          { name: "enrich_corporate_lead", description: "Verifica tamaño, industria y decisores reales de la empresa prospecto.", access_tier: "read_only" },
+          { name: "generate_custom_proposal", description: "Redacta la propuesta fiduciaria con desglose de inversión en USD.", access_tier: "write_sandbox" },
+          { name: "book_executive_calendar_slot", description: "Agenda reunión en el calendario del director correspondiente.", access_tier: "write_sandbox" }
         ];
         mcpServers = [
           { name: "google-workspace", description: "Conector para Gmail, Google Calendar y Google Drive." },
-          { name: "crm-pipeline-mcp", description: "ActualizaciÃ³n de tratos y etapas comerciales en tiempo real." }
+          { name: "crm-pipeline-mcp", description: "Actualización de tratos y etapas comerciales en tiempo real." }
         ];
       }
 
@@ -1405,7 +1212,7 @@ Responde ÃšNICAMENTE un objeto JSON vÃ¡lido con esta estructura exacta:
         pain: pain,
         pain_analysis: painSummary,
         solution_summary: solution,
-        governance: "Cero simulaciÃ³n, producciÃ³n 100% real, reducciÃ³n del 50% en longitud y auditorÃ­a continua.",
+        governance: "Cero simulación, producción 100% real, reducción del 50% en longitud y auditoría continua.",
         tools: tools,
         mcp_servers: mcpServers,
         model: model
@@ -1417,12 +1224,12 @@ Responde ÃšNICAMENTE un objeto JSON vÃ¡lido con esta estructura exacta:
         agent_name: parsed.agent_name || "Agente Fiduciario Personalizado",
         slug: parsed.slug || "custom-agent",
         role: parsed.role || "Especialista Operativo",
-        avatar: parsed.avatar || "âš¡",
+        avatar: parsed.avatar || "⚡",
         domain_name: "Operaciones de Negocio",
         pain: pain,
         pain_analysis: parsed.pain_analysis || pain,
-        solution_summary: parsed.solution_summary || "ResoluciÃ³n autÃ³noma del dolor.",
-        governance: parsed.governance || "Cero simulaciÃ³n y brevedad fiduciaria.",
+        solution_summary: parsed.solution_summary || "Resolución autónoma del dolor.",
+        governance: parsed.governance || "Cero simulación y brevedad fiduciaria.",
         tools: parsed.tools || [],
         mcp_servers: parsed.mcp_servers || [],
         model: model,
@@ -1437,12 +1244,12 @@ Responde ÃšNICAMENTE un objeto JSON vÃ¡lido con esta estructura exacta:
         agent_name: topAgent.name,
         slug: slug,
         role: topAgent.role,
-        avatar: "âš¡",
+        avatar: "⚡",
         domain_name: pythonSpec.domain_analysis.domain_name,
         pain: pain,
         pain_analysis: pythonSpec.domain_analysis.pain_points[0]?.description || pain,
-        solution_summary: pythonSpec.domain_analysis.pain_points[0]?.automation_opportunity || "ResoluciÃ³n autÃ³noma del dolor.",
-        governance: "Modo Real Inmutable, Cero SimulaciÃ³n y Brevedad 50%.",
+        solution_summary: pythonSpec.domain_analysis.pain_points[0]?.automation_opportunity || "Resolución autónoma del dolor.",
+        governance: "Modo Real Inmutable, Cero Simulación y Brevedad 50%.",
         tools: topAgent.assigned_tools || [],
         mcp_servers: pythonSpec.mcp_servers || [],
         model: model,
@@ -1463,68 +1270,68 @@ Responde ÃšNICAMENTE un objeto JSON vÃ¡lido con esta estructura exacta:
 
       const agentMd = `---
 name: ${slug}
-description: ${data.role}. DiseÃ±ado especÃ­ficamente para erradicar el dolor operativo en ${data.domain_name} utilizando Gemini Flash 2.5.
+description: ${data.role}. Diseñado específicamente para erradicar el dolor operativo en ${data.domain_name} utilizando Gemini Flash 2.5.
 model: ${model}
 subagent: true
 inheritCustomizations: true
 ---
 
-# ${data.agent_name} â€” (${data.role})
+# ${data.agent_name} — (${data.role})
 
-Eres el **${data.agent_name}**, especialista fiduciario de alto rendimiento. Tu Ãºnico propÃ³sito es resolver de manera autÃ³noma, precisa y sin excusas el dolor de negocio planteado.
-
----
-
-## ðŸŽ¯ MisiÃ³n Ejecutiva y Operativa
-1. **ErradicaciÃ³n del Dolor:** ${data.solution_summary}
-2. **Velocidad con ${model}:** AnÃ¡lisis en milisegundos, respuestas directas y cero consumo redundante.
-3. **Cero SimulaciÃ³n:** Todas las operaciones corren sobre datos e integraciones 100% reales.
+Eres el **${data.agent_name}**, especialista fiduciario de alto rendimiento. Tu único propósito es resolver de manera autónoma, precisa y sin excusas el dolor de negocio planteado.
 
 ---
 
-## ðŸ›¡ï¸ Reglas Inmutables y de Gobernanza
-> **REGLA DE ORO 1 â€” CERO SIMULACIÃ“N (MODO REAL INMUTABLE):**  
+## ðŸŽ¯ Misión Ejecutiva y Operativa
+1. **Erradicación del Dolor:** ${data.solution_summary}
+2. **Velocidad con ${model}:** Análisis en milisegundos, respuestas directas y cero consumo redundante.
+3. **Cero Simulación:** Todas las operaciones corren sobre datos e integraciones 100% reales.
+
+---
+
+## 🛡️ Reglas Inmutables y de Gobernanza
+> **REGLA DE ORO 1 — CERO SIMULACIÓN (MODO REAL INMUTABLE):**  
 > Prohibido el uso de mocks, datos inventados o llamadas falsas. Todas las acciones deben contar con identificador verificable.
 >
-> **REGLA DE ORO 2 â€” SÃNTESIS EJECUTIVA (REDUCCIÃ“N DEL 50%):**  
-> ComunicaciÃ³n corta, directa al grano, con viÃ±etas accionables y sin rodeos tÃ©cnicos ni lenguaje vacÃ­o.
+> **REGLA DE ORO 2 — SÍNTESIS EJECUTIVA (REDUCCIÓN DEL 50%):**  
+> Comunicación corta, directa al grano, con viñetas accionables y sin rodeos técnicos ni lenguaje vacío.
 >
-> **REGLA DE ORO 3 â€” AUDITORÃA Y TRAZABILIDAD:**  
-> Cada decisiÃ³n, resultado o alerta emitida queda registrada en la bitÃ¡cora de ejecuciÃ³n.
+> **REGLA DE ORO 3 — AUDITORÍA Y TRAZABILIDAD:**  
+> Cada decisión, resultado o alerta emitida queda registrada en la bitácora de ejecución.
 
 ---
 
-## âš™ï¸ Ãreas de Dominio TÃ©cnico y Herramientas
+## ⚙️ Áreas de Dominio Técnico y Herramientas
 ${toolsText}
 `;
 
-      const rulesMd = `# Reglas de OperaciÃ³n del Sistema Multi-Agente â€” ${data.domain_name}
+      const rulesMd = `# Reglas de Operación del Sistema Multi-Agente — ${data.domain_name}
 
 > Generado por Custom Agent Studio con ${model} para Google Antigravity.
 
 ## Arquitectura del Entorno
-Este espacio estÃ¡ gobernado por una directiva fiduciaria centrada en la resoluciÃ³n del dolor:
+Este espacio está gobernado por una directiva fiduciaria centrada en la resolución del dolor:
 - **Dolor:** ${data.pain_analysis}
 - **Agente Responsable:** \`${slug}\` (${data.agent_name})
 - **Modelo de IA:** \`${model}\`
 
-## Invariantes de OperaciÃ³n:
-1. **ResoluciÃ³n Directa:** El agente resuelve el cuello de botella sin requerir microgestiÃ³n del usuario.
-2. **Principio de Menor Privilegio:** SÃ³lo ejecuta herramientas estrictamente necesarias para el objetivo.
-3. **Human Gate:** Operaciones de alto riesgo o eliminaciÃ³n de registros requieren autorizaciÃ³n explÃ­cita.
-4. **Modo Real:** Prohibido el uso de datos sintÃ©ticos o simulaciones fingidas.
+## Invariantes de Operación:
+1. **Resolución Directa:** El agente resuelve el cuello de botella sin requerir microgestión del usuario.
+2. **Principio de Menor Privilegio:** Sólo ejecuta herramientas estrictamente necesarias para el objetivo.
+3. **Human Gate:** Operaciones de alto riesgo o eliminación de registros requieren autorización explícita.
+4. **Modo Real:** Prohibido el uso de datos sintéticos o simulaciones fingidas.
 `;
 
-      const zeroSimRule = `# ðŸ›¡ï¸ Regla de Oro Inmutable: Cero SimulaciÃ³n y Modo Real
-1. **CERO CLIENTES SINTÃ‰TICOS:** Todos los leads, registros o solicitudes deben provenir de fuentes reales.
-2. **CERO ENTREGAS FINGIDAS:** Cada acciÃ³n debe emitir un identificador de transacciÃ³n verificable.
-3. **CERO MODO SIMULACIÃ“N:** ErradicaciÃ³n total de 'dryRun' o mocks sin aprobaciÃ³n previa.
+      const zeroSimRule = `# 🛡️ Regla de Oro Inmutable: Cero Simulación y Modo Real
+1. **CERO CLIENTES SINTÉTICOS:** Todos los leads, registros o solicitudes deben provenir de fuentes reales.
+2. **CERO ENTREGAS FINGIDAS:** Cada acción debe emitir un identificador de transacción verificable.
+3. **CERO MODO SIMULACIÓN:** Erradicación total de 'dryRun' o mocks sin aprobación previa.
 `;
 
-      const brevityRule = `# ðŸ›¡ï¸ Regla de Oro Inmutable: SÃ­ntesis Ejecutiva y ReducciÃ³n del 50%
-1. **Longitud:** Reducir la extensiÃ³n de cada respuesta a la mitad de su tamaÃ±o habitual.
-2. **Legibilidad Inmediata:** Formato en viÃ±etas directas y cifras accionables.
-3. **Cero Relleno:** Ir directo al punto de soluciÃ³n.
+      const brevityRule = `# 🛡️ Regla de Oro Inmutable: Síntesis Ejecutiva y Reducción del 50%
+1. **Longitud:** Reducir la extensión de cada respuesta a la mitad de su tamaño habitual.
+2. **Legibilidad Inmediata:** Formato en viñetas directas y cifras accionables.
+3. **Cero Relleno:** Ir directo al punto de solución.
 `;
 
       const skillMd = `---
@@ -1534,25 +1341,25 @@ description: Procedimiento operativo para ${data.agent_name} en ${data.domain_na
 
 # Skill: ${data.agent_name}
 
-## Procedimiento de EjecuciÃ³n AutÃ³nomo:
-1. **RecepciÃ³n del Evento / PeticiÃ³n:** Analiza el caso o registro afectado en el dolor operativo.
-2. **EvaluaciÃ³n Fiduciaria:** Aplica las reglas de negocio y verifica si existe riesgo o excepciÃ³n.
-3. **EjecuciÃ³n Desatendida:** Invoca las herramientas correspondientes con datos reales.
-4. **NotificaciÃ³n Concisa:** Informa el resultado al responsable aplicando la regla de sÃ­ntesis al 50%.
+## Procedimiento de Ejecución Autónomo:
+1. **Recepción del Evento / Petición:** Analiza el caso o registro afectado en el dolor operativo.
+2. **Evaluación Fiduciaria:** Aplica las reglas de negocio y verifica si existe riesgo o excepción.
+3. **Ejecución Desatendida:** Invoca las herramientas correspondientes con datos reales.
+4. **Notificación Concisa:** Informa el resultado al responsable aplicando la regla de síntesis al 50%.
 
 ## Herramientas Asignadas:
 ${toolsText}
 `;
 
-      const knowledgeMd = `# DiagnÃ³stico Operativo y Plan de ResoluciÃ³n â€” ${data.domain_name}
+      const knowledgeMd = `# Diagnóstico Operativo y Plan de Resolución — ${data.domain_name}
 
 ## ðŸ“‹ Dolor No Resuelto Planteado
 ${data.pain}
 
-## ðŸ” DiagnÃ³stico de Causa RaÃ­z
+## ðŸ” Diagnóstico de Causa Raíz
 ${data.pain_analysis}
 
-## ðŸš€ Plan de ResoluciÃ³n y Arquitectura
+## ðŸš€ Plan de Resolución y Arquitectura
 - **Estrategia:** ${data.solution_summary}
 - **Modelo Designado:** ${model}
 - **Gobernanza:** ${data.governance}
@@ -1609,7 +1416,7 @@ ${data.pain_analysis}
     }
 
     function renderGeneratedAgent(spec) {
-      document.getElementById('agent-avatar').textContent = spec.avatar || 'ðŸ¤–';
+      document.getElementById('agent-avatar').textContent = spec.avatar || '🤖';
       document.getElementById('agent-name').textContent = spec.agent_name;
       document.getElementById('agent-model-tag').textContent = spec.model;
       document.getElementById('agent-description').textContent = `${spec.role}. ${spec.solution_summary}`;
@@ -1646,8 +1453,8 @@ ${data.pain_analysis}
       navigator.clipboard.writeText(content).then(() => {
         const btnText = document.getElementById('copy-btn-text');
         const icon = document.getElementById('copy-btn-icon');
-        btnText.textContent = 'Â¡Copiado!';
-        icon.textContent = 'âœ…';
+        btnText.textContent = '¡Copiado!';
+        icon.textContent = '✅';
         setTimeout(() => {
           btnText.textContent = 'Copiar Archivo';
           icon.textContent = 'ðŸ“‹';
@@ -1672,7 +1479,7 @@ ${data.pain_analysis}
 
       const userMsg = document.createElement('div');
       userMsg.className = "p-2.5 rounded-xl bg-blue-600/20 border border-blue-500/30 text-slate-200 max-w-xl self-end text-xs";
-      userMsg.innerHTML = `<span class="text-blue-300 font-bold block mb-1">ðŸ‘¤ TÃº:</span> ${escapeHtml(text)}`;
+      userMsg.innerHTML = `<span class="text-blue-300 font-bold block mb-1">ðŸ‘¤ Tú:</span> ${escapeHtml(text)}`;
       container.appendChild(userMsg);
       input.value = '';
       container.scrollTop = container.scrollHeight;
@@ -1691,9 +1498,9 @@ ${data.pain_analysis}
       if (apiKey) {
         try {
           const sysPrompt = `Eres ${currentSpec.agent_name} (${currentSpec.role}).
-Tu misiÃ³n es: ${currentSpec.solution_summary}.
-Regla inmutable 1: CERO SIMULACIÃ“N. Opera en modo real fiduciario.
-Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en viÃ±etas directas y con datos de acciÃ³n concretos.`;
+Tu misión es: ${currentSpec.solution_summary}.
+Regla inmutable 1: CERO SIMULACIÓN. Opera en modo real fiduciario.
+Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en viñetas directas y con datos de acción concretos.`;
 
           const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
           const res = await fetch(url, {
@@ -1701,7 +1508,7 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               contents: [
-                { role: "user", parts: [{ text: `${sysPrompt}\n\nInstrucciÃ³n del usuario: ${text}` }] }
+                { role: "user", parts: [{ text: `${sysPrompt}\n\nInstrucción del usuario: ${text}` }] }
               ],
               generationConfig: { temperature: 0.2, maxOutputTokens: 250 }
             })
@@ -1714,10 +1521,10 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
       }
 
       if (!agentResponse) {
-        agentResponse = `**AcciÃ³n Ejecutada [Modo Real]:**
+        agentResponse = `**Acción Ejecutada [Modo Real]:**
 * **Triaje Inmediato:** Caso evaluado conforme a directivas de ${currentSpec.domain_name}.
-* **ResoluciÃ³n:** Procesando solicitud con herramientas asignadas sin demoras.
-* **Trazabilidad:** ID de evento fiduciario registrado en la bitÃ¡cora con Ã©xito.`;
+* **Resolución:** Procesando solicitud con herramientas asignadas sin demoras.
+* **Trazabilidad:** ID de evento fiduciario registrado en la bitácora con éxito.`;
       }
 
       typingMsg.remove();
@@ -1725,8 +1532,7 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
       const replyMsg = document.createElement('div');
       replyMsg.className = "p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 max-w-xl text-xs";
       const safeAgentName = escapeHtml(currentSpec.agent_name || 'Agente');
-      replyMsg.innerHTML = `<span class="text-blue-400 font-bold block mb-1">?? ${safeAgentName}:</span> ${escapeHtml(agentResponse).replace(/
-/g, '<br/>')}`;
+      replyMsg.innerHTML = `<span class="text-blue-400 font-bold block mb-1">?? ${safeAgentName}:</span> ${escapeHtml(agentResponse).replace(/\n/g, '<br/>')}`;
       container.appendChild(replyMsg);
       container.scrollTop = container.scrollHeight;
     }
@@ -1753,7 +1559,7 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
         agentsFolder.file(relativePath, file.content);
       }
 
-      zip.file("README_CUSTOM_AGENT.md", `# ${currentSpec.agent_name}\n\nCreado a medida con Gemini Flash 2.5 para Google Antigravity.\n\n## Instrucciones de InstalaciÃ³n:\n1. Copia la carpeta \`.agents\` en la raÃ­z de tu proyecto.\n2. Inicia tu sesiÃ³n en Antigravity y tu agente estarÃ¡ disponible automÃ¡ticamente.`);
+      zip.file("README_CUSTOM_AGENT.md", `# ${currentSpec.agent_name}\n\nCreado a medida con Gemini Flash 2.5 para Google Antigravity.\n\n## Instrucciones de Instalación:\n1. Copia la carpeta \`.agents\` en la raíz de tu proyecto.\n2. Inicia tu sesión en Antigravity y tu agente estará disponible automáticamente.`);
 
       const blob = await zip.generateAsync({ type: "blob" });
       const url = URL.createObjectURL(blob);
@@ -1909,145 +1715,9 @@ Regla inmutable 2: SÃNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en
 
 </script>
 
-  <!-- ========================================================================= -->
-  <!-- ?? MODAL: PROGRAMA DE AFILIADOS B2B (CRECIMIENTO VIRAL 20% RECURRENTE)    -->
-  <!-- ========================================================================= -->
-  <div id="affiliate-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
-    <div class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 shadow-2xl relative text-left">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
-        <div>
-          <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <span>?? Programa de Afiliados B2B</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">20% Recurrente</span>
-          </h3>
-          <p class="text-xs text-slate-400 mt-0.5">Multiplica tus ingresos recomendando Destraba AI a otros directores de empresas.</p>
-        </div>
-        <button onclick="closeAffiliateModal()" class="text-slate-400 hover:text-white text-base">?</button>
-      </div>
+  
 
-      <div class="space-y-4 text-xs text-slate-300 leading-relaxed">
-        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Tu Enlace de Afiliado Fiduciario:</span>
-          <div class="p-2.5 rounded-lg bg-black/60 border border-slate-800 font-mono text-xs text-blue-300 select-all flex items-center justify-between gap-2">
-            <span id="affiliate-link-display">https://destraba.ai/?ref=ricardo_sv</span>
-            <button onclick="copyAffiliateLink()" class="px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 text-white font-bold text-[11px] shrink-0">
-              Copiar Enlace
-            </button>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-            <span class="text-[10px] uppercase font-bold text-slate-500 block">Comisi?n por Licencia</span>
-            <span class="text-lg font-bold text-emerald-400 font-mono">20% Mensual</span>
-            <p class="text-[10px] text-slate-400 mt-0.5">De \$15.80 a \$49.80 USD/mes por cliente referido.</p>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-            <span class="text-[10px] uppercase font-bold text-slate-500 block">Liquidaci?n Fiduciaria</span>
-            <span class="text-lg font-bold text-white font-mono">Cada Fin de Mes</span>
-            <p class="text-[10px] text-slate-400 mt-0.5">V?a Strike Lightning o transferencia local Wompi.</p>
-          </div>
-        </div>
-
-        <div class="p-3 rounded-xl bg-blue-950/30 border border-blue-500/30 text-[11px] text-blue-300">
-          ?? <strong>Estrategia de Crecimiento Viral:</strong> Si recomiendas la Suite ?lite a solo 5 colegas due?os de empresas, recibes <strong>\$249 USD/mes en comisiones</strong>, cubriendo el 100% del costo de tu propio software.
-        </div>
-      </div>
-
-      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-end">
-        <button onclick="closeAffiliateModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold">
-          Cerrar
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- ?? MODAL: PANEL FINANCIERO MRR HUB ($300 USD/D?A - $9,000 USD/MES)        -->
-  <!-- ========================================================================= -->
-  <div id="mrr-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
-    <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-2xl p-6 shadow-2xl relative text-left max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
-        <div>
-          <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <span>?? Panel de Comando Financiero ? Don Ricardo</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-bold">MRR Hub</span>
-          </h3>
-          <p class="text-xs text-slate-400 mt-0.5">Control fiduciario del presupuesto operativo y cumplimiento de metas en USD.</p>
-        </div>
-        <button onclick="closeMrrModal()" class="text-slate-400 hover:text-white text-base">?</button>
-      </div>
-
-      <div class="space-y-4 text-xs">
-        <!-- Daily Run Rate Meter -->
-        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-bold text-white text-xs">Meta Diaria: $300.00 USD / d?a</span>
-            <span class="font-mono text-xs font-bold text-emerald-400" id="mrr-daily-progress-txt">$324.00 USD / d?a (108%)</span>
-          </div>
-          <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-800">
-            <div id="mrr-daily-bar" class="bg-gradient-to-r from-blue-500 to-emerald-400 h-full rounded-full transition-all duration-500" style="width: 100%;"></div>
-          </div>
-          <div class="flex items-center justify-between mt-2 text-[10px] text-slate-500 font-mono">
-            <span>Objetivo Mes: $9,000 USD</span>
-            <span>Objetivo A?o (ARR): $108,000 USD</span>
-          </div>
-        </div>
-
-        <!-- 3 KPIs Cards -->
-        <div class="grid grid-cols-3 gap-3">
-          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center">
-            <span class="text-[10px] font-bold text-slate-500 uppercase block mb-1">Clientes Activos</span>
-            <span class="text-xl font-bold text-white font-mono" id="mrr-active-clients">39</span>
-            <span class="text-[10px] text-emerald-400 block mt-0.5">? 4 esta semana</span>
-          </div>
-          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center">
-            <span class="text-[10px] font-bold text-slate-500 uppercase block mb-1">MRR Actual</span>
-            <span class="text-xl font-bold text-emerald-400 font-mono" id="mrr-current-val">$9,720 USD</span>
-            <span class="text-[10px] text-emerald-400 block mt-0.5">Meta mensual superada</span>
-          </div>
-          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center">
-            <span class="text-[10px] font-bold text-slate-500 uppercase block mb-1">Margen Neto</span>
-            <span class="text-xl font-bold text-blue-400 font-mono">88.4%</span>
-            <span class="text-[10px] text-slate-400 block mt-0.5">Cero costo de n?mina</span>
-          </div>
-        </div>
-
-        <!-- Unit Economics Roadmap -->
-        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="font-bold text-white block mb-1 text-xs">?? F?rmula Matem?tica de Cumplimiento Ineludible:</span>
-          <p class="text-slate-400 text-[11px] leading-relaxed">
-            Para sostener <strong>\$9,000 USD/mes</strong> con Destraba AI, solo se requiere una de estas tres combinaciones:
-          </p>
-          <ul class="list-disc pl-4 mt-2 space-y-1 text-slate-300 text-[11px]">
-            <li><strong>36 Clientes</strong> con el Pack Suite ?lite (\$249 USD/mes).</li>
-            <li><strong>114 Clientes</strong> con el Agente Closer de Ventas (\$79 USD/mes).</li>
-            <li><strong>184 Clientes</strong> con el Agente Concierge de Soporte (\$49 USD/mes).</li>
-          </ul>
-        </div>
-
-        <!-- Live Gateways Status -->
-        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-[11px]">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="text-slate-300 font-medium">Pasarelas Activas:</span>
-            <span class="text-amber-400 font-mono">Strike (rick2818@strike.me)</span>
-            <span class="text-slate-500">|</span>
-            <span class="text-blue-400 font-mono">Wompi SV (3DS)</span>
-          </div>
-          <button onclick="alert('Auditor?a fiduciaria descargada: 39 clientes conciliados en Supabase.');" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px]">
-            Descargar CSV
-          </button>
-        </div>
-      </div>
-
-      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-end">
-        <button onclick="closeMrrModal()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold">
-          Cerrar Hub
-        </button>
-      </div>
-    </div>
-  </div>
+  
 
 </body>
 </html>
