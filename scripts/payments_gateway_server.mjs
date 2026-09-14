@@ -1,6 +1,6 @@
-/**
+﻿/**
  * =============================================================================
- * OPERASOVEREIGN AI — SERVIDOR DE PASARELAS Y WEBHOOKS BLINDADOS
+ * DESTRABA AI â€” SERVIDOR DE PASARELAS Y WEBHOOKS BLINDADOS
  * Pasarelas: Wompi SV y Strike Lightning (rick2818@strike.me)
  * =============================================================================
  */
@@ -46,13 +46,13 @@ const server = http.createServer(async (req, res) => {
   // Anti-DDoS / Anti-Carding
   if (!checkRateLimit(clientIp, 15, 60000)) {
     res.writeHead(429, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'Demasiadas solicitudes. Límite de seguridad alcanzado.' }));
+    res.end(JSON.stringify({ error: 'Demasiadas solicitudes. LÃ­mite de seguridad alcanzado.' }));
     return;
   }
 
   const url = new URL(req.url, `http://${req.headers.host}`);
 
-  // Endpoint 1: Catálogo Oficial de Precios en USD
+  // Endpoint 1: CatÃ¡logo Oficial de Precios en USD
   if (req.method === 'GET' && url.pathname === '/api/payments/catalog') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ success: true, catalog: CATALOGO_PRECIOS_USD }));
@@ -110,7 +110,7 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      console.log(`✅ [WOMPI WEBHOOK]: Pago recibido y validado. TxId: ${txId}`);
+      console.log(`âœ… [WOMPI WEBHOOK]: Pago recibido y validado. TxId: ${txId}`);
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ status: 'SUCCESS', verified: isValid, txId }));
       return;
@@ -130,7 +130,7 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      console.log(`⚡ [STRIKE LIGHTNING WEBHOOK]: Satoshis acreditados a rick2818@strike.me. TxId: ${txId}`);
+      console.log(`âš¡ [STRIKE LIGHTNING WEBHOOK]: Satoshis acreditados a rick2818@strike.me. TxId: ${txId}`);
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ status: 'SUCCESS', destination: 'rick2818@strike.me', txId }));
       return;
@@ -142,7 +142,8 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`🛡️ [OperaSovereign AI] Servidor de Pasarelas Bancarias activo en http://localhost:${PORT}`);
-  console.log(`⚡ Strike Lightning Address: rick2818@strike.me`);
-  console.log(`💳 Wompi SV Router: Preparado para liquidaciones en USD`);
+  console.log(`ðŸ›¡ï¸ [DESTRABA AI] Servidor de Pasarelas Bancarias activo en http://localhost:${PORT}`);
+  console.log(`âš¡ Strike Lightning Address: rick2818@strike.me`);
+  console.log(`ðŸ’³ Wompi SV Router: Preparado para liquidaciones en USD`);
 });
+

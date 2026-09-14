@@ -1,6 +1,6 @@
-﻿# 👑 OperaSovereign AI
+﻿# ⚡ Destraba AI
 
-> **"Erradica tus cuellos de botella en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."**
+> **"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."**
 
 Plataforma fiduciaria B2B, simple, minimalista y de máxima ciberseguridad, diseñada para transformar **dolores operativos no resueltos** en **Custom Agents autónomos** listos para producción en **Google Antigravity**, impulsados nativamente por **Gemini Flash 2.5**.
 
@@ -100,7 +100,7 @@ python -m unittest discover tests
 - **Manual de Usuario Completo**: [`MANUAL_DE_USUARIO_APP.md`](./MANUAL_DE_USUARIO_APP.md)
 - **Estrategia Desatendida**: [`.agents/knowledge/ESTRATEGIA_VENTAS_DESATENDIDA_PARETO.md`](./.agents/knowledge/ESTRATEGIA_VENTAS_DESATENDIDA_PARETO.md)
 - **Estudio de Mercado & Pricing**: [`.agents/knowledge/ESTUDIO_MERCADO_Y_PRICING_POR_AGENTE.md`](./.agents/knowledge/ESTUDIO_MERCADO_Y_PRICING_POR_AGENTE.md)
-- **Soporte Técnico Oficial**: `soporte@audiflowai.com`
+- **Soporte Técnico Oficial**: `soporte@destraba.ai`
 
 ---
-*OperaSovereign AI © 2026. Todos los derechos reservados.*
+*Destraba AI © 2026. Todos los derechos reservados.*
