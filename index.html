@@ -683,13 +683,19 @@
       <!-- Contenido Tarjetas / Wompi -->
       <div id="content-gw-wompi" class="hidden space-y-3">
         <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-2">
-          <span class="text-[11px] text-slate-400 block">Procesador con Cifrado Bancario TLS 1.3:</span>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] text-slate-400">Procesador Wompi SV / Tarjetas Bancarias:</span>
+            <span id="wompi-status-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">3D Secure Activo</span>
+          </div>
           <p class="text-[11px] text-slate-400">
-            Acepta tarjetas de crédito o débito internacionales (Visa, Mastercard, Amex) con verificación 3DS.
+            Acepta tarjetas de crédito o débito internacionales (Visa, Mastercard) y transferencias bancarias 365 con liquidación fiduciaria en USD.
           </p>
         </div>
         <button onclick="proceedWompiCheckout()" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
-          <span>💳 Continuar al Checkout Seguro</span>
+          <span>💳 Pagar con Tarjeta (Wompi Checkout Seguro)</span>
+        </button>
+        <button onclick="requestAssistedPayment('wompi')" class="w-full py-2 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-700/80 text-slate-300 text-[11px] font-medium transition-all flex items-center justify-center gap-1.5">
+          <span>💬 Solicitar Enlace Personalizado por Soporte / WhatsApp</span>
         </button>
       </div>
 
@@ -756,6 +762,44 @@
             class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200 font-mono text-xs focus:outline-none focus:border-blue-500"
           />
           <p class="text-[10px] text-slate-500">Clave requerida para entrar a la plataforma. Guárdala en lugar seguro.</p>
+        </div>
+
+        <!-- Pasarela Wompi SV / Tarjetas Bancarias -->
+        <div class="p-3 bg-slate-950 rounded-xl border border-blue-500/40 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="block font-semibold text-blue-400 text-[10px] uppercase tracking-wider">💳 Pasarela Wompi SV / Tarjetas Bancarias</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-300 font-mono">3D Secure</span>
+          </div>
+          <div>
+            <label class="block text-[10px] font-medium text-slate-300 mb-1">Enlace de Cobro Oficial Wompi (URL Comercial):</label>
+            <input
+              type="url"
+              id="cfg-wompi-link"
+              placeholder="https://enlace.wompi.sv/tu-enlace-comercio"
+              class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200 font-mono text-xs focus:outline-none focus:border-blue-500"
+            />
+            <p class="text-[10px] text-slate-500 mt-1">Pega aquí tu enlace de pago personal o comercial de Wompi SV para redirigir directamente al checkout seguro.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <div>
+              <label class="block text-[10px] text-slate-400 mb-1">Wompi App ID (API):</label>
+              <input
+                type="text"
+                id="cfg-wompi-app-id"
+                placeholder="ID de Wompi (opcional)"
+                class="w-full bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-slate-200 font-mono text-[11px] focus:outline-none focus:border-blue-500"
+              />
+            </div>
+            <div>
+              <label class="block text-[10px] text-slate-400 mb-1">Strike Lightning Address:</label>
+              <input
+                type="text"
+                id="cfg-strike-addr"
+                value="rick2818@strike.me"
+                class="w-full bg-slate-900 border border-slate-800 rounded-lg p-1.5 text-slate-200 font-mono text-[11px] focus:outline-none focus:border-blue-500"
+              />
+            </div>
+          </div>
         </div>
 
         <!-- Directives Configuration -->
@@ -978,10 +1022,23 @@
       const savedKey = localStorage.getItem('gemini_api_key') || '';
       const savedModel = localStorage.getItem('gemini_model') || 'gemini-2.5-flash';
       const masterKey = localStorage.getItem('platform_master_key') || DEFAULT_MASTER_KEY;
+      const savedWompiLink = localStorage.getItem('wompi_payment_link') || '';
+      const savedWompiAppId = localStorage.getItem('wompi_app_id') || '';
+      const savedStrikeAddr = localStorage.getItem('strike_lightning_addr') || 'rick2818@strike.me';
 
-      document.getElementById('cfg-api-key').value = savedKey;
-      document.getElementById('cfg-model').value = savedModel;
-      document.getElementById('cfg-master-key').value = masterKey;
+      const elApiKey = document.getElementById('cfg-api-key');
+      const elModel = document.getElementById('cfg-model');
+      const elMasterKey = document.getElementById('cfg-master-key');
+      const elWompiLink = document.getElementById('cfg-wompi-link');
+      const elWompiAppId = document.getElementById('cfg-wompi-app-id');
+      const elStrikeAddr = document.getElementById('cfg-strike-addr');
+
+      if (elApiKey) elApiKey.value = savedKey;
+      if (elModel) elModel.value = savedModel;
+      if (elMasterKey) elMasterKey.value = masterKey;
+      if (elWompiLink) elWompiLink.value = savedWompiLink;
+      if (elWompiAppId) elWompiAppId.value = savedWompiAppId;
+      if (elStrikeAddr) elStrikeAddr.value = savedStrikeAddr;
       updateModelBadges(savedModel);
     });
 
@@ -1126,9 +1183,61 @@
     }
 
     function proceedWompiCheckout() {
+      const configuredLink = localStorage.getItem('wompi_payment_link')?.trim();
       const ref = `wompi_${selectedPaymentProduct.id}_${Date.now()}`;
-      alert(`💳 Redirigiendo a Wompi SV con liquidación protegida para ${selectedPaymentProduct.name} (${selectedPaymentProduct.price}). Ref: ${ref}`);
-      window.open(`https://wompi.sv/enlace-pago?ref=${ref}`, '_blank');
+      
+      if (configuredLink && configuredLink.startsWith('http')) {
+        const separator = configuredLink.includes('?') ? '&' : '?';
+        const finalUrl = `${configuredLink}${separator}ref=${ref}&monto=${selectedPaymentProduct.price.replace(/[^0-9.]/g, '')}&producto=${encodeURIComponent(selectedPaymentProduct.name)}`;
+        alert(`💳 Redirigiendo a tu pasarela Wompi oficial para ${selectedPaymentProduct.name} (${selectedPaymentProduct.price}).`);
+        window.open(finalUrl, '_blank');
+        return;
+      }
+
+      // Si aún no se ha ingresado el link comercial de Wompi:
+      const wantsStrike = confirm(
+        `💳 Checkout Wompi SV / Tarjetas Bancarias\n\n` +
+        `Producto: ${selectedPaymentProduct.name} (${selectedPaymentProduct.price})\n\n` +
+        `Aún no has vinculado tu enlace comercial de Wompi en Configuración.\n\n` +
+        `• Haz clic en ACEPTAR para pagar de inmediato vía Strike Lightning (rick2818@strike.me).\n` +
+        `• Haz clic en CANCELAR para ingresar tu enlace de Wompi o solicitarlo por soporte.`
+      );
+
+      if (wantsStrike) {
+        selectGatewayTab('strike');
+        window.open('https://strike.me/rick2818', '_blank');
+      } else {
+        if (isUserAuthenticated()) {
+          openConfigModal();
+          setTimeout(() => {
+            const el = document.getElementById('cfg-wompi-link');
+            if (el) el.focus();
+          }, 200);
+        } else {
+          requestAssistedPayment('wompi');
+        }
+      }
+    }
+
+    function requestAssistedPayment(method) {
+      const productName = selectedPaymentProduct.name;
+      const productPrice = selectedPaymentProduct.price;
+      const message = `Hola Destraba AI, deseo activar la licencia ${productName} (${productPrice}). Requiero el enlace de pago con tarjeta bancaria / Wompi.`;
+      const mailto = `mailto:soporte@destraba.ai?subject=${encodeURIComponent(`Solicitud Enlace de Pago Wompi - ${productName}`)}&body=${encodeURIComponent(message)}`;
+      
+      const choice = confirm(
+        `💬 Atención Fiduciaria para Pago con Tarjeta / Wompi\n\n` +
+        `¿Deseas solicitar tu enlace de pago personalizado por correo a soporte@destraba.ai?\n\n` +
+        `• Aceptar: Abre tu correo con los datos prellenados.\n` +
+        `• Cancelar: Prefiero pagar en 1 clic por Strike Lightning a rick2818@strike.me.`
+      );
+
+      if (choice) {
+        window.location.href = mailto;
+      } else {
+        selectGatewayTab('strike');
+        window.open('https://strike.me/rick2818', '_blank');
+      }
     }
 
     function openConfigModal() {
@@ -1155,14 +1264,20 @@
       const key = document.getElementById('cfg-api-key').value.trim();
       const model = document.getElementById('cfg-model').value;
       const masterKey = document.getElementById('cfg-master-key').value.trim() || DEFAULT_MASTER_KEY;
+      const wompiLink = document.getElementById('cfg-wompi-link')?.value.trim() || '';
+      const wompiAppId = document.getElementById('cfg-wompi-app-id')?.value.trim() || '';
+      const strikeAddr = document.getElementById('cfg-strike-addr')?.value.trim() || 'rick2818@strike.me';
 
       localStorage.setItem('gemini_api_key', key);
       localStorage.setItem('gemini_model', model);
       localStorage.setItem('platform_master_key', masterKey);
+      localStorage.setItem('wompi_payment_link', wompiLink);
+      localStorage.setItem('wompi_app_id', wompiAppId);
+      localStorage.setItem('strike_lightning_addr', strikeAddr);
 
       updateModelBadges(model);
       closeConfigModal();
-      alert('✅ Configuración y Clave Maestra fiduciaria guardadas correctamente.');
+      alert('✅ Configuración, Pasarela Wompi y Clave Maestra fiduciaria guardadas correctamente.');
     }
 
     function updateModelBadges(modelName) {
