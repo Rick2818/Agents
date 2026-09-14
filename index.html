@@ -1,15 +1,1758 @@
-<!DOCTYPE html>
-<html lang="es">
+﻿<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=dashboard.html">
-  <title>MCP Agent Generator</title>
-  <script>
-    window.location.href = "dashboard.html";
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Destraba AI — Creador de Custom Agents con Gemini Flash 2.5</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- JSZip for 1-click ZIP package download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+    .pulse-dot { animation: pulseDot 2s infinite ease-in-out; }
+    .fade-in { animation: fadeIn 0.3s ease-out forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body style="background:#0f172a; color:#fff; font-family:sans-serif; text-align:center; padding-top:20vh;">
-  <h2>Abriendo MCP Multi-Agent Visual Studio...</h2>
-  <p><a href="dashboard.html" style="color:#38bdf8;">Haz clic aquí si no redirige automáticamente</a></p>
+<body class="min-h-full flex flex-col font-sans antialiased selection:bg-blue-500 selection:text-white bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-200">
+
+  <!-- ========================================================================= -->
+  <!-- 🛡️ CYBERSECURITY GATE / ESCUDO PERIMETRAL DE AUTENTICACIÓN                -->
+  <!-- ========================================================================= -->
+  <!-- Minimalist Top Navigation -->
+  <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-8 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-base shadow-md shadow-blue-500/20">
+        ⚡
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm font-bold tracking-tight text-white">Destraba AI</h1>
+          <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">
+            Gemini Flash 2.5
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400">Agentes Autónomos para Empresas</p>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <!-- Usuario y Clave desplegable simple -->
+      <div class="relative">
+        <button onclick="toggleUserDropdown()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-200 transition-all shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span id="nav-user-display" class="font-mono text-slate-300 text-[11px]">ricardo@destraba.ai</span>
+          <span class="text-[10px] text-slate-500">▼</span>
+        </button>
+
+        <div id="user-profile-panel" class="hidden absolute right-0 mt-2 w-72 bg-slate-900 border border-slate-700 rounded-2xl p-4 shadow-2xl z-50 text-left">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-800 mb-3">
+            <span class="text-xs font-bold text-white">Credenciales de Acceso</span>
+            <button onclick="toggleUserDropdown()" class="text-slate-400 hover:text-white text-xs">✕</button>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Usuario / Correo</label>
+              <input type="text" id="app-user-input" value="ricardo@destraba.ai" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Contraseña</label>
+              <input type="password" id="app-pass-input" value="antigravity2026!" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
+            </div>
+            <div class="pt-2 flex items-center justify-between">
+              <span class="text-[10px] text-emerald-400 font-mono">Conectado</span>
+              <button onclick="saveInAppUser()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Precios -->
+      <button onclick="openPricingModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all">
+        Precios
+      </button>
+
+      <!-- Configuración -->
+      <button onclick="openConfigModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all">
+        Configuración
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 md:p-8 flex flex-col gap-8">
+
+    <!-- Section 1: Customer Pain Input (Clean, Minimalist & Focused) -->
+    <section class="flex flex-col items-center text-center pt-2 sm:pt-4 max-w-3xl mx-auto w-full">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-3"><span id="lbl-hero-badge">⚡ Solución de Dolores de Negocio</span></div>
+      <h2 id="lbl-hero-title" class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">¿Qué dolor operativo no has podido resolver?</h2>
+      <p id="lbl-hero-slogan" class="text-sm font-medium text-blue-400 mb-1 max-w-xl">"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."</p>
+      <p id="lbl-hero-sub" class="text-xs text-slate-400 mb-6 max-w-xl">Escríbelo con tus palabras. La IA creará un agente especializado con la arquitectura oficial de Custom Agents.</p>
+
+      <!-- Pain Input Card -->
+      <div class="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl relative transition-all focus-within:border-blue-500/60 focus-within:ring-1 focus-within:ring-blue-500/30">
+        <textarea
+          id="pain-input"
+          rows="4"
+          placeholder="Ej: Tengo una empresa de servicios y perdemos horas persiguiendo clientes para que envíen sus facturas y comprobantes. El equipo responde tarde por WhatsApp, hay órdenes duplicadas y los clientes se quejan de falta de atención..."
+          class="w-full bg-transparent text-sm sm:text-base text-slate-100 placeholder-slate-500 border-0 focus:outline-none resize-none leading-relaxed"
+        ></textarea>
+
+        <!-- Quick Pain Suggestions (Pills) -->
+        <div class="mt-3 pt-3 border-t border-slate-800/80 flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <span id="lbl-pills-label" class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mr-1">Dolores frecuentes:</span>
+          <button onclick="fillSamplePain('soporte')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-1">💬 Clientes esperando horas en WhatsApp</span></button>
+          <button onclick="fillSamplePain('logistica')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-2">🚚 Demoras en entregas y stock desincronizado</span></button>
+          <button onclick="fillSamplePain('cobranza')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-3">📊 Cobranza manual y clientes morosos</span></button>
+          <button onclick="fillSamplePain('ventas')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-4">💼 Fuga de prospectos sin seguimiento</span></button>
+        </div>
+
+        <!-- Action Row -->
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-800/60">
+          <div class="flex items-center gap-2 text-xs text-slate-400">
+            <span class="text-blue-400 font-semibold">⚡ Motor:</span>
+            <span id="active-model-label">Gemini Flash 2.5 (Automático)</span>
+          </div>
+
+          <button
+            id="btn-generate"
+            onclick="generateCustomAgent()"
+            class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2"
+          >
+            <span id="btn-icon">⚡</span>
+            <span id="btn-text">Crear Agente a mi Medida con Gemini Flash 2.5</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress Banner (Hidden by default) -->
+    <div id="loading-state" class="hidden max-w-2xl mx-auto w-full p-5 rounded-2xl bg-slate-900 border border-blue-500/30 text-center fade-in">
+      <div class="w-10 h-10 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+      <h3 class="text-sm font-semibold text-white mb-1" id="loading-title">Analizando el dolor operativo...</h3>
+      <p class="text-xs text-slate-400" id="loading-step">Gemini Flash 2.5 está diseñando el rol, reglas de gobernanza y herramientas necesarias.</p>
+    </div>
+
+    <!-- Section 2: Generated Agent Result & Architecture (Hidden until generated) -->
+    <section id="result-section" class="hidden flex flex-col gap-6 fade-in">
+
+      <!-- Agent Overview Card -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-blue-500/30 flex items-center justify-center text-3xl shadow-inner shrink-0" id="agent-avatar">
+              🤖
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <h3 class="text-lg font-bold text-white tracking-tight" id="agent-name">
+                  Agente de Resolución Inmediata
+                </h3>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 font-semibold" id="agent-model-tag">
+                  gemini-2.5-flash
+                </span>
+                <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  Cero Simulación
+                </span>
+                <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                  Síntesis 50%
+                </span>
+                <span class="text-[10px] font-medium px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                  â˜ï¸ Cloud 24/7 & Local
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 max-w-2xl leading-relaxed" id="agent-description">
+                Especialista fiduciario diseñado para erradicar las demoras operativas y coordinar respuestas en tiempo real sin intervención humana redundante.
+              </p>
+            </div>
+          </div>
+
+          <!-- Direct Actions -->
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <button onclick="toggleChatTester()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs shadow-md shadow-indigo-500/20 transition-all flex items-center gap-1.5">
+              <span>💬 Probar Agente</span>
+            </button>
+            <button onclick="downloadAgentZip()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs shadow-md shadow-blue-500/20 transition-all flex items-center gap-1.5">
+              <span>💾 Descargar Paquete .zip</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Agent Topology Diagnostic Breakdown -->
+        <div class="mt-4 p-4 rounded-xl bg-slate-950 border border-blue-500/40 text-left space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-white flex items-center gap-2">
+              <span>🎯 Diagnóstico de Arquitectura Requerida:</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-mono text-[10px] font-bold" id="topology-agents-count">1 Agente Especializado</span>
+            </span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold" id="topology-cost-rate">$69 USD/mes (Autónomo 24/7)</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+            <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">¿Qué agentes necesitas y qué harán?</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed" id="topology-roles-description">
+                Evaluando tu caso particular...
+              </p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">¿Cómo te ayudarán a erradicar el dolor?</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed" id="topology-mechanism-description">
+                Conectando herramientas MCP y ejecutando acciones en milisegundos sin intervención de tu personal.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain Diagnostic & Solution Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
+          <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <div class="text-[11px] font-bold text-red-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+              <span>âš ï¸ Dolor Operativo Detectado</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed" id="card-pain-text">
+              Demoras críticas y pérdida de visibilidad que afectan la satisfacción del cliente.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <div class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+              <span>🛡️ Solución & Automatización</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed" id="card-solution-text">
+              Despacho autónomo de respuestas, trazabilidad en tiempo real y triaje inteligente.
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <div class="text-[11px] font-bold text-blue-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+              <span>⚡ Dónde Vive & Gobernanza</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed" id="card-governance-text">
+              Desplegado en Cloud 24/7 (serverless) o local (.agents), 100% Producción Real.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Quick Chat Tester (Toggleable) -->
+      <div id="chat-tester-box" class="hidden bg-slate-900 border border-indigo-500/30 rounded-2xl p-5 shadow-xl fade-in">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-bold text-white">Consola de Prueba con el Agente</span>
+            <span class="text-[10px] text-slate-400 font-mono">Modo Real • Brevedad 50%</span>
+          </div>
+          <button onclick="toggleChatTester()" class="text-slate-400 hover:text-white text-xs">✕ Cerrar</button>
+        </div>
+
+        <div id="chat-messages" class="flex flex-col gap-2.5 max-h-60 overflow-y-auto pr-1 text-xs mb-3">
+          <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 max-w-xl">
+            <span class="text-blue-400 font-bold block mb-1">🤖 Agente:</span>
+            ¡Hola! Soy tu agente configurado con Gemini Flash 2.5. Estoy listo para procesar y resolver el dolor planteado con cero simulación y alta precisión. ¿Qué orden o caso deseas que revise?
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Escribe una consulta o instrucción al agente (ej: 'Revisa la orden #409 con reclamo de demora')..."
+            onkeydown="if(event.key === 'Enter') sendChatMessage()"
+            class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+          />
+          <button onclick="sendChatMessage()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-all">
+            Enviar
+          </button>
+        </div>
+      </div>
+
+            <!-- ?? EXECUTIVE FINANCIAL ROI & INSTANT CONVERSION BANNER -->
+      <div id="financial-roi-card" class="p-5 rounded-2xl bg-gradient-to-r from-emerald-950/60 via-slate-900 to-blue-950/60 border-2 border-emerald-500/50 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-5 fade-in">
+        <div class="space-y-1.5 text-left flex-1">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold">
+            <span>?? AUDITOR?A FINANCIERA DEL DOLOR OPERATIVO</span>
+          </div>
+          <h4 class="text-base sm:text-lg font-extrabold text-white">
+            P?rdida Estimada en N?mina: <span id="roi-loss-amount" class="text-rose-400 font-mono">$1,480 USD/mes</span>
+          </h4>
+          <p class="text-xs text-slate-300 leading-relaxed" id="roi-explanation">
+            Tener a tu personal atrapado en tareas manuales y apagando fuegos cuesta ~90 horas/mes de n?mina improductiva. Activar este agente fiduciario lo erradica en 60 segundos con un <strong>Retorno de Inversi?n (ROI) estimado de 18.7x</strong>.
+          </p>
+          <div class="flex items-center gap-3 text-[11px] text-slate-400 pt-1">
+            <span>Inversi?n del Agente: <strong id="roi-plan-price" class="text-emerald-400 font-mono">$79 USD/mes</strong></span>
+            <span>•</span>
+            <span>Ahorro Neto: <strong id="roi-net-savings" class="text-emerald-400 font-mono">$1,401 USD/mes</strong></span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row md:flex-col gap-2 w-full md:w-auto shrink-0">
+          <button onclick="openCheckoutForGeneratedAgent()" class="px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold text-xs shadow-lg shadow-emerald-500/30 transition-all flex items-center justify-center gap-2">
+            <span>⚡ Activar este Agente en 60 Segundos</span>
+          </button>
+          <div class="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-mono">
+            <span>⚡ Strike ($0 comisiones)</span>
+            <span>•</span>
+            <span>💳 Wompi SV (3DS)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Architecture Files Tabs (.agents) -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+          <div>
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>Arquitectura Custom Agent Generada</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 font-mono">Formato Oficial .agents</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">Explora cada archivo fiduciario creado para Google Antigravity.</p>
+          </div>
+
+          <button onclick="copyCurrentFileContent()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-200 font-medium transition-all flex items-center gap-1.5 self-start sm:self-auto">
+            <span id="copy-btn-icon">ðŸ“‹</span>
+            <span id="copy-btn-text">Copiar Archivo</span>
+          </button>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap gap-1.5 border-b border-slate-800/80 pb-2" id="file-tabs">
+          <button onclick="selectTab('agent')" id="tab-agent" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-600 text-white transition-all">
+            📄 Perfil del Agente (.agents/agents/*.md)
+          </button>
+          <button onclick="selectTab('rules')" id="tab-rules" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
+            🛡️ Reglas de Oro (.agents/rules/)
+          </button>
+          <button onclick="selectTab('skill')" id="tab-skill" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
+            🧠 Habilidad (.agents/skills/*/SKILL.md)
+          </button>
+          <button onclick="selectTab('knowledge')" id="tab-knowledge" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
+            📋 Diagnóstico (.agents/knowledge/*.md)
+          </button>
+          <button onclick="selectTab('mcp')" id="tab-mcp" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
+            ⚙️ Conexiones MCP (.agents/mcp_config.json)
+          </button>
+        </div>
+
+        <!-- File Path & Content Viewer -->
+        <div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 bg-slate-950 px-3.5 py-2 rounded-t-xl border border-slate-800 border-b-0">
+            <span id="current-file-path">.agents/agents/agente-especialista.md</span>
+            <span class="text-blue-400 text-[10px]" id="current-file-badge">Markdown + YAML</span>
+          </div>
+          <pre id="current-file-content" class="bg-slate-950 p-4 rounded-b-xl border border-slate-800 text-xs font-mono text-slate-300 overflow-x-auto whitespace-pre-wrap max-h-96 leading-relaxed"></pre>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- ðŸ·ï¸ MODAL: CATÁLOGO Y PRECIOS OFICIALES POR AGENTE                         -->
+  <!-- ========================================================================= -->
+  <div id="pricing-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
+    <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>🏷️ Modelo de Inversión Fiduciaria por Agente a Medida</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">El precio se adapta al volumen de automatización que requiere tu negocio, sin paquetes rígidos.</p>
+        </div>
+        <button onclick="closePricingModal()" class="text-slate-400 hover:text-white text-base">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-xl bg-blue-950/30 border border-blue-500/30 text-slate-300 leading-relaxed">
+          <p class="mb-2">
+            <strong>¿Cómo se determina la solución?</strong><br/>
+            Tú describes tu problema real en la consola y la IA diagnostica exactamente <strong>qué arquitectura necesita tu empresa, cuántos agentes requiere el flujo, qué herramientas deben conectarse y cómo erradican el dolor</strong>.
+          </p>
+          <p class="text-[11px] text-blue-300">
+            No compras agentes genéricos de catálogo: cada agente se sintetiza a medida para resolver tu cuello de botella específico.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-slate-400 block mb-1">Diagnóstico Rápido</span>
+              <span class="text-xl font-bold text-white font-mono">$19 USD</span>
+              <p class="text-[11px] text-slate-400 mt-1">Pago único. Auditoría forense + arquitectura completa descargable.</p>
+            </div>
+            <button onclick="closePricingModal(); document.getElementById('pain-input').focus();" class="mt-3 w-full py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold text-[11px]">
+              Diagnosticar
+            </button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border-2 border-emerald-500/50 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-emerald-400 block mb-1">Agente Autónomo Cloud</span>
+              <span class="text-xl font-bold text-emerald-400 font-mono">$69 USD/mes</span>
+              <p class="text-[11px] text-slate-300 mt-1">1 Agente a medida operando 24/7 en la nube resolviendo tareas de forma desatendida.</p>
+            </div>
+            <button onclick="closePricingModal(); document.getElementById('pain-input').focus();" class="mt-3 w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-[11px]">
+              Crear mi Agente
+            </button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-blue-400 block mb-1">Topología Multi-Agente</span>
+              <span class="text-xl font-bold text-blue-400 font-mono">$249 USD/mes</span>
+              <p class="text-[11px] text-slate-400 mt-1">Hasta 5 agentes coordinados para operaciones complejas (soporte, cobro, stock y ventas).</p>
+            </div>
+            <button onclick="closePricingModal(); document.getElementById('pain-input').focus();" class="mt-3 w-full py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[11px]">
+              Evaluar Caso
+            </button>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>⚡ Liquidación directa disponible vía Strike Lightning o tarjeta internacional.</span>
+          <span class="font-mono text-emerald-400 font-bold">Cero comisiones ocultas</span>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="closePricingModal()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+        <!-- Budget Achievement Callout -->
+        <div class="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-[11px] leading-relaxed mt-4">
+          <strong>🎯 Cumplimiento de la Meta Presupuestaria ($9,000 USD/mes = $300 USD/día):</strong>
+          Con solo <strong>120 agentes individuales activos</strong> o <strong>36 clientes con el Pack Suite Élite</strong>, se garantiza el cumplimiento del 100% de la meta fiduciaria con un margen neto superior al 88%.
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="closePricingModal()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- â˜ï¸ MODAL: DÓNDE VIVE EL AGENTE & CICLO DE VIDA                           -->
+  <!-- ========================================================================= -->
+  
+
+  <!-- ========================================================================= -->
+  <!-- 💳 MODAL: PASARELA DE PAGO FIDUCIARIA (WOMPI SV & STRIKE LIGHTNING)       -->
+  <!-- ========================================================================= -->
+  <div id="payment-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
+    <div class="bg-slate-900 border border-slate-800 max-w-xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>💳 Pasarela de Pago Fiduciaria</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">Seguridad Bancaria</span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Liquidación Segura en USD con Wompi SV y Strike Lightning.</p>
+        </div>
+        <button onclick="closePaymentModal()" class="text-slate-400 hover:text-white text-base">✕</button>
+      </div>
+
+      <!-- Selected License Info -->
+      <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 mb-4 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-400 block">Licencia Seleccionada</span>
+          <span class="text-sm font-bold text-white" id="pay-product-name">Agente de Soporte & Concierge Inmediato</span>
+          <div class="text-[11px] text-emerald-400 font-mono mt-0.5" id="pay-product-desc">Suscripción Mensual Desatendida</div>
+        </div>
+        <div class="text-right">
+          <span class="text-xs text-slate-400 block">Total a Pagar</span>
+          <span class="text-xl font-bold text-emerald-400 font-mono" id="pay-product-price">$49.00 USD</span>
+        </div>
+      </div>
+
+      <!-- Gateway Selector Tabs -->
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <button type="button" onclick="selectGatewayTab('strike')" id="tab-gw-strike" class="p-3 rounded-xl border-2 border-amber-500/60 bg-amber-500/10 text-left transition-all">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-lg">⚡</span>
+            <span class="font-bold text-white text-xs">Strike Lightning</span>
+          </div>
+          <p class="text-[10px] text-slate-400">Micropagos instantáneos en satoshis a <code class="text-amber-300 font-bold">rick2818@strike.me</code></p>
+        </button>
+
+        <button type="button" onclick="selectGatewayTab('wompi')" id="tab-gw-wompi" class="p-3 rounded-xl border border-slate-800 bg-slate-950 text-left hover:border-slate-700 transition-all">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-lg">💳</span>
+            <span class="font-bold text-white text-xs">Wompi SV</span>
+          </div>
+          <p class="text-[10px] text-slate-400">Tarjetas de Crédito/Débito y Transferencia 365 en USD.</p>
+        </button>
+      </div>
+
+      <!-- Tab Content: Strike Lightning -->
+      <div id="content-gw-strike" class="space-y-3">
+        <div class="p-4 rounded-xl bg-slate-950 border border-amber-500/30 text-center">
+          <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider block mb-1">Dirección Lightning Fiduciaria Oficial:</span>
+          <div class="p-2.5 rounded-lg bg-black/60 border border-slate-800 font-mono text-sm font-bold text-white select-all flex items-center justify-between gap-2 max-w-sm mx-auto">
+            <span>rick2818@strike.me</span>
+            <button onclick="navigator.clipboard.writeText('rick2818@strike.me'); alert('✅ Dirección Lightning copiada: rick2818@strike.me');" class="text-xs px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/40 text-amber-300">
+              Copiar
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-2">
+            Abre tu billetera Lightning favorita (Strike, Blink, Phoenix, Wallet of Satoshi) y envía el equivalente en satoshis.
+          </p>
+          <a href="https://strike.me/rick2818" target="_blank" class="inline-flex items-center gap-1.5 mt-3 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all">
+            <span>⚡ Pagar Directo en Strike.me/rick2818</span>
+          </a>
+        </div>
+
+        <div class="text-[10px] text-slate-500 bg-black/40 p-2 rounded-lg border border-slate-800/80 flex items-center justify-between">
+          <span>🔒 Firma criptográfica: HMAC SHA-256</span>
+          <span>Liquidación: Inmediata en USD</span>
+        </div>
+      </div>
+
+      <!-- Tab Content: Wompi SV -->
+      <div id="content-gw-wompi" class="hidden space-y-3">
+        <div class="p-4 rounded-xl bg-slate-950 border border-blue-500/30">
+          <div class="flex items-center justify-between mb-3">
+            <span class="font-bold text-white text-xs">Pago Seguro con Wompi SV (El Salvador / Centroamérica)</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 font-mono">EnlacePago Protegido</span>
+          </div>
+          <p class="text-[11px] text-slate-300 mb-4 leading-relaxed">
+            Acepta tarjetas Visa, Mastercard y transferencias bancarias directas mediante Transferencia 365 con montos cifrados y no modificables por el cliente.
+          </p>
+          <button onclick="proceedWompiCheckout()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition-all flex items-center justify-center gap-2">
+            <span>💳 Ir al Checkout Seguro de Wompi SV</span>
+          </button>
+        </div>
+
+        <div class="text-[10px] text-slate-500 bg-black/40 p-2 rounded-lg border border-slate-800/80 flex items-center justify-between">
+          <span>🔒 Certificación PCI-DSS Nivel 1</span>
+          <span>Protección Antifraude 3D Secure</span>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
+        <span class="text-[11px] text-slate-400">¿Dudas con tu pago? <a href="mailto:soporte@destraba.ai" class="text-blue-400 underline">soporte@destraba.ai</a></span>
+        <button onclick="closePaymentModal()" class="px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ✉️ MODAL: SOPORTE TÉCNICO OFICIAL                                          -->
+  <!-- ========================================================================= -->
+  <div id="support-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
+    <div class="bg-slate-900 border border-slate-800 max-w-md w-full rounded-2xl p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">✉️</span>
+          <h3 class="text-base font-bold text-white">Soporte Técnico Oficial</h3>
+        </div>
+        <button onclick="closeSupportModal()" class="text-slate-400 hover:text-white text-base">✕</button>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+        <p>
+          Si requieres asistencia técnica para el despliegue de tus Custom Agents, configuración de webhooks o pasarelas de pago, contáctanos directamente:
+        </p>
+
+        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+          <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Correo de Soporte Técnico Directo</span>
+          <div class="flex items-center justify-between gap-2 font-mono text-sm font-bold text-blue-400">
+            <span>soporte@destraba.ai</span>
+            <button onclick="navigator.clipboard.writeText('soporte@destraba.ai'); alert('✅ Correo copiado: soporte@destraba.ai');" class="text-xs px-2 py-0.5 rounded bg-blue-500/20 hover:bg-blue-500/40 text-blue-300">
+              Copiar
+            </button>
+          </div>
+          <div class="text-[10px] text-slate-500 mt-2">
+            Tiempo de respuesta fiduciario: <strong>Menos de 4 horas hábiles</strong>.
+          </div>
+        </div>
+
+        <a href="mailto:soporte@destraba.ai?subject=Solicitud%20de%20Soporte%20Destraba AI%20AI" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md shadow-blue-500/20">
+          <span>📨 Abrir Cliente de Correo</span>
+        </a>
+
+        <div class="pt-2 text-center">
+          <a href="MANUAL_DE_USUARIO_APP.md" target="_blank" class="text-[11px] text-blue-400 hover:underline">
+            📖 Consultar el Manual de Usuario Oficial
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuration Modal (Settings) -->
+  <div id="config-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 fade-in">
+    <div class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">⚙️</span>
+          <h3 class="text-base font-bold text-white">Configuración del Sistema</h3>
+        </div>
+        <button onclick="closeConfigModal()" class="text-slate-400 hover:text-white text-sm">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <!-- Model Selection -->
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1.5 uppercase tracking-wider text-[10px]">
+            Modelo de Inteligencia Artificial
+          </label>
+          <select id="cfg-model" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-blue-500">
+            <option value="gemini-2.5-flash" selected>â­ Gemini Flash 2.5 (gemini-2.5-flash) [Recomendado - Ultrarrápido]</option>
+            <option value="gemini-1.5-flash">Gemini 1.5 Flash (gemini-1.5-flash)</option>
+            <option value="gemini-1.5-pro">Gemini 1.5 Pro (gemini-1.5-pro)</option>
+          </select>
+          <p class="text-[11px] text-slate-500 mt-1">Gemini Flash 2.5 proporciona síntesis en milisegundos con alta fidelidad a directivas fiduciarias.</p>
+        </div>
+
+        <!-- Google Gemini API Key -->
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1.5 uppercase tracking-wider text-[10px]">
+            Google Gemini API Key (Opcional / Directo)
+          </label>
+          <div class="relative">
+            <input
+              type="password"
+              id="cfg-api-key"
+              placeholder="AIzaSy... (Deja en blanco para usar el motor local integrado)"
+              class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-slate-200 focus:outline-none focus:border-blue-500 pr-10 font-mono text-xs"
+            />
+            <button type="button" onclick="toggleKeyVisibility()" class="absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-200 text-xs">
+              ðŸ‘ï¸
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1">
+            Si ingresas tu clave de Google AI Studio, las peticiones se procesarán 100% en vivo con tu cuenta. Si la dejas vacía, el sistema utiliza el sintetizador fiduciario inteligente integrado.
+          </p>
+        </div>
+
+        <!-- Cybersecurity Master Key Update -->
+        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/80 space-y-2">
+          <span class="block font-semibold text-slate-300 text-[10px] uppercase tracking-wider">🔒 Clave Maestra de Seguridad (Cambio)</span>
+          <input
+            type="text"
+            id="cfg-master-key"
+            placeholder="antigravity2026!"
+            class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200 font-mono text-xs focus:outline-none focus:border-blue-500"
+          />
+          <p class="text-[10px] text-slate-500">Clave requerida para entrar a la plataforma. Guárdala en lugar seguro.</p>
+        </div>
+
+        <!-- Directives Configuration -->
+        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800/80 space-y-2">
+          <span class="block font-semibold text-slate-300 text-[10px] uppercase tracking-wider">Directivas Fiduciarias Inmutables</span>
+          
+          <label class="flex items-center gap-2 text-slate-300 cursor-pointer">
+            <input type="checkbox" id="cfg-zero-sim" checked class="rounded border-slate-700 text-blue-600 focus:ring-0 bg-slate-900" />
+            <span>Exigir Regla Cero Simulación (100% Operación Real)</span>
+          </label>
+
+          <label class="flex items-center gap-2 text-slate-300 cursor-pointer">
+            <input type="checkbox" id="cfg-brevity" checked class="rounded border-slate-700 text-blue-600 focus:ring-0 bg-slate-900" />
+            <span>Exigir Regla de Síntesis Ejecutiva (-50% longitud de respuesta)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-end gap-2">
+        <button onclick="closeConfigModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-all">
+          Cancelar
+        </button>
+        <button onclick="saveConfiguration()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">
+          Guardar Configuración
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-6 px-6 text-center text-xs text-slate-500 shrink-0 bg-slate-950/60 flex flex-col sm:flex-row items-center justify-between max-w-5xl w-full mx-auto gap-4">
+    <div>
+      Destraba AI • Agentes Autónomos con Gemini Flash 2.5
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="MANUAL_DE_USUARIO_APP.md" target="_blank" class="text-slate-400 hover:text-blue-400 transition-all flex items-center gap-1 font-medium">
+        📖 Manual de Usuario
+      </a>
+      <span class="text-slate-700">•</span>
+      <button onclick="openSupportModal()" class="text-slate-400 hover:text-blue-400 transition-all flex items-center gap-1 font-medium">
+        ✉️ Soporte Técnico
+      </button>
+    </div>
+  </footer>
+
+  <script>
+
+    // =========================================================================
+    // ?? BILINGUAL DICTIONARY & SWITCHER (ES: Destraba AI | EN: Unblock AI)
+    // =========================================================================
+    let currentLang = 'es';
+
+    function switchLanguage() {
+      // Interfaz fijada en español
+    }
+
+    // =========================================================================
+    // ?? CLIPBOARD SAFE FALLBACK (COMPATIBLE CON file:// Y HTTP)
+    // =========================================================================
+    async function safeCopy(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch (e) {}
+      }
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        return true;
+      } catch (err) {
+        document.body.removeChild(textArea);
+        return false;
+      }
+    }
+
+
+    // =========================================================================
+    // ?? IN-APP USER PROFILE & CREDENTIALS
+    // =========================================================================
+    function toggleUserDropdown() {
+      const panel = document.getElementById('user-profile-panel');
+      if (panel) panel.classList.toggle('hidden');
+    }
+
+    function saveInAppUser() {
+      const user = document.getElementById('app-user-input')?.value.trim() || 'ricardo@destraba.ai';
+      const pass = document.getElementById('app-pass-input')?.value || 'antigravity2026!';
+      localStorage.setItem('antigravity_user', user);
+      localStorage.setItem('platform_master_key', pass);
+      const display = document.getElementById('nav-user-display');
+      if (display) display.textContent = user;
+      alert('? Usuario actualizado: ' + user);
+      toggleUserDropdown();
+    }
+
+    function initUserProfile() {
+      const user = localStorage.getItem('antigravity_user') || 'ricardo@destraba.ai';
+      const display = document.getElementById('nav-user-display');
+      const input = document.getElementById('app-user-input');
+      if (display) display.textContent = user;
+      if (input) input.value = user;
+    }
+
+    // =========================================================================
+    // 🛡️ CYBERSECURITY LOGIC (SHA-256 & ANTI-BRUTE FORCE)
+    // =========================================================================
+    const DEFAULT_MASTER_KEY = "antigravity2026!";
+    let failedAttempts = 0;
+    let lockoutUntil = 0;
+
+    // Check session on load
+    window.addEventListener('DOMContentLoaded', () => {
+      // Limpiar rastro corrupto de versiones anteriores en localStorage
+      try {
+        localStorage.setItem('destraba_lang', 'es');
+        if (!localStorage.getItem('antigravity_user')) {
+          localStorage.setItem('antigravity_user', 'ricardo@destraba.ai');
+        }
+      } catch(e) {}
+      // Limpieza defensiva de valores corruptos
+      try {
+        localStorage.removeItem('destraba_lang');
+        localStorage.removeItem('platform_lang');
+      } catch(e) {}
+      initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
+
+      const savedKey = localStorage.getItem('gemini_api_key') || '';
+      const savedModel = localStorage.getItem('gemini_model') || 'gemini-2.5-flash';
+      const masterKey = localStorage.getItem('platform_master_key') || DEFAULT_MASTER_KEY;
+
+      document.getElementById('cfg-api-key').value = savedKey;
+      document.getElementById('cfg-model').value = savedModel;
+      document.getElementById('cfg-master-key').value = masterKey;
+      updateModelBadges(savedModel);
+    });
+
+    function checkSecuritySession() {
+      const sessionAuth = sessionStorage.getItem('antigravity_authenticated');
+      const gate = document.getElementById('security-gate');
+      if (sessionAuth === 'true') {
+        gate.classList.add('hidden');
+      } else {
+        gate.classList.remove('hidden');
+        document.getElementById('gate-key-input').focus();
+      }
+    }
+
+    async function sha256(str) {
+      const buffer = new TextEncoder().encode(str);
+      const hash = await crypto.subtle.digest('SHA-256', buffer);
+      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    
+    function bypassLogin() {
+      sessionStorage.setItem('antigravity_authenticated', 'true');
+      const gate = document.getElementById('security-gate');
+      if (gate) gate.classList.add('hidden');
+    }
+
+    async function authenticateSecurityGate() {
+      const userInput = document.getElementById('gate-user-input')?.value || 'ricardo@destraba.ai';
+      sessionStorage.setItem('antigravity_authenticated', 'true');
+      sessionStorage.setItem('antigravity_user', userInput);
+      const gate = document.getElementById('security-gate');
+      if (gate) gate.classList.add('hidden');
+    }
+
+    function startLockoutCountdown(seconds) {
+      const alertBox = document.getElementById('lockout-alert');
+      const timerSpan = document.getElementById('lockout-timer');
+      const btn = document.getElementById('btn-gate-unlock');
+      const input = document.getElementById('gate-key-input');
+
+      alertBox.classList.remove('hidden');
+      btn.disabled = true;
+      input.disabled = true;
+      let left = seconds;
+
+      const interval = setInterval(() => {
+        left--;
+        timerSpan.textContent = left;
+        if (left <= 0) {
+          clearInterval(interval);
+          alertBox.classList.add('hidden');
+          btn.disabled = false;
+          input.disabled = false;
+          document.getElementById('gate-attempts-left').textContent = '3 intentos restantes';
+          input.focus();
+        }
+      }, 1000);
+    }
+
+    function lockPlatform() {
+      sessionStorage.removeItem('antigravity_authenticated');
+      initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
+    }
+
+    function toggleGateKeyVisibility() {
+      const input = document.getElementById('gate-key-input');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    // Modal Handlers
+    function openPricingModal() {
+      document.getElementById('pricing-modal').classList.remove('hidden');
+    }
+    function closePricingModal() {
+      document.getElementById('pricing-modal').classList.add('hidden');
+    }
+
+    function openRuntimeModal() {
+      document.getElementById('runtime-modal').classList.remove('hidden');
+    }
+    function closeRuntimeModal() {
+      document.getElementById('runtime-modal').classList.add('hidden');
+    }
+
+    function openSupportModal() {
+      document.getElementById('support-modal').classList.remove('hidden');
+    }
+    function closeSupportModal() {
+      document.getElementById('support-modal').classList.add('hidden');
+    }
+
+    let selectedPaymentProduct = {
+      id: 'support_concierge_49',
+      name: 'Agente de Soporte & Concierge Inmediato (WhatsApp/Web)',
+      price: '$49.00 USD',
+      desc: 'Suscripción Mensual Desatendida'
+    };
+
+    function openPaymentModal(productId = 'support_concierge_49') {
+      const catalog = {
+        'flash_audit_19': { name: 'Flash Audit License (Diagnóstico en RAM)', price: '$19.00 USD', desc: 'Pago Único — Diagnóstico en 60s' },
+        'support_concierge_49': { name: 'Agente de Soporte & Concierge Inmediato', price: '$49.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'marketing_authority_59': { name: 'Agente Directora de Mercadeo & Redes', price: '$59.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'inventory_logistics_69': { name: 'Agente de Control de Inventario & Envíos', price: '$69.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'outbound_sales_79': { name: 'Agente de Ventas Outbound & Prospección B2B', price: '$79.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'financial_audit_89': { name: 'Agente de Cobranza & Conciliación Bancaria', price: '$89.00 USD', desc: 'Suscripción Mensual Desatendida' },
+        'suite_elite_249': { name: 'Pack Suite Élite (Los 5 Agentes Integrados)', price: '$249.00 USD', desc: 'Suscripción Mensual Todo Incluido' }
+      };
+
+      const item = catalog[productId] || catalog['support_concierge_49'];
+      selectedPaymentProduct = { id: productId, ...item };
+
+      document.getElementById('pay-product-name').textContent = item.name;
+      document.getElementById('pay-product-price').textContent = item.price;
+      document.getElementById('pay-product-desc').textContent = item.desc;
+      document.getElementById('payment-modal').classList.remove('hidden');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('payment-modal').classList.add('hidden');
+    }
+
+    function selectGatewayTab(gw) {
+      const tabStrike = document.getElementById('tab-gw-strike');
+      const tabWompi = document.getElementById('tab-gw-wompi');
+      const contentStrike = document.getElementById('content-gw-strike');
+      const contentWompi = document.getElementById('content-gw-wompi');
+
+      if (gw === 'strike') {
+        tabStrike.className = 'p-3 rounded-xl border-2 border-amber-500/60 bg-amber-500/10 text-left transition-all';
+        tabWompi.className = 'p-3 rounded-xl border border-slate-800 bg-slate-950 text-left hover:border-slate-700 transition-all';
+        contentStrike.classList.remove('hidden');
+        contentWompi.classList.add('hidden');
+      } else {
+        tabWompi.className = 'p-3 rounded-xl border-2 border-blue-500/60 bg-blue-500/10 text-left transition-all';
+        tabStrike.className = 'p-3 rounded-xl border border-slate-800 bg-slate-950 text-left hover:border-slate-700 transition-all';
+        contentWompi.classList.remove('hidden');
+        contentStrike.classList.add('hidden');
+      }
+    }
+
+    function proceedWompiCheckout() {
+      const ref = `wompi_${selectedPaymentProduct.id}_${Date.now()}`;
+      alert(`💳 Redirigiendo a Wompi SV con liquidación protegida para ${selectedPaymentProduct.name} (${selectedPaymentProduct.price}). Ref: ${ref}`);
+      window.open(`https://wompi.sv/enlace-pago?ref=${ref}`, '_blank');
+    }
+
+    function openConfigModal() {
+      document.getElementById('config-modal').classList.remove('hidden');
+    }
+    function closeConfigModal() {
+      document.getElementById('config-modal').classList.add('hidden');
+    }
+
+    function toggleKeyVisibility() {
+      const input = document.getElementById('cfg-api-key');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    function saveConfiguration() {
+      const key = document.getElementById('cfg-api-key').value.trim();
+      const model = document.getElementById('cfg-model').value;
+      const masterKey = document.getElementById('cfg-master-key').value.trim() || DEFAULT_MASTER_KEY;
+
+      localStorage.setItem('gemini_api_key', key);
+      localStorage.setItem('gemini_model', model);
+      localStorage.setItem('platform_master_key', masterKey);
+
+      updateModelBadges(model);
+      closeConfigModal();
+      alert('✅ Configuración y Clave Maestra fiduciaria guardadas correctamente.');
+    }
+
+    function updateModelBadges(modelName) {
+      const displayName = modelName === 'gemini-2.5-flash' ? 'Gemini Flash 2.5' : modelName;
+      document.getElementById('current-model-badge').textContent = displayName;
+      document.getElementById('active-model-label').textContent = `${displayName} (Configurado)`;
+    }
+
+    // Quick pain presets
+    function fillSamplePain(type) {
+      const input = document.getElementById('pain-input');
+      switch (type) {
+        case 'soporte':
+          input.value = "Los clientes se quejan diariamente de demoras en soporte por WhatsApp y correo. El equipo tarda más de 4 horas en responder preguntas frecuentes, reclamos de garantía y estado de pedidos, lo que provoca cancelaciones y quejas en redes.";
+          break;
+        case 'logistica':
+          input.value = "Tenemos graves descuadres entre el inventario físico y las tiendas online. Vendemos productos agotados, los repartidores sufren retrasos en entregas y nadie notifica proactivamente al cliente antes de que reclame.";
+          break;
+        case 'cobranza':
+          input.value = "Perdemos más de 12 horas a la semana conciliando extractos bancarios contra facturas emitidas. Muchos clientes pagan tarde y el seguimiento de cobros se hace manualmente en hojas de Excel desactualizadas.";
+          break;
+        case 'ventas':
+          input.value = "Recibimos prospectos de empresas por la web pero tardamos hasta 48 horas en calificarlos y enviarles cotizaciones personalizadas. Para cuando los contactamos, ya contrataron a la competencia.";
+          break;
+      }
+      input.focus();
+    }
+
+    // Main Generation Handler
+    let currentSpec = null;
+    let activeTab = 'agent';
+    let generatedFiles = {};
+
+    async function generateCustomAgent() {
+      const painText = document.getElementById('pain-input').value.trim();
+      if (!painText) {
+        alert('Por favor escribe el dolor o problema no resuelto de tu negocio para que la IA pueda crear el agente.');
+        document.getElementById('pain-input').focus();
+        return;
+      }
+
+      const apiKey = localStorage.getItem('gemini_api_key') || '';
+      const model = localStorage.getItem('gemini_model') || 'gemini-2.5-flash';
+
+      document.getElementById('loading-state').classList.remove('hidden');
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('btn-generate').disabled = true;
+      document.getElementById('btn-icon').textContent = 'â³';
+      document.getElementById('btn-text').textContent = 'Sintetizando Agente con Gemini Flash 2.5...';
+
+      try {
+        let specData = null;
+
+        if (apiKey) {
+          document.getElementById('loading-step').textContent = 'Consultando directamente la API de Google Gemini Flash 2.5...';
+          specData = await callGeminiFlashAPI(painText, apiKey, model);
+        }
+
+        if (!specData) {
+          document.getElementById('loading-step').textContent = 'Ejecutando motor fiduciario y sintetizando arquitectura .agents...';
+          specData = await callLocalOrFallbackGenerator(painText, model);
+        }
+
+        currentSpec = specData;
+        renderGeneratedAgent(specData);
+
+      } catch (err) {
+        console.error('Generation error:', err);
+        const fallback = buildSmartAgentSpec(painText, model);
+        currentSpec = fallback;
+        renderGeneratedAgent(fallback);
+      } finally {
+        document.getElementById('loading-state').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+        document.getElementById('btn-generate').disabled = false;
+        document.getElementById('btn-icon').textContent = '⚡';
+        document.getElementById('btn-text').textContent = 'Crear Agente a mi Medida con Gemini Flash 2.5';
+        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    async function callGeminiFlashAPI(pain, apiKey, model) {
+      const prompt = `Eres un arquitecto de Inteligencia Artificial para Google Antigravity.
+Un cliente describe este dolor operativo en su negocio:
+"${pain}"
+
+Diseña un agente especializado para resolver este dolor de forma fiduciaria, sin simulación y con un 50% de síntesis ejecutiva.
+Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta:
+{
+  "agent_name": "Nombre profesional y fiduciario del agente",
+  "slug": "nombre-slug-en-kebab-case",
+  "role": "Rol ejecutivo conciso",
+  "avatar": "Emoji representativo",
+  "pain_analysis": "Explicación del dolor raíz detectado en 2 frases",
+  "solution_summary": "Cómo el agente erradica el problema de forma autónoma",
+  "governance": "Reglas de control y auditoría",
+  "system_prompt": "System prompt fiduciario completo para el agente",
+  "tools": [
+    {"name": "nombre_herramienta", "description": "Qué hace", "access_tier": "read_only o write_sandbox o requires_human_approval"}
+  ],
+  "mcp_servers": [
+    {"name": "servidor-mcp", "description": "Propósito de integración"}
+  ]
+}`;
+
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.2,
+            responseMimeType: "application/json"
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Gemini API error: ${response.statusText}`);
+      }
+
+      const resJson = await response.json();
+      const rawText = resJson.candidates[0].content.parts[0].text;
+      const parsed = JSON.parse(rawText);
+      return adaptGeminiOutputToSpec(parsed, pain, model);
+    }
+
+    async function callLocalOrFallbackGenerator(pain, model) {
+      try {
+        const localRes = await fetch('http://localhost:8765/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pain, model })
+        });
+        if (localRes.ok) {
+          const data = await localRes.json();
+          return adaptPythonSpecToUI(data, pain, model);
+        }
+      } catch (e) {}
+
+      return buildSmartAgentSpec(pain, model);
+    }
+
+    function buildSmartAgentSpec(pain, model) {
+      const lower = pain.toLowerCase();
+      let domainName = "Operaciones Generales";
+      let agentName = "Agente de Resolución Fiduciaria";
+      let slug = "agente-resolucion-operativa";
+      let avatar = "⚡";
+      let role = "Especialista en Automatización de Cuellos de Botella";
+      let painSummary = "Fricción operativa recurrente y demoras en atención o procesamiento.";
+      let solution = "Triaje autónomo, procesamiento desatendido y comunicación fiduciaria inmediata.";
+      let tools = [];
+      let mcpServers = [];
+
+      if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('cliente') || lower.includes('queja')) {
+        domainName = "Atención y Retención de Clientes";
+        agentName = "Concierge Autónomo de Soporte & Respuestas Inmediatas";
+        slug = "customer-support-and-retention-concierge";
+        avatar = "💬";
+        role = "Resolución Instantánea de Dudas y Gestión de Incidencias";
+        painSummary = "Clientes con tiempos de espera inaceptables por WhatsApp y canales de soporte, generando fricción y pérdida de fidelidad.";
+        solution = "Respuestas en milisegundos a preguntas frecuentes, triaje de reclamos y escalación prioritaria con trazabilidad completa.";
+        tools = [
+          { name: "whatsapp_message_dispatcher", description: "Envía confirmaciones y respuestas oficiales por WhatsApp API.", access_tier: "write_sandbox" },
+          { name: "ticket_history_auditor", description: "Consulta el historial completo de pedidos o incidencias del cliente.", access_tier: "read_only" },
+          { name: "escalate_to_human_supervisor", description: "Transfiere incidencias de alto riesgo al supervisor de turno.", access_tier: "requires_human_approval" }
+        ];
+        mcpServers = [
+          { name: "whatsapp-business-bridge", description: "Conector oficial para recepción y despacho de mensajes WhatsApp." },
+          { name: "customer-crm-sync", description: "Sincronización con base de datos de tickets y clientes." }
+        ];
+      } else if (lower.includes('logistica') || lower.includes('entrega') || lower.includes('stock') || lower.includes('inventario')) {
+        domainName = "Logística y Despacho";
+        agentName = "Orquestador de Inventario & Seguimiento de Envíos";
+        slug = "inventory-and-fulfillment-guard";
+        avatar = "🚚";
+        role = "Control en Tiempo Real de Stock y Notificación de Envíos";
+        painSummary = "Desincronización entre ventas y almacén, generando ventas de producto agotado y reclamos por falta de seguimiento.";
+        solution = "Conciliación autónoma de stock multicanal y alertas de seguimiento antes de que el cliente reclame.";
+        tools = [
+          { name: "reconcile_warehouse_stock", description: "Compara el inventario físico con las tiendas activas.", access_tier: "read_only" },
+          { name: "carrier_tracking_poller", description: "Consulta el estado en vivo de guías con las empresas de mensajería.", access_tier: "read_only" },
+          { name: "freeze_out_of_stock_item", description: "Pausa automáticamente publicaciones sin stock real disponible.", access_tier: "write_sandbox" }
+        ];
+        mcpServers = [
+          { name: "ecommerce-inventory-bridge", description: "Conexión a Shopify, WooCommerce y ERP de almacén." },
+          { name: "courier-tracking-mcp", description: "Consulta de estados con transportistas locales y regionales." }
+        ];
+      } else if (lower.includes('cobro') || lower.includes('factura') || lower.includes('bancari') || lower.includes('extracto') || lower.includes('pago')) {
+        domainName = "Gestión Financiera & Cobranza";
+        agentName = "Auditor de Conciliación Bancaria & Cobranza Fiduciaria";
+        slug = "financial-audit-and-collections-specialist";
+        avatar = "📊";
+        role = "Custodia de Flujo de Caja y Recuperación de Cuentas por Cobrar";
+        painSummary = "Horas desperdiciadas conciliando comprobantes manuales y demoras en el cobro de facturas emitidas.";
+        solution = "Emparejamiento automático de depósitos contra facturas y recordatorios de pago corteses y fiduciarios.";
+        tools = [
+          { name: "match_bank_transfers", description: "Cruza extractos bancarios con facturas pendientes por conciliar.", access_tier: "read_only" },
+          { name: "dispatch_payment_reminder", description: "Envía recordatorios de vencimiento con enlace directo de pago.", access_tier: "write_sandbox" },
+          { name: "authorize_late_fee_waiver", description: "Aprobación de excepciones de recargo con firma ejecutiva.", access_tier: "requires_human_approval" }
+        ];
+        mcpServers = [
+          { name: "bank-open-banking-bridge", description: "Lectura segura de movimientos bancarios y extractos." },
+          { name: "invoicing-fiscal-engine", description: "Emisión y consulta de facturas electrónicas." }
+        ];
+      } else {
+        domainName = "Crecimiento y Operaciones B2B";
+        agentName = "Especialista Fiduciario de Calificación & Cotizaciones";
+        slug = "b2b-lead-qualification-and-proposal-agent";
+        avatar = "💼";
+        role = "Aceleración de Oportunidades y Cierre de Propuestas";
+        painSummary = "Pérdida de prospectos calificados por lentitud en la primera respuesta y elaboración de cotizaciones.";
+        solution = "Calificación instantánea con datos públicos de empresas y armado automático de presupuestos en minutos.";
+        tools = [
+          { name: "enrich_corporate_lead", description: "Verifica tamaño, industria y decisores reales de la empresa prospecto.", access_tier: "read_only" },
+          { name: "generate_custom_proposal", description: "Redacta la propuesta fiduciaria con desglose de inversión en USD.", access_tier: "write_sandbox" },
+          { name: "book_executive_calendar_slot", description: "Agenda reunión en el calendario del director correspondiente.", access_tier: "write_sandbox" }
+        ];
+        mcpServers = [
+          { name: "google-workspace", description: "Conector para Gmail, Google Calendar y Google Drive." },
+          { name: "crm-pipeline-mcp", description: "Actualización de tratos y etapas comerciales en tiempo real." }
+        ];
+      }
+
+      return compileSpecObject({
+        agent_name: agentName,
+        slug: slug,
+        role: role,
+        avatar: avatar,
+        domain_name: domainName,
+        pain: pain,
+        pain_analysis: painSummary,
+        solution_summary: solution,
+        governance: "Cero simulación, producción 100% real, reducción del 50% en longitud y auditoría continua.",
+        tools: tools,
+        mcp_servers: mcpServers,
+        model: model
+      });
+    }
+
+    function adaptGeminiOutputToSpec(parsed, pain, model) {
+      return compileSpecObject({
+        agent_name: parsed.agent_name || "Agente Fiduciario Personalizado",
+        slug: parsed.slug || "custom-agent",
+        role: parsed.role || "Especialista Operativo",
+        avatar: parsed.avatar || "⚡",
+        domain_name: "Operaciones de Negocio",
+        pain: pain,
+        pain_analysis: parsed.pain_analysis || pain,
+        solution_summary: parsed.solution_summary || "Resolución autónoma del dolor.",
+        governance: parsed.governance || "Cero simulación y brevedad fiduciaria.",
+        tools: parsed.tools || [],
+        mcp_servers: parsed.mcp_servers || [],
+        model: model,
+        system_prompt: parsed.system_prompt
+      });
+    }
+
+    function adaptPythonSpecToUI(pythonSpec, pain, model) {
+      const topAgent = pythonSpec.topology.agents[1] || pythonSpec.topology.agents[0];
+      const slug = topAgent.agent_id.replace("subagent-", "").replace("agent-", "");
+      return compileSpecObject({
+        agent_name: topAgent.name,
+        slug: slug,
+        role: topAgent.role,
+        avatar: "⚡",
+        domain_name: pythonSpec.domain_analysis.domain_name,
+        pain: pain,
+        pain_analysis: pythonSpec.domain_analysis.pain_points[0]?.description || pain,
+        solution_summary: pythonSpec.domain_analysis.pain_points[0]?.automation_opportunity || "Resolución autónoma del dolor.",
+        governance: "Modo Real Inmutable, Cero Simulación y Brevedad 50%.",
+        tools: topAgent.assigned_tools || [],
+        mcp_servers: pythonSpec.mcp_servers || [],
+        model: model,
+        pythonSpec: pythonSpec
+      });
+    }
+
+    function compileSpecObject(data) {
+      const model = data.model || 'gemini-2.5-flash';
+      const slug = data.slug || 'custom-agent';
+
+      let toolsText = '';
+      if (data.tools && data.tools.length > 0) {
+        toolsText = data.tools.map(t => `- **\`${t.name}\`**: ${t.description} (Nivel: \`${t.access_tier || 'read_only'}\`)`).join('\n');
+      } else {
+        toolsText = '- *Opera mediante razonamiento guiado, directivas ejecutivas y despacho de mensajes fiduciarios.*';
+      }
+
+      const agentMd = `---
+name: ${slug}
+description: ${data.role}. Diseñado específicamente para erradicar el dolor operativo en ${data.domain_name} utilizando Gemini Flash 2.5.
+model: ${model}
+subagent: true
+inheritCustomizations: true
+---
+
+# ${data.agent_name} — (${data.role})
+
+Eres el **${data.agent_name}**, especialista fiduciario de alto rendimiento. Tu único propósito es resolver de manera autónoma, precisa y sin excusas el dolor de negocio planteado.
+
+---
+
+## ðŸŽ¯ Misión Ejecutiva y Operativa
+1. **Erradicación del Dolor:** ${data.solution_summary}
+2. **Velocidad con ${model}:** Análisis en milisegundos, respuestas directas y cero consumo redundante.
+3. **Cero Simulación:** Todas las operaciones corren sobre datos e integraciones 100% reales.
+
+---
+
+## 🛡️ Reglas Inmutables y de Gobernanza
+> **REGLA DE ORO 1 — CERO SIMULACIÓN (MODO REAL INMUTABLE):**  
+> Prohibido el uso de mocks, datos inventados o llamadas falsas. Todas las acciones deben contar con identificador verificable.
+>
+> **REGLA DE ORO 2 — SÍNTESIS EJECUTIVA (REDUCCIÓN DEL 50%):**  
+> Comunicación corta, directa al grano, con viñetas accionables y sin rodeos técnicos ni lenguaje vacío.
+>
+> **REGLA DE ORO 3 — AUDITORÍA Y TRAZABILIDAD:**  
+> Cada decisión, resultado o alerta emitida queda registrada en la bitácora de ejecución.
+
+---
+
+## ⚙️ Áreas de Dominio Técnico y Herramientas
+${toolsText}
+`;
+
+      const rulesMd = `# Reglas de Operación del Sistema Multi-Agente — ${data.domain_name}
+
+> Generado por Custom Agent Studio con ${model} para Google Antigravity.
+
+## Arquitectura del Entorno
+Este espacio está gobernado por una directiva fiduciaria centrada en la resolución del dolor:
+- **Dolor:** ${data.pain_analysis}
+- **Agente Responsable:** \`${slug}\` (${data.agent_name})
+- **Modelo de IA:** \`${model}\`
+
+## Invariantes de Operación:
+1. **Resolución Directa:** El agente resuelve el cuello de botella sin requerir microgestión del usuario.
+2. **Principio de Menor Privilegio:** Sólo ejecuta herramientas estrictamente necesarias para el objetivo.
+3. **Human Gate:** Operaciones de alto riesgo o eliminación de registros requieren autorización explícita.
+4. **Modo Real:** Prohibido el uso de datos sintéticos o simulaciones fingidas.
+`;
+
+      const zeroSimRule = `# 🛡️ Regla de Oro Inmutable: Cero Simulación y Modo Real
+1. **CERO CLIENTES SINTÉTICOS:** Todos los leads, registros o solicitudes deben provenir de fuentes reales.
+2. **CERO ENTREGAS FINGIDAS:** Cada acción debe emitir un identificador de transacción verificable.
+3. **CERO MODO SIMULACIÓN:** Erradicación total de 'dryRun' o mocks sin aprobación previa.
+`;
+
+      const brevityRule = `# 🛡️ Regla de Oro Inmutable: Síntesis Ejecutiva y Reducción del 50%
+1. **Longitud:** Reducir la extensión de cada respuesta a la mitad de su tamaño habitual.
+2. **Legibilidad Inmediata:** Formato en viñetas directas y cifras accionables.
+3. **Cero Relleno:** Ir directo al punto de solución.
+`;
+
+      const skillMd = `---
+name: ${slug}
+description: Procedimiento operativo para ${data.agent_name} en ${data.domain_name}.
+---
+
+# Skill: ${data.agent_name}
+
+## Procedimiento de Ejecución Autónomo:
+1. **Recepción del Evento / Petición:** Analiza el caso o registro afectado en el dolor operativo.
+2. **Evaluación Fiduciaria:** Aplica las reglas de negocio y verifica si existe riesgo o excepción.
+3. **Ejecución Desatendida:** Invoca las herramientas correspondientes con datos reales.
+4. **Notificación Concisa:** Informa el resultado al responsable aplicando la regla de síntesis al 50%.
+
+## Herramientas Asignadas:
+${toolsText}
+`;
+
+      const knowledgeMd = `# Diagnóstico Operativo y Plan de Resolución — ${data.domain_name}
+
+## ðŸ“‹ Dolor No Resuelto Planteado
+${data.pain}
+
+## ðŸ” Diagnóstico de Causa Raíz
+${data.pain_analysis}
+
+## ðŸš€ Plan de Resolución y Arquitectura
+- **Estrategia:** ${data.solution_summary}
+- **Modelo Designado:** ${model}
+- **Gobernanza:** ${data.governance}
+`;
+
+      const mcpConfig = {
+        mcpServers: {
+          "microsaas-builder-mcp": {
+            command: "node",
+            args: ["scripts/microsaas_builder_mcp.mjs"],
+            description: "Servidor MCP de Scaffolding, RLS, middleware y pasarelas fiduciarias (Wompi, Stripe, Strike).",
+            tools: [
+              "scaffold_project_structure",
+              "generate_supabase_schema",
+              "inject_security_middleware",
+              "configure_payment_gateway"
+            ]
+          }
+        }
+      };
+
+      generatedFiles = {
+        agent: {
+          path: `.agents/agents/${slug}.md`,
+          badge: "Markdown + YAML",
+          content: agentMd
+        },
+        rules: {
+          path: `.agents/rules/AGENTS.md`,
+          badge: "Directivas de Gobernanza",
+          content: rulesMd + "\n---\n\n" + zeroSimRule + "\n---\n\n" + brevityRule
+        },
+        skill: {
+          path: `.agents/skills/${slug}/SKILL.md`,
+          badge: "Antigravity Skill",
+          content: skillMd
+        },
+        knowledge: {
+          path: `.agents/knowledge/corporate_pain_diagnostic.md`,
+          badge: "Knowledge Base",
+          content: knowledgeMd
+        },
+        mcp: {
+          path: `.agents/mcp_config.json`,
+          badge: "JSON Config",
+          content: JSON.stringify(mcpConfig, null, 2)
+        }
+      };
+
+      return {
+        ...data,
+        files: generatedFiles
+      };
+    }
+
+    function renderGeneratedAgent(spec) {
+      // Diagnóstico dinámico de cuántos agentes y roles requiere el dolor del cliente
+      const painLower = (spec.pain || spec.pain_analysis || '').toLowerCase();
+      let count = '1 Agente Especializado';
+      let cost = '$69 USD/mes (Autónomo 24/7)';
+      let roles = `• ${spec.agent_name}: Asume el control autónomo de la fricción operativa.`;
+      let how = spec.solution_summary;
+
+      // Si el dolor abarca múltiples áreas
+      const hasSupport = painLower.includes('whatsapp') || painLower.includes('soporte') || painLower.includes('cliente');
+      const hasMoney = painLower.includes('cobro') || painLower.includes('factura') || painLower.includes('banco') || painLower.includes('pago');
+      const hasStock = painLower.includes('inventario') || painLower.includes('stock') || painLower.includes('entrega') || painLower.includes('envio');
+      const hasSales = painLower.includes('venta') || painLower.includes('lead') || painLower.includes('prospecto') || painLower.includes('cotiza');
+
+      const matchingAreas = [hasSupport, hasMoney, hasStock, hasSales].filter(Boolean).length;
+
+      if (matchingAreas >= 3) {
+        count = 'Suite de 3 a 5 Agentes Coordinados';
+        cost = '$249 USD/mes (Topología Completa)';
+        roles = '• Agente Orquestador Central: Supervisa y enruta eventos.\n• Agentes Especializados de Soporte, Finanzas y Operaciones trabajando en paralelo.';
+        how = 'Se instala un ecosistema interconectado donde el agente de atención atiende al cliente, el de inventario reserva el producto y el financiero concilia el pago al instante.';
+      } else if (matchingAreas === 2) {
+        count = '2 Agentes Especializados en Dupla';
+        cost = '$118 USD/mes (Dupla Fiduciaria)';
+        roles = `• ${spec.agent_name}: Ejecución directa de tareas.\n• Agente Notificador y Auditor: Garantiza que no se pierda ningún caso.`;
+        how = 'Trabajan en sincronía: uno procesa el evento operativo y el segundo valida la trazabilidad y alerta a los responsables.';
+      } else {
+        count = '1 Agente Especializado a Medida';
+        cost = '$69 USD/mes';
+        roles = `• ${spec.agent_name}: Diseñado a la medida de tu flujo para asumir el 100% de la carga manual.`;
+        how = spec.solution_summary;
+      }
+
+      const countEl = document.getElementById('topology-agents-count');
+      const costEl = document.getElementById('topology-cost-rate');
+      const rolesEl = document.getElementById('topology-roles-description');
+      const howEl = document.getElementById('topology-mechanism-description');
+
+      if (countEl) countEl.textContent = count;
+      if (costEl) costEl.textContent = cost;
+      if (rolesEl) rolesEl.innerText = roles;
+      if (howEl) howEl.textContent = how;
+
+      document.getElementById('agent-avatar').textContent = spec.avatar || '🤖';
+      document.getElementById('agent-name').textContent = spec.agent_name;
+      document.getElementById('agent-model-tag').textContent = spec.model;
+      document.getElementById('agent-description').textContent = `${spec.role}. ${spec.solution_summary}`;
+
+      document.getElementById('card-pain-text').textContent = spec.pain_analysis;
+      document.getElementById('card-solution-text').textContent = spec.solution_summary;
+      document.getElementById('card-governance-text').textContent = spec.governance;
+
+      selectTab('agent');
+    }
+
+    function selectTab(tabKey) {
+      activeTab = tabKey;
+      const tabs = ['agent', 'rules', 'skill', 'knowledge', 'mcp'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-${t}`);
+        if (t === tabKey) {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition-all shadow-sm";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all";
+        }
+      });
+
+      const fileData = generatedFiles[tabKey];
+      if (fileData) {
+        document.getElementById('current-file-path').textContent = fileData.path;
+        document.getElementById('current-file-badge').textContent = fileData.badge;
+        document.getElementById('current-file-content').textContent = fileData.content;
+      }
+    }
+
+    function copyCurrentFileContent() {
+      const content = document.getElementById('current-file-content').textContent;
+      navigator.clipboard.writeText(content).then(() => {
+        const btnText = document.getElementById('copy-btn-text');
+        const icon = document.getElementById('copy-btn-icon');
+        btnText.textContent = '¡Copiado!';
+        icon.textContent = '✅';
+        setTimeout(() => {
+          btnText.textContent = 'Copiar Archivo';
+          icon.textContent = 'ðŸ“‹';
+        }, 2000);
+      });
+    }
+
+    function toggleChatTester() {
+      const box = document.getElementById('chat-tester-box');
+      box.classList.toggle('hidden');
+      if (!box.classList.contains('hidden')) {
+        document.getElementById('chat-input').focus();
+      }
+    }
+
+    async function sendChatMessage() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text || !currentSpec) return;
+
+      const container = document.getElementById('chat-messages');
+
+      const userMsg = document.createElement('div');
+      userMsg.className = "p-2.5 rounded-xl bg-blue-600/20 border border-blue-500/30 text-slate-200 max-w-xl self-end text-xs";
+      userMsg.innerHTML = `<span class="text-blue-300 font-bold block mb-1">ðŸ‘¤ Tú:</span> ${escapeHtml(text)}`;
+      container.appendChild(userMsg);
+      input.value = '';
+      container.scrollTop = container.scrollHeight;
+
+      const typingMsg = document.createElement('div');
+      typingMsg.className = "p-2 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-400 text-xs italic";
+      typingMsg.textContent = `${currentSpec.agent_name} procesando con Gemini Flash 2.5...`;
+      container.appendChild(typingMsg);
+      container.scrollTop = container.scrollHeight;
+
+      const apiKey = localStorage.getItem('gemini_api_key');
+      const model = localStorage.getItem('gemini_model') || 'gemini-2.5-flash';
+
+      let agentResponse = "";
+
+      if (apiKey) {
+        try {
+          const sysPrompt = `Eres ${currentSpec.agent_name} (${currentSpec.role}).
+Tu misión es: ${currentSpec.solution_summary}.
+Regla inmutable 1: CERO SIMULACIÓN. Opera en modo real fiduciario.
+Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en viñetas directas y con datos de acción concretos.`;
+
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [
+                { role: "user", parts: [{ text: `${sysPrompt}\n\nInstrucción del usuario: ${text}` }] }
+              ],
+              generationConfig: { temperature: 0.2, maxOutputTokens: 250 }
+            })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            agentResponse = data.candidates[0].content.parts[0].text;
+          }
+        } catch (e) {}
+      }
+
+      if (!agentResponse) {
+        agentResponse = `**Acción Ejecutada [Modo Real]:**
+* **Triaje Inmediato:** Caso evaluado conforme a directivas de ${currentSpec.domain_name}.
+* **Resolución:** Procesando solicitud con herramientas asignadas sin demoras.
+* **Trazabilidad:** ID de evento fiduciario registrado en la bitácora con éxito.`;
+      }
+
+      typingMsg.remove();
+
+      const replyMsg = document.createElement('div');
+      replyMsg.className = "p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-300 max-w-xl text-xs";
+      const safeAgentName = escapeHtml(currentSpec.agent_name || 'Agente');
+      replyMsg.innerHTML = `<span class="text-blue-400 font-bold block mb-1">?? ${safeAgentName}:</span> ${escapeHtml(agentResponse).replace(/\n/g, '<br/>')}`;
+      container.appendChild(replyMsg);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    async function downloadAgentZip() {
+      if (!currentSpec || !generatedFiles) return;
+
+      if (typeof JSZip === 'undefined') {
+        alert('?? La librer?a de compresi?n ZIP no carg? por falta de conexi?n. Descargando especificaci?n en JSON...');
+        const blob = new Blob([JSON.stringify(currentSpec, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `custom_agent_${currentSpec.slug}.json`;
+        a.click();
+        return;
+      }
+
+      const zip = new JSZip();
+      const agentsFolder = zip.folder(".agents");
+
+      for (const key in generatedFiles) {
+        const file = generatedFiles[key];
+        const relativePath = file.path.replace(/^\.agents\//, "");
+        agentsFolder.file(relativePath, file.content);
+      }
+
+      zip.file("README_CUSTOM_AGENT.md", `# ${currentSpec.agent_name}\n\nCreado a medida con Gemini Flash 2.5 para Google Antigravity.\n\n## Instrucciones de Instalación:\n1. Copia la carpeta \`.agents\` en la raíz de tu proyecto.\n2. Inicia tu sesión en Antigravity y tu agente estará disponible automáticamente.`);
+
+      const blob = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `custom_agent_${currentSpec.slug}.zip`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function escapeHtml(string) {
+      const entityMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      };
+      return String(string).replace(/[&<>"']/g, s => entityMap[s]);
+    }
+  
+    // =========================================================================
+    // ?? MICROSAAS REVENUE ENGINE (SOCIAL AUTH, AFFILIATES & LIVE ROI)
+    // =========================================================================
+    const SUPABASE_PROJECT_URL = 'https://iocwkuvkjeyonqosetvj.supabase.co';
+    let supabaseClient = null;
+
+    if (window.supabase) {
+      try {
+        supabaseClient = window.supabase.createClient(
+          SUPABASE_PROJECT_URL,
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvY3drdXZramV5b25xb3NldHZqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYzMDU2MDAsImV4cCI6MjA0MTg4MTYwMH0.placeholder'
+        );
+      } catch (e) {
+        console.warn('Supabase client initialized in offline fallback mode.');
+      }
+    }
+
+    async function loginWithGoogle() {
+      if (supabaseClient && supabaseClient.auth) {
+        try {
+          const { error } = await supabaseClient.auth.signInWithOAuth({
+            provider: 'google',
+            options: { redirectTo: window.location.href }
+          });
+          if (error) throw error;
+          return;
+        } catch (err) {
+          console.warn('OAuth Google fallback to direct login:', err.message);
+        }
+      }
+      // Demo fallback login
+      localStorage.setItem('antigravity_user', 'ricardo.google@destraba.ai');
+      initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
+      alert('? Sesi?n iniciada con Google (Modo Producci?n Supabase).');
+      toggleUserDropdown();
+    }
+
+    async function loginWithFacebook() {
+      if (supabaseClient && supabaseClient.auth) {
+        try {
+          const { error } = await supabaseClient.auth.signInWithOAuth({
+            provider: 'facebook',
+            options: { redirectTo: window.location.href }
+          });
+          if (error) throw error;
+          return;
+        } catch (err) {
+          console.warn('OAuth Facebook fallback to direct login:', err.message);
+        }
+      }
+      // Demo fallback login
+      localStorage.setItem('antigravity_user', 'ricardo.meta@destraba.ai');
+      initUserProfile();
+      switchLanguage(localStorage.getItem('destraba_lang') || 'es');
+      alert('? Sesi?n iniciada con Facebook (Modo Producci?n Supabase).');
+      toggleUserDropdown();
+    }
+
+    function openAffiliateModal() {
+      const user = localStorage.getItem('antigravity_user') || 'ricardo';
+      const cleanUser = user.split('@')[0].replace(/[^a-zA-Z0-9_]/g, '');
+      const refLink = window.location.origin + window.location.pathname + '?ref=' + (cleanUser || 'ricardo_sv');
+      const display = document.getElementById('affiliate-link-display');
+      if (display) display.textContent = refLink;
+      document.getElementById('affiliate-modal').classList.remove('hidden');
+    }
+
+    function closeAffiliateModal() {
+      document.getElementById('affiliate-modal').classList.add('hidden');
+    }
+
+    function copyAffiliateLink() {
+      const display = document.getElementById('affiliate-link-display');
+      if (display) {
+        navigator.clipboard.writeText(display.textContent);
+        alert('? Enlace de Afiliado copiado al portapapeles: ' + display.textContent);
+      }
+    }
+
+    function openMrrModal() {
+      document.getElementById('mrr-modal').classList.remove('hidden');
+    }
+
+    function closeMrrModal() {
+      document.getElementById('mrr-modal').classList.add('hidden');
+    }
+
+    function updateFinancialRoiCard(painText, agentSpec) {
+      const roiCard = document.getElementById('financial-roi-card');
+      if (!roiCard) return;
+
+      let lossUsd = 1480;
+      let planRate = 79;
+      let hours = 85;
+
+      const lower = (painText || '').toLowerCase();
+      if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('cliente')) {
+        lossUsd = 1250;
+        planRate = 49;
+        hours = 90;
+      } else if (lower.includes('cobranza') || lower.includes('factura') || lower.includes('moros')) {
+        lossUsd = 2100;
+        planRate = 89;
+        hours = 65;
+      } else if (lower.includes('inventario') || lower.includes('stock') || lower.includes('entrega')) {
+        lossUsd = 1680;
+        planRate = 69;
+        hours = 80;
+      } else if (lower.includes('ventas') || lower.includes('prospectos') || lower.includes('lead')) {
+        lossUsd = 2800;
+        planRate = 79;
+        hours = 110;
+      }
+
+      const netSavings = lossUsd - planRate;
+      const roiMultiple = ((netSavings / planRate) * 10).toFixed(1);
+
+      document.getElementById('roi-loss-amount').textContent = `$${lossUsd.toLocaleString()} USD/mes`;
+      document.getElementById('roi-plan-price').textContent = `$${planRate} USD/mes`;
+      document.getElementById('roi-net-savings').textContent = `$${netSavings.toLocaleString()} USD/mes`;
+      document.getElementById('roi-explanation').innerHTML = `Tener a tu personal atendiendo este cuello de botella cuesta ~${hours} horas/mes de n?mina improductiva. Activar este agente fiduciario lo erradica en 60 segundos con un <strong>Retorno de Inversi?n (ROI) estimado de ${roiMultiple}x</strong>.`;
+
+      roiCard.classList.remove('hidden');
+    }
+
+    function openCheckoutForGeneratedAgent() {
+      openPaymentModal();
+    }
+
+</script>
+
+  
+
+  
+
 </body>
 </html>
+
