@@ -51,7 +51,7 @@
         <button onclick="toggleUserDropdown()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-200 transition-all shadow-sm">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span class="text-[11px] font-medium text-slate-300">Portal Empresas:</span>
-          <span id="nav-user-display" class="font-mono text-blue-400 font-semibold text-[11px]">ricardo@destraba.ai</span>
+          <span id="nav-user-display" class="font-mono text-emerald-400 font-semibold text-[11px]">Activar Licencia</span>
           <span class="text-[10px] text-slate-500">▼</span>
         </button>
 
@@ -68,11 +68,11 @@
           <div class="space-y-3">
             <div>
               <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Correo de la Empresa / Tenant</label>
-              <input type="text" id="app-user-input" value="ricardo@destraba.ai" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
+              <input type="text" id="app-user-input" value="" placeholder="tu-empresa@correo.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
             </div>
             <div>
               <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Clave de Seguridad Perimetral</label>
-              <input type="password" id="app-pass-input" value="antigravity2026!" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
+              <input type="password" id="app-pass-input" value="" placeholder="Crea tu clave secreta de acceso" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
             </div>
             <div class="pt-2 flex items-center justify-between border-t border-slate-800/80">
               <span class="text-[10px] text-slate-400">Aislamiento RLS Activo</span>
@@ -110,6 +110,62 @@
       <p id="lbl-hero-slogan" class="text-sm font-medium text-blue-400 mb-1 max-w-xl">"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."</p>
       <p id="lbl-hero-sub" class="text-xs text-slate-400 mb-6 max-w-xl">Escríbelo con tus palabras. La IA creará un agente especializado con la arquitectura oficial de Custom Agents.</p>
 
+      
+    <!-- GOLDEN STEP-BY-STEP WORKFLOW EXPLANATION FOR CLIENTS -->
+    <div class="w-full max-w-4xl mx-auto my-4 p-5 rounded-2xl bg-gradient-to-r from-amber-950/40 via-yellow-950/30 to-amber-950/40 border-2 border-amber-500/60 shadow-2xl shadow-amber-500/10 text-left fade-in">
+      <div class="flex items-center gap-2 pb-2.5 border-b border-amber-500/30 mb-3.5">
+        <span class="text-xl">✨</span>
+        <h3 class="text-sm font-extrabold text-amber-300 uppercase tracking-wider font-mono">
+          ¿Cómo Funciona Destraba AI? — Paso a Paso de tu Solución
+        </h3>
+        <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-200 border border-amber-500/30 font-bold ml-auto">
+          Cero Fricción
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+        <div class="p-3 rounded-xl bg-slate-950/80 border border-amber-500/30">
+          <div class="flex items-center gap-2 text-amber-400 font-bold font-mono text-[11px] mb-1">
+            <span class="w-5 h-5 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-[10px]">1</span>
+            <span>Describes tu Dolor</span>
+          </div>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Escribes con tus propias palabras qué cuello de botella tiene tu negocio (cobros lentos, clientes esperando o inventario desfasado).
+          </p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-950/80 border border-amber-500/30">
+          <div class="flex items-center gap-2 text-amber-400 font-bold font-mono text-[11px] mb-1">
+            <span class="w-5 h-5 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-[10px]">2</span>
+            <span>Diagnóstico IA</span>
+          </div>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Gemini Flash 2.5 analiza el caso en milisegundos y calcula exactamente cuántos agentes necesitas y cuánto dinero pierdes hoy en nómina.
+          </p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-950/80 border border-amber-500/30">
+          <div class="flex items-center gap-2 text-amber-400 font-bold font-mono text-[11px] mb-1">
+            <span class="w-5 h-5 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-[10px]">3</span>
+            <span>Liquidación 1-Clic</span>
+          </div>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Activas tu agente con pago fiduciario protegido vía Strike Lightning (Bitcoin/USD) o tarjeta bancaria internacional Wompi.
+          </p>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-950/80 border border-amber-500/30">
+          <div class="flex items-center gap-2 text-amber-400 font-bold font-mono text-[11px] mb-1">
+            <span class="w-5 h-5 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-[10px]">4</span>
+            <span>Despliegue Soberano</span>
+          </div>
+          <p class="text-slate-300 text-[11px] leading-relaxed">
+            Tu agente queda activo operando 24/7 en la nube resolviendo tareas de forma desatendida, o descargas su código en paquete .zip para Antigravity.
+          </p>
+        </div>
+      </div>
+    </div>
+  
       <!-- Pain Input Card -->
       <div class="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl relative transition-all focus-within:border-blue-500/60 focus-within:ring-1 focus-within:ring-blue-500/30">
         <textarea
@@ -703,13 +759,13 @@
       localStorage.setItem('antigravity_user', user);
       localStorage.setItem('platform_master_key', pass);
       const display = document.getElementById('nav-user-display');
-      if (display) display.textContent = user;
+      if (display) display.textContent = user ? user : 'Activar Licencia';
       alert('? Usuario actualizado: ' + user);
       toggleUserDropdown();
     }
 
     function initUserProfile() {
-      const user = localStorage.getItem('antigravity_user') || 'ricardo@destraba.ai';
+      const user = localStorage.getItem('antigravity_user') || '';
       const display = document.getElementById('nav-user-display');
       const input = document.getElementById('app-user-input');
       if (display) display.textContent = user;
@@ -728,9 +784,7 @@
       // Limpiar rastro corrupto de versiones anteriores en localStorage
       try {
         localStorage.setItem('destraba_lang', 'es');
-        if (!localStorage.getItem('antigravity_user')) {
-          localStorage.setItem('antigravity_user', 'ricardo@destraba.ai');
-        }
+        // Inicialización limpia sin usuario forzado
       } catch(e) {}
       // Limpieza defensiva de valores corruptos
       try {
