@@ -5,17 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Destraba AI — Creador de Custom Agents con Gemini Flash 2.5</title>
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com">
-    function openAboutModal() {
-      const modal = document.getElementById('about-modal');
-      if (modal) modal.classList.remove('hidden');
-    }
-    function closeAboutModal() {
-      const modal = document.getElementById('about-modal');
-      if (modal) modal.classList.add('hidden');
-    }
-  
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <!-- JSZip for 1-click ZIP package download -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <!-- Supabase JS CDN -->
@@ -1763,6 +1753,20 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
       openPaymentModal();
     }
 
+
+    function openAboutModal() {
+      const modal = document.getElementById('about-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+      }
+    }
+    function closeAboutModal() {
+      const modal = document.getElementById('about-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+    }
+  
 </script>
 
   
