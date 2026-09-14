@@ -757,7 +757,7 @@
     }
 
     function saveInAppUser() {
-      const user = document.getElementById('app-user-input')?.value.trim() || 'ricardo@destraba.ai';
+      const user = document.getElementById('app-user-input')?.value.trim() || '';
       const pass = document.getElementById('app-pass-input')?.value || 'antigravity2026!';
       localStorage.setItem('antigravity_user', user);
       localStorage.setItem('platform_master_key', pass);
@@ -832,7 +832,7 @@
     }
 
     async function authenticateSecurityGate() {
-      const userInput = document.getElementById('gate-user-input')?.value || 'ricardo@destraba.ai';
+      const userInput = document.getElementById('gate-user-input')?.value?.trim() || '';
       sessionStorage.setItem('antigravity_authenticated', 'true');
       sessionStorage.setItem('antigravity_user', userInput);
       const gate = document.getElementById('security-gate');
@@ -1656,7 +1656,8 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
         }
       }
       // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.google@destraba.ai');
+      // Sesion OAuth
+      localStorage.removeItem('antigravity_user');
       initUserProfile();
       switchLanguage(localStorage.getItem('destraba_lang') || 'es');
       alert('? Sesi?n iniciada con Google (Modo Producci?n Supabase).');
@@ -1677,7 +1678,8 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
         }
       }
       // Demo fallback login
-      localStorage.setItem('antigravity_user', 'ricardo.meta@destraba.ai');
+      // Sesion OAuth
+      localStorage.removeItem('antigravity_user');
       initUserProfile();
       switchLanguage(localStorage.getItem('destraba_lang') || 'es');
       alert('? Sesi?n iniciada con Facebook (Modo Producci?n Supabase).');
