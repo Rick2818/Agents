@@ -187,6 +187,32 @@
           </div>
         </div>
 
+        <!-- Dynamic Agent Topology Diagnostic Breakdown -->
+        <div class="mt-4 p-4 rounded-xl bg-slate-950 border border-blue-500/40 text-left space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-white flex items-center gap-2">
+              <span>🎯 Diagnóstico de Arquitectura Requerida:</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-mono text-[10px] font-bold" id="topology-agents-count">1 Agente Especializado</span>
+            </span>
+            <span class="text-[10px] font-mono text-emerald-400 font-bold" id="topology-cost-rate">$69 USD/mes (Autónomo 24/7)</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+            <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">¿Qué agentes necesitas y qué harán?</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed" id="topology-roles-description">
+                Evaluando tu caso particular...
+              </p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">¿Cómo te ayudarán a erradicar el dolor?</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed" id="topology-mechanism-description">
+                Conectando herramientas MCP y ejecutando acciones en milisegundos sin intervención de tu personal.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <!-- Pain Diagnostic & Solution Pillars -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
           <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
@@ -335,110 +361,76 @@
   <!-- ðŸ·ï¸ MODAL: CATÁLOGO Y PRECIOS OFICIALES POR AGENTE                         -->
   <!-- ========================================================================= -->
   <div id="pricing-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
-    <div class="bg-slate-900 border border-slate-800 max-w-3xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+    <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
         <div>
           <h3 class="text-base font-bold text-white flex items-center gap-2">
-            <span>ðŸ·ï¸ Catálogo Oficial de Precios por Agente Fiduciario</span>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">Meta: $300 USD/día</span>
+            <span>🏷️ Modelo de Inversión Fiduciaria por Agente a Medida</span>
           </h3>
-          <p class="text-xs text-slate-400 mt-0.5">Estrategia de pricing en USD para cumplimiento del presupuesto (\$9,000 USD/mes).</p>
+          <p class="text-xs text-slate-400 mt-0.5">El precio se adapta al volumen de automatización que requiere tu negocio, sin paquetes rígidos.</p>
         </div>
         <button onclick="closePricingModal()" class="text-slate-400 hover:text-white text-base">✕</button>
       </div>
 
-      <!-- Pricing Table -->
-      <div class="space-y-3 text-xs">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-
-          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">💬 Agente de Soporte & Concierge</span>
-                <span class="font-mono text-xs font-bold text-blue-400">$49 USD/mes</span>
-              </div>
-              <p class="text-slate-400 text-[11px] mb-2">WhatsApp Business & Web. Responde reclamos y dudas en milisegundos.</p>
-              <div class="text-[10px] text-emerald-400 font-medium">ROI: Ahorra 120 hrs/mes de soporte manual.</div>
-            </div>
-            <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$490 USD/año</strong> (2 meses gratis)
-            </div>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">💼 Agente de Ventas Outbound B2B</span>
-                <span class="font-mono text-xs font-bold text-blue-400">$79 USD/mes</span>
-              </div>
-              <p class="text-slate-400 text-[11px] mb-2">Cadencias de 3 impactos, calificación y despacho de links de pago en 1 clic.</p>
-              <div class="text-[10px] text-emerald-400 font-medium">ROI: Genera de 4 a 10 reuniones calificadas/mes.</div>
-            </div>
-            <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$790 USD/año</strong> (2 meses gratis)
-            </div>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">📊 Agente de Cobranza & Conciliación</span>
-                <span class="font-mono text-xs font-bold text-blue-400">$89 USD/mes</span>
-              </div>
-              <p class="text-slate-400 text-[11px] mb-2">Emparejamiento de extractos bancarios contra facturas y cobro cortés.</p>
-              <div class="text-[10px] text-emerald-400 font-medium">ROI: Recupera cartera vencida 3x más rápido.</div>
-            </div>
-            <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$890 USD/año</strong> (2 meses gratis)
-            </div>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">🚚 Agente de Control de Inventario</span>
-                <span class="font-mono text-xs font-bold text-blue-400">$69 USD/mes</span>
-              </div>
-              <p class="text-slate-400 text-[11px] mb-2">Conciliación de stock físico vs tiendas online y seguimiento de envíos.</p>
-              <div class="text-[10px] text-emerald-400 font-medium">ROI: Cero ventas de producto agotado y reclamos.</div>
-            </div>
-            <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$690 USD/año</strong> (2 meses gratis)
-            </div>
-          </div>
-
-          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm">ðŸ“¢ Agente de Mercadeo & Autoridad</span>
-                <span class="font-mono text-xs font-bold text-blue-400">$59 USD/mes</span>
-              </div>
-              <p class="text-slate-400 text-[11px] mb-2">Siembra en Buffer y LinkedIn 2 veces al día con cero repetición visual.</p>
-              <div class="text-[10px] text-emerald-400 font-medium">ROI: Tracción orgánica B2B continua y autoridad.</div>
-            </div>
-            <div class="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">
-              Licencia Anual: <strong>$590 USD/año</strong> (2 meses gratis)
-            </div>
-          </div>
-
-          <!-- Pack Suite Elite -->
-          <div class="p-4 rounded-xl bg-gradient-to-br from-blue-900/30 to-indigo-900/30 border-2 border-blue-500/50 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-bold text-white text-sm flex items-center gap-1.5">
-                  <span>👑 Pack Suite Élite (5 Agentes)</span>
-                </span>
-                <span class="font-mono text-xs font-bold text-emerald-400">$249 USD/mes</span>
-              </div>
-              <p class="text-slate-300 text-[11px] mb-2">Los 5 agentes coordinados por el Master Orchestrator para erradicar cuellos de botella.</p>
-              <div class="text-[10px] text-blue-300 font-medium">Ahorro: \$96 USD/mes vs comprarlos por separado.</div>
-            </div>
-            <div class="mt-3 pt-2 border-t border-blue-500/30 text-[10px] text-slate-400">
-              Licencia Anual: <strong>$2,490 USD/año</strong> (Sustituye 2 empleados de $3,500/mes)
-            </div>
-          </div>
-
+      <div class="space-y-4 text-xs">
+        <div class="p-4 rounded-xl bg-blue-950/30 border border-blue-500/30 text-slate-300 leading-relaxed">
+          <p class="mb-2">
+            <strong>¿Cómo se determina la solución?</strong><br/>
+            Tú describes tu problema real en la consola y la IA diagnostica exactamente <strong>qué arquitectura necesita tu empresa, cuántos agentes requiere el flujo, qué herramientas deben conectarse y cómo erradican el dolor</strong>.
+          </p>
+          <p class="text-[11px] text-blue-300">
+            No compras agentes genéricos de catálogo: cada agente se sintetiza a medida para resolver tu cuello de botella específico.
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-slate-400 block mb-1">Diagnóstico Rápido</span>
+              <span class="text-xl font-bold text-white font-mono">$19 USD</span>
+              <p class="text-[11px] text-slate-400 mt-1">Pago único. Auditoría forense + arquitectura completa descargable.</p>
+            </div>
+            <button onclick="closePricingModal(); document.getElementById('pain-input').focus();" class="mt-3 w-full py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold text-[11px]">
+              Diagnosticar
+            </button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border-2 border-emerald-500/50 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-emerald-400 block mb-1">Agente Autónomo Cloud</span>
+              <span class="text-xl font-bold text-emerald-400 font-mono">$69 USD/mes</span>
+              <p class="text-[11px] text-slate-300 mt-1">1 Agente a medida operando 24/7 en la nube resolviendo tareas de forma desatendida.</p>
+            </div>
+            <button onclick="closePricingModal(); document.getElementById('pain-input').focus();" class="mt-3 w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-[11px]">
+              Crear mi Agente
+            </button>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-center flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase text-blue-400 block mb-1">Topología Multi-Agente</span>
+              <span class="text-xl font-bold text-blue-400 font-mono">$249 USD/mes</span>
+              <p class="text-[11px] text-slate-400 mt-1">Hasta 5 agentes coordinados para operaciones complejas (soporte, cobro, stock y ventas).</p>
+            </div>
+            <button onclick="closePricingModal(); document.getElementById('pain-input').focus();" class="mt-3 w-full py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[11px]">
+              Evaluar Caso
+            </button>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>⚡ Liquidación directa disponible vía Strike Lightning o tarjeta internacional.</span>
+          <span class="font-mono text-emerald-400 font-bold">Cero comisiones ocultas</span>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="closePricingModal()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
 
         <!-- Budget Achievement Callout -->
         <div class="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-[11px] leading-relaxed mt-4">
@@ -1416,6 +1408,48 @@ ${data.pain_analysis}
     }
 
     function renderGeneratedAgent(spec) {
+      // Diagnóstico dinámico de cuántos agentes y roles requiere el dolor del cliente
+      const painLower = (spec.pain || spec.pain_analysis || '').toLowerCase();
+      let count = '1 Agente Especializado';
+      let cost = '$69 USD/mes (Autónomo 24/7)';
+      let roles = `• ${spec.agent_name}: Asume el control autónomo de la fricción operativa.`;
+      let how = spec.solution_summary;
+
+      // Si el dolor abarca múltiples áreas
+      const hasSupport = painLower.includes('whatsapp') || painLower.includes('soporte') || painLower.includes('cliente');
+      const hasMoney = painLower.includes('cobro') || painLower.includes('factura') || painLower.includes('banco') || painLower.includes('pago');
+      const hasStock = painLower.includes('inventario') || painLower.includes('stock') || painLower.includes('entrega') || painLower.includes('envio');
+      const hasSales = painLower.includes('venta') || painLower.includes('lead') || painLower.includes('prospecto') || painLower.includes('cotiza');
+
+      const matchingAreas = [hasSupport, hasMoney, hasStock, hasSales].filter(Boolean).length;
+
+      if (matchingAreas >= 3) {
+        count = 'Suite de 3 a 5 Agentes Coordinados';
+        cost = '$249 USD/mes (Topología Completa)';
+        roles = '• Agente Orquestador Central: Supervisa y enruta eventos.\n• Agentes Especializados de Soporte, Finanzas y Operaciones trabajando en paralelo.';
+        how = 'Se instala un ecosistema interconectado donde el agente de atención atiende al cliente, el de inventario reserva el producto y el financiero concilia el pago al instante.';
+      } else if (matchingAreas === 2) {
+        count = '2 Agentes Especializados en Dupla';
+        cost = '$118 USD/mes (Dupla Fiduciaria)';
+        roles = `• ${spec.agent_name}: Ejecución directa de tareas.\n• Agente Notificador y Auditor: Garantiza que no se pierda ningún caso.`;
+        how = 'Trabajan en sincronía: uno procesa el evento operativo y el segundo valida la trazabilidad y alerta a los responsables.';
+      } else {
+        count = '1 Agente Especializado a Medida';
+        cost = '$69 USD/mes';
+        roles = `• ${spec.agent_name}: Diseñado a la medida de tu flujo para asumir el 100% de la carga manual.`;
+        how = spec.solution_summary;
+      }
+
+      const countEl = document.getElementById('topology-agents-count');
+      const costEl = document.getElementById('topology-cost-rate');
+      const rolesEl = document.getElementById('topology-roles-description');
+      const howEl = document.getElementById('topology-mechanism-description');
+
+      if (countEl) countEl.textContent = count;
+      if (costEl) costEl.textContent = cost;
+      if (rolesEl) rolesEl.innerText = roles;
+      if (howEl) howEl.textContent = how;
+
       document.getElementById('agent-avatar').textContent = spec.avatar || '🤖';
       document.getElementById('agent-name').textContent = spec.agent_name;
       document.getElementById('agent-model-tag').textContent = spec.model;
