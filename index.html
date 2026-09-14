@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
@@ -221,10 +221,10 @@
           <button
             id="btn-generate"
             onclick="generateCustomAgent()"
-            class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2"
+            class="w-full sm:w-auto px-7 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-cyan-500/20 transition-all flex items-center justify-center gap-2 group cursor-pointer"
           >
-            <span id="btn-icon">⚡</span>
-            <span id="btn-text">Crear Agente a mi Medida con Gemini Flash 2.5</span>
+            <span id="btn-icon" class="text-base group-hover:scale-125 transition-transform">⚡</span>
+            <span id="btn-text">Destraba tu Empresa en 60 Segundos — Activar mi Agente Soberano</span>
           </button>
         </div>
       </div>
@@ -1053,7 +1053,7 @@
         document.getElementById('result-section').classList.remove('hidden');
         document.getElementById('btn-generate').disabled = false;
         document.getElementById('btn-icon').textContent = '⚡';
-        document.getElementById('btn-text').textContent = 'Crear Agente a mi Medida con Gemini Flash 2.5';
+        document.getElementById('btn-text').textContent = 'Destraba tu Empresa en 60 Segundos — Activar mi Agente Soberano';
         document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
       }
     }
