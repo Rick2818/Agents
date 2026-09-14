@@ -1,23 +1,30 @@
-﻿# ⚡ Destraba AI
+﻿# ⚡ Destraba AI / Unblock AI
 
-> **"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."**
+> **"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."**  
+> *"Unblock your business in 60 seconds. Deploy your autonomous agent today and put operations on autopilot."*
 
-Plataforma fiduciaria B2B, simple, minimalista y de máxima ciberseguridad, diseñada para transformar **dolores operativos no resueltos** en **Custom Agents autónomos** listos para producción en **Google Antigravity**, impulsados nativamente por **Gemini Flash 2.5**.
+Plataforma fiduciaria B2B, simple, bilingüe (Español / English) y de máxima ciberseguridad, diseñada para transformar **dolores operativos no resueltos** en **Custom Agents autónomos** listos para producción en **Google Antigravity**, impulsados nativamente por **Gemini Flash 2.5**.
+
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)](https://vercel.com)
+[![Supabase Database](https://img.shields.io/badge/Supabase-Hardened%20Postgres-3ECF8E?logo=supabase)](https://iocwkuvkjeyonqosetvj.supabase.co)
+[![Bitcoin Lightning](https://img.shields.io/badge/Strike-Lightning%20USD-FFD700?logo=bitcoin)](https://strike.me)
+[![Python Tests](https://img.shields.io/badge/Tests-Passing%20100%25-brightgreen)](https://github.com/Rick2818/Agents)
 
 ---
 
-## 🏛️ Propuesta de Valor y Experiencia Minimalista
+## 🏛️ Propuesta de Valor y Experiencia
 
-1. **Espacio para el Cliente**: Un portal interactivo moderno donde el directivo describe en lenguaje natural su fricción operativa y recibe en menos de 60 segundos su arquitectura personalizada.
+1. **Panel Directivo Bilingüe**: Selector dinámico Español / English sin recargar la app.
 2. **Motor Gemini Flash 2.5**: Respuestas fiduciarias ultrarrápidas, síntesis rigurosa y nulo desperdicio de tokens.
 3. **Cero Intervención Humana**: Prospección, calificación, cotización y cobro 100% automatizados con webhooks firmados criptográficamente.
 4. **Ciberseguridad de Grado Bancario**:
    - Acceso perimetral controlado por Clave Maestra SHA-256 (`antigravity2026!`) con bloqueo tras 3 intentos fallidos.
    - Prevención de ataques de canal lateral con validación temporalmente constante (`timingSafeCompare`).
-   - Libro mayor de idempotencia en memoria (`idempotencyKey`).
+   - Rate-limiting en memoria con poda periódica (TTL 5 min).
+   - Verificación estricta de firmas HMAC SHA-256 (`X-Strike-Signature`, `X-Event-Checksum`).
    - Cabeceras bancarias estrictas (`Content-Security-Policy`, `Strict-Transport-Security`, `X-Frame-Options: DENY`).
 5. **Autonomía y Descarga Inmediata**:
-   - Despliegue en la nube 24/7 o descarga en 1 clic del paquete `.agents/` en formato `.zip`.
+   - Despliegue serverless en Vercel 24/7 o descarga en 1 clic del paquete `.agents/` en formato `.zip`.
 
 ---
 
@@ -50,28 +57,56 @@ Plataforma fiduciaria B2B, simple, minimalista y de máxima ciberseguridad, dise
 ## 💳 Pasarelas de Pago Seguras
 
 - **Strike Lightning Network**:
-  - Pagos instantáneos en Bitcoin Lightning o USD sin comisiones abusivas.
-  - Dirección receptora oficial: `rick2818@strike.me`
-  - Protocolo LNURL / Lightning Invoice con validación de hash y webhook verificado.
+  - Pagos instantáneos en Bitcoin Lightning o USD sin comisiones de intermediarios.
+  - Dirección receptora fiduciaria: `rick2818@strike.me`
+  - Invoices dinámicos y webhooks con firma criptográfica `v1`.
 - **Wompi SV (Bancolombia / El Salvador)**:
   - Enlaces de pago 3DSecure con soporte de tarjetas internacionales Visa, Mastercard y transferencias QR.
   - Validación de firma bancaria `X-Event-Checksum` (HMAC SHA-256).
 
 ---
 
-## 🗄️ Base de Datos & Autenticación (Supabase)
+## ☁️ Despliegue en Vercel (1-Clic Serverless)
 
-- **Instancia Oficial**: `https://iocwkuvkjeyonqosetvj.supabase.co`
-- **Esquema SQL**: `supabase_schema.sql`
-- **Características**:
-  - Extensión `pgcrypto` con hashing unidireccional `crypt(password, gen_salt('bf', 10))`.
-  - Tabla `clients` con control de tarifas (`pricing_tier`), estado de suscripción y límites de agentes.
-  - Procedimientos almacenados seguros: `register_client` y `verify_client_login`.
-  - Row Level Security (RLS) para aislamiento estricto de tenants.
+El proyecto incluye configuración nativa para **Vercel** (`vercel.json`, `package.json` y `api/index.js`).
+
+### Despliegue Automático:
+```bash
+# Iniciar sesión en Vercel
+vercel login
+
+# Desplegar directamente a producción
+vercel --prod
+```
+
+### Endpoints Serverless Expuestos:
+- `GET /api/catalog`: Retorna el catálogo oficial con precios y direcciones fiduciarias.
+- `POST /api/strike/invoice`: Genera una factura Lightning para liquidación inmediata.
+- `POST /api/wompi/checkout`: Construye la URL de pasarela Wompi con parámetros firmados.
+- `POST /api/webhooks/strike`: Recibe y valida notificaciones de pago Strike.
+- `POST /api/webhooks/wompi`: Recibe y valida notificaciones bancarias Wompi.
 
 ---
 
-## 🚀 Inicio Rápido
+## 🗄️ Base de Datos & Autenticación (Supabase)
+
+- **Instancia Oficial**: `https://iocwkuvkjeyonqosetvj.supabase.co`
+- **Script SQL de Migración**: `supabase_schema.sql`
+
+### Pasos para Aplicar en Supabase:
+1. Accede a tu dashboard en [Supabase](https://supabase.com/dashboard/project/iocwkuvkjeyonqosetvj).
+2. Abre el **SQL Editor**.
+3. Copia y pega el contenido completo de [`supabase_schema.sql`](./supabase_schema.sql).
+4. Ejecuta el script (`RUN`).
+5. **Seguridad Aplicada**:
+   - `search_path = public, pg_temp` en funciones `SECURITY DEFINER` (prevención de search path hijacking).
+   - RLS activo en `clients`, `referrals` y `referral_conversions`.
+   - Índices creados en foreign keys para búsquedas ultrarrápidas.
+   - Hashing `bcrypt` con `pgcrypto`.
+
+---
+
+## 🚀 Inicio Rápido Local
 
 ### 1. Iniciar la Plataforma Web
 Haz doble clic en:
@@ -83,12 +118,12 @@ O ábrelo en tu navegador:
 start dashboard.html
 ```
 
-### 2. Iniciar el Servidor de Pagos y Webhooks
+### 2. Iniciar el Gateway Local de Pagos
 ```bash
 node scripts/payments_gateway_server.mjs
 ```
 
-### 3. Ejecutar la Suite de Pruebas Unitarias
+### 3. Ejecutar Suite de Tests
 ```bash
 python -m unittest discover tests
 ```
@@ -100,7 +135,7 @@ python -m unittest discover tests
 - **Manual de Usuario Completo**: [`MANUAL_DE_USUARIO_APP.md`](./MANUAL_DE_USUARIO_APP.md)
 - **Estrategia Desatendida**: [`.agents/knowledge/ESTRATEGIA_VENTAS_DESATENDIDA_PARETO.md`](./.agents/knowledge/ESTRATEGIA_VENTAS_DESATENDIDA_PARETO.md)
 - **Estudio de Mercado & Pricing**: [`.agents/knowledge/ESTUDIO_MERCADO_Y_PRICING_POR_AGENTE.md`](./.agents/knowledge/ESTUDIO_MERCADO_Y_PRICING_POR_AGENTE.md)
-- **Soporte Técnico Oficial**: `soporte@destraba.ai`
+- **Soporte Oficial**: `soporte@destraba.ai` / `support@unblock.ai`
 
 ---
-*Destraba AI © 2026. Todos los derechos reservados.*
+*Destraba AI / Unblock AI © 2026. Todos los derechos reservados.*

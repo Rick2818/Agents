@@ -1,0 +1,22 @@
+﻿{
+  "name": "destraba-ai",
+  "version": "1.0.0",
+  "description": "Destraba AI / Unblock AI — Plataforma Fiduciaria de Custom Agents Desatendidos con Gemini Flash 2.5",
+  "type": "module",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node scripts/payments_gateway_server.mjs",
+    "test": "python -m unittest discover tests"
+  },
+  "keywords": [
+    "antigravity",
+    "custom-agents",
+    "gemini-flash-2.5",
+    "mcp",
+    "microsaas",
+    "strike",
+    "wompi"
+  ],
+  "author": "Destraba AI Team",
+  "license": "UNLICENSED"
+}
