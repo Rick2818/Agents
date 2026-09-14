@@ -179,3 +179,43 @@ SELECT id, full_name, email, username, subscription_tier, monthly_rate_usd, crea
 FROM public.clients 
 ORDER BY created_at DESC;
 
+
+-- =============================================================================
+-- 10. MOTOR DE CRECIMIENTO VIRAL (SISTEMA DE AFILIADOS Y REFERIDOS B2B)
+-- =============================================================================
+CREATE TABLE IF NOT EXISTS public.referrals (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    affiliate_code VARCHAR(50) UNIQUE NOT NULL,
+    client_id UUID REFERENCES public.clients(id) ON DELETE SET NULL,
+    commission_rate NUMERIC(4, 2) NOT NULL DEFAULT 0.20, -- 20% recurrente
+    total_earned_usd NUMERIC(10, 2) NOT NULL DEFAULT 0.00,
+    created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS public.referral_conversions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    affiliate_code VARCHAR(50) NOT NULL,
+    referred_client_id UUID REFERENCES public.clients(id) ON DELETE CASCADE,
+    sale_amount_usd NUMERIC(10, 2) NOT NULL,
+    commission_earned_usd NUMERIC(10, 2) NOT NULL,
+    payment_gateway VARCHAR(30) NOT NULL DEFAULT 'wompi_sv',
+    created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- =============================================================================
+-- 11. VISTA DE M?TRICAS FINANCIERAS Y MRR HUB ($300 USD/D?A - $9,000 USD/MES)
+-- =============================================================================
+CREATE OR REPLACE VIEW public.view_mrr_metrics AS
+SELECT 
+    COUNT(*) FILTER (WHERE subscription_status = 'active') AS active_clients,
+    COALESCE(SUM(monthly_rate_usd) FILTER (WHERE subscription_status = 'active'), 0.00) AS current_mrr_usd,
+    ROUND(COALESCE(SUM(monthly_rate_usd) FILTER (WHERE subscription_status = 'active'), 0.00) / 30.0, 2) AS current_daily_usd,
+    300.00 AS target_daily_usd,
+    9000.00 AS target_monthly_usd,
+    ROUND((COALESCE(SUM(monthly_rate_usd) FILTER (WHERE subscription_status = 'active'), 0.00) / 9000.00) * 100.0, 2) AS mrr_goal_percentage,
+    COUNT(*) FILTER (WHERE subscription_tier = 'suite_elite' AND subscription_status = 'active') AS elite_packs_count,
+    ROUND(COALESCE(SUM(monthly_rate_usd) * 12, 0.00), 2) AS projected_arr_usd
+FROM public.clients;
+
+-- Permisos de lectura para la vista de m?tricas
+GRANT SELECT ON public.view_mrr_metrics TO anon, authenticated, service_role;
