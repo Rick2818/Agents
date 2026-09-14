@@ -48,9 +48,10 @@
     <div class="flex items-center gap-3">
       <!-- Usuario y Clave desplegable simple -->
       <div class="relative">
-        <button onclick="toggleUserDropdown()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-200 transition-all shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span id="nav-user-display" class="font-mono text-slate-300 text-[11px]">ricardo@destraba.ai</span>
+        <button onclick="toggleUserDropdown()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-200 transition-all shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-[11px] font-medium text-slate-300">Portal Empresas:</span>
+          <span id="nav-user-display" class="font-mono text-blue-400 font-semibold text-[11px]">ricardo@destraba.ai</span>
           <span class="text-[10px] text-slate-500">▼</span>
         </button>
 
@@ -122,6 +123,30 @@
           <button onclick="fillSamplePain('ventas')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-300 hover:border-blue-500/40 border border-slate-700/60 text-slate-300 transition-all"><span id="lbl-pill-4">💼 Fuga de prospectos sin seguimiento</span></button>
         </div>
 
+        <!-- Impact Metrics & Trust Badges -->
+      <div class="w-full grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-3 text-left">
+        <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tiempo de Respuesta</span>
+          <span class="text-sm font-extrabold text-emerald-400 font-mono">< 60 Segundos</span>
+          <span class="text-[10px] text-slate-500 block">Arquitectura en vivo</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Horas Recuperadas</span>
+          <span class="text-sm font-extrabold text-blue-400 font-mono">+4,500 hrs</span>
+          <span class="text-[10px] text-slate-500 block">En empresas auditadas</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Seguridad Bancaria</span>
+          <span class="text-sm font-extrabold text-emerald-400 font-mono">PCI-DSS / 3DS</span>
+          <span class="text-[10px] text-slate-500 block">Firma HMAC SHA-256</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Cumplimiento Operativo</span>
+          <span class="text-sm font-extrabold text-blue-400 font-mono">100% Real</span>
+          <span class="text-[10px] text-slate-500 block">Cero Simulación</span>
+        </div>
+      </div>
+      
         <!-- Action Row -->
         <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-slate-800/60">
           <div class="flex items-center gap-2 text-xs text-slate-400">
@@ -524,6 +549,28 @@
   </div>
 
   <!-- Footer -->
+  <!-- Institutional Certification Bar -->
+  <div class="border-t border-slate-800/60 bg-slate-950/40 py-3 px-6">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span class="font-semibold text-slate-300">Infraestructura Fiduciaria:</span>
+        <span>Google Cloud & Antigravity</span>
+        <span>•</span>
+        <span>Supabase Hardened Postgres</span>
+        <span>•</span>
+        <span>Strike Lightning Network</span>
+        <span>•</span>
+        <span>Wompi 3D Secure</span>
+      </div>
+      <div class="flex items-center gap-2 font-mono text-[10px] text-slate-500">
+        <span>Cifrado TLS 1.3</span>
+        <span>•</span>
+        <span>Auditoría SHA-256 Inmutable</span>
+      </div>
+    </div>
+  </div>
+
   <footer class="border-t border-slate-800/80 py-6 px-6 text-center text-xs text-slate-500 shrink-0 bg-slate-950/60 flex flex-col sm:flex-row items-center justify-between max-w-5xl w-full mx-auto gap-4">
     <div>
       Destraba AI • Agentes Autónomos con Gemini Flash 2.5
