@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "shopify-storefront-mcp": {
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp_shopify"
+      ],
+      "env": {
+        "ENV_MODE": "production",
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "carrier-shipping-mcp": {
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp_shipping"
+      ],
+      "env": {
+        "ENV_MODE": "production",
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "inter-agent-bus-mcp": {
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp_generator.communication"
+      ],
+      "env": {}
+    }
+  }
+}
