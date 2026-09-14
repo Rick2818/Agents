@@ -6,6 +6,9 @@
  */
 
 import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import {
   StrikeLightningGateway,
   WompiGateway,
@@ -14,6 +17,10 @@ import {
   checkRateLimit,
   recordAndVerifyIdempotency
 } from '../lib/payment_security.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 const PORT = process.env.PAYMENTS_PORT || 8766;
 
@@ -66,6 +73,24 @@ const server = http.createServer(async (req, res) => {
   }
 
   const url = new URL(req.url, `http://${req.headers.host}`);
+
+  // Health check
+  if (req.method === 'GET' && url.pathname === '/api/health') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ status: 'ok', server: 'destraba-ai-gateway', timestamp: new Date().toISOString() }));
+    return;
+  }
+
+  // Servir frontend web: /, /index.html o /dashboard.html
+  if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '/dashboard.html')) {
+    const targetFile = url.pathname === '/dashboard.html' ? 'dashboard.html' : 'index.html';
+    const filePath = path.join(ROOT_DIR, targetFile);
+    if (fs.existsSync(filePath)) {
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      res.end(fs.readFileSync(filePath));
+      return;
+    }
+  }
 
   // Endpoint 1: Catálogo Oficial de Precios en USD
   if (req.method === 'GET' && url.pathname === '/api/payments/catalog') {
