@@ -1,0 +1,135 @@
+[
+  {
+    "auditId": "audit_1789424180228_739",
+    "timestamp": "2026-09-14T22:16:20.228Z",
+    "company": "Coordinadora Mercantil",
+    "domain": "coordinadora.com",
+    "country": "Colombia",
+    "industry": "Courier & Paquetería",
+    "contactEmail": "coordinadora@coordinadora.com",
+    "serverDetected": "\"\"",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=coordinadora.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "coordinadora@coordinadora.com",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en coordinadora.com",
+      "body": "Estimado equipo técnico en Coordinadora Mercantil,\n\nDurante nuestra inspección perimetral automatizada sobre coordinadora.com, detectamos 0 anomalías en cabeceras bancarias:\n\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=coordinadora.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789424178875_913",
+    "timestamp": "2026-09-14T22:16:18.875Z",
+    "company": "TRS Logística",
+    "domain": "trslogistica.com",
+    "country": "Centroamérica",
+    "industry": "Transporte de Carga",
+    "contactEmail": "info@trslogistica.com",
+    "serverDetected": "LiteSpeed",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=trslogistica.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "info@trslogistica.com",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en trslogistica.com",
+      "body": "Estimado equipo técnico en TRS Logística,\n\nDurante nuestra inspección perimetral automatizada sobre trslogistica.com, detectamos 2 anomalías en cabeceras bancarias:\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=trslogistica.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789424177557_434",
+    "timestamp": "2026-09-14T22:16:17.557Z",
+    "company": "ALG El Salvador 3PL",
+    "domain": "alg3pl.com",
+    "country": "El Salvador",
+    "industry": "Logística 3PL",
+    "contactEmail": "info@alg3pl.com",
+    "serverDetected": "LiteSpeed",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=alg3pl.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "info@alg3pl.com",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en alg3pl.com",
+      "body": "Estimado equipo técnico en ALG El Salvador 3PL,\n\nDurante nuestra inspección perimetral automatizada sobre alg3pl.com, detectamos 1 anomalías en cabeceras bancarias:\n• Falta Content-Security-Policy (Riesgo XSS)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=alg3pl.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789424174179_600",
+    "timestamp": "2026-09-14T22:16:14.179Z",
+    "company": "Aldesa Logística",
+    "domain": "aldesalogistica.com",
+    "country": "El Salvador",
+    "industry": "Almacenes Fiscales",
+    "contactEmail": "contacto@aldesalogistica.com",
+    "serverDetected": "Apache",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=aldesalogistica.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@aldesalogistica.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en aldesalogistica.com",
+      "body": "Estimado equipo técnico en Aldesa Logística,\n\nDurante nuestra inspección perimetral automatizada sobre aldesalogistica.com, detectamos 3 anomalías en cabeceras bancarias:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=aldesalogistica.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  }
+]
