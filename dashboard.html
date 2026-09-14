@@ -58,12 +58,12 @@
     </div>
 
     <div class="flex items-center gap-3">
-      <!-- Usuario y Clave desplegable simple -->
+      <!-- Usuario y Clave desplegable con control de sesión -->
       <div class="relative">
         <button onclick="toggleUserDropdown()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-200 transition-all shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-[11px] font-medium text-slate-300">Portal Empresas:</span>
-          <span id="nav-user-display" class="font-mono text-emerald-400 font-semibold text-[11px]">Activar Licencia</span>
+          <span id="nav-user-status-dot" class="w-2 h-2 rounded-full bg-slate-500"></span>
+          <span class="text-[11px] font-medium text-slate-300">Portal:</span>
+          <span id="nav-user-display" class="font-mono text-emerald-400 font-semibold text-[11px]">Ingresar</span>
           <span class="text-[10px] text-slate-500">▼</span>
         </button>
 
@@ -77,19 +77,40 @@
             </div>
             <button onclick="toggleUserDropdown()" class="text-slate-400 hover:text-white text-xs">✕</button>
           </div>
-          <div class="space-y-3">
+
+          <!-- Estado 1: Formulario de Login (Usuario Anónimo) -->
+          <div id="user-profile-auth-actions" class="space-y-3">
             <div>
               <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Correo de la Empresa / Tenant</label>
               <input type="text" id="app-user-input" value="" placeholder="tu-empresa@correo.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
             </div>
             <div>
               <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Clave de Seguridad Perimetral</label>
-              <input type="password" id="app-pass-input" value="" placeholder="Crea tu clave secreta de acceso" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
+              <input type="password" id="app-pass-input" value="" placeholder="Crea o ingresa tu clave secreta" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500 font-mono" />
             </div>
             <div class="pt-2 flex items-center justify-between border-t border-slate-800/80">
               <span class="text-[10px] text-slate-400">Aislamiento RLS Activo</span>
-              <button onclick="saveInAppUser()" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">Actualizar Sesión</button>
+              <button onclick="saveInAppUser()" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">Iniciar Sesión</button>
             </div>
+          </div>
+
+          <!-- Estado 2: Sesión Activa del Cliente -->
+          <div id="user-profile-logged-actions" class="hidden space-y-3">
+            <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
+              <span class="text-[10px] uppercase text-slate-500 font-bold block">Cuenta Corporativa Activa</span>
+              <span id="logged-user-email" class="text-xs font-semibold text-emerald-400 font-mono break-all"></span>
+              <span class="inline-flex items-center gap-1 text-[10px] text-slate-400 mt-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Licencia Fiduciaria Conectada
+              </span>
+            </div>
+            <button onclick="openConfigModal(); toggleUserDropdown();" class="w-full py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-all flex items-center justify-center gap-2 border border-slate-700">
+              <span>⚙️</span>
+              <span>Abrir Configuración</span>
+            </button>
+            <button onclick="logoutUser()" class="w-full py-1.5 px-3 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 text-xs font-medium transition-all border border-red-500/30 flex items-center justify-center gap-1.5">
+              <span>🔒</span>
+              <span>Cerrar Sesión</span>
+            </button>
           </div>
         </div>
       </div>
@@ -103,9 +124,10 @@
         Precios
       </button>
 
-      <!-- Configuración -->
-      <button onclick="openConfigModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all">
-        Configuración
+      <!-- Configuración (Oculta por defecto: solo visible al autenticarse) -->
+      <button id="btn-config-header" onclick="openConfigModal()" class="hidden px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-blue-500/40 hover:border-blue-400 text-xs font-medium text-slate-200 transition-all flex items-center gap-1.5 shadow-sm">
+        <span>⚙️</span>
+        <span>Configuración</span>
       </button>
     </div>
   </header>
@@ -678,7 +700,6 @@
     </div>
   </div>
 
-
   <!-- Configuration Modal (Settings) -->
   <div id="config-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 fade-in">
     <div class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 shadow-2xl relative">
@@ -842,34 +863,98 @@
 
 
     // =========================================================================
-    // ?? IN-APP USER PROFILE & CREDENTIALS
+    // 🛡️ IN-APP USER PROFILE & AUTHENTICATED SESSION GATE
     // =========================================================================
     function toggleUserDropdown() {
       const panel = document.getElementById('user-profile-panel');
       if (panel) panel.classList.toggle('hidden');
     }
 
+    function isUserAuthenticated() {
+      const user = localStorage.getItem('antigravity_user');
+      const isAuth = sessionStorage.getItem('antigravity_authenticated');
+      return !!(user && isAuth === 'true');
+    }
+
+    function updateSessionUI() {
+      const user = localStorage.getItem('antigravity_user') || '';
+      const isAuth = isUserAuthenticated();
+
+      const display = document.getElementById('nav-user-display');
+      const statusDot = document.getElementById('nav-user-status-dot');
+      const configBtn = document.getElementById('btn-config-header');
+      const authSection = document.getElementById('user-profile-auth-actions');
+      const loggedSection = document.getElementById('user-profile-logged-actions');
+      const loggedUserEmail = document.getElementById('logged-user-email');
+
+      if (isAuth) {
+        if (display) display.textContent = user;
+        if (statusDot) {
+          statusDot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
+        }
+        if (configBtn) configBtn.classList.remove('hidden');
+        if (authSection) authSection.classList.add('hidden');
+        if (loggedSection) loggedSection.classList.remove('hidden');
+        if (loggedUserEmail) loggedUserEmail.textContent = user;
+      } else {
+        if (display) display.textContent = 'Ingresar';
+        if (statusDot) {
+          statusDot.className = 'w-2 h-2 rounded-full bg-slate-500';
+        }
+        if (configBtn) configBtn.classList.add('hidden');
+        if (authSection) authSection.classList.remove('hidden');
+        if (loggedSection) loggedSection.classList.add('hidden');
+      }
+    }
+
     function saveInAppUser() {
       const user = document.getElementById('app-user-input')?.value.trim() || '';
-      const pass = document.getElementById('app-pass-input')?.value || 'antigravity2026!';
+      const pass = document.getElementById('app-pass-input')?.value.trim() || '';
+
+      if (!user) {
+        alert('⚠️ Por favor ingresa el correo de la empresa o tenant.');
+        return;
+      }
+
+      const savedMaster = localStorage.getItem('platform_master_key') || DEFAULT_MASTER_KEY;
+      if (pass && pass !== savedMaster && localStorage.getItem('platform_master_key')) {
+        alert('❌ Clave de seguridad perimetral incorrecta.');
+        return;
+      }
+
+      if (pass) {
+        localStorage.setItem('platform_master_key', pass);
+      }
       localStorage.setItem('antigravity_user', user);
-      localStorage.setItem('platform_master_key', pass);
-      const display = document.getElementById('nav-user-display');
-      if (display) display.textContent = user ? user : 'Activar Licencia';
-      alert('? Usuario actualizado: ' + user);
+      sessionStorage.setItem('antigravity_authenticated', 'true');
+
+      updateSessionUI();
+      alert('✅ Sesión fiduciaria iniciada: ' + user);
+      toggleUserDropdown();
+    }
+
+    function logoutUser() {
+      sessionStorage.removeItem('antigravity_authenticated');
+      localStorage.removeItem('antigravity_user');
+      const inputUser = document.getElementById('app-user-input');
+      const inputPass = document.getElementById('app-pass-input');
+      if (inputUser) inputUser.value = '';
+      if (inputPass) inputPass.value = '';
+      updateSessionUI();
+      closeConfigModal();
+      alert('🔒 Has cerrado sesión de forma segura.');
       toggleUserDropdown();
     }
 
     function initUserProfile() {
       const user = localStorage.getItem('antigravity_user') || '';
-      const display = document.getElementById('nav-user-display');
       const input = document.getElementById('app-user-input');
-      if (display) display.textContent = user;
       if (input) input.value = user;
+      updateSessionUI();
     }
 
     // =========================================================================
-    // 🛡️ CYBERSECURITY LOGIC (SHA-256 & ANTI-BRUTE FORCE)
+    // 🛡️  CYBERSECURITY LOGIC (SHA-256 & ANTI-BRUTE FORCE)
     // =========================================================================
     const DEFAULT_MASTER_KEY = "antigravity2026!";
     let failedAttempts = 0;
@@ -1047,6 +1132,14 @@
     }
 
     function openConfigModal() {
+      if (!isUserAuthenticated()) {
+        alert('🔒 Acceso Denegado: Debes iniciar sesión con tu cuenta corporativa para acceder a la configuración del sistema.');
+        const panel = document.getElementById('user-profile-panel');
+        if (panel && panel.classList.contains('hidden')) {
+          panel.classList.remove('hidden');
+        }
+        return;
+      }
       document.getElementById('config-modal').classList.remove('hidden');
     }
     function closeConfigModal() {
