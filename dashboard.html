@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Destraba AI — Creador de Custom Agents con Gemini Flash 2.5</title>
+  
+  <!-- Open Graph / Redes Sociales (LinkedIn, Twitter, WhatsApp) -->
+  <meta name="description" content="Destraba tu empresa en 60 segundos. Transforma cuellos de botella operativos en Custom Agents autónomos con Gemini Flash 2.5 para Google Antigravity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rick2818.github.io/Agents/">
+  <meta property="og:title" content="Destraba AI — Agentes Autónomos Soberanos para Empresas">
+  <meta property="og:description" content="Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático.">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://rick2818.github.io/Agents/">
+  <meta property="twitter:title" content="Destraba AI — Agentes Autónomos con Gemini Flash 2.5">
+  <meta property="twitter:description" content="Erradica los cuellos de botella de tu empresa con agentes autónomos reales.">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- JSZip for 1-click ZIP package download -->
@@ -585,6 +597,87 @@
       </div>
     </div>
   </div>
+
+  <!-- ========================================================================= -->
+  <!-- 💳 MODAL: PASARELA DE COBRO EN 1-CLIC (STRIKE LIGHTNING & TARJETAS)         -->
+  <!-- ========================================================================= -->
+  <div id="payment-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 fade-in">
+    <div class="bg-slate-900 border-2 border-cyan-500/40 max-w-lg w-full rounded-2xl p-6 shadow-2xl relative text-left">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">
+            ⚡
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Activar Licencia de Operación</h3>
+            <p class="text-[11px] text-slate-400">Despacho Desatendido e Inmediato</p>
+          </div>
+        </div>
+        <button onclick="closePaymentModal()" class="text-slate-400 hover:text-white text-base">✕</button>
+      </div>
+
+      <!-- Resumen del Plan -->
+      <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 mb-4 flex items-center justify-between">
+        <div>
+          <span id="pay-product-name" class="font-bold text-white text-xs block">Agente Pro Operator</span>
+          <span id="pay-product-desc" class="text-[10px] text-slate-400">Suscripción Mensual Desatendida</span>
+        </div>
+        <div class="text-right">
+          <span id="pay-product-price" class="text-lg font-mono font-extrabold text-emerald-400">$69.00 USD</span>
+          <span class="text-[9px] text-emerald-500 block font-mono">Facturación Oficial</span>
+        </div>
+      </div>
+
+      <!-- Selector de Pasarela -->
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <button id="tab-gw-strike" onclick="selectGatewayTab('strike')" class="p-3 rounded-xl border-2 border-amber-500/60 bg-amber-500/10 text-left transition-all">
+          <span class="text-[10px] font-bold uppercase text-amber-400 block mb-0.5">⚡ Strike Lightning</span>
+          <span class="text-xs font-bold text-white block">$0 Comisiones</span>
+          <span class="text-[10px] text-slate-400">Satoshis o USD Directo</span>
+        </button>
+        <button id="tab-gw-wompi" onclick="selectGatewayTab('wompi')" class="p-3 rounded-xl border border-slate-800 bg-slate-950 text-left hover:border-slate-700 transition-all">
+          <span class="text-[10px] font-bold uppercase text-blue-400 block mb-0.5">💳 Tarjeta / Wompi</span>
+          <span class="text-xs font-bold text-white block">Visa / Mastercard</span>
+          <span class="text-[10px] text-slate-400">Seguridad 3D Secure</span>
+        </button>
+      </div>
+
+      <!-- Contenido Strike -->
+      <div id="content-gw-strike" class="space-y-3">
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] text-slate-400">Destino Fiduciario Autorizado:</span>
+            <span class="font-mono text-amber-400 font-bold text-xs bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">rick2818@strike.me</span>
+          </div>
+          <p class="text-[11px] text-slate-400">
+            Escanea o transfiere desde cualquier billetera Lightning (Strike, Chivo, Muun, Cash App). Liquidación instantánea verificable en blockchain.
+          </p>
+        </div>
+        <a href="https://strike.me/rick2818" target="_blank" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20">
+          <span>⚡ Pagar en Strike.me/rick2818</span>
+        </a>
+      </div>
+
+      <!-- Contenido Tarjetas / Wompi -->
+      <div id="content-gw-wompi" class="hidden space-y-3">
+        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-2">
+          <span class="text-[11px] text-slate-400 block">Procesador con Cifrado Bancario TLS 1.3:</span>
+          <p class="text-[11px] text-slate-400">
+            Acepta tarjetas de crédito o débito internacionales (Visa, Mastercard, Amex) con verificación 3DS.
+          </p>
+        </div>
+        <button onclick="proceedWompiCheckout()" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
+          <span>💳 Continuar al Checkout Seguro</span>
+        </button>
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-500">
+        <span>🔒 Cifrado Bancario y Anti-Fraude Activo</span>
+        <button onclick="closePaymentModal()" class="text-slate-400 hover:text-white">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Configuration Modal (Settings) -->
   <div id="config-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 fade-in">
