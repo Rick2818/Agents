@@ -1,3 +1,4 @@
 @echo off
-start INICIAR_PLATAFORMA.html
+title Destraba AI - Iniciar Plataforma
+start dashboard.html
 exit
