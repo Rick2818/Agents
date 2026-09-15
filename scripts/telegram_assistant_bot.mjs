@@ -139,6 +139,43 @@ class TelegramExecutiveBot {
     }
   }
 
+  async downloadTelegramFile(fileId) {
+    try {
+      const fileInfo = await this.sendRequest('getFile', { file_id: fileId });
+      if (!fileInfo.ok || !fileInfo.result?.file_path) return null;
+      const downloadUrl = `https://api.telegram.org/file/bot${BOT_TOKEN}/${fileInfo.result.file_path}`;
+      const res = await fetch(downloadUrl);
+      const arrayBuf = await res.arrayBuffer();
+      return Buffer.from(arrayBuf).toString('base64');
+    } catch (e) {
+      console.error('[AUDIO DOWNLOAD ERROR]:', e.message);
+      return null;
+    }
+  }
+
+  async transcribeAudioVoiceNote(audioBase64) {
+    if (!GEMINI_API_KEY || !audioBase64) return null;
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [
+              { text: 'Transcribe fielmente lo que dice el usuario en este audio en español. Devuelve ÚNICAMENTE el texto exacto transcrito, sin añadir explicaciones ni comentarios ni comillas.' },
+              { inline_data: { mime_type: 'audio/ogg', data: audioBase64 } }
+            ]
+          }]
+        })
+      });
+      const data = await res.json();
+      return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
+    } catch (e) {
+      console.error('[AUDIO TRANSCRIBE ERROR]:', e.message);
+      return null;
+    }
+  }
+
   async checkBotIdentity() {
     try {
       const me = await this.sendRequest('getMe');
@@ -158,8 +195,26 @@ class TelegramExecutiveBot {
   async processIncomingMessage(message) {
     const chatId = message.chat.id;
     const userId = String(message.from?.id || chatId);
-    const text = (message.text || '').trim();
+    let text = (message.text || message.caption || '').trim();
     const userName = message.from?.first_name || 'Ricardo';
+    let isVoiceInput = false;
+
+    // Si Ricardo envió una Nota de Voz o Archivo de Audio
+    if (message.voice || message.audio) {
+      const fileId = message.voice?.file_id || message.audio?.file_id;
+      if (fileId) {
+        console.log(`[AUDIO IN]: Descargando nota de voz de ${userName}...`);
+        const audioB64 = await this.downloadTelegramFile(fileId);
+        if (audioB64) {
+          const transcribed = await this.transcribeAudioVoiceNote(audioB64);
+          if (transcribed) {
+            text = transcribed;
+            isVoiceInput = true;
+            console.log(`[AUDIO TRANSCRIBED]: "${text}"`);
+          }
+        }
+      }
+    }
 
     // 1. Control de Seguridad Fiduciaria (Whitelist de Usuario)
     if (AUTHORIZED_USER_ID && userId !== String(AUTHORIZED_USER_ID)) {
@@ -180,7 +235,7 @@ class TelegramExecutiveBot {
       }
     }
 
-    console.log(`[TELEGRAM IN]: Mensaje recibido de ${userName} (${userId}): "${text || '[Audio/Adjunto]'}"`);
+    console.log(`[TELEGRAM IN]: Mensaje recibido de ${userName} (${userId}): "${text || '[Audio]'}"`);
 
     // 2. Procesamiento de Comandos Directos
     const lower = text.toLowerCase();
@@ -358,8 +413,8 @@ Cuando Ricardo pregunte por datos locales o herramientas de su plataforma, ten e
           // Enviar respuesta en texto enriquecido
           await this.sendMessage(chatId, reply);
 
-          // Si el mensaje es una consulta o solicitud de audio, o si Ricardo lo prefiere, despachar nota de voz hiperrealista
-          const isVoicePrompt = lower.includes('audio') || lower.includes('voz') || lower.includes('dime') || lower.includes('habla') || lower.includes('escucha') || reply.length < 350;
+          // Si Ricardo envió un audio o pidió nota de voz, despachar nota de voz hiperrealista
+          const isVoicePrompt = isVoiceInput || lower.includes('audio') || lower.includes('voz') || lower.includes('dime') || lower.includes('habla') || lower.includes('escucha') || reply.length < 350;
           if (isVoicePrompt) {
             await this.sendVoiceNote(chatId, reply);
           }
