@@ -187,11 +187,12 @@ function sendViaNativeSmtp(host, port, user, pass, fromEmail, toEmail, subject, 
  * Orquestador principal de despacho outbound
  */
 export async function executeOutboundDispatch(options = {}) {
-  const isDryRun = options.dryRun || process.argv.includes('--dry-run') || (!process.env.RESEND_API_KEY && !process.env.SMTP_HOST);
+  const resendKey = process.env.RESEND_API_KEY || process.env.RESFND_APT_KEY;
+  const isDryRun = options.dryRun || process.argv.includes('--dry-run') || (!resendKey && !process.env.SMTP_HOST);
 
   console.log('[OUTBOUND DISPATCHER]: Inicializando motor fiduciario...');
   console.log('Modo de operación: ' + (isDryRun ? 'DRY_RUN (Simulación segura)' : 'LIVE (Despacho real en red)'));
-  console.log('Resend API Key: ' + maskSecret(process.env.RESEND_API_KEY));
+  console.log('Resend API Key: ' + maskSecret(resendKey));
   console.log('SMTP Host: ' + (process.env.SMTP_HOST || '(no configurado)'));
 
   if (!fs.existsSync(PIPELINE_FILE)) {
@@ -231,9 +232,9 @@ export async function executeOutboundDispatch(options = {}) {
     } else {
       try {
         let result;
-        if (process.env.RESEND_API_KEY) {
+        if (resendKey) {
           result = await sendViaResend(
-            process.env.RESEND_API_KEY,
+            resendKey,
             process.env.SMTP_FROM || process.env.OFFICIAL_SUPPORT_EMAIL || 'notificaciones@destraba.ai',
             toEmail,
             subject,
