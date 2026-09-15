@@ -208,6 +208,7 @@ export async function executeOutboundDispatch(options = {}) {
   let sentCount = 0;
   const BATCH_LIMIT = 5;
   const targets = pendingLeads.slice(0, BATCH_LIMIT);
+  const sandboxBlockedLeads = [];
 
   for (const lead of targets) {
     const toEmail = lead.corporateEmail || lead.contactEmail || ('contacto@' + lead.domain);
@@ -268,6 +269,9 @@ export async function executeOutboundDispatch(options = {}) {
         sentCount++;
       } catch (err) {
         console.error('-> [ERROR DE TRANSMISION]: ' + err.message);
+        if (err.message.includes('testing emails to your own email address') || err.message.includes('resend.com/domains')) {
+          sandboxBlockedLeads.push({ lead, toEmail, subject, body });
+        }
         lead.deliveryAudit = {
           attemptedAt: new Date().toISOString(),
           mode: 'LIVE_FAILED',
@@ -280,6 +284,38 @@ export async function executeOutboundDispatch(options = {}) {
     const delayMs = Math.floor(2500 + Math.random() * 1500);
     console.log('Esperando ' + delayMs + 'ms antes del siguiente envío (Defensa de reputación)...');
     await new Promise(r => setTimeout(r, delayMs));
+  }
+
+  // Digest Fiduciario de contingencia para Ricardo
+  if (sandboxBlockedLeads.length > 0 && resendKey) {
+    try {
+      console.log('\n[DIGEST FIDUCIARIO]: Generando Resumen Ejecutivo para Ricardo...');
+      const digestSubject = `🎯 [DESTRABA AI] ${sandboxBlockedLeads.length} Oportunidades Auditadas en Internet`;
+      let digestBody = `Hola Ricardo,\n\nEl Cazador Autónomo 24/7 completó el escaneo perimetral y detectó ${sandboxBlockedLeads.length} empresas con vulnerabilidades monetizables en el cohort de hoy.\n\nComo tu cuenta de Resend requiere verificar dominio en resend.com/domains para envíos directos a terceros, aquí tienes los prospectos con sus enlaces de cobro a rick2818@strike.me:\n\n`;
+
+      for (const item of sandboxBlockedLeads) {
+        digestBody += `-----------------------------------------------------\n`;
+        digestBody += `🏢 Empresa: ${item.lead.company} (${item.lead.domain})\n`;
+        digestBody += `👤 Contacto: ${item.toEmail}\n`;
+        digestBody += `💰 Oferta: ${item.lead.offer || '$19 USD Flash / $69 USD Pro'}\n`;
+        digestBody += `⚡ Enlace de Cobro: https://rick2818.github.io/Agents/?plan=flash&domain=${item.lead.domain}\n`;
+        digestBody += `✉️ Asunto: ${item.subject}\n\n`;
+        digestBody += `Mensaje preparado:\n${item.body}\n\n`;
+      }
+
+      digestBody += `\nPara habilitar el envío automático directo a terceros sin intermediación, solo agrega tu dominio en https://resend.com/domains.\n\nDestino de liquidación: rick2818@strike.me\nDestraba AI Engine 2.5`;
+
+      const digestRes = await sendViaResend(
+        resendKey,
+        'Destraba AI <onboarding@resend.dev>',
+        'rick28191@gmail.com',
+        digestSubject,
+        digestBody
+      );
+      console.log('-> [DIGEST ENTREGADO]: Resumen ejecutivo enviado con éxito a rick28191@gmail.com (ID: ' + digestRes.messageId + ')');
+    } catch (digestErr) {
+      console.warn('-> [DIGEST WARNING]: No se pudo entregar digest:', digestErr.message);
+    }
   }
 
   fs.writeFileSync(PIPELINE_FILE, JSON.stringify(pipeline, null, 2), 'utf8');
