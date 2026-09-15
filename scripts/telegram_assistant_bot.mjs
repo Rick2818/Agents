@@ -71,6 +71,74 @@ class TelegramExecutiveBot {
     });
   }
 
+  async sendVoiceNote(chatId, textToSpeak, caption = '') {
+    if (!GEMINI_API_KEY) return false;
+    try {
+      // Limpiar etiquetas HTML del texto para síntesis limpia de voz
+      const plainText = textToSpeak.replace(/<[^>]*>/g, '').trim();
+      if (!plainText) return false;
+
+      const ttsRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: plainText.substring(0, 1000) }] }],
+          generationConfig: {
+            responseModalities: ['AUDIO'],
+            speechConfig: {
+              voiceConfig: {
+                prebuiltVoiceConfig: {
+                  voiceName: 'Puck' // Voz ejecutiva premium, natural y templada
+                }
+              }
+            }
+          }
+        })
+      });
+
+      const d = await ttsRes.json();
+      const b64 = d.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+      if (!b64) return false;
+
+      const pcmData = Buffer.from(b64, 'base64');
+      const sampleRate = 24000;
+      const numChannels = 1;
+      const bitsPerSample = 16;
+      const dataSize = pcmData.length;
+      const header = Buffer.alloc(44);
+      header.write('RIFF', 0);
+      header.writeUInt32LE(36 + dataSize, 4);
+      header.write('WAVE', 8);
+      header.write('fmt ', 12);
+      header.writeUInt32LE(16, 16);
+      header.writeUInt16LE(1, 20);
+      header.writeUInt16LE(numChannels, 22);
+      header.writeUInt32LE(sampleRate, 24);
+      header.writeUInt32LE(sampleRate * numChannels * (bitsPerSample / 8), 28);
+      header.writeUInt16LE(numChannels * (bitsPerSample / 8), 32);
+      header.writeUInt16LE(bitsPerSample, 34);
+      header.write('data', 36);
+      header.writeUInt32LE(dataSize, 40);
+      const wav = Buffer.concat([header, pcmData]);
+
+      const blob = new Blob([wav], { type: 'audio/wav' });
+      const form = new FormData();
+      form.append('chat_id', chatId);
+      form.append('voice', blob, 'voice.ogg');
+      if (caption) form.append('caption', caption.substring(0, 1024));
+
+      const sendRes = await fetch(`${TELEGRAM_API_BASE}/sendVoice`, {
+        method: 'POST',
+        body: form
+      });
+      const sendData = await sendRes.json();
+      return sendData.ok;
+    } catch (err) {
+      console.error('[TTS VOICE ERROR]:', err.message);
+      return false;
+    }
+  }
+
   async checkBotIdentity() {
     try {
       const me = await this.sendRequest('getMe');
@@ -287,7 +355,14 @@ Cuando Ricardo pregunte por datos locales o herramientas de su plataforma, ten e
         const gData = await geminiRes.json();
         const reply = gData.candidates?.[0]?.content?.parts?.[0]?.text;
         if (reply) {
+          // Enviar respuesta en texto enriquecido
           await this.sendMessage(chatId, reply);
+
+          // Si el mensaje es una consulta o solicitud de audio, o si Ricardo lo prefiere, despachar nota de voz hiperrealista
+          const isVoicePrompt = lower.includes('audio') || lower.includes('voz') || lower.includes('dime') || lower.includes('habla') || lower.includes('escucha') || reply.length < 350;
+          if (isVoicePrompt) {
+            await this.sendVoiceNote(chatId, reply);
+          }
           return;
         }
       } catch (err) {
