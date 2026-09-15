@@ -7,6 +7,7 @@ import {
   checkRateLimit,
   recordAndVerifyIdempotency
 } from '../lib/payment_security.js';
+import { ExecutiveAssistantMCPHub } from '../lib/mcp_executive_assistant.js';
 
 // Instancias reutilizadas entre invocaciones cálidas (evita recrear el cliente en cada request)
 const strike = new StrikeLightningGateway({ lightningAddress: 'rick2818@strike.me' });
@@ -15,6 +16,7 @@ const wompi = new WompiGateway({
   apiSecret: process.env.WOMPI_API_SECRET || '',
   webhookSecret: process.env.WOMPI_WEBHOOK_SECRET || ''
 });
+const mcpHub = new ExecutiveAssistantMCPHub({ strikeAddress: 'rick2818@strike.me' });
 
 export default async function handler(req, res) {
   applyBankingSecurityHeaders(res);
@@ -59,6 +61,55 @@ export default async function handler(req, res) {
         redirectUrl || `https://${req.headers.host}/dashboard.html?status=paid`
       );
       return res.status(200).json({ success: true, checkout });
+    }
+
+    // --- MCP TOOL HUB: Asistente Personal Ejecutivo ---
+    if ((req.method === 'POST' || req.method === 'GET') && (pathname === '/api/mcp/executive' || pathname.endsWith('/mcp/executive'))) {
+      const action = (req.method === 'POST' ? req.body?.action : url.searchParams.get('action')) || 'all';
+      const destination = (req.method === 'POST' ? req.body?.destination : url.searchParams.get('destination')) || 'Madrid';
+      const category = (req.method === 'POST' ? req.body?.category : url.searchParams.get('category')) || 'cinema';
+      const query = (req.method === 'POST' ? req.body?.query : url.searchParams.get('query')) || '';
+
+      if (action === 'bitcoin') {
+        const data = await mcpHub.getBitcoinData();
+        return res.status(200).json({ success: true, tool: 'bitcoin_mcp', data });
+      }
+      if (action === 'flights') {
+        const data = await mcpHub.searchFlightsFromSAL(destination, 'Próximos 14 días');
+        return res.status(200).json({ success: true, tool: 'flights_sal_mcp', data });
+      }
+      if (action === 'venues') {
+        const data = await mcpHub.searchSanSalvadorVenues(category, query);
+        return res.status(200).json({ success: true, tool: 'venues_mcp', data });
+      }
+      if (action === 'google_workspace') {
+        const data = await mcpHub.getGoogleWorkspaceStatus();
+        return res.status(200).json({ success: true, tool: 'google_workspace_mcp', data });
+      }
+      if (action === 'spotify') {
+        const data = await mcpHub.getSpotifyStatus();
+        return res.status(200).json({ success: true, tool: 'spotify_mcp', data });
+      }
+      if (action === 'projects') {
+        const data = await mcpHub.getProjectTrackingData();
+        return res.status(200).json({ success: true, tool: 'project_tracker_mcp', data });
+      }
+
+      // Snapshot consolidado de todos los MCPs
+      const [btc, flights, venues, gws, spotify, projects] = await Promise.all([
+        mcpHub.getBitcoinData(),
+        mcpHub.searchFlightsFromSAL('Madrid'),
+        mcpHub.searchSanSalvadorVenues('cinema'),
+        mcpHub.getGoogleWorkspaceStatus(),
+        mcpHub.getSpotifyStatus(),
+        mcpHub.getProjectTrackingData()
+      ]);
+
+      return res.status(200).json({
+        success: true,
+        agent: "Asistente Ejecutivo & Concierge Soberano",
+        mcps: { btc, flights, venues, gws, spotify, projects }
+      });
     }
 
     // --- Webhooks: fallan CERRADOS si el secreto no está configurado (antes caían a un ---
