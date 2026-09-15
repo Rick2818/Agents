@@ -9,6 +9,9 @@ import { AutonomousHunter } from './autonomous_hunter.mjs';
 import { dispatchDailyPipeline } from './dispatch_daily_pipeline.mjs';
 import { executeOutboundDispatch } from './send_smtp_dispatch.mjs';
 
+// Cargar variables locales si existen
+try { process.loadEnvFile?.(); } catch (e) {}
+
 const TARGET_PROSPECTS = [
   { company: "TCC Logística", domain: "tcc.com.co", contactEmail: "contacto@tcc.com.co", country: "Colombia", industry: "Courier & Envíos" },
   { company: "Servientrega Corporativo", domain: "servientrega.com", contactEmail: "servicioalcliente@servientrega.com", country: "Colombia", industry: "Logística 3PL" },

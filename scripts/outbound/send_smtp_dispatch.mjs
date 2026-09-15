@@ -15,6 +15,9 @@ import tls from 'tls';
 import fs from 'fs';
 import path from 'path';
 
+// Cargar variables de entorno locales de .env si existe
+try { process.loadEnvFile?.(); } catch (e) {}
+
 const PIPELINE_FILE = path.resolve('pipeline/leads_contactados_activos.json');
 
 // Sanitización contra CRLF Injection (RFC 5322)
