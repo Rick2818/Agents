@@ -22,6 +22,10 @@ import {
   applyStrictBankingHeaders,
   resolveCorsOrigin
 } from '../lib/fiduciary_core.js';
+import {
+  sendCustomerDeliveryEmail,
+  sendExecutiveTelegramAlert
+} from '../lib/fiduciary_delivery.js';
 import telegramHandler from './telegram.js';
 import cronHandler from './cron/master-dispatcher.js';
 
@@ -164,7 +168,35 @@ export default async function handler(req, res) {
         return res.status(200).json({ status: 'ignored_duplicate', transactionId: eventId });
       }
 
-      return res.status(200).json({ status: 'processed', transactionId: eventId });
+      // Cierre de Ciclo Fiduciario 10/10: Despacho de Blindaje y Alerta Push a Telegram
+      const transaction = req.body?.data?.transaction || req.body;
+      const status = transaction?.status || 'APPROVED';
+      const customerEmail = transaction?.customer_email || req.body?.customerEmail;
+      const amountInCents = transaction?.amount_in_cents || 1900;
+      const amountUsd = (amountInCents / 100).toFixed(2);
+      const reference = transaction?.reference || eventId;
+
+      if (status === 'APPROVED') {
+        Promise.allSettled([
+          sendCustomerDeliveryEmail({
+            toEmail: customerEmail,
+            domain: reference,
+            planId: 'flash_audit_19',
+            invoiceId: eventId,
+            amountUsd
+          }),
+          sendExecutiveTelegramAlert({
+            gateway: 'Wompi Bancolombia / Card',
+            invoiceId: eventId,
+            amountUsd,
+            customerEmail: customerEmail || '(Tarjeta Wompi)',
+            domain: reference,
+            status: 'LIQUIDADA'
+          })
+        ]).catch(err => console.error('[WOMPI POST-PAYMENT ERROR]', err));
+      }
+
+      return res.status(200).json({ status: 'processed', transactionId: eventId, delivered: status === 'APPROVED' });
     }
 
     if (req.method === 'POST' && (pathname === '/api/webhooks/strike' || pathname.endsWith('/webhooks/strike'))) {
@@ -191,7 +223,36 @@ export default async function handler(req, res) {
         return res.status(200).json({ status: 'ignored_duplicate', invoiceId });
       }
 
-      return res.status(200).json({ status: 'processed', invoiceId });
+      // Cierre de Ciclo Fiduciario 10/10: Despacho de Blindaje y Alerta Push a Telegram
+      const data = req.body?.data || {};
+      const state = data.state || req.body?.state || 'PAID';
+      const amountUsd = data.amount?.amount || '19.00';
+      const description = data.description || '';
+      const correlationId = data.correlationId || '';
+      const customerEmail = (correlationId.includes('@') ? correlationId : (description.includes('@') ? description : ''));
+      const domain = correlationId && !correlationId.includes('@') ? correlationId : 'cliente-strike.com';
+
+      if (state === 'PAID') {
+        Promise.allSettled([
+          sendCustomerDeliveryEmail({
+            toEmail: customerEmail,
+            domain,
+            planId: amountUsd === '69.00' ? 'pro_hunter_69' : 'flash_audit_19',
+            invoiceId,
+            amountUsd
+          }),
+          sendExecutiveTelegramAlert({
+            gateway: 'Strike Lightning Network',
+            invoiceId,
+            amountUsd,
+            customerEmail: customerEmail || '(Lightning Anónimo)',
+            domain,
+            status: 'LIQUIDADA (Satoshis en RAM)'
+          })
+        ]).catch(err => console.error('[STRIKE POST-PAYMENT ERROR]', err));
+      }
+
+      return res.status(200).json({ status: 'processed', invoiceId, delivered: state === 'PAID' });
     }
 
     return res.status(404).json({ error: 'Not Found', path: pathname });

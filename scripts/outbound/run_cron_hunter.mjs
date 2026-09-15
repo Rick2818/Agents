@@ -8,6 +8,7 @@
 import { AutonomousHunter } from './autonomous_hunter.mjs';
 import { dispatchDailyPipeline } from './dispatch_daily_pipeline.mjs';
 import { executeOutboundDispatch } from './send_smtp_dispatch.mjs';
+import { sendCloudMessage } from '../../lib/telegram_cloud_processor.js';
 
 // Cargar variables locales si existen
 try { process.loadEnvFile?.(); } catch (e) {}
@@ -94,6 +95,25 @@ async function main() {
 
   // 2. Transmisión autónoma outbound (SMTP / REST API / DRY_RUN)
   await executeOutboundDispatch();
+
+  // 3. Notificación Ejecutiva a Telegram de Ricardo (Cierre de Ciclo 10/10)
+  try {
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    const adminChatId = process.env.TELEGRAM_AUTHORIZED_USER_ID || '6311509947';
+    if (botToken) {
+      const summaryMsg = `🎯 <b>CAZADOR AUTÓNOMO 24/7 (REPORTE DE CICLO)</b>\n\n` +
+        `📅 <b>Cohorte:</b> ${cohort.name}\n` +
+        `🔍 <b>Objetivos Escaneados:</b> ${results.length}\n` +
+        `⚡ <b>Brechas Detectadas:</b> ${vulnerable.length}\n` +
+        `📬 <b>Cadencias Despachadas:</b> Ofertas de $19 / $69 USD emitidas\n` +
+        `🛡️ <b>Destino de Cobro:</b> <code>rick2818@strike.me</code>\n` +
+        `🕒 <b>Hora:</b> ${new Date().toISOString()}`;
+      await sendCloudMessage(adminChatId, summaryMsg, botToken, { isRawHtml: true });
+      console.log('[CRON 24/7]: Resumen ejecutivo notificado exitosamente a Telegram.');
+    }
+  } catch (e) {
+    console.error('[CRON TELEGRAM NOTIFICATION ERROR]:', e.message);
+  }
 }
 
 main().catch(console.error);
