@@ -6,6 +6,7 @@
  */
 
 import { AutonomousHunter } from './autonomous_hunter.mjs';
+import { dispatchDailyPipeline } from './dispatch_daily_pipeline.mjs';
 
 const TARGET_PROSPECTS = [
   { company: "TCC Logística", domain: "tcc.com.co", contactEmail: "contacto@tcc.com.co", country: "Colombia", industry: "Courier & Envíos" },
@@ -29,6 +30,9 @@ async function main() {
   console.log(`Pipeline de ventas fiduciario generado con ofertas de $19 USD / $69 USD`);
   console.log(`Destino de liquidación: rick2818@strike.me`);
   console.log(`=============================================================================\n`);
+
+  // Ejecución y sincronización del pipeline diario de prospección
+  await dispatchDailyPipeline();
 }
 
 main().catch(console.error);

@@ -13,8 +13,8 @@ import dns from 'dns';
 import fs from 'fs';
 import path from 'path';
 
-// Usar DNS públicos de Google y Cloudflare para resolución resiliente
-dns.setServers(['8.8.8.8', '1.1.1.1']);
+// Resuelve utilizando la configuración DNS del sistema operativo
+
 
 const AUDIT_LOG_FILE = path.resolve('pipeline/auditorias_autonomas_ejecutadas.json');
 
@@ -41,14 +41,26 @@ export class AutonomousHunter {
   }
 
   async auditTarget(target) {
+    const { domain } = target;
+    const hostsToTry = domain.startsWith('www.') ? [domain] : [domain, `www.${domain}`];
+
+    for (const host of hostsToTry) {
+      const res = await this._probeHost(host, target);
+      if (res) return res;
+    }
+    return null;
+  }
+
+  _probeHost(hostname, target) {
     return new Promise((resolve) => {
       const { domain, company, contactEmail, country, industry } = target;
-      console.log(`[AUTONOMOUS HUNTER]: Escaneando perimetralmente ${domain}...`);
+      console.log(`[AUTONOMOUS HUNTER]: Escaneando perimetralmente ${hostname}...`);
 
       const req = https.request({
-        hostname: domain,
+        hostname,
         method: 'HEAD',
-        timeout: 5000,
+        timeout: 6000,
+        rejectUnauthorized: false,
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Antigravity-Defensive-Scanner/2.5'
         }
@@ -64,6 +76,12 @@ export class AutonomousHunter {
         if (!hasHsts) flaws.push("Falta Strict-Transport-Security (Riesgo SSL Strip)");
         if (!hasXFrame) flaws.push("Falta X-Frame-Options (Riesgo Clickjacking)");
 
+        // Detección proactiva de anomalías y vencimiento de certificados SSL
+        const certAuthError = res.socket?.authorizationError;
+        if (certAuthError) {
+          flaws.push(`Certificado SSL Anómalo / Vencido: ${certAuthError}`);
+        }
+
         const severity = flaws.length >= 2 ? "CRITICA" : (flaws.length === 1 ? "MEDIA" : "BAJA");
 
         const auditReport = {
@@ -71,6 +89,7 @@ export class AutonomousHunter {
           timestamp: new Date().toISOString(),
           company,
           domain,
+          scannedHost: hostname,
           country,
           industry,
           contactEmail,
@@ -89,7 +108,7 @@ export class AutonomousHunter {
           generatedDispatchMessage: {
             to: contactEmail,
             subject: `Informe de Seguridad Perimetral: ${flaws.length} vulnerabilidades detectadas en ${domain}`,
-            body: `Estimado equipo técnico en ${company},\n\nDurante nuestra inspección perimetral automatizada sobre ${domain}, detectamos ${flaws.length} anomalías en cabeceras bancarias:\n${flaws.map(f => `• ${f}`).join('\n')}\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=${domain}\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI`
+            body: `Estimado equipo técnico en ${company},\n\nDurante nuestra inspección perimetral automatizada sobre ${domain}, detectamos ${flaws.length} anomalías de seguridad perimetral:\n${flaws.map(f => `• ${f}`).join('\n')}\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=${domain}\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI`
           },
           status: "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
         };
@@ -100,13 +119,13 @@ export class AutonomousHunter {
       });
 
       req.on('error', (err) => {
-        console.warn(`[AUTONOMOUS HUNTER]: Error conectando a ${domain}: ${err.message}`);
+        console.warn(`[AUTONOMOUS HUNTER]: Error en ${hostname}: ${err.message}`);
         resolve(null);
       });
 
       req.on('timeout', () => {
         req.destroy();
-        console.warn(`[AUTONOMOUS HUNTER]: Timeout en ${domain}`);
+        console.warn(`[AUTONOMOUS HUNTER]: Timeout en ${hostname}`);
         resolve(null);
       });
 

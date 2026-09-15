@@ -1,5 +1,341 @@
 [
   {
+    "auditId": "audit_1789486884621_56",
+    "timestamp": "2026-09-15T15:41:24.622Z",
+    "company": "Chilexpress Empresas",
+    "domain": "chilexpress.cl",
+    "scannedHost": "chilexpress.cl",
+    "country": "Chile",
+    "industry": "Envíos Corporativos",
+    "contactEmail": "empresas@chilexpress.cl",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=chilexpress.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "empresas@chilexpress.cl",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en chilexpress.cl",
+      "body": "Estimado equipo técnico en Chilexpress Empresas,\n\nDurante nuestra inspección perimetral automatizada sobre chilexpress.cl, detectamos 1 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=chilexpress.cl\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486882691_437",
+    "timestamp": "2026-09-15T15:41:22.691Z",
+    "company": "Blue Express",
+    "domain": "blue.cl",
+    "scannedHost": "blue.cl",
+    "country": "Chile",
+    "industry": "Last Mile Fulfillment",
+    "contactEmail": "soporte@blue.cl",
+    "serverDetected": "cloudflare",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=blue.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@blue.cl",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en blue.cl",
+      "body": "Estimado equipo técnico en Blue Express,\n\nDurante nuestra inspección perimetral automatizada sobre blue.cl, detectamos 0 anomalías de seguridad perimetral:\n\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=blue.cl\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486881344_318",
+    "timestamp": "2026-09-15T15:41:21.344Z",
+    "company": "Redpack Logística",
+    "domain": "redpack.com.mx",
+    "scannedHost": "redpack.com.mx",
+    "country": "México",
+    "industry": "Distribución B2B",
+    "contactEmail": "contacto@redpack.com.mx",
+    "serverDetected": "nginx",
+    "httpStatusCode": 302,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": true
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Certificado SSL Anómalo / Vencido: CERT_HAS_EXPIRED"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=redpack.com.mx",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@redpack.com.mx",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en redpack.com.mx",
+      "body": "Estimado equipo técnico en Redpack Logística,\n\nDurante nuestra inspección perimetral automatizada sobre redpack.com.mx, detectamos 3 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Certificado SSL Anómalo / Vencido: CERT_HAS_EXPIRED\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=redpack.com.mx\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486879598_245",
+    "timestamp": "2026-09-15T15:41:19.598Z",
+    "company": "Estafeta Carga",
+    "domain": "estafeta.com",
+    "scannedHost": "estafeta.com",
+    "country": "México",
+    "industry": "Paquetería y Cadena de Suministro",
+    "contactEmail": "proyectos@estafeta.com",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=estafeta.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "proyectos@estafeta.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en estafeta.com",
+      "body": "Estimado equipo técnico en Estafeta Carga,\n\nDurante nuestra inspección perimetral automatizada sobre estafeta.com, detectamos 3 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=estafeta.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486878307_945",
+    "timestamp": "2026-09-15T15:41:18.307Z",
+    "company": "Servientrega Corporativo",
+    "domain": "servientrega.com",
+    "scannedHost": "www.servientrega.com",
+    "country": "Colombia",
+    "industry": "Logística 3PL",
+    "contactEmail": "servicioalcliente@servientrega.com",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=servientrega.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "servicioalcliente@servientrega.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en servientrega.com",
+      "body": "Estimado equipo técnico en Servientrega Corporativo,\n\nDurante nuestra inspección perimetral automatizada sobre servientrega.com, detectamos 3 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=servientrega.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486876908_44",
+    "timestamp": "2026-09-15T15:41:16.908Z",
+    "company": "TCC Logística",
+    "domain": "tcc.com.co",
+    "scannedHost": "tcc.com.co",
+    "country": "Colombia",
+    "industry": "Courier & Envíos",
+    "contactEmail": "contacto@tcc.com.co",
+    "serverDetected": "nginx",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=tcc.com.co",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@tcc.com.co",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en tcc.com.co",
+      "body": "Estimado equipo técnico en TCC Logística,\n\nDurante nuestra inspección perimetral automatizada sobre tcc.com.co, detectamos 0 anomalías de seguridad perimetral:\n\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=tcc.com.co\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486536224_115",
+    "timestamp": "2026-09-15T15:35:36.224Z",
+    "company": "Chilexpress Empresas",
+    "domain": "chilexpress.cl",
+    "country": "Chile",
+    "industry": "Envíos Corporativos",
+    "contactEmail": "empresas@chilexpress.cl",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=chilexpress.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "empresas@chilexpress.cl",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en chilexpress.cl",
+      "body": "Estimado equipo técnico en Chilexpress Empresas,\n\nDurante nuestra inspección perimetral automatizada sobre chilexpress.cl, detectamos 1 anomalías en cabeceras bancarias:\n• Falta Content-Security-Policy (Riesgo XSS)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=chilexpress.cl\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486534244_176",
+    "timestamp": "2026-09-15T15:35:34.244Z",
+    "company": "Blue Express",
+    "domain": "blue.cl",
+    "country": "Chile",
+    "industry": "Last Mile Fulfillment",
+    "contactEmail": "soporte@blue.cl",
+    "serverDetected": "cloudflare",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=blue.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@blue.cl",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en blue.cl",
+      "body": "Estimado equipo técnico en Blue Express,\n\nDurante nuestra inspección perimetral automatizada sobre blue.cl, detectamos 0 anomalías en cabeceras bancarias:\n\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=blue.cl\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486527492_135",
+    "timestamp": "2026-09-15T15:35:27.492Z",
+    "company": "Estafeta Carga",
+    "domain": "estafeta.com",
+    "country": "México",
+    "industry": "Paquetería y Cadena de Suministro",
+    "contactEmail": "proyectos@estafeta.com",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=estafeta.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "proyectos@estafeta.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en estafeta.com",
+      "body": "Estimado equipo técnico en Estafeta Carga,\n\nDurante nuestra inspección perimetral automatizada sobre estafeta.com, detectamos 3 anomalías en cabeceras bancarias:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=estafeta.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789486522528_276",
+    "timestamp": "2026-09-15T15:35:22.528Z",
+    "company": "TCC Logística",
+    "domain": "tcc.com.co",
+    "country": "Colombia",
+    "industry": "Courier & Envíos",
+    "contactEmail": "contacto@tcc.com.co",
+    "serverDetected": "nginx",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=tcc.com.co",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@tcc.com.co",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en tcc.com.co",
+      "body": "Estimado equipo técnico en TCC Logística,\n\nDurante nuestra inspección perimetral automatizada sobre tcc.com.co, detectamos 0 anomalías en cabeceras bancarias:\n\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=tcc.com.co\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
     "auditId": "audit_1789428509249_996",
     "timestamp": "2026-09-14T23:28:29.249Z",
     "company": "Chilexpress Empresas",

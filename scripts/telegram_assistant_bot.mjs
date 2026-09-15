@@ -371,21 +371,6 @@ ${list}
       return;
     }
 
-    // RESPUESTAS CONVERSACIONALES NATURALES Y CONCIERGE DIRECTO
-    if (lower.includes('hola') || lower.includes('buenas') || lower.includes('buenos dias') || lower.includes('buenas tardes') || lower.includes('buenas noches') || lower.includes('que tal')) {
-      await this.sendMessage(chatId, `🎩 ¡Hola <b>${userName}</b>! A tu servicio. ¿Qué gestionamos hoy?\n\nPuedes preguntarme por vuelos saliendo de El Salvador, recomendaciones para almorzar o cenar en San Salvador, cartelera de cine, el precio de Bitcoin o el estado de las metas financieras de Destraba AI.`);
-      return;
-    }
-
-    if (lower.includes('gracias') || lower.includes('agradezco') || lower.includes('genial') || lower.includes('perfecto') || lower.includes('excelente')) {
-      await this.sendMessage(chatId, `🎩 ¡Con todo gusto, <b>${userName}</b>! Es mi deber como tu asistente ejecutivo mantener todo operando sin fricción. Dime si necesitas otra gestión.`);
-      return;
-    }
-
-    if (lower.includes('quien eres') || lower.includes('que puedes hacer') || lower.includes('ayuda') || lower.includes('funciones')) {
-      await this.sendMessage(chatId, `🎩 <b>Soy tu Asistente Personal Ejecutivo y Concierge Soberano</b>.\n\nEstoy conectado directamente a las herramientas MCP de tu plataforma y puedo:\n\n• ⚡ Consultar Bitcoin en vivo, tasas de mempool y liquidación a tu Strike (<code>rick2818@strike.me</code>).\n• ✈️ Buscar itinerarios y vuelos saliendo de San Salvador (SAL).\n• 🍷 Recomendarte los mejores restaurantes en San Benito, Escalón y Santa Elena.\n• 🎬 Consultar cartelera y salas en Cinemark Multiplaza y La Gran Vía.\n• 📊 Mostrarte el pipeline comercial y el avance para cubrir los costos de tu app.\n• 📅 Conectarme a tu agenda de Google Workspace.`);
-      return;
-    }
 
     // RESPUESTA INTELIGENTE POR DEFECTO CON GEMINI (RAZONAMIENTO LIBRE 100%)
     if (GEMINI_API_KEY) {
