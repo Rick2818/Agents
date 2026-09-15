@@ -1,19 +1,29 @@
 import handler from '../api/telegram.js';
 import fs from 'node:fs';
 
-// Cargar .env
-const envText = fs.readFileSync('.env', 'utf8');
-envText.split('\n').forEach(line => {
-  const trimmed = line.trim();
-  if (trimmed && !trimmed.startsWith('#')) {
-    const idx = trimmed.indexOf('=');
-    if (idx !== -1) {
-      const k = trimmed.slice(0, idx).trim();
-      const v = trimmed.slice(idx + 1).trim();
-      if (k && !process.env[k]) process.env[k] = v;
+// Cargar .env si existe
+if (fs.existsSync('.env')) {
+  const envText = fs.readFileSync('.env', 'utf8');
+  envText.split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const idx = trimmed.indexOf('=');
+      if (idx !== -1) {
+        const k = trimmed.slice(0, idx).trim();
+        const v = trimmed.slice(idx + 1).trim();
+        if (k && !process.env[k]) process.env[k] = v;
+      }
     }
-  }
-});
+  });
+}
+
+// Fallback fiduciario para entorno de pruebas en CI o máquina limpia
+if (!process.env.TELEGRAM_WEBHOOK_SECRET) {
+  process.env.TELEGRAM_WEBHOOK_SECRET = 'test_telegram_secret_mock_2026';
+}
+if (!process.env.TELEGRAM_AUTHORIZED_USER_ID) {
+  process.env.TELEGRAM_AUTHORIZED_USER_ID = '6311509947';
+}
 
 async function runSimulation() {
   console.log('1. Probando GET /api/telegram (Health check)...');
@@ -46,7 +56,8 @@ async function runSimulation() {
   const mockReqPost = {
     method: 'POST',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'x-telegram-bot-api-secret-token': process.env.TELEGRAM_WEBHOOK_SECRET
     },
     body: {
       update_id: 9999999,

@@ -45,3 +45,9 @@ scratch/
 .vercel
 .env*
 *.zip
+
+# Node dependencies
+node_modules/
+
+# Sensitive sovereign auth
+lib/sovereign_auth.json

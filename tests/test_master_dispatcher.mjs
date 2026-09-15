@@ -1,19 +1,26 @@
 import handler from '../api/cron/master-dispatcher.js';
 import fs from 'node:fs';
 
-// Cargar .env
-const envText = fs.readFileSync('.env', 'utf8');
-envText.split('\n').forEach(line => {
-  const trimmed = line.trim();
-  if (trimmed && !trimmed.startsWith('#')) {
-    const idx = trimmed.indexOf('=');
-    if (idx !== -1) {
-      const k = trimmed.slice(0, idx).trim();
-      const v = trimmed.slice(idx + 1).trim();
-      if (k && !process.env[k]) process.env[k] = v;
+// Cargar .env si existe
+if (fs.existsSync('.env')) {
+  const envText = fs.readFileSync('.env', 'utf8');
+  envText.split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const idx = trimmed.indexOf('=');
+      if (idx !== -1) {
+        const k = trimmed.slice(0, idx).trim();
+        const v = trimmed.slice(idx + 1).trim();
+        if (k && !process.env[k]) process.env[k] = v;
+      }
     }
-  }
-});
+  });
+}
+
+// Fallback fiduciario para entorno de pruebas en CI o máquina limpia
+if (!process.env.CRON_SECRET && !process.env.PLATFORM_MASTER_KEY) {
+  process.env.CRON_SECRET = 'test_cron_secret_mock_2026';
+}
 
 async function runDispatcherTest() {
   console.log('1. Probando Master Dispatcher sin autorización (debe fallar 401)...');

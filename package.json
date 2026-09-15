@@ -5,8 +5,11 @@
   "type": "module",
   "main": "api/index.js",
   "scripts": {
-    "start": "node scripts/payments_gateway_server.mjs",
-    "test": "python -m unittest discover tests"
+    "start": "node server.js",
+    "test": "node tests/test_fiduciary_core.mjs && node tests/test_master_dispatcher.mjs && node tests/test_telegram_serverless.mjs"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   },
   "keywords": [
     "antigravity",

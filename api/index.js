@@ -41,25 +41,25 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
-  const pathname = url.pathname;
-
-  // Enrutamiento a Telegram Webhook Serverless
-  if (pathname === '/api/telegram' || pathname.endsWith('/telegram')) {
-    return await telegramHandler(req, res);
-  }
-
-  // Enrutamiento a Master Cloud Dispatcher Cron
-  if (pathname === '/api/cron/master-dispatcher' || pathname.endsWith('/cron/master-dispatcher')) {
-    return await cronHandler(req, res);
-  }
-
-  const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown-client';
-  if (!checkRateLimit(clientIp, 60, 60000)) {
-    return res.status(429).json({ error: 'Too Many Requests', retryAfterSeconds: 60 });
-  }
-
   try {
+    const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
+    const pathname = url.pathname;
+
+    // Enrutamiento a Telegram Webhook Serverless
+    if (pathname === '/api/telegram' || pathname.endsWith('/telegram')) {
+      return await telegramHandler(req, res);
+    }
+
+    // Enrutamiento a Master Cloud Dispatcher Cron
+    if (pathname === '/api/cron/master-dispatcher' || pathname.endsWith('/cron/master-dispatcher')) {
+      return await cronHandler(req, res);
+    }
+
+    const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown-client';
+    if (!checkRateLimit(clientIp, 60, 60000)) {
+      return res.status(429).json({ error: 'Too Many Requests', retryAfterSeconds: 60 });
+    }
+
     if (req.method === 'GET' && (pathname === '/api/catalog' || pathname.endsWith('/catalog'))) {
       return res.status(200).json({
         success: true,

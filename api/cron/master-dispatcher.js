@@ -36,21 +36,21 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: 'Unauthorized Cloud Dispatcher Request' });
   }
 
-  const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
-  const task = url.searchParams.get('task') || req.body?.task || 'all';
-
-  const mcpHub = new ExecutiveAssistantMCPHub({
-    strikeAddress: process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me'
-  });
-
-  const executionReport = {
-    dispatcher: 'Master Cloud Dispatcher 24/7',
-    invokedAt: new Date().toISOString(),
-    task,
-    results: {}
-  };
-
   try {
+    const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
+    const task = url.searchParams.get('task') || req.body?.task || 'all';
+
+    const mcpHub = new ExecutiveAssistantMCPHub({
+      strikeAddress: process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me'
+    });
+
+    const executionReport = {
+      dispatcher: 'Master Cloud Dispatcher 24/7',
+      invokedAt: new Date().toISOString(),
+      task,
+      results: {}
+    };
+
     // TAREA 1: CAZADOR AUTÓNOMO 24/7 (LEAD DISCOVERY & VULNERABILITY MONITOR)
     if (task === 'all' || task === 'hunter') {
       const hunterStatus = await mcpHub.getProjectTrackingData();

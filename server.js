@@ -79,20 +79,44 @@ app.use((req, res, next) => {
   next();
 });
 
-// 1. ENDPOINT TELEGRAM WEBHOOK 24/7
-app.all('/api/telegram', async (req, res) => {
-  await telegramApiHandler(req, res);
+// Manejo defensivo de fallos a nivel de proceso (Pilar 3 & 7)
+process.on('uncaughtException', (err) => {
+  console.error('💥 [CRITICAL] Uncaught Exception:', err);
 });
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('💥 [CRITICAL] Unhandled Rejection:', reason);
+});
+
+// Wrapper fiduciario para handlers asíncronos (evita que un error tire el proceso)
+function safeHandler(fn) {
+  return async (req, res, next) => {
+    try {
+      await fn(req, res, next);
+    } catch (err) {
+      console.error('[SERVER ERROR en ruta asíncrona]:', err);
+      if (!res.headersSent) {
+        res.status(500).json({ error: 'Internal Server Error', message: err?.message || 'Error interno' });
+      }
+    }
+  };
+}
+
+// 1. ENDPOINT TELEGRAM WEBHOOK 24/7
+app.all('/api/telegram', safeHandler(async (req, res) => {
+  await telegramApiHandler(req, res);
+}));
 
 // 2. MASTER CLOUD DISPATCHER
-app.all('/api/cron/master-dispatcher', async (req, res) => {
+app.all('/api/cron/master-dispatcher', safeHandler(async (req, res) => {
   await masterDispatcherHandler(req, res);
-});
+}));
 
 // 3. API REST GENERAL (Catálogo, Strike, Wompi, MCP Hub)
-app.all('/api/*', async (req, res) => {
+// Compatible universalmente con Express 4 y Express 5
+app.all(/^\/api(\/.*)?$/, safeHandler(async (req, res) => {
   await mainApiHandler(req, res);
-});
+}));
 
 // 4. ARCHIVOS ESTÁTICOS FRONTEND
 app.use(express.static(__dirname));
@@ -115,7 +139,9 @@ const server = app.listen(PORT, () => {
 });
 
 // Apagado elegante
-process.on('SIGTERM', () => {
+const shutdown = () => {
   console.log('Cerrando servidor fiduciario...');
   server.close(() => process.exit(0));
-});
+};
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);
