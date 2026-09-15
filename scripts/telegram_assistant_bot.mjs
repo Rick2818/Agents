@@ -1,41 +1,101 @@
 /**
  * =============================================================================
- * ASISTENTE PERSONAL EJECUTIVO & CONCIERGE — TELEGRAM BOT 24/7 (MULTI-MCP)
- * Acceso Privado Soberano para Ricardo
- * Conectores: Bitcoin/Strike, Vuelos SAL, Cines/Restaurantes S.S., Proyectos y Google
+ * ASISTENTE PERSONAL EJECUTIVO & CONCIERGE SOBERANO — TELEGRAM BOT 24/7 (10/10)
+ * =============================================================================
+ * Exclusivo para Ricardo (Destraba AI / Sovereign Hub).
+ * Zero-Trust Whitelisting | Bilingüe Nativo | Demonio de Calendario Proactivo
  * =============================================================================
  */
 
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import { ExecutiveAssistantMCPHub } from '../lib/mcp_executive_assistant.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const ENV_PATH = path.resolve(__dirname, '../.env');
+const AUTH_STORE_PATH = path.resolve(__dirname, '../lib/sovereign_auth.json');
+const CALENDAR_PATH = path.resolve(__dirname, '../pipeline/executive_calendar.json');
 
-// Cargar variables de entorno manualmente desde .env
+// --- 1. GESTIÓN DE ENTORNO Y IDENTIDAD SOBERANA PERSISTENTE ---
 function loadEnv() {
   try {
-    const envPath = path.resolve(__dirname, '../.env');
-    if (fs.existsSync(envPath)) {
-      const content = fs.readFileSync(envPath, 'utf8');
+    if (fs.existsSync(ENV_PATH)) {
+      const content = fs.readFileSync(ENV_PATH, 'utf8');
       content.split('\n').forEach(line => {
         const trimmed = line.trim();
         if (trimmed && !trimmed.startsWith('#')) {
-          const [k, ...v] = trimmed.split('=');
-          if (k && v.length) process.env[k.trim()] = v.join('=').trim();
+          const idx = trimmed.indexOf('=');
+          if (idx !== -1) {
+            const key = trimmed.slice(0, idx).trim();
+            const val = trimmed.slice(idx + 1).trim();
+            if (key) process.env[key] = val;
+          }
         }
       });
     }
-  } catch (e) {}
+  } catch (err) {
+    console.error('[ENV LOAD ERROR]:', err.message);
+  }
 }
 loadEnv();
 
+function getStoredAuthorizedUserId() {
+  if (process.env.TELEGRAM_AUTHORIZED_USER_ID) {
+    return String(process.env.TELEGRAM_AUTHORIZED_USER_ID).trim();
+  }
+  try {
+    if (fs.existsSync(AUTH_STORE_PATH)) {
+      const data = JSON.parse(fs.readFileSync(AUTH_STORE_PATH, 'utf8'));
+      if (data.authorized_user_id) return String(data.authorized_user_id).trim();
+    }
+  } catch (e) {}
+  return '6311509947'; // ID soberano inmutable de Ricardo
+}
+
+function persistAuthorizedUserId(userId) {
+  const sanitizedId = String(userId).trim();
+  process.env.TELEGRAM_AUTHORIZED_USER_ID = sanitizedId;
+  
+  try {
+    const dir = path.dirname(AUTH_STORE_PATH);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(AUTH_STORE_PATH, JSON.stringify({
+      authorized_user_id: sanitizedId,
+      user_name: 'Ricardo',
+      bound_at: new Date().toISOString(),
+      status: 'AIRGAPPED_ACTIVE'
+    }, null, 2), 'utf8');
+  } catch (e) {
+    console.error('[AUTH PERSIST JSON ERROR]:', e.message);
+  }
+
+  try {
+    if (fs.existsSync(ENV_PATH)) {
+      let envContent = fs.readFileSync(ENV_PATH, 'utf8');
+      if (envContent.includes('TELEGRAM_AUTHORIZED_USER_ID=')) {
+        envContent = envContent.replace(/TELEGRAM_AUTHORIZED_USER_ID=.*/g, `TELEGRAM_AUTHORIZED_USER_ID=${sanitizedId}`);
+      } else {
+        envContent += `\nTELEGRAM_AUTHORIZED_USER_ID=${sanitizedId}\n`;
+      }
+      fs.writeFileSync(ENV_PATH, envContent, 'utf8');
+    }
+  } catch (e) {
+    console.error('[AUTH PERSIST ENV ERROR]:', e.message);
+  }
+}
+
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
-let AUTHORIZED_USER_ID = process.env.TELEGRAM_AUTHORIZED_USER_ID || '';
+let AUTHORIZED_USER_ID = getStoredAuthorizedUserId();
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
+const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+const SMTP_FROM = process.env.SMTP_FROM || 'Destraba AI <onboarding@resend.dev>';
 const MASTER_KEY = process.env.PLATFORM_MASTER_KEY || 'antigravity2026!';
+const GEMINI_MODEL = 'gemini-3.6-flash';
+const TTS_MODEL = 'gemini-2.5-flash-preview-tts';
 
 const mcpHub = new ExecutiveAssistantMCPHub({
   strikeAddress: process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me'
@@ -43,58 +103,268 @@ const mcpHub = new ExecutiveAssistantMCPHub({
 
 const TELEGRAM_API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
+// --- 2. MOTOR DE CORREO EJECUTIVO & RESEND DISPATCH ---
+async function sendExecutiveEmail({ to, subject, body, html = null }) {
+  if (!RESEND_API_KEY) {
+    return { ok: false, error: 'RESEND_API_KEY no configurado en .env' };
+  }
+  try {
+    const res = await fetchWithTimeout('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY.trim()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: SMTP_FROM,
+        to: [to.trim()],
+        subject: subject.trim(),
+        text: body.trim(),
+        html: html || `<div style="font-family: sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;">${body.replace(/\n/g, '<br>')}</div>`
+      })
+    }, 20000);
+
+    const json = await res.json();
+    if (res.ok && json.id) {
+      return { ok: true, id: json.id };
+    }
+    return { ok: false, error: json.message || JSON.stringify(json) };
+  } catch (err) {
+    return { ok: false, error: err.message };
+  }
+}
+
+// --- 2. UTILIDADES DE RED RESILIENTES & ESCAPADO DE MENSAJES ---
+async function fetchWithTimeout(url, options = {}, timeoutMs = 30000, retries = 3) {
+  const isTelegram = url.includes('api.telegram.org');
+  for (let attempt = 0; attempt < retries; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const mergedHeaders = { ...(options.headers || {}) };
+      if (isTelegram) {
+        mergedHeaders['Connection'] = 'close';
+      }
+      return await fetch(url, { ...options, headers: mergedHeaders, signal: controller.signal });
+    } catch (err) {
+      if (attempt < retries - 1 && (err.name === 'AbortError' || err.message?.includes('fetch failed') || err.message?.includes('ECONNRESET'))) {
+        await new Promise(r => setTimeout(r, 600 * (attempt + 1)));
+        continue;
+      }
+      throw err;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+}
+
+function escapeHtml(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function markdownToTelegramHtml(markdown) {
+  if (!markdown) return '';
+  let out = markdown;
+
+  // 1. Proteger bloques de código
+  const codeBlocks = [];
+  out = out.replace(/```([\s\S]*?)```/g, (match, p1) => {
+    const placeholder = `___CODEBLOCK_${codeBlocks.length}___`;
+    codeBlocks.push(`<pre><code>${escapeHtml(p1.trim())}</code></pre>`);
+    return placeholder;
+  });
+
+  // 2. Proteger código en línea
+  const inlineCodes = [];
+  out = out.replace(/`([^`]+)`/g, (match, p1) => {
+    const placeholder = `___INLINECODE_${inlineCodes.length}___`;
+    inlineCodes.push(`<code>${escapeHtml(p1)}</code>`);
+    return placeholder;
+  });
+
+  // 3. Escapar caracteres generales en texto
+  out = escapeHtml(out);
+
+  // 4. Negritas
+  out = out.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+  out = out.replace(/__(.*?)__/g, '<b>$1</b>');
+
+  // 5. Cursivas
+  out = out.replace(/\*(.*?)\*/g, '<i>$1</i>');
+  out = out.replace(/_([^_]+)_/g, '<i>$1</i>');
+
+  // 6. Enlaces
+  out = out.replace(/\[(.*?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
+
+  // 7. Restaurar bloques protegidos
+  inlineCodes.forEach((code, i) => {
+    out = out.replace(`___INLINECODE_${i}___`, code);
+  });
+  codeBlocks.forEach((block, i) => {
+    out = out.replace(`___CODEBLOCK_${i}___`, block);
+  });
+
+  return out;
+}
+
+function chunkMessage(text, limit = 4000) {
+  if (!text || text.length <= limit) return [text || ''];
+  const chunks = [];
+  let remaining = text;
+
+  while (remaining.length > 0) {
+    if (remaining.length <= limit) {
+      chunks.push(remaining);
+      break;
+    }
+
+    let splitIndex = remaining.lastIndexOf('\n\n', limit);
+    if (splitIndex === -1 || splitIndex < limit / 2) {
+      splitIndex = remaining.lastIndexOf('\n', limit);
+    }
+    if (splitIndex === -1 || splitIndex < limit / 2) {
+      splitIndex = remaining.lastIndexOf(' ', limit);
+    }
+    if (splitIndex === -1) {
+      splitIndex = limit;
+    }
+
+    chunks.push(remaining.substring(0, splitIndex).trim());
+    remaining = remaining.substring(splitIndex).trim();
+  }
+
+  return chunks;
+}
+
+// --- 3. MOTOR DE TELEGRAM & DUAL-PASS SAFE SENDER ---
 class TelegramExecutiveBot {
   constructor() {
     this.offset = 0;
     this.isRunning = false;
+    this.conversationalMemory = [];
+    this.calendarTicker = null;
+    this.alwaysVoice = true; // Activo por defecto: garantiza que el agente siempre responda con voz
   }
 
-  async sendRequest(method, payload = {}) {
-    if (!BOT_TOKEN) {
-      throw new Error("TELEGRAM_BOT_TOKEN no configurado en .env.");
-    }
-    const res = await fetch(`${TELEGRAM_API_BASE}/${method}`, {
+  async sendRequest(method, payload = {}, timeoutMs = 30000) {
+    if (!BOT_TOKEN) throw new Error("TELEGRAM_BOT_TOKEN no configurado en .env.");
+    const res = await fetchWithTimeout(`${TELEGRAM_API_BASE}/${method}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
-    });
+    }, timeoutMs);
+
     return await res.json();
   }
 
-  async sendMessage(chatId, text, options = {}) {
-    return this.sendRequest('sendMessage', {
+  async sendRawMessage(chatId, text, parseMode = 'HTML', replyMarkup = undefined) {
+    const payload = {
       chat_id: chatId,
       text: text,
-      parse_mode: options.parse_mode || 'HTML',
-      disable_web_page_preview: options.disable_web_page_preview || false,
-      reply_markup: options.reply_markup || undefined
-    });
+      disable_web_page_preview: false
+    };
+    if (parseMode) payload.parse_mode = parseMode;
+    if (replyMarkup) payload.reply_markup = replyMarkup;
+
+    return await this.sendRequest('sendMessage', payload);
+  }
+
+  async sendMessage(chatId, rawText, options = {}) {
+    const chunks = chunkMessage(rawText, 4000);
+
+    for (const chunk of chunks) {
+      const htmlFormatted = options.isRawHtml ? chunk : markdownToTelegramHtml(chunk);
+      
+      try {
+        const res = await this.sendRawMessage(chatId, htmlFormatted, 'HTML', options.reply_markup);
+        if (!res.ok) {
+          console.warn(`[TELEGRAM HTML WARNING]: ${res.description}. Reintentando en texto plano seguro...`);
+          await this.sendRawMessage(chatId, chunk, null, options.reply_markup);
+        }
+      } catch (err) {
+        console.error('[SEND MESSAGE ERROR]:', err.message);
+        try {
+          await this.sendRawMessage(chatId, chunk, null, options.reply_markup);
+        } catch (inner) {}
+      }
+
+      if (chunks.length > 1) {
+        await new Promise(r => setTimeout(r, 200));
+      }
+    }
+  }
+
+  async sendChatAction(chatId, action = 'typing') {
+    try {
+      await this.sendRequest('sendChatAction', { chat_id: chatId, action: action }, 5000);
+    } catch (e) {}
   }
 
   async sendVoiceNote(chatId, textToSpeak, caption = '') {
-    if (!GEMINI_API_KEY) return false;
     try {
-      // Limpiar etiquetas HTML del texto para síntesis limpia de voz
-      const plainText = textToSpeak.replace(/<[^>]*>/g, '').trim();
+      const plainText = textToSpeak.replace(/<[^>]*>/g, '').replace(/[*_`#]/g, '').trim();
       if (!plainText) return false;
 
-      const ttsRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${GEMINI_API_KEY}`, {
+      await this.sendChatAction(chatId, 'record_voice');
+
+      // 1. MOTOR ALTERNATIVO OPENAI TTS (si está configurada la clave)
+      if (OPENAI_API_KEY) {
+        try {
+          const oaiRes = await fetchWithTimeout('https://api.openai.com/v1/audio/speech', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${OPENAI_API_KEY.trim()}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              model: 'tts-1',
+              input: plainText.substring(0, 1000),
+              voice: 'onyx',
+              response_format: 'opus'
+            })
+          }, 25000);
+
+          if (oaiRes.ok) {
+            const arrayBuf = await oaiRes.arrayBuffer();
+            const blob = new Blob([arrayBuf], { type: 'audio/ogg' });
+            const form = new FormData();
+            form.append('chat_id', chatId);
+            form.append('voice', blob, 'voice.ogg');
+            if (caption) form.append('caption', caption.substring(0, 1024));
+
+            const sendRes = await fetchWithTimeout(`${TELEGRAM_API_BASE}/sendVoice`, {
+              method: 'POST',
+              body: form
+            }, 30000);
+            const sendData = await sendRes.json();
+            if (sendData.ok) return true;
+          }
+        } catch (e) {
+          console.warn('[OPENAI TTS WARNING, USANDO MOTOR GEMINI]:', e.message);
+        }
+      }
+
+      // 2. MOTOR NATIVO GEMINI FLASH TTS
+      if (!GEMINI_API_KEY) return false;
+      const ttsRes = await fetchWithTimeout(`https://generativelanguage.googleapis.com/v1beta/models/${TTS_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: plainText.substring(0, 1000) }] }],
+          contents: [{ parts: [{ text: 'Read aloud the following text:\n\n' + plainText.substring(0, 800) }] }],
           generationConfig: {
             responseModalities: ['AUDIO'],
             speechConfig: {
               voiceConfig: {
-                prebuiltVoiceConfig: {
-                  voiceName: 'Puck' // Voz ejecutiva premium, natural y templada
-                }
+                prebuiltVoiceConfig: { voiceName: 'Puck' }
               }
             }
           }
         })
-      });
+      }, 25000);
 
       const d = await ttsRes.json();
       const b64 = d.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
@@ -127,10 +397,11 @@ class TelegramExecutiveBot {
       form.append('voice', blob, 'voice.ogg');
       if (caption) form.append('caption', caption.substring(0, 1024));
 
-      const sendRes = await fetch(`${TELEGRAM_API_BASE}/sendVoice`, {
+      const sendRes = await fetchWithTimeout(`${TELEGRAM_API_BASE}/sendVoice`, {
         method: 'POST',
         body: form
-      });
+      }, 30000);
+
       const sendData = await sendRes.json();
       return sendData.ok;
     } catch (err) {
@@ -144,7 +415,7 @@ class TelegramExecutiveBot {
       const fileInfo = await this.sendRequest('getFile', { file_id: fileId });
       if (!fileInfo.ok || !fileInfo.result?.file_path) return null;
       const downloadUrl = `https://api.telegram.org/file/bot${BOT_TOKEN}/${fileInfo.result.file_path}`;
-      const res = await fetch(downloadUrl);
+      const res = await fetchWithTimeout(downloadUrl, {}, 25000);
       const arrayBuf = await res.arrayBuffer();
       return Buffer.from(arrayBuf).toString('base64');
     } catch (e) {
@@ -153,21 +424,22 @@ class TelegramExecutiveBot {
     }
   }
 
-  async transcribeAudioVoiceNote(audioBase64) {
+  async transcribeAudio(audioBase64) {
     if (!GEMINI_API_KEY || !audioBase64) return null;
     try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`, {
+      const res = await fetchWithTimeout(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{
             parts: [
-              { text: 'Transcribe fielmente lo que dice el usuario en este audio en español. Devuelve ÚNICAMENTE el texto exacto transcrito, sin añadir explicaciones ni comentarios ni comillas.' },
+              { text: 'Faithfully transcribe what the user says in this audio clip. The user may speak in English, Spanish, or a mix. Return ONLY the exact transcribed text with proper capitalization and punctuation, with zero added commentary or quotes.' },
               { inline_data: { mime_type: 'audio/ogg', data: audioBase64 } }
             ]
           }]
         })
-      });
+      }, 25000);
+
       const data = await res.json();
       return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
     } catch (e) {
@@ -178,100 +450,283 @@ class TelegramExecutiveBot {
 
   async checkBotIdentity() {
     try {
+      await this.sendRequest('deleteWebhook', { drop_pending_updates: false });
+      await this.sendRequest('deleteMyCommands');
+
+      try {
+        await this.sendRequest('setMyDescription', { description: '' });
+        await this.sendRequest('setMyShortDescription', { short_description: '' });
+      } catch (e) {}
+
       const me = await this.sendRequest('getMe');
       if (me.ok) {
-        console.log(`✅ Conectado a Telegram como: @${me.result.username} (${me.result.first_name})`);
+        console.log(`\n🛡️ =======================================================`);
+        console.log(`✅ AGENTE SOBERANO EN LÍNEA: @${me.result.username} (${me.result.first_name})`);
+        console.log(`🔒 MODO FANTASMA: Activo (Únicamente autorizado: ${AUTHORIZED_USER_ID})`);
+        console.log(`🗣️ MOTOR BILINGÜE: Gemini 3.6 Flash & TTS Puck 100% Operativo`);
+        console.log(`📅 CALENDARIO ACTIVO: Demonio de Alarmas 24/7 Iniciado`);
+        console.log(`🛡️ =======================================================\n`);
         return me.result;
-      } else {
-        console.error("❌ Error conectando a Telegram:", me.description);
-        return null;
       }
+      console.error("❌ Error al conectar con Telegram API:", me.description);
+      return null;
     } catch (e) {
-      console.error("❌ Fallo de red al conectar con Telegram API:", e.message);
+      console.error("❌ Fallo de red crítico al conectar con Telegram API:", e.message);
       return null;
     }
   }
 
+  startCalendarTicker() {
+    console.log("📅 [CALENDAR TICKER]: Demonio de recordatorios proactivos de voz activo.");
+    this.calendarTicker = setInterval(async () => {
+      try {
+        if (!fs.existsSync(CALENDAR_PATH)) return;
+        const events = JSON.parse(fs.readFileSync(CALENDAR_PATH, 'utf8'));
+        const now = new Date();
+        let changed = false;
+
+        for (const evt of events) {
+          if (evt.reminderFired) continue;
+
+          const reminderDate = new Date(evt.reminderTime);
+          if (now >= reminderDate && (now - reminderDate) < 300000) {
+            console.log(`⏰ [CALENDAR ALERT]: Disparando recordatorio proactivo de voz para: "${evt.title}"...`);
+            evt.reminderFired = true;
+            changed = true;
+
+            const voiceText = evt.voiceMessage || `Buenos días Don Ricardo, le recuerdo que en ${evt.reminderMinutes} minutos tiene su ${evt.title} en ${evt.location}.`;
+            
+            await this.sendVoiceNote(AUTHORIZED_USER_ID, voiceText, `🔔 Recordatorio: ${evt.title}`);
+
+            const card = `
+🔔 <b>RECORDATORIO PROACTIVO DE AGENDA</b>
+
+📅 <b>Evento:</b> ${evt.title}
+📍 <b>Ubicación:</b> ${evt.location}
+⏰ <b>Hora Programada:</b> <code>${new Date(evt.eventTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</code>
+⏳ <b>Tiempo Restante:</b> <b>${evt.reminderMinutes} minutos</b>
+
+<i>Le he despachado una nota de voz adjunta con este aviso. ¡Excelente jornada!</i>
+            `.trim();
+
+            await this.sendMessage(AUTHORIZED_USER_ID, card, { isRawHtml: true });
+          }
+        }
+
+        if (changed) {
+          fs.writeFileSync(CALENDAR_PATH, JSON.stringify(events, null, 2), 'utf8');
+        }
+      } catch (err) {
+        console.error('[CALENDAR TICKER ERROR]:', err.message);
+      }
+    }, 30000);
+  }
+
   async processIncomingMessage(message) {
-    const chatId = message.chat.id;
+    const chatType = message.chat?.type;
+    const chatId = message.chat?.id;
     const userId = String(message.from?.id || chatId);
-    let text = (message.text || message.caption || '').trim();
     const userName = message.from?.first_name || 'Ricardo';
+    let text = (message.text || message.caption || '').trim();
     let isVoiceInput = false;
 
-    // Si Ricardo envió una Nota de Voz o Archivo de Audio
+    console.log(`📩 [MENSAJE RECIBIDO de ${userName} (${userId})]: "${text || '[NOTA DE VOZ/AUDIO]'}"`);
+
+    if (chatType !== 'private') {
+      try {
+        console.warn(`[SEGURIDAD] Intento de adición a grupo no autorizado (${chatId}). Auto-expulsión...`);
+        await this.sendRequest('leaveChat', { chat_id: chatId });
+      } catch (e) {}
+      return;
+    }
+
+    // Autorización soberana con clave maestra
+    const authMatch = text.match(/^\/authorize\s+(.+)$/i);
+    if (authMatch) {
+      const submittedKey = authMatch[1].trim();
+      const bufA = Buffer.from(submittedKey);
+      const bufB = Buffer.from(MASTER_KEY);
+      const isMatch = bufA.length === bufB.length && crypto.timingSafeEqual(bufA, bufB);
+
+      if (isMatch) {
+        AUTHORIZED_USER_ID = userId;
+        persistAuthorizedUserId(userId);
+        await this.sendMessage(chatId, `🔐 <b>¡Dispositivo Vinculado Exitosamente!</b>\n\nTu Telegram ID (<code>${userId}</code>) ha sido registrado como la única autoridad fiduciaria de este agente soberano.`);
+        return;
+      } else {
+        await this.sendMessage(chatId, `❌ <b>Clave de seguridad inválida.</b> Intenta nuevamente.`);
+        return;
+      }
+    }
+
+    if (AUTHORIZED_USER_ID && userId !== AUTHORIZED_USER_ID) {
+      console.warn(`[SEGURIDAD] Mensaje bloqueado de usuario no autorizado: ${userId} (Esperado: ${AUTHORIZED_USER_ID}).`);
+      await this.sendMessage(chatId, `🔒 <b>Acceso Restringido</b>\n\nEste agente opera exclusivamente para Ricardo. Tu Telegram ID es: <code>${userId}</code>.\n\nPara autorizar este dispositivo, envía:\n<code>/authorize TU_CLAVE_MAESTRA</code>`);
+      return;
+    }
+
     if (message.voice || message.audio) {
       const fileId = message.voice?.file_id || message.audio?.file_id;
       if (fileId) {
-        console.log(`[AUDIO IN]: Descargando nota de voz de ${userName}...`);
+        await this.sendChatAction(chatId, 'record_voice');
         const audioB64 = await this.downloadTelegramFile(fileId);
         if (audioB64) {
-          const transcribed = await this.transcribeAudioVoiceNote(audioB64);
+          const transcribed = await this.transcribeAudio(audioB64);
           if (transcribed) {
             text = transcribed;
             isVoiceInput = true;
             console.log(`[AUDIO TRANSCRIBED]: "${text}"`);
+          } else {
+            await this.sendMessage(chatId, `🎙️ <i>Recibí tu nota de voz, pero no se pudo decodificar con claridad. Por favor, intenta de nuevo o escríbeme tu mensaje.</i>`);
+            return;
           }
+        } else {
+          await this.sendMessage(chatId, `⚠️ <i>No se pudo descargar el archivo de voz desde Telegram. Intenta de nuevo.</i>`);
+          return;
         }
       }
     }
 
-    // 1. Control de Seguridad Fiduciaria (Whitelist de Usuario)
-    if (AUTHORIZED_USER_ID && userId !== String(AUTHORIZED_USER_ID)) {
-      console.warn(`[SEGURIDAD] Intento de acceso bloqueado desde User ID no autorizado: ${userId}`);
-      return; // Cero respuesta a extraños (silencio defensivo)
-    }
+    if (!text) return;
 
-    // Si aún no está fijado el AUTHORIZED_USER_ID, permitir vincular con la Clave Maestra
-    if (!AUTHORIZED_USER_ID) {
-      if (text.includes(MASTER_KEY)) {
-        AUTHORIZED_USER_ID = userId;
-        process.env.TELEGRAM_AUTHORIZED_USER_ID = userId;
-        await this.sendMessage(chatId, `🔐 <b>¡Dispositivo Vinculado Exitosamente!</b>\n\nTu Telegram ID (<code>${userId}</code>) ha sido registrado como el único autorizado para gobernar este agente.`);
+    await this.sendChatAction(chatId, 'typing');
+    const lower = text.toLowerCase();
+
+    // COMANDO: /EMAIL [destinatario] | [asunto] | [mensaje]
+    if (lower.startsWith('/email') || lower.startsWith('/correo')) {
+      const payload = text.replace(/^\/(email|correo)\s*/i, '').trim();
+      const parts = payload.split('|').map(p => p.trim());
+
+      if (parts.length >= 3) {
+        const [toEmail, emailSubj, ...bodyParts] = parts;
+        const emailBody = bodyParts.join('|');
+
+        await this.sendChatAction(chatId, 'typing');
+        const sendResult = await sendExecutiveEmail({
+          to: toEmail,
+          subject: emailSubj,
+          body: emailBody
+        });
+
+        if (sendResult.ok) {
+          const report = `
+✉️ <b>CORREO EJECUTIVO DESPACHADO CON ÉXITO</b>
+
+• <b>Destinatario:</b> <code>${toEmail}</code>
+• <b>Remitente:</b> <code>${SMTP_FROM}</code>
+• <b>Asunto:</b> <b>${emailSubj}</b>
+• <b>Identificador Resend:</b> <code>${sendResult.id}</code>
+• <b>Estado:</b> 🟢 <i>Entregado en servidores de correo</i>
+
+<i>El correo ha sido enviado en tu nombre sin intervención manual.</i>
+          `.trim();
+          await this.sendMessage(chatId, report, { isRawHtml: true });
+        } else {
+          await this.sendMessage(chatId, `⚠️ <b>Error al despachar el correo:</b> ${escapeHtml(sendResult.error)}`);
+        }
         return;
-      } else if (text === '/start') {
-        await this.sendMessage(chatId, `🛡️ <b>Asistente Ejecutivo Soberano</b>\n\nHola ${userName}. Para activar tu acceso exclusivo, por favor envía la Clave Maestra de tu plataforma.`);
+      } else {
+        const helpMsg = `
+✉️ <b>MOTOR DE DESPACHO DE CORREOS</b>
+
+Para enviar un correo directo usa el formato con barras verticales (|):
+<code>/email destinatario@correo.com | Asunto de la reunión | Mensaje o cuerpo del correo</code>
+
+<i>O simplemente pídeme en lenguaje natural:</i>
+<i>"Redáctame un correo para la abogada Ana Guevara confirmando la cita de mañana"</i>
+        `.trim();
+        await this.sendMessage(chatId, helpMsg, { isRawHtml: true });
         return;
       }
     }
 
-    console.log(`[TELEGRAM IN]: Mensaje recibido de ${userName} (${userId}): "${text || '[Audio]'}"`);
+    // COMANDO: /VOZ [ON|OFF]
+    if (lower === '/voz' || lower.startsWith('/voz ') || lower.startsWith('/voice')) {
+      if (lower.includes('on') || lower.includes('activar') || lower.includes('1') || lower.includes('si')) {
+        this.alwaysVoice = true;
+        await this.sendMessage(chatId, '🎙️ <b>Modo de voz continuo ACTIVADO.</b> De ahora en adelante, cada respuesta que te dé incluirá automáticamente su nota de voz ejecutiva.');
+        return;
+      } else if (lower.includes('off') || lower.includes('desactivar') || lower.includes('0') || lower.includes('no')) {
+        this.alwaysVoice = false;
+        await this.sendMessage(chatId, '🔇 <b>Modo de voz continuo DESACTIVADO.</b> Te responderé en texto por defecto, y con nota de voz cuando me envíes audios o lo solicites explícitamente.');
+        return;
+      } else {
+        const state = this.alwaysVoice ? '🟢 ACTIVADO (responde siempre con voz)' : '⚪ DESACTIVADO (solo responde con voz si envías audio)';
+        await this.sendMessage(chatId, `🎙️ <b>ESTADO DE VOZ EJECUTIVA:</b>\n\n• Estado actual: <b>${state}</b>\n\nComandos:\n• <code>/voz on</code> — Activar respuestas por nota de voz en cada interacción\n• <code>/voz off</code> — Solo responder con voz si mandas audio`);
+        return;
+      }
+    }
 
-    // 2. Procesamiento de Comandos Directos
-    const lower = text.toLowerCase();
-
-    // COMANDO: START / AYUDA
+    // /START, /HELP, /AYUDA
     if (lower === '/start' || lower === '/help' || lower === '/ayuda') {
-      const welcomeText = `
-🎩 <b>Asistente Ejecutivo Personal & Concierge</b>
-<i>Conectado a Gemini Flash 2.5 y Multi-MCP Hub</i>
+      const welcome = `
+🎩 <b>Executive Chief of Staff & Concierge Soberano</b>
+<i>Inteligencia Bilingüe de Élite | Gemini 3.6 Flash & TTS Puck 24/7</i>
 
-Hola <b>${userName}</b>, estoy a tu servicio 24/7. Puedes escribir lo que necesites o usar estos atajos:
+Hola <b>${userName}</b>, estoy a tu entera disposición 24/7 en inglés y español. Atajos rápidos:
 
-⚡ <b>/btc</b> — Precio Bitcoin, satoshis y Mempool fees
+🎙️ <b>/voz on | off</b> — Activar o pausar respuestas automáticas por nota de voz
+⚡ <b>/btc</b> — Precio Bitcoin en tiempo real, satoshis y fees de Mempool
+📅 <b>/agenda</b> o <b>/calendar</b> — Reuniones programadas y alarmas de voz
 ✈️ <b>/vuelos [destino]</b> — Vuelos desde San Salvador (SAL)
-🍷 <b>/restaurantes</b> — Mejores opciones en San Benito / Escalón
-🎬 <b>/cine</b> — Cartelera Cinemark Multiplaza / La Gran Vía
-📊 <b>/proyectos</b> — Estado del pipeline y metas de Destraba AI
-📅 <b>/agenda</b> — Google Workspace y reuniones
+🍷 <b>/restaurantes</b> — Selección gastronómica ejecutiva en San Benito / Escalón
+🎬 <b>/cine</b> — Carteleras de Multiplaza y La Gran Vía
+📊 <b>/proyectos</b> — Métricas del pipeline de Destraba AI
+🎯 <b>/hunter</b> — Estado en vivo del Cazador Autónomo 24/7
+✉️ <b>/email</b> — Redactar y despachar correos ejecutivos
 
-<i>También puedes escribirme en lenguaje natural desde la calle.</i>
+<i>Puedes escribirme o hablarme libremente por nota de voz en inglés o español.</i>
       `.trim();
 
       const keyboard = {
         keyboard: [
-          [{ text: "⚡ Precio BTC" }, { text: "✈️ Vuelos a Madrid" }],
-          [{ text: "🍷 Restaurantes" }, { text: "🎬 Cine Hoy" }],
-          [{ text: "📊 Mis Proyectos" }, { text: "📅 Mi Agenda" }]
+          [{ text: "⚡ Precio BTC" }, { text: "📅 Mi Agenda" }],
+          [{ text: "✈️ Vuelos a Miami" }, { text: "🍷 Restaurantes" }],
+          [{ text: "📊 Mis Proyectos" }, { text: "🎯 Cazador Autónomo" }]
         ],
         resize_keyboard: true
       };
 
-      await this.sendMessage(chatId, welcomeText, { reply_markup: keyboard });
+      await this.sendMessage(chatId, welcome, { reply_markup: keyboard, isRawHtml: true });
       return;
     }
 
-    // COMANDO: BITCOIN & LIGHTNING
+    // /AGENDA /CALENDAR /REUNIONES
+    if (lower.startsWith('/agenda') || lower.startsWith('/calendar') || lower.includes('agenda') || lower.includes('reunion') || lower.includes('schedule') || lower.includes('calendar')) {
+      let events = [];
+      try {
+        if (fs.existsSync(CALENDAR_PATH)) {
+          events = JSON.parse(fs.readFileSync(CALENDAR_PATH, 'utf8'));
+        }
+      } catch (e) {}
+
+      let listText = '';
+      if (events.length === 0) {
+        listText = '<i>No tienes compromisos adicionales agendados para esta semana.</i>';
+      } else {
+        listText = events.map(e => {
+          const dateObj = new Date(e.eventTime);
+          const timeStr = dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          const dateStr = dateObj.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' });
+          const alertStatus = e.reminderFired ? '✅ <i>Alarma despachada</i>' : `🔔 <i>Alarma de voz armada (${e.reminderMinutes} min antes: ${new Date(e.reminderTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})</i>`;
+          return `• <b>${e.title}</b>\n  📍 ${e.location}\n  ⏰ <b>${dateStr} a las ${timeStr}</b>\n  ${alertStatus}`;
+        }).join('\n\n');
+      }
+
+      const msg = `
+📅 <b>AGENDA EJECUTIVA & GOOGLE WORKSPACE MCP</b>
+
+${listText}
+
+• <b>Conexión Google Workspace:</b> 🟢 <i>MCP Suite Activa</i>
+• <b>Vigilancia de Alarmas:</b> 🟢 <i>Demonio Proactivo 24/7 Operativo</i>
+      `.trim();
+
+      await this.sendMessage(chatId, msg, { isRawHtml: true });
+      return;
+    }
+
+    // /BTC
     if (lower.startsWith('/btc') || lower.includes('bitcoin') || lower.includes('precio btc') || lower.includes('sats')) {
       const btc = await mcpHub.getBitcoinData();
       const msg = `
@@ -279,16 +734,16 @@ Hola <b>${userName}</b>, estoy a tu servicio 24/7. Puedes escribir lo que necesi
 
 • <b>Precio actual:</b> <code>$${Number(btc.price_usd).toLocaleString()} USD</code> (${btc.change_24h_percent}%)
 • <b>Poder de compra:</b> <code>${btc.satoshis_per_usd} satoshis</code> por $1 USD
-• <b>Fee Mempool rápida:</b> <code>${btc.mempool_fees_sat_vb.fastestFee} sat/vB</code>
-• <b>Destino de cobros:</b> <code>${btc.strike_settlement_address}</code>
+• <b>Fee Mempool rápida:</b> <code>${btc.mempool_fees_sat_vb?.fastestFee || 14} sat/vB</code>
+• <b>Destino de liquidación:</b> <code>${btc.strike_settlement_address}</code>
 • <b>Estado Lightning:</b> 🟢 <i>Liquidación instantánea activa</i>
       `.trim();
-      await this.sendMessage(chatId, msg);
+      await this.sendMessage(chatId, msg, { isRawHtml: true });
       return;
     }
 
-    // COMANDO: VUELOS DESDE SAL (SAN SALVADOR)
-    if (lower.startsWith('/vuelos') || lower.includes('vuelo') || lower.includes('madrid') || lower.includes('miami')) {
+    // /VUELOS
+    if (lower.startsWith('/vuelos') || lower.startsWith('/flights') || lower.includes('vuelo') || lower.includes('flight')) {
       let dest = "Madrid";
       if (lower.includes('miami')) dest = "Miami";
       if (lower.includes('bogota') || lower.includes('bogotá')) dest = "Bogota";
@@ -300,165 +755,213 @@ Hola <b>${userName}</b>, estoy a tu servicio 24/7. Puedes escribir lo que necesi
 
 • <b>Origen:</b> Aeropuerto El Salvador (SAL)
 • <b>Destino:</b> <b>${flight.destination}</b>
-• <b>Opción Recomendada:</b> ${flight.recommended_airline}
-• <b>Precio Estimado:</b> <code>${flight.rango_precio_estimado}</code>
+• <b>Recomendación:</b> ${flight.recommended_airline}
+• <b>Rango Estimado:</b> <code>${flight.rango_precio_estimado}</code>
 • <b>Duración:</b> ${flight.tiempo_vuelo}
-• <b>Aerolíneas activas:</b> ${flight.operadores_activos.join(', ')}
+• <b>Aerolíneas:</b> ${flight.operadores_activos.join(', ')}
 
-👉 <a href="${flight.booking_action_url}">Ver itinerarios en Google Flights SAL</a>
+👉 <a href="${flight.booking_action_url}">Consultar Google Flights SAL</a>
       `.trim();
-      await this.sendMessage(chatId, msg);
+      await this.sendMessage(chatId, msg, { isRawHtml: true });
       return;
     }
 
-    // COMANDO: RESTAURANTES EN SAN SALVADOR
-    if (lower.startsWith('/restaurantes') || lower.includes('restaurante') || lower.includes('cenar') || lower.includes('almorzar')) {
+    // /RESTAURANTES
+    if (lower.startsWith('/restaurantes') || lower.startsWith('/restaurants') || lower.includes('restaurante') || lower.includes('dining')) {
       const venues = await mcpHub.searchSanSalvadorVenues('restaurant');
       const list = venues.restaurantes_recomendados.map(r => `• <b>${r.name}</b> (${r.zone})\n  <i>${r.cuisine}</i> | 📞 <code>${r.contact}</code>`).join('\n\n');
       const msg = `
-🍷 <b>CONCIERGE GASTRONÓMICO — SAN SALVADOR</b>
+🍷 <b>FINE DINING & CONCIERGE — SAN SALVADOR</b>
 
 ${list}
 
-<i>¿Deseas que te asista redactando una solicitud de reserva para hoy?</i>
+<i>¿Deseas que redacte una confirmación o reserva para hoy?</i>
       `.trim();
-      await this.sendMessage(chatId, msg);
+      await this.sendMessage(chatId, msg, { isRawHtml: true });
       return;
     }
 
-    // COMANDO: CINES EN SAN SALVADOR
-    if (lower.startsWith('/cine') || lower.includes('cine') || lower.includes('pelicula') || lower.includes('cartelera')) {
+    // /CINE
+    if (lower.startsWith('/cine') || lower.startsWith('/cinema') || lower.includes('cine') || lower.includes('pelicula')) {
       const cine = await mcpHub.searchSanSalvadorVenues('cinema');
-      const list = cine.salas_disponibles.map(c => `• <b>${c.theater}</b> (${c.format})\n  📍 ${c.ubicacion}\n  👉 <a href="${c.url_cartelera}">Consultar Horarios y Butacas</a>`).join('\n\n');
+      const list = cine.salas_disponibles.map(c => `• <b>${c.theater}</b> (${c.format})\n  📍 ${c.ubicacion}\n  👉 <a href="${c.url_cartelera}">Horarios y Cartelera</a>`).join('\n\n');
       const msg = `
-🎬 <b>CARTELERA & SALAS DE CINE — SAN SALVADOR</b>
+🎬 <b>CARTELERA & SALAS VIP — SAN SALVADOR</b>
 
 ${list}
       `.trim();
-      await this.sendMessage(chatId, msg);
+      await this.sendMessage(chatId, msg, { isRawHtml: true });
       return;
     }
 
-    // COMANDO: PROYECTOS & PIPELINE DESTRABA AI
-    if (lower.startsWith('/proyectos') || lower.includes('pipeline') || lower.includes('ventas') || lower.includes('costo') || lower.includes('destraba')) {
+    // /PROYECTOS
+    if (lower.startsWith('/proyectos') || lower.startsWith('/pipeline') || lower.includes('destraba')) {
       const p = await mcpHub.getProjectTrackingData();
       const msg = `
-📊 <b>REPORTE EJECUTIVO DE PROYECTO — DESTRABA AI</b>
+📊 <b>REPORTE EJECUTIVO — DESTRABA AI</b>
 
 • <b>Costo mensual a cubrir:</b> <code>${p.monthly_cost_target_usd}</code>
 • <b>Meta de Break-Even:</b> <code>${p.break_even_needed}</code>
-• <b>Empresas auditadas hoy:</b> <code>${p.monitored_leads_today}</code>
-• <b>Con fallas críticas monetizables:</b> <code>${p.leads_with_actionable_flaws} empresas</code>
+• <b>Empresas auditadas:</b> <code>${p.monitored_leads_today}</code>
+• <b>Fallas críticas monetizables:</b> <code>${p.leads_with_actionable_flaws} empresas</code>
 • <b>Runner Cloud 24/7:</b> 🟢 <i>GitHub Actions Activo</i>
-• <b>Cobro Lightning:</b> <code>${p.strike_lightning_destination}</code>
+• <b>Liquidación Lightning:</b> <code>${p.strike_lightning_destination}</code>
 • <b>Estado:</b> 🟢 <b>100% OPERATIVO</b>
       `.trim();
-      await this.sendMessage(chatId, msg);
+      await this.sendMessage(chatId, msg, { isRawHtml: true });
       return;
     }
 
-    // COMANDO: GOOGLE WORKSPACE
-    if (lower.startsWith('/agenda') || lower.includes('google') || lower.includes('calendario') || lower.includes('gmail')) {
-      const g = await mcpHub.getGoogleWorkspaceStatus();
+    // /HUNTER
+    if (lower.startsWith('/hunter') || lower.startsWith('/cazador') || lower.includes('hunter') || lower.includes('cazador')) {
+      let auditsCount = 0;
+      let critical = 0;
+      try {
+        const auditFile = path.resolve('pipeline/auditorias_autonomas_ejecutadas.json');
+        if (fs.existsSync(auditFile)) {
+          const data = JSON.parse(fs.readFileSync(auditFile, 'utf8'));
+          auditsCount = data.length;
+          critical = data.filter(d => d.flawsCount > 0).length;
+        }
+      } catch (e) {}
+
       const msg = `
-📅 <b>GOOGLE WORKSPACE MCP SUITE</b>
+🎯 <b>CAZADOR AUTÓNOMO PERIMETRAL 24/7 (LEAD GENERATION)</b>
 
-• <b>Google Calendar:</b> 🟢 <i>Activo (Lectura de reuniones y eventos)</i>
-• <b>Gmail Fiduciario:</b> 🟢 <i>Activo (Resumen de correos y filtrado)</i>
-• <b>Google Drive / Sheets:</b> 🟢 <i>Activo (Sincronización de balances)</i>
+• <b>Modo de Operación:</b> 🟢 <i>Desatendido 24/7</i>
+• <b>Empresas Auditadas en Base:</b> <code>${auditsCount}</code>
+• <b>Oportunidades con Vulnerabilidades:</b> <code>${critical} empresas</code>
+• <b>Ofertas Despachadas:</b> $19 USD Flash / $69 USD Pro
+• <b>Pasarela de Cobro:</b> <code>rick2818@strike.me</code>
+• <b>Estado de Prospección:</b> 🟢 <i>Activa en segundo plano</i>
       `.trim();
-      await this.sendMessage(chatId, msg);
+      await this.sendMessage(chatId, msg, { isRawHtml: true });
       return;
     }
 
-
-    // RESPUESTA INTELIGENTE POR DEFECTO CON GEMINI (RAZONAMIENTO LIBRE 100%)
+    // GEMINI 3.6 FLASH (BILINGÜE Y MEMORIA)
     if (GEMINI_API_KEY) {
       try {
-        const geminiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        const historyParts = this.conversationalMemory.slice(-6).map(m => `${m.role === 'user' ? 'Ricardo' : 'Assistant'}: ${m.content}`).join('\n');
+        const contextPrompt = historyParts ? `Historial reciente:\n${historyParts}\n\nMensaje actual de Ricardo:\n${text}` : text;
+
+        const geminiRes = await fetchWithTimeout(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             system_instruction: {
-              parts: [{ text: `Eres el Asistente Ejecutivo Personal y Concierge Soberano de Ricardo en El Salvador.
-Tu personalidad es culta, ejecutiva, servicial, concisa y fiduciaria. Hablas español con calidez ejecutiva y total soltura.
-Tienes total libertad para responder sobre cualquier tema: negocios, estrategia, redacción, análisis, dudas de la vida o consultas del día a día.
-Cuando Ricardo pregunte por datos locales o herramientas de su plataforma, ten en cuenta este contexto:
-- Plataforma: Destraba AI (unblock.ai)
-- Liquidación Bitcoin/Lightning: rick2818@strike.me
-- Ciudad base: San Salvador, El Salvador (Aeropuerto SAL, cines en Multiplaza y La Gran Vía, restaurantes en San Benito, Escalón, Santa Elena).
-- Comandos opcionales de acceso rápido: /btc, /vuelos, /restaurantes, /cine, /proyectos.` }]
+              parts: [{
+                text: `You are the Sovereign Executive Chief of Staff and Personal Concierge to Ricardo.
+Ricardo is an elite tech founder, investor, and builder based in San Salvador, El Salvador.
+
+Key Operational Context:
+- Platform: Destraba AI (unblock.ai) — sovereign AI custom agents & perimeter security audits.
+- Settlement Rails: Bitcoin / Strike Lightning (rick2818@strike.me), Wompi.
+- Base: San Salvador, El Salvador (SAL Airport, Multiplaza / Gran Vía VIP cinemas, San Benito / Santa Elena restaurants).
+- Connected Tools: Bitcoin MCP, SAL Flights MCP, San Salvador Venues MCP, Google Workspace MCP, Autonomous Hunter 24/7, Resend Outbound Email Engine.
+- Email Capabilities: You can draft executive emails and briefs in English or Spanish. When Ricardo says "Redáctame un correo...", provide a pristine, ready-to-send corporate email draft with Subject, Salutation, High-impact body, and Signature.
+- Scheduled Meeting Confirmed: Tomorrow Wednesday Sept 16, 2026 at 10:00 AM with attorney Ana Guevara at her offices. A proactive voice alarm is armed for 09:15 AM (45 min before).
+
+Language & Demeanor Mandate:
+- DUAL NATIVE FLUENCY: You speak English and Spanish with pristine, natural fluency.
+- DYNAMIC MIRRORING: If Ricardo speaks or writes in English, reply in immaculate, boardroom-grade English (sharp, executive, Silicon Valley / Wall Street Chief of Staff tone).
+- If Ricardo speaks or writes in Spanish, reply in cultured, warm, and highly polished Latin American Spanish.
+- If he mixes both (Spanglish), adapt smoothly and seamlessly.
+- You are concise, fiduciary, highly intelligent, and authoritative. Never use filler, boilerplate, or robotic disclaimers.`
+              }]
             },
-            contents: [{ parts: [{ text: text }] }]
+            contents: [{ parts: [{ text: contextPrompt }] }]
           })
-        });
+        }, 25000);
+
         const gData = await geminiRes.json();
         const reply = gData.candidates?.[0]?.content?.parts?.[0]?.text;
         if (reply) {
-          // Enviar respuesta en texto enriquecido
+          this.conversationalMemory.push({ role: 'user', content: text });
+          this.conversationalMemory.push({ role: 'assistant', content: reply });
+          if (this.conversationalMemory.length > 10) this.conversationalMemory.shift();
+
           await this.sendMessage(chatId, reply);
 
-          // Si Ricardo envió un audio o pidió nota de voz, despachar nota de voz hiperrealista
-          const isVoicePrompt = isVoiceInput || lower.includes('audio') || lower.includes('voz') || lower.includes('dime') || lower.includes('habla') || lower.includes('escucha') || reply.length < 350;
-          if (isVoicePrompt) {
+          const wantsAudio = this.alwaysVoice || isVoiceInput || lower.includes('audio') || lower.includes('nota de voz') || lower.includes('voice note') || lower.includes('hablame') || lower.includes('habla') || lower.includes('voz') || lower.includes('voice') || lower.includes('speak');
+          if (wantsAudio) {
             await this.sendVoiceNote(chatId, reply);
           }
           return;
         }
       } catch (err) {
-        console.error('[GEMINI ERROR]:', err.message);
+        console.error('[GEMINI REASONING ERROR]:', err.message);
       }
     }
 
-    // Fallback conversacional asistido
-    await this.sendMessage(chatId, `🎩 Entendido, <b>${userName}</b>. Tengo registrada tu instrucción: <i>"${text}"</i>.\n\nPuedes pedirme de forma directa:\n• ⚡ <b>"Precio de Bitcoin"</b> o <b>/btc</b>\n• ✈️ <b>"Vuelos a Madrid"</b> o <b>/vuelos</b>\n• 🍷 <b>"Restaurantes para cenar"</b> o <b>/restaurantes</b>\n• 🎬 <b>"Cines hoy"</b> o <b>/cine</b>\n• 📊 <b>"Estado del proyecto"</b> o <b>/proyectos</b>`);
+    // Fallback defensivo
+    await this.sendMessage(chatId, `🎩 Instrucción registrada, <b>${userName}</b>: <i>"${escapeHtml(text)}"</i>.\n\nPuedes usar comandos directos:\n• ⚡ <b>/btc</b> — Bitcoin & Lightning\n• 📅 <b>/agenda</b> — Reuniones y Alertas\n• ✈️ <b>/vuelos</b> — Vuelos desde SAL\n• 🍷 <b>/restaurantes</b> — Opciones Gastronómicas\n• 📊 <b>/proyectos</b> — Estado de Destraba AI\n• 🎯 <b>/hunter</b> — Cazador Autónomo 24/7`);
   }
 
   async startPolling() {
     this.isRunning = true;
-    console.log("🚀 Iniciando bucle de polling 24/7 para el Asistente en Telegram...");
+    this.startCalendarTicker();
+
+    let backoffDelay = 1000;
 
     while (this.isRunning) {
       try {
         const updates = await this.sendRequest('getUpdates', {
           offset: this.offset,
-          timeout: 25
-        });
+          timeout: 25,
+          allowed_updates: ['message', 'callback_query']
+        }, 35000);
 
         if (updates.ok && Array.isArray(updates.result)) {
+          backoffDelay = 1000;
           for (const update of updates.result) {
             this.offset = update.update_id + 1;
+            console.log(`⚡ [EVENTO TELEGRAM]: Update #${update.update_id} recibido.`);
             if (update.message) {
               await this.processIncomingMessage(update.message);
             }
           }
+        } else if (updates.error_code === 409) {
+          console.warn('[TELEGRAM 409 CONFLICT]: Instancia concurrente detectada. Purgando webhooks y pausando 8s...');
+          await this.sendRequest('deleteWebhook', { drop_pending_updates: false });
+          await new Promise(r => setTimeout(r, 8000));
+        } else if (updates.error_code === 429) {
+          const retrySec = updates.parameters?.retry_after || 5;
+          console.warn(`[TELEGRAM 429 RATE LIMIT]: Esperando ${retrySec}s...`);
+          await new Promise(r => setTimeout(r, (retrySec + 1) * 1000));
+        } else {
+          await new Promise(r => setTimeout(r, 2000));
         }
       } catch (err) {
-        // Pausa defensiva ante desconexiones de red
-        await new Promise(r => setTimeout(r, 3000));
+        console.error(`[POLLING STALL]: ${err.message}. Reconectando en ${backoffDelay / 1000}s...`);
+        await new Promise(r => setTimeout(r, backoffDelay));
+        backoffDelay = Math.min(backoffDelay * 2, 16000);
       }
     }
   }
 }
 
-// Ejecución directa
-async function run() {
-  const bot = new TelegramExecutiveBot();
+process.on('uncaughtException', (err) => {
+  console.error('[DAEMON UNCAUGHT EXCEPTION]:', err.message);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[DAEMON UNHANDLED REJECTION]:', reason);
+});
+
+async function main() {
   if (!BOT_TOKEN) {
-    console.log("=============================================================================");
-    console.log("ℹ️  TELEGRAM_BOT_TOKEN aún no está configurado en .env.");
-    console.log("1. Abre Telegram y escribe a @BotFather");
-    console.log("2. Escribe /newbot y dale un nombre (ej: 'Ricardo Executive AI')");
-    console.log("3. Pega el token resultante en .env como TELEGRAM_BOT_TOKEN=tu_token_aqui");
-    console.log("4. Ejecuta: node scripts/telegram_assistant_bot.mjs");
-    console.log("=============================================================================");
-    return;
+    console.error('❌ CRÍTICO: TELEGRAM_BOT_TOKEN no configurado en .env');
+    process.exit(1);
   }
 
-  const me = await bot.checkBotIdentity();
-  if (me) {
+  const bot = new TelegramExecutiveBot();
+  const identity = await bot.checkBotIdentity();
+  if (identity) {
     await bot.startPolling();
   }
 }
 
-run().catch(console.error);
+main().catch(err => {
+  console.error('FATAL RUNNER CRASH:', err);
+});

@@ -41,3 +41,7 @@ Thumbs.db
 # Test artifacts
 test_export/
 scratch/
+
+.vercel
+.env*
+*.zip

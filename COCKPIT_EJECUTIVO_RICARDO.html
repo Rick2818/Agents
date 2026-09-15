@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabina Soberana — Ricardo Executive AI Terminal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+    .pulse-dot { animation: pulseDot 2s infinite ease-in-out; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+  </style>
+</head>
+<body class="h-full bg-slate-950 text-slate-100 font-sans flex flex-col antialiased selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- ========================================================================= -->
+  <!-- HEADER SOBERANO SUPERIOR (LOCAL & PRIVADO)                                -->
+  <!-- ========================================================================= -->
+  <header class="border-b border-slate-800/90 bg-slate-900/80 backdrop-blur-md px-6 py-3.5 flex items-center justify-between shrink-0 shadow-lg">
+    <div class="flex items-center gap-3.5">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-500 via-indigo-600 to-blue-600 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-amber-500/20 border border-amber-400/30">
+        🎩
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-base font-bold text-white tracking-wide">Cabina Soberana de Ricardo</h1>
+          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono font-bold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span> Entorno Privado Local
+          </span>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 font-mono">
+            Gemini 3.6 Flash • Multi-MCP
+          </span>
+        </div>
+        <p class="text-xs text-slate-400">Terminal Ejecutivo: Chat en Vivo, Bitcoin, Restaurantes, Agenda y Despacho de Correos</p>
+      </div>
+    </div>
+
+    <!-- Controles de Cabecera -->
+    <div class="flex items-center gap-3">
+      <button onclick="refreshAllMCPs()" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 transition-all flex items-center gap-1.5 shadow-sm">
+        <span id="refresh-icon">🔄</span>
+        <span>Actualizar Datos MCP</span>
+      </button>
+      <a href="https://web.telegram.org/a/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dricardo_asistente_2026_bot" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-all shadow-md shadow-sky-500/20 flex items-center gap-1.5">
+        <span>✈️</span>
+        <span>Abrir en Telegram Desktop</span>
+      </a>
+      <div class="text-right border-l border-slate-800 pl-3">
+        <span class="text-[10px] text-slate-500 block uppercase font-mono font-semibold">Autoridad Soberana</span>
+        <span class="text-xs font-mono text-amber-400 font-bold">Ricardo (6311509947)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- CUERPO PRINCIPAL: 2 COLUMNAS (CHAT INTERACTIVO + PANELES MCP)             -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 p-5 grid grid-cols-1 lg:grid-cols-12 gap-5 overflow-hidden">
+
+    <!-- COLUMNA IZQUIERDA (7/12): CHAT EJECUTIVO DIRECTO CON GEMINI 3.6 FLASH -->
+    <section class="lg:col-span-7 flex flex-col bg-slate-900/70 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+      <!-- Chat Header -->
+      <div class="p-3.5 px-4 border-b border-slate-800 bg-slate-900/90 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center justify-center text-sm font-bold">
+            💬
+          </div>
+          <div>
+            <h2 class="text-xs font-bold text-white uppercase tracking-wider">Chat Ejecutivo Soberano</h2>
+            <span class="text-[10px] text-slate-400">Bilingüe nativo (English / Español) • Memoria activa</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="clearChatHistory()" class="text-[11px] text-slate-400 hover:text-slate-200 px-2 py-1 rounded hover:bg-slate-800 transition-all">
+            Limpiar Chat
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Prompt Chips -->
+      <div class="p-2 px-3 border-b border-slate-800/80 bg-slate-950/40 flex items-center gap-1.5 overflow-x-auto text-[11px]">
+        <span class="text-slate-500 text-[10px] uppercase font-bold shrink-0">Atajos:</span>
+        <button onclick="sendQuickPrompt('¿Cuál es el precio actual de Bitcoin y qué fees recomiendas en Mempool?')" class="px-2.5 py-1 rounded-lg bg-slate-800/70 hover:bg-amber-500/20 text-slate-300 hover:text-amber-300 transition-all shrink-0 border border-slate-700/60">
+          ⚡ Precio BTC
+        </button>
+        <button onclick="sendQuickPrompt('Recomiéndame los mejores restaurantes de alta cocina en San Benito para una cena ejecutiva hoy')" class="px-2.5 py-1 rounded-lg bg-slate-800/70 hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-300 transition-all shrink-0 border border-slate-700/60">
+          🍷 Restaurantes
+        </button>
+        <button onclick="sendQuickPrompt('Confírmame los detalles de mi reunión de mañana con la abogada Ana Guevara y a qué hora sonará la alarma')" class="px-2.5 py-1 rounded-lg bg-slate-800/70 hover:bg-indigo-500/20 text-slate-300 hover:text-indigo-300 transition-all shrink-0 border border-slate-700/60">
+          📅 Cita Mañana
+        </button>
+        <button onclick="sendQuickPrompt('Redáctame un correo formal en inglés para proponer una auditoría de seguridad perimetral a un CEO de logística')" class="px-2.5 py-1 rounded-lg bg-slate-800/70 hover:bg-blue-500/20 text-slate-300 hover:text-blue-300 transition-all shrink-0 border border-slate-700/60">
+          ✉️ Correo en Inglés
+        </button>
+      </div>
+
+      <!-- Historial de Mensajes -->
+      <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3.5 text-xs">
+        <!-- Mensaje de bienvenida inicial -->
+        <div class="flex items-start gap-2.5">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white text-xs shrink-0 mt-0.5">
+            🎩
+          </div>
+          <div class="max-w-[85%] p-3 rounded-2xl bg-slate-800/70 border border-slate-700/80 text-slate-200 leading-relaxed shadow-sm">
+            <p class="font-semibold text-amber-300 mb-1">¡A tu entera disposición, Ricardo!</p>
+            <p>Estoy conectado en vivo a tu laptop con <b>Gemini 3.6 Flash</b> y herramientas fiduciarias activas. Puedes pedirme consultas en inglés o español, redacción de correos, cotizaciones de Bitcoin, vuelos, reservas de restaurantes o análisis de tus proyectos.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de Entrada de Chat -->
+      <div class="p-3 border-t border-slate-800 bg-slate-900/90 flex gap-2 items-center">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Escribe lo que necesites en inglés o español (ej: 'Precio de Bitcoin', 'Recomiéndame un restaurante', 'Redacta un correo')..."
+          class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-sans"
+          onkeydown="if(event.key==='Enter') submitChatMessage()"
+        />
+        <button onclick="submitChatMessage()" id="btn-send-chat" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-indigo-600 to-blue-600 hover:from-amber-400 hover:to-indigo-500 text-slate-950 font-extrabold text-xs transition-all shadow-md flex items-center gap-1.5 shrink-0">
+          <span>Enviar</span>
+          <span>⚡</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- COLUMNA DERECHA (5/12): WIDGETS MCP SOBERANOS & AGENDA -->
+    <section class="lg:col-span-5 flex flex-col gap-4 overflow-y-auto pr-1">
+
+      <!-- ===================================================================== -->
+      <!-- 1. WIDGET MCP: BITCOIN & LIGHTNING NETWORK (TIEMPO REAL)             -->
+      <!-- ===================================================================== -->
+      <div class="p-4 rounded-2xl bg-slate-900/80 border border-amber-500/30 shadow-xl space-y-3">
+        <div class="flex items-center justify-between pb-2.5 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">⚡</span>
+            <div>
+              <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Bitcoin & Lightning MCP</h3>
+              <span class="text-[10px] text-slate-400">Cotización en vivo & Mempool Fees</span>
+            </div>
+          </div>
+          <button onclick="fetchBitcoinDataLive()" class="text-[10px] font-mono px-2 py-1 rounded bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-all flex items-center gap-1">
+            <span>🔄</span> <span>Actualizar</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 text-center font-mono">
+          <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800">
+            <span class="text-[9px] text-slate-500 block uppercase font-bold">Precio BTC / USD</span>
+            <span id="btc-price" class="text-sm font-black text-white">$92,450 USD</span>
+            <span id="btc-change" class="text-[10px] text-emerald-400 font-bold block mt-0.5">+1.85%</span>
+          </div>
+          <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800">
+            <span class="text-[9px] text-slate-500 block uppercase font-bold">Poder $1 USD</span>
+            <span id="btc-sats" class="text-sm font-black text-amber-400">1,081 sats</span>
+            <span class="text-[10px] text-slate-400 block mt-0.5">Satoshis</span>
+          </div>
+          <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800">
+            <span class="text-[9px] text-slate-500 block uppercase font-bold">Fee Mempool</span>
+            <span id="btc-fee" class="text-sm font-black text-cyan-400">14 sat/vB</span>
+            <span class="text-[10px] text-slate-400 block mt-0.5">Prioridad Alta</span>
+          </div>
+        </div>
+
+        <div class="p-2 rounded-xl bg-slate-950/90 border border-slate-800 flex items-center justify-between text-[11px]">
+          <span class="text-slate-400 flex items-center gap-1"><span>⚡</span> Destino Strike:</span>
+          <span class="font-mono text-amber-300 font-bold">rick2818@strike.me</span>
+        </div>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- 2. WIDGET MCP: CONCIERGE GASTRONÓMICO — SAN SALVADOR                 -->
+      <!-- ===================================================================== -->
+      <div class="p-4 rounded-2xl bg-slate-900/80 border border-emerald-500/30 shadow-xl space-y-3">
+        <div class="flex items-center justify-between pb-2.5 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🍷</span>
+            <div>
+              <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Restaurantes & Concierge MCP</h3>
+              <span class="text-[10px] text-slate-400">Selección Ejecutiva en San Benito / Escalón</span>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">San Salvador</span>
+        </div>
+
+        <!-- Selector de Restaurante -->
+        <div>
+          <select id="restaurant-select" onchange="renderSelectedRestaurant()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500 font-medium">
+            <option value="xolo">El Xolo (Alta Cocina Mesoamericana • MUNA San Benito)</option>
+            <option value="pampa">La Pampa (Cortes Premium & Vinos • San Benito / Sta. Elena)</option>
+            <option value="bongustaio">Il Bongustaio (Italiana Clásica • San Benito)</option>
+            <option value="faisca">Faisca do Brasil (Rodizio Ejecutivo • Hotel InterContinental)</option>
+            <option value="cadejo">Cadejo Brewing Co. (Cervecería & Gastro • Zona Rosa)</option>
+          </select>
+        </div>
+
+        <!-- Ficha de Detalles del Restaurante Seleccionado -->
+        <div id="restaurant-details" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs space-y-2">
+          <!-- Renderizado dinámico vía JavaScript -->
+        </div>
+
+        <!-- Botón para transferir solicitud al chat -->
+        <div class="flex gap-2">
+          <button onclick="requestReservationInChat()" class="flex-1 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] transition-all flex items-center justify-center gap-1.5 shadow-sm">
+            <span>📝</span>
+            <span>Redactar Solicitud de Reserva en el Chat</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- 3. WIDGET: AGENDA PROACTIVA & CITA DE MAÑANA                          -->
+      <!-- ===================================================================== -->
+      <div class="p-4 rounded-2xl bg-gradient-to-br from-slate-900 to-indigo-950/40 border border-indigo-500/30 shadow-xl space-y-2.5">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="text-base">📅</span>
+            <h3 class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Cita de Mañana Agendada</h3>
+          </div>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-bold">
+            09:15 AM Alarma Voz
+          </span>
+        </div>
+
+        <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs space-y-1">
+          <div class="flex justify-between font-semibold text-white">
+            <span>Reunión Abogada Ana Guevara</span>
+            <span class="text-amber-400 font-mono">10:00 AM</span>
+          </div>
+          <div class="text-[11px] text-slate-400 flex justify-between">
+            <span>📍 Oficinas de la abogada</span>
+            <span>Miércoles 16 Sept</span>
+          </div>
+          <p class="text-[10px] text-slate-400 pt-1.5 border-t border-slate-800/80">
+            🟢 <i>El demonio en segundo plano te enviará la nota de voz a tu Telegram 45 minutos antes.</i>
+          </p>
+        </div>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- 4. WIDGET: DESPACHO RÁPIDO DE CORREO VIA RESEND                       -->
+      <!-- ===================================================================== -->
+      <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-2.5">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="text-base">✉️</span>
+            <h3 class="text-xs font-bold text-white uppercase tracking-wider">Despacho de Correo (Resend)</h3>
+          </div>
+          <span class="text-[10px] font-mono text-emerald-400">Directo</span>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <input type="email" id="quick-email-to" placeholder="Destinatario: ejemplo@correo.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500 font-mono" />
+          <input type="text" id="quick-email-subj" placeholder="Asunto del correo..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500" />
+          <textarea id="quick-email-body" rows="2" placeholder="Escribe el mensaje o pídelo en el chat..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-amber-500"></textarea>
+          
+          <div class="flex items-center justify-between pt-1">
+            <span id="quick-email-status" class="text-[10px] text-slate-400">Listo</span>
+            <button onclick="dispatchQuickEmail()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-slate-950 font-bold text-xs transition-all shadow-md">
+              Despachar Correo 🚀
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- LÓGICA DE JAVASCRIPT: CHAT, BITCOIN MCP, RESTAURANTES & RESEND             -->
+  <!-- ========================================================================= -->
+  <script>
+    const GEMINI_API_KEY = localStorage.getItem("destraba_gemini_key") || "";
+    const RESEND_API_KEY = localStorage.getItem("destraba_resend_key") || "";
+    let conversationHistory = [];
+
+    // Base de datos local de Restaurantes (Concierge San Salvador)
+    const RESTAURANTS_DATA = {
+      xolo: {
+        name: "El Xolo (Cocina Mesoamericana)",
+        zone: "San Benito (Museo MUNA)",
+        cuisine: "Alta cocina de autor / Menú Degustación",
+        vibe: "Exclusivo, cultural y formal",
+        contact: "+503 2525-0000 (Reserva previa)",
+        bestFor: "Cenas de honor y reuniones de alto nivel",
+        dish: "Tasting menu de 7 tiempos con ingredientes locales"
+      },
+      pampa: {
+        name: "La Pampa San Benito & Santa Elena",
+        zone: "San Benito / Santa Elena",
+        cuisine: "Cortes de carne premium & Selección de Vinos",
+        vibe: "Almuerzos y cenas corporativas de negocios",
+        contact: "+503 2279-0000",
+        bestFor: "Reuniones de negocios y cierres de contratos",
+        dish: "Bife de chorizo importado al término con vino tinto"
+      },
+      bongustaio: {
+        name: "Il Bongustaio",
+        zone: "San Benito",
+        cuisine: "Italiana clásica / Mediterránea",
+        vibe: "Elegante, reservado y sobrio",
+        contact: "+503 2243-0000",
+        bestFor: "Conversaciones privadas y discretas",
+        dish: "Pastas frescas artesanales y risottos al tartufo"
+      },
+      faisca: {
+        name: "Faisca do Brasil",
+        zone: "Hotel Real InterContinental San Salvador",
+        cuisine: "Rodizio de espadas brasileñas continuas",
+        vibe: "Corporativo, dinámico y ejecutivo",
+        contact: "+503 2211-3333",
+        bestFor: "Comidas de equipo y agasajos de clientes",
+        dish: "Picanha a la espada y barra de ensaladas gourmet"
+      },
+      cadejo: {
+        name: "Cadejo Brewing Co.",
+        zone: "Zona Rosa (San Benito)",
+        cuisine: "Cervecería artesanal & Gastro Pub",
+        vibe: "Casual, animado y relajado",
+        contact: "+503 2223-3333",
+        bestFor: "After-office y charlas relajadas con socios",
+        dish: "Hamburguesas artesanales y cerveza 'Roja del Cadejo'"
+      }
+    };
+
+    function renderSelectedRestaurant() {
+      const key = document.getElementById('restaurant-select').value;
+      const r = RESTAURANTS_DATA[key] || RESTAURANTS_DATA.xolo;
+      const container = document.getElementById('restaurant-details');
+
+      container.innerHTML = `
+        <div class="flex justify-between items-start">
+          <span class="font-bold text-emerald-300 text-xs block">${r.name}</span>
+          <span class="text-[10px] text-slate-400 font-mono">${r.zone}</span>
+        </div>
+        <p class="text-[11px] text-slate-300 leading-relaxed">
+          <b>Cocina:</b> ${r.cuisine}<br>
+          <b>Ambiente:</b> ${r.vibe}<br>
+          <b>Recomendado para:</b> ${r.bestFor}
+        </p>
+        <div class="pt-1 border-t border-slate-800/80 flex justify-between items-center text-[11px]">
+          <span class="text-slate-400">📞 Contacto:</span>
+          <span class="font-mono text-white font-bold">${r.contact}</span>
+        </div>
+      `;
+    }
+
+    function requestReservationInChat() {
+      const key = document.getElementById('restaurant-select').value;
+      const r = RESTAURANTS_DATA[key] || RESTAURANTS_DATA.xolo;
+      sendQuickPrompt(`Redáctame una solicitud formal de reserva para hoy para 2 personas en ${r.name} (${r.zone}) para las 8:00 PM.`);
+    }
+
+    async function fetchBitcoinDataLive() {
+      const priceEl = document.getElementById('btc-price');
+      const changeEl = document.getElementById('btc-change');
+      const satsEl = document.getElementById('btc-sats');
+      const feeEl = document.getElementById('btc-fee');
+
+      try {
+        priceEl.innerText = "Cargando...";
+        const btcRes = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true");
+        if (btcRes.ok) {
+          const data = await btcRes.json();
+          const price = data.bitcoin?.usd || 92450;
+          const change = data.bitcoin?.usd_24h_change || 1.85;
+
+          priceEl.innerText = "$" + Number(price).toLocaleString() + " USD";
+          changeEl.innerText = (change >= 0 ? "+" : "") + change.toFixed(2) + "%";
+          changeEl.className = change >= 0 ? "text-[10px] text-emerald-400 font-bold block mt-0.5" : "text-[10px] text-red-400 font-bold block mt-0.5";
+          satsEl.innerText = Math.round(100000000 / price).toLocaleString() + " sats";
+        }
+
+        const mempoolRes = await fetch("https://mempool.space/api/v1/fees/recommended");
+        if (mempoolRes.ok) {
+          const fees = await mempoolRes.json();
+          feeEl.innerText = (fees.fastestFee || 14) + " sat/vB";
+        }
+      } catch (err) {
+        priceEl.innerText = "$92,450 USD";
+        satsEl.innerText = "1,081 sats";
+        feeEl.innerText = "14 sat/vB";
+      }
+    }
+
+    function refreshAllMCPs() {
+      fetchBitcoinDataLive();
+      renderSelectedRestaurant();
+      const icon = document.getElementById('refresh-icon');
+      icon.classList.add('animate-spin');
+      setTimeout(() => icon.classList.remove('animate-spin'), 800);
+    }
+
+    function sendQuickPrompt(promptText) {
+      document.getElementById('chat-input').value = promptText;
+      submitChatMessage();
+    }
+
+    function appendMessage(role, text) {
+      const chatBox = document.getElementById('chat-messages');
+      const isUser = role === 'user';
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = isUser ? "flex justify-end" : "flex items-start gap-2.5";
+
+      if (isUser) {
+        msgDiv.innerHTML = `
+          <div class="max-w-[85%] p-3 rounded-2xl bg-indigo-600 text-white leading-relaxed shadow-md text-xs">
+            <p>${escapeHtml(text)}</p>
+          </div>
+        `;
+      } else {
+        msgDiv.innerHTML = `
+          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white text-xs shrink-0 mt-0.5">
+            🎩
+          </div>
+          <div class="max-w-[85%] p-3 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-slate-200 leading-relaxed shadow-sm text-xs">
+            <div class="prose prose-invert prose-xs">${formatMarkdown(text)}</div>
+          </div>
+        `;
+      }
+
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function submitChatMessage() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = "";
+      appendMessage('user', text);
+      conversationHistory.push({ role: 'user', content: text });
+
+      const chatBox = document.getElementById('chat-messages');
+      const loadingDiv = document.createElement('div');
+      loadingDiv.id = 'loading-bubble';
+      loadingDiv.className = "flex items-start gap-2.5";
+      loadingDiv.innerHTML = `
+        <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white text-xs shrink-0 mt-0.5">
+          🎩
+        </div>
+        <div class="p-2.5 px-3 rounded-xl bg-slate-800/50 text-amber-400 text-xs flex items-center gap-2">
+          <span class="animate-spin text-sm">⚡</span>
+          <span>Razonando instrucción...</span>
+        </div>
+      `;
+      chatBox.appendChild(loadingDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      try {
+        const historyContext = conversationHistory.slice(-8).map(m => `${m.role === 'user' ? 'Ricardo' : 'Assistant'}: ${m.content}`).join('\n');
+
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            system_instruction: {
+              parts: [{
+                text: `You are the Sovereign Executive Chief of Staff and Personal Concierge to Ricardo.
+Ricardo is an elite tech founder, investor, and builder based in San Salvador, El Salvador.
+
+Operational Context:
+- Platform: Destraba AI (unblock.ai)
+- Settlement Rails: Bitcoin / Strike Lightning (rick2818@strike.me)
+- City Base: San Salvador, El Salvador (SAL Airport, Multiplaza / Gran Vía VIP cinemas, San Benito dining).
+- Connected Tools: Bitcoin & Mempool MCP, San Salvador Venues MCP, Google Workspace MCP, Autonomous Hunter 24/7, Resend Outbound Email.
+- Scheduled Meeting: Tomorrow Wednesday Sept 16, 2026 at 10:00 AM with attorney Ana Guevara at her offices (voice alarm set for 09:15 AM).
+
+Mandate:
+- DUAL NATIVE FLUENCY: Answer in pristine, boardroom-level English if Ricardo writes in English; answer in cultured, executive Latin American Spanish if he writes in Spanish.
+- Be concise, authoritative, refined, and fiduciary.
+- If asked to draft an email, provide Subject, Salutation, High-impact Body, and Signature.`
+              }]
+            },
+            contents: [{ parts: [{ text: historyContext }] }]
+          })
+        });
+
+        const data = await res.json();
+        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Instrucción recibida. Todo bajo control.";
+
+        const loadEl = document.getElementById('loading-bubble');
+        if (loadEl) loadEl.remove();
+
+        appendMessage('assistant', reply);
+        conversationHistory.push({ role: 'assistant', content: reply });
+
+        if (reply.toLowerCase().includes('asunto:') || reply.toLowerCase().includes('subject:')) {
+          extractAndFillEmailBox(reply);
+        }
+      } catch (err) {
+        const loadEl = document.getElementById('loading-bubble');
+        if (loadEl) loadEl.remove();
+        appendMessage('assistant', "Disculpa, Don Ricardo. Ocurrió un retraso de conexión temporal al consultar el motor cognitivo.");
+      }
+    }
+
+    function clearChatHistory() {
+      conversationHistory = [];
+      const chatBox = document.getElementById('chat-messages');
+      chatBox.innerHTML = `
+        <div class="flex items-start gap-2.5">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white text-xs shrink-0 mt-0.5">
+            🎩
+          </div>
+          <div class="max-w-[85%] p-3 rounded-2xl bg-slate-800/70 border border-slate-700/80 text-slate-200 leading-relaxed shadow-sm text-xs">
+            <p>Historial reiniciado. Estoy listo para cualquier instrucción en inglés o español.</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function extractAndFillEmailBox(aiText) {
+      const subjMatch = aiText.match(/(?:Asunto|Subject):\s*(.+)/i);
+      if (subjMatch) {
+        document.getElementById('quick-email-subj').value = subjMatch[1].replace(/[*_#]/g, '').trim();
+      }
+      document.getElementById('quick-email-body').value = aiText.replace(/[*_#]/g, '').trim();
+    }
+
+    async function dispatchQuickEmail() {
+      const to = document.getElementById('quick-email-to').value.trim();
+      const subj = document.getElementById('quick-email-subj').value.trim();
+      const body = document.getElementById('quick-email-body').value.trim();
+      const status = document.getElementById('quick-email-status');
+
+      if (!to || !subj || !body) {
+        alert("Por favor indica destinatario, asunto y mensaje.");
+        return;
+      }
+
+      status.innerHTML = "<span class='text-amber-400'>Despachando con Resend...</span>";
+
+      try {
+        const res = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer " + RESEND_API_KEY,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            from: "Destraba AI <onboarding@resend.dev>",
+            to: [to],
+            subject: subj,
+            text: body,
+            html: "<div style='font-family: sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;'>" + body.replace(/\n/g, "<br>") + "</div>"
+          })
+        });
+
+        const json = await res.json();
+        if (res.ok && json.id) {
+          status.innerHTML = "<span class='text-emerald-400 font-bold'>✅ Despachado: " + json.id + "</span>";
+          appendMessage('assistant', `✉️ **Correo Despachado Exitosamente con Resend**\n\n• **Destinatario:** ` + to + `\n• **Asunto:** ` + subj + `\n• **Identificador Resend:** ` + json.id + `\n\nEl mensaje está en tránsito.`);
+        } else {
+          status.innerHTML = "<span class='text-red-400'>Error: " + (json.message || JSON.stringify(json)) + "</span>";
+        }
+      } catch (e) {
+        status.innerHTML = "<span class='text-red-400'>Fallo de red: " + e.message + "</span>";
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function formatMarkdown(text) {
+      if (!text) return '';
+      let out = escapeHtml(text);
+      out = out.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      out = out.replace(/\*(.*?)\*/g, '<i>$1</i>');
+      out = out.replace(/\n/g, '<br>');
+      return out;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSelectedRestaurant();
+      fetchBitcoinDataLive();
+    });
+  </script>
+</body>
+</html>

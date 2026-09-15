@@ -18,23 +18,46 @@ const wompi = new WompiGateway({
 });
 const mcpHub = new ExecutiveAssistantMCPHub({ strikeAddress: 'rick2818@strike.me' });
 
+import {
+  applyStrictBankingHeaders,
+  resolveCorsOrigin
+} from '../lib/fiduciary_core.js';
+import telegramHandler from './telegram.js';
+import cronHandler from './cron/master-dispatcher.js';
+
 export default async function handler(req, res) {
-  applyBankingSecurityHeaders(res);
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  applyStrictBankingHeaders(res);
+
+  const requestOrigin = req.headers.origin;
+  const allowedOrigin = resolveCorsOrigin(requestOrigin, process.env.NODE_ENV !== 'production');
+  if (allowedOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Strike-Signature, X-Event-Checksum');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Strike-Signature, X-Event-Checksum, X-Telegram-Bot-Api-Secret-Token');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
+  }
+
+  const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
+  const pathname = url.pathname;
+
+  // Enrutamiento a Telegram Webhook Serverless
+  if (pathname === '/api/telegram' || pathname.endsWith('/telegram')) {
+    return await telegramHandler(req, res);
+  }
+
+  // Enrutamiento a Master Cloud Dispatcher Cron
+  if (pathname === '/api/cron/master-dispatcher' || pathname.endsWith('/cron/master-dispatcher')) {
+    return await cronHandler(req, res);
   }
 
   const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown-client';
   if (!checkRateLimit(clientIp, 60, 60000)) {
     return res.status(429).json({ error: 'Too Many Requests', retryAfterSeconds: 60 });
   }
-
-  const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
-  const pathname = url.pathname;
 
   try {
     if (req.method === 'GET' && (pathname === '/api/catalog' || pathname.endsWith('/catalog'))) {

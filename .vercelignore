@@ -1,0 +1,7 @@
+*.zip
+*.bat
+.git
+tests/
+scratch/
+.env
+.env.local

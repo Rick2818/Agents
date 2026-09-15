@@ -139,11 +139,7 @@
         </div>
       </div>
 
-      <!-- Asistente Ejecutivo Personal (MCP) -->
-      <button onclick="openExecutiveAssistantModal()" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/20 via-indigo-600/30 to-blue-600/20 hover:from-amber-500/30 hover:to-blue-600/30 border border-amber-500/40 hover:border-amber-400 text-xs font-bold text-amber-300 transition-all flex items-center gap-1.5 shadow-sm">
-        <span>🎩</span>
-        <span>Asistente Personal (MCP)</span>
-      </button>
+      <!-- Asistente Personal Soberano: Reservado exclusivamente para Ricardo -->
 
       <!-- Precios -->
       <button onclick="openAboutModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all flex items-center gap-1.5">
@@ -737,103 +733,6 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 🎩 MODAL: ASISTENTE PERSONAL EJECUTIVO & CONCIERGE (MULTI-MCP HUB)          -->
-  <!-- ========================================================================= -->
-  <div id="executive-assistant-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 fade-in overflow-y-auto">
-    <div class="bg-slate-900 border-2 border-amber-500/50 max-w-3xl w-full rounded-2xl p-5 sm:p-7 shadow-2xl relative text-left my-auto">
-      
-      <!-- Modal Header -->
-      <div class="flex items-center justify-between pb-3.5 border-b border-slate-800 mb-4">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-amber-500/20">
-            🎩
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h3 class="text-base font-bold text-white">Asistente Ejecutivo Soberano & Concierge</h3>
-              <span class="text-[9px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 font-mono font-semibold">Gemini Flash 2.5 • Multi-MCP</span>
-            </div>
-            <p class="text-[11px] text-slate-400">Hub personal de automatización: Vuelos SAL, Bitcoin, Google Workspace, Spotify y Ocio</p>
-          </div>
-        </div>
-        <button onclick="closeExecutiveAssistantModal()" class="text-slate-400 hover:text-white text-lg">✕</button>
-      </div>
-
-      <!-- Quick Action MCP Selector Grid -->
-      <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-4 text-center">
-        <button onclick="triggerMCPAction('bitcoin')" class="p-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-amber-500/50 transition-all group">
-          <span class="text-base block mb-0.5">⚡</span>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-amber-300 block">Bitcoin / Strike</span>
-        </button>
-        <button onclick="triggerMCPAction('flights', 'Madrid')" class="p-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-blue-500/50 transition-all group">
-          <span class="text-base block mb-0.5">✈️</span>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-blue-300 block">Vuelos SAL</span>
-        </button>
-        <button onclick="triggerMCPAction('venues', null, 'cinema')" class="p-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-purple-500/50 transition-all group">
-          <span class="text-base block mb-0.5">🎬</span>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-purple-300 block">Cines S.S.</span>
-        </button>
-        <button onclick="triggerMCPAction('venues', null, 'restaurant')" class="p-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-emerald-500/50 transition-all group">
-          <span class="text-base block mb-0.5">🍷</span>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-emerald-300 block">Restaurantes</span>
-        </button>
-        <button onclick="triggerMCPAction('google_workspace')" class="p-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-cyan-500/50 transition-all group">
-          <span class="text-base block mb-0.5">📅</span>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-cyan-300 block">Google Work</span>
-        </button>
-        <button onclick="triggerMCPAction('projects')" class="p-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-pink-500/50 transition-all group">
-          <span class="text-base block mb-0.5">📊</span>
-          <span class="text-[10px] font-bold text-slate-300 group-hover:text-pink-300 block">Mis Proyectos</span>
-        </button>
-      </div>
-
-      <!-- Live MCP Response Canvas -->
-      <div id="mcp-canvas-result" class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 min-h-[160px] max-h-[260px] overflow-y-auto mb-4 space-y-2">
-        <div class="flex items-center justify-between text-slate-400 text-[11px] pb-1 border-b border-slate-900">
-          <span>Consola de Respuesta MCP</span>
-          <span class="text-emerald-400 font-mono">Conexión Segura Activa</span>
-        </div>
-        <p class="text-slate-300 text-[11px] leading-relaxed">
-          ¡Listo, Ricardo! Soy tu asistente ejecutivo. Selecciona cualquiera de las herramientas arriba o escribe abajo lo que necesites (vuelos desde San Salvador, cotización de Bitcoin, recomendaciones de restaurantes, cine o estado de tus proyectos).
-        </p>
-      </div>
-
-      <!-- Natural Language Prompt Box -->
-      <div class="flex gap-2 mb-4">
-        <input
-          type="text"
-          id="assistant-user-prompt"
-          placeholder="Escribe lo que necesitas (ej: 'Vuelos a Miami desde SAL', 'Cine hoy', 'Precio BTC', 'Restaurantes')..."
-          class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500/70 font-sans"
-          onkeydown="if(event.key==='Enter') executeAssistantPrompt()"
-        />
-        <button onclick="executeAssistantPrompt()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-slate-950 font-extrabold text-xs transition-all shadow-md flex items-center gap-1.5">
-          <span>Enviar</span>
-          <span>⚡</span>
-        </button>
-      </div>
-
-      <!-- Telegram Mobile Sync Banner -->
-      <div class="p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/30 flex items-center justify-between text-[11px]">
-        <div class="flex items-center gap-2">
-          <span class="text-base">📱</span>
-          <div>
-            <span class="text-white font-bold block">¿Estás fuera o sin acceso a tu computadora?</span>
-            <span class="text-slate-400 text-[10px]">Conecta este mismo asistente a tu Telegram privado en 2 minutos con @BotFather.</span>
-          </div>
-        </div>
-        <button onclick="showTelegramInstructions()" class="px-2.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10px] transition-all">
-          Vincular Telegram
-        </button>
-      </div>
-
-      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-500">
-        <span>🔒 Sesión Ejecutiva Soberana • Gemini Flash 2.5</span>
-        <button onclick="closeExecutiveAssistantModal()" class="text-slate-400 hover:text-white">Cerrar</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Configuration Modal (Settings) -->
   <div id="config-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 fade-in">
     <div class="bg-slate-900 border border-slate-800 max-w-lg w-full rounded-2xl p-6 shadow-2xl relative">
