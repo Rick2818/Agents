@@ -7,6 +7,7 @@
 
 import { AutonomousHunter } from './autonomous_hunter.mjs';
 import { dispatchDailyPipeline } from './dispatch_daily_pipeline.mjs';
+import { executeOutboundDispatch } from './send_smtp_dispatch.mjs';
 
 const TARGET_PROSPECTS = [
   { company: "TCC Logística", domain: "tcc.com.co", contactEmail: "contacto@tcc.com.co", country: "Colombia", industry: "Courier & Envíos" },
@@ -31,8 +32,11 @@ async function main() {
   console.log(`Destino de liquidación: rick2818@strike.me`);
   console.log(`=============================================================================\n`);
 
-  // Ejecución y sincronización del pipeline diario de prospección
+  // 1. Ejecución y sincronización del pipeline diario de prospección
   await dispatchDailyPipeline();
+
+  // 2. Transmisión autónoma outbound (SMTP / REST API / DRY_RUN)
+  await executeOutboundDispatch();
 }
 
 main().catch(console.error);

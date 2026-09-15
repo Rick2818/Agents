@@ -1,7 +1,7 @@
 [
   {
-    "auditId": "audit_1789487911632_353",
-    "timestamp": "2026-09-15T15:58:31.632Z",
+    "auditId": "audit_1789489421750_735",
+    "timestamp": "2026-09-15T16:23:41.750Z",
     "company": "Chilexpress Empresas",
     "domain": "chilexpress.cl",
     "scannedHost": "chilexpress.cl",
@@ -34,8 +34,8 @@
     "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
   },
   {
-    "auditId": "audit_1789487909892_61",
-    "timestamp": "2026-09-15T15:58:29.892Z",
+    "auditId": "audit_1789489418851_450",
+    "timestamp": "2026-09-15T16:23:38.851Z",
     "company": "Blue Express",
     "domain": "blue.cl",
     "scannedHost": "blue.cl",
@@ -66,8 +66,8 @@
     "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
   },
   {
-    "auditId": "audit_1789487908588_512",
-    "timestamp": "2026-09-15T15:58:28.588Z",
+    "auditId": "audit_1789489409825_116",
+    "timestamp": "2026-09-15T16:23:29.825Z",
     "company": "Redpack Logística",
     "domain": "redpack.com.mx",
     "scannedHost": "redpack.com.mx",
@@ -102,8 +102,8 @@
     "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
   },
   {
-    "auditId": "audit_1789487907250_273",
-    "timestamp": "2026-09-15T15:58:27.250Z",
+    "auditId": "audit_1789489407885_95",
+    "timestamp": "2026-09-15T16:23:27.885Z",
     "company": "Estafeta Carga",
     "domain": "estafeta.com",
     "scannedHost": "estafeta.com",
@@ -138,8 +138,8 @@
     "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
   },
   {
-    "auditId": "audit_1789487905903_266",
-    "timestamp": "2026-09-15T15:58:25.903Z",
+    "auditId": "audit_1789489403584_162",
+    "timestamp": "2026-09-15T16:23:23.584Z",
     "company": "Servientrega Corporativo",
     "domain": "servientrega.com",
     "scannedHost": "www.servientrega.com",
@@ -174,8 +174,8 @@
     "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
   },
   {
-    "auditId": "audit_1789487904327_439",
-    "timestamp": "2026-09-15T15:58:24.327Z",
+    "auditId": "audit_1789489402092_709",
+    "timestamp": "2026-09-15T16:23:22.092Z",
     "company": "TCC Logística",
     "domain": "tcc.com.co",
     "scannedHost": "tcc.com.co",

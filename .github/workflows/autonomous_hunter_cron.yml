@@ -24,6 +24,15 @@ jobs:
           node-version: '20'
 
       - name: Run 24/7 Autonomous Hunter & Generate Opportunities
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          STRIKE_LIGHTNING_ADDRESS: ${{ secrets.STRIKE_LIGHTNING_ADDRESS }}
+          OFFICIAL_SUPPORT_EMAIL: ${{ secrets.OFFICIAL_SUPPORT_EMAIL }}
         run: node scripts/outbound/run_cron_hunter.mjs
 
       - name: Commit & Persist Pipeline Updates
