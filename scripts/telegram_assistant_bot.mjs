@@ -264,15 +264,22 @@ ${list}
       return;
     }
 
-    // RESPUESTA INTELIGENTE POR DEFECTO CON GEMINI O MCP HUB
+    // RESPUESTA INTELIGENTE POR DEFECTO CON GEMINI (RAZONAMIENTO LIBRE 100%)
     if (GEMINI_API_KEY) {
       try {
-        const geminiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        const geminiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             system_instruction: {
-              parts: [{ text: `Eres el Asistente Ejecutivo Personal y Concierge Soberano de Ricardo en El Salvador. Eres conciso, fiduciario y resolutivo. Conoces su plataforma Destraba AI, sus cobros a rick2818@strike.me, vuelos desde el aeropuerto SAL, cines y restaurantes en San Salvador.` }]
+              parts: [{ text: `Eres el Asistente Ejecutivo Personal y Concierge Soberano de Ricardo en El Salvador.
+Tu personalidad es culta, ejecutiva, servicial, concisa y fiduciaria. Hablas español con calidez ejecutiva y total soltura.
+Tienes total libertad para responder sobre cualquier tema: negocios, estrategia, redacción, análisis, dudas de la vida o consultas del día a día.
+Cuando Ricardo pregunte por datos locales o herramientas de su plataforma, ten en cuenta este contexto:
+- Plataforma: Destraba AI (unblock.ai)
+- Liquidación Bitcoin/Lightning: rick2818@strike.me
+- Ciudad base: San Salvador, El Salvador (Aeropuerto SAL, cines en Multiplaza y La Gran Vía, restaurantes en San Benito, Escalón, Santa Elena).
+- Comandos opcionales de acceso rápido: /btc, /vuelos, /restaurantes, /cine, /proyectos.` }]
             },
             contents: [{ parts: [{ text: text }] }]
           })
@@ -283,7 +290,9 @@ ${list}
           await this.sendMessage(chatId, reply);
           return;
         }
-      } catch (err) {}
+      } catch (err) {
+        console.error('[GEMINI ERROR]:', err.message);
+      }
     }
 
     // Fallback conversacional asistido
