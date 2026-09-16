@@ -12,9 +12,38 @@ import http from 'http';
 import dns from 'dns';
 import fs from 'fs';
 import path from 'path';
+import { isBlacklisted } from '../../lib/compliance_dnc.js';
 
-// Resuelve utilizando la configuración DNS del sistema operativo
-
+// Catálogo dinámico expandido de sectores de alta monetización B2B (Latinoamérica & España)
+const DYNAMIC_TARGET_POOL = [
+  // Sector 1: Finanzas, Facturación & Pagos
+  { company: "Bold Pagos Colombia", domain: "bold.co", contactEmail: "soporte@bold.co", country: "Colombia", industry: "Fintech & Adquirencia" },
+  { company: "Cobre Latam", domain: "cobre.co", contactEmail: "contacto@cobre.co", country: "Colombia / México", industry: "B2B Payment Rails" },
+  { company: "Simetrik Finanzas", domain: "simetrik.com", contactEmail: "info@simetrik.com", country: "Latam / Global", industry: "Conciliación Financiera" },
+  { company: "Addi Crédito y Pagos", domain: "co.addi.com", contactEmail: "soporte@addi.com", country: "Colombia", industry: "Fintech BNPL" },
+  { company: "Clip México", domain: "clip.mx", contactEmail: "contacto@clip.mx", country: "México", industry: "Pagos Digitales" },
+  { company: "Kushki Pagos", domain: "kushkipagos.com", contactEmail: "info@kushkipagos.com", country: "Ecuador / Latam", industry: "Pasarela de Pagos" },
+  
+  // Sector 2: Logística 3PL, Flota & Almacenes Fiscales
+  { company: "Solistica FEMSA Logistics", domain: "solistica.com", contactEmail: "contacto@solistica.com", country: "México / Latam", industry: "Logística Integral 3PL" },
+  { company: "Ransa Logística Integral", domain: "ransa.biz", contactEmail: "contacto@ransa.net", country: "Perú / Centroamérica", industry: "Operador Logístico 3PL" },
+  { company: "Chazki Entregas Last Mile", domain: "chazki.com", contactEmail: "hola@chazki.com", country: "Perú / Colombia / México", industry: "Last Mile Fulfillment" },
+  { company: "Moffin Automatización", domain: "moffin.mx", contactEmail: "contacto@moffin.mx", country: "México", industry: "Infraestructura B2B" },
+  { company: "Liftit Carga y Fletes", domain: "liftit.co", contactEmail: "contacto@liftit.co", country: "Colombia / México", industry: "Logística y Transporte" },
+  { company: "Clicoh Fulfillment", domain: "clicoh.com", contactEmail: "info@clicoh.com", country: "Latam Regional", industry: "Fulfillment E-commerce" },
+  
+  // Sector 3: Salud, Farma & Distribución Hospitalaria
+  { company: "Droguerías Cafam Logística", domain: "cafam.com.co", contactEmail: "servicioalcliente@cafam.com.co", country: "Colombia", industry: "Distribución Farmacéutica" },
+  { company: "Audifarma Logística Médica", domain: "audifarma.com.co", contactEmail: "contacto@audifarma.com.co", country: "Colombia", industry: "Cadena de Suministro Farma" },
+  { company: "Nadro Distribución Farma", domain: "nadro.co", contactEmail: "contacto@nadro.mx", country: "México", industry: "Farma y Logística" },
+  
+  // Sector 4: Retail, Consumo Masivo & Proveeduría
+  { company: "Alkosto Distribución Mayorista", domain: "alkosto.com", contactEmail: "sugerencias@alkosto.com.co", country: "Colombia", industry: "Retail & Cadena de Suministro" },
+  { company: "El Rosado Corporativo", domain: "elrosado.com", contactEmail: "servicioalcliente@elrosado.com", country: "Ecuador", industry: "Supermercados & Logística" },
+  { company: "Super Selectos El Salvador", domain: "superselectos.com", contactEmail: "contacto@superselectos.com", country: "El Salvador", industry: "Retail y Almacén" },
+  { company: "EPA Ferreterías Regional", domain: "epaenlinea.com", contactEmail: "atencion@epaenlinea.com", country: "El Salvador / Guatemala", industry: "Distribución y Materiales" },
+  { company: "Simán Corporativo", domain: "siman.com", contactEmail: "contacto@siman.com", country: "Centroamérica", industry: "Retail Departamental" }
+];
 
 const AUDIT_LOG_FILE = path.resolve('pipeline/auditorias_autonomas_ejecutadas.json');
 
@@ -143,4 +172,51 @@ export class AutonomousHunter {
     }
     return executed;
   }
+
+  /**
+   * Filtro anti-fatiga de 90 días y verificación DNC
+   */
+  async isEligibleForAudit(domain, maxAgeDays = 90) {
+    if (!domain) return false;
+    const cleanDomain = domain.toLowerCase().trim();
+
+    // 1. Chequeo DNC obligatorio
+    if (await isBlacklisted(null, cleanDomain)) {
+      return false;
+    }
+
+    // 2. Chequeo de última fecha de auditoría en pipeline
+    const existing = this.results.find(r => r.domain?.toLowerCase() === cleanDomain);
+    if (!existing) return true;
+
+    const auditDate = new Date(existing.timestamp).getTime();
+    if (isNaN(auditDate)) return true;
+
+    const ageInDays = (Date.now() - auditDate) / (1000 * 60 * 60 * 24);
+    return ageInDays >= maxAgeDays;
+  }
+
+  /**
+   * Motor dinámico de descubrimiento: localiza nuevos prospectos no contactados recientemente
+   */
+  async discoverDynamicTargets({ limit = 5, sector = 'all' } = {}) {
+    const eligible = [];
+    const pool = [...DYNAMIC_TARGET_POOL];
+    
+    // Barajado pseudo-aleatorio para rotación fiduciaria
+    pool.sort(() => Math.random() - 0.5);
+
+    for (const candidate of pool) {
+      if (eligible.length >= limit) break;
+      if (sector !== 'all' && candidate.industry.toLowerCase() !== sector.toLowerCase()) continue;
+
+      const canAudit = await this.isEligibleForAudit(candidate.domain);
+      if (canAudit) {
+        eligible.push(candidate);
+      }
+    }
+
+    return eligible;
+  }
 }
+

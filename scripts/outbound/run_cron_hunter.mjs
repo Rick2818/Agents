@@ -79,7 +79,13 @@ async function main() {
   console.log(`=============================================================================\n`);
 
   const hunter = new AutonomousHunter();
-  const results = await hunter.runBatch(targets);
+  
+  // Descubrimiento dinámico continuo de nuevos prospectos no contactados (Anti-Fatiga 90 días)
+  const dynamicTargets = await hunter.discoverDynamicTargets({ limit: 3 });
+  console.log(`[DISCOVERY MOTOR]: ${dynamicTargets.length} nuevos prospectos dinámicos incorporados al escaneo.`);
+
+  const allTargets = [...targets, ...dynamicTargets];
+  const results = await hunter.runBatch(allTargets);
 
   const vulnerable = results.filter(r => r.flawsCount > 0);
   console.log(`\n=============================================================================`);

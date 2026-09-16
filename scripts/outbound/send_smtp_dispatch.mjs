@@ -19,6 +19,7 @@ import {
   maskSecret,
   sanitizeHeader
 } from '../../lib/universal_email_engine.js';
+import { isBlacklisted } from '../../lib/compliance_dnc.js';
 
 // Cargar variables de entorno locales de .env si existe
 try { process.loadEnvFile?.(); } catch (e) {}
@@ -59,6 +60,13 @@ export async function executeOutboundDispatch(options = {}) {
     const toEmail = lead.corporateEmail || lead.contactEmail || ('contacto@' + lead.domain);
     const subject = lead.outboundMessage?.subject || ('Propuesta técnica de optimización para ' + lead.company);
     const body = lead.outboundMessage?.body || '';
+
+    // Filtro DNC / CAN-SPAM obligatorio pre-transmisión
+    if (await isBlacklisted(toEmail, lead.domain)) {
+      console.log(`-> [DNC EXCLUSION]: ${toEmail} (${lead.domain}) en lista de baja. Omitiendo envío.`);
+      lead.status = 'DNC_EXCLUIDO';
+      continue;
+    }
 
     console.log('\n-----------------------------------------------------------------------------');
     console.log('Empresa: ' + lead.company + ' (' + lead.domain + ')');

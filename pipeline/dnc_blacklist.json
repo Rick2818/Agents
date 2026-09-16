@@ -1,0 +1,18 @@
+[
+  {
+    "id": "dnc_1789602084010_654",
+    "email": "optout_1789602084009_7747@unique-test-1789602084009.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-16T23:41:24.010Z",
+    "sha256Hash": "3b34c911bb5abc27231e173d1fd2353a7443e1b96a097facdccc68a193f878ed"
+  },
+  {
+    "id": "dnc_1789602104911_598",
+    "email": "optout_1789602104910_2537@unique-test-1789602104910.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-16T23:41:44.911Z",
+    "sha256Hash": "966fbcd92f9e4c28515a48ecf82a320c3eb8391eb2a82ee635fc8d64a559f32c"
+  }
+]

@@ -5,8 +5,13 @@ import {
   CATALOGO_PRECIOS_USD,
   applyBankingSecurityHeaders,
   checkRateLimit,
-  recordAndVerifyIdempotency
+  recordAndVerifyIdempotency,
+  recordAndVerifyDistributedIdempotency
 } from '../lib/payment_security.js';
+import {
+  verifyUnsubscribeToken,
+  addToDncBlacklist
+} from '../lib/compliance_dnc.js';
 import { ExecutiveAssistantMCPHub } from '../lib/mcp_executive_assistant.js';
 
 // Instancias reutilizadas entre invocaciones cálidas (evita recrear el cliente en cada request)
@@ -62,6 +67,21 @@ export default async function handler(req, res) {
     // Enrutamiento a Master Cloud Dispatcher Cron
     if (pathname === '/api/cron/master-dispatcher' || pathname.endsWith('/cron/master-dispatcher')) {
       return await cronHandler(req, res);
+    }
+
+    // --- ENDPOINT FIDUCIARIO DE DESUSCRIPCIÓN Y CUMPLIMIENTO DNC (CAN-SPAM / GDPR) ---
+    if (pathname === '/api/unsubscribe' || pathname.endsWith('/unsubscribe')) {
+      const token = url.searchParams.get('token') || req.body?.token;
+      const verification = verifyUnsubscribeToken(token);
+
+      if (!verification.valid) {
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        return res.status(400).send(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Enlace Inválido</title><style>body{font-family:-apple-system,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}.card{background:#1e293b;padding:32px;border-radius:12px;max-width:480px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.5);}h1{color:#f43f5e;font-size:20px;margin-bottom:12px;}p{color:#94a3b8;font-size:14px;line-height:1.6;}</style></head><body><div class="card"><h1>Enlace de Desuscripción Inválido o Expirado</h1><p>El token de baja no pudo ser validado criptográficamente. Si deseas solicitar la exclusión manual inmediata, escribe a soporte@destraba.ai.</p></div></body></html>`);
+      }
+
+      await addToDncBlacklist(verification.email, 'WEB_ONE_CLICK_UNSUBSCRIBE');
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      return res.status(200).send(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Exclusión Fiduciaria Confirmada</title><style>body{font-family:-apple-system,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}.card{background:#1e293b;padding:36px;border-radius:12px;max-width:500px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.5);border:1px solid #334155;}h1{color:#10b981;font-size:22px;margin-bottom:12px;}p{color:#cbd5e1;font-size:14px;line-height:1.6;}.badge{display:inline-block;background:#064e3b;color:#6ee7b7;padding:6px 14px;border-radius:20px;font-size:12px;margin-top:16px;font-weight:600;}</style></head><body><div class="card"><h1>✅ Desuscripción Confirmada</h1><p>El correo <strong>${verification.email}</strong> ha sido excluido de forma permanente de todas nuestras transmisiones y diagnósticos defensivos.</p><div class="badge">ESTÁNDAR FIDUCIARIO CAN-SPAM CUMPLIDO</div></div></body></html>`);
     }
 
     const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown-client';
@@ -211,13 +231,11 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Missing transaction id' });
       }
 
-      // NOTA: este ledger de idempotencia vive en memoria del proceso. En Vercel cada
-      // invocación puede caer en una instancia distinta o "fría", así que NO garantiza
-      // deduplicación real entre eventos. Para producción, mover a una tabla de Supabase
-      // (p. ej. webhook_events con UNIQUE(event_id)) o a Upstash Redis.
-      const idempotency = recordAndVerifyIdempotency(`wompi_${eventId}`);
+      // Verificación distribuida de idempotencia (Upstash Redis REST + Memoria local)
+      // Protege contra invocaciones frías o múltiples contenedores concurrentes en Vercel.
+      const idempotency = await recordAndVerifyDistributedIdempotency(`wompi_${eventId}`);
       if (idempotency.isDuplicate) {
-        return res.status(200).json({ status: 'ignored_duplicate', transactionId: eventId });
+        return res.status(200).json({ status: 'ignored_duplicate', transactionId: eventId, source: idempotency.source || 'MEMORY' });
       }
 
       // Cierre de Ciclo Fiduciario 10/10: Despacho de Blindaje y Alerta Push a Telegram
