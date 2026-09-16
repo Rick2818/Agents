@@ -3,6 +3,7 @@
  * MOTOR AUTÓNOMO DE DESPACHO OUTBOUND (SMTP / REST API) — DESTRABA AI
  * Diseñado bajo estándares de seguridad Full Stack Senior (20+ años de experiencia)
  * - Cero dependencias externas requeridas (Usa Node.js nativo https/tls)
+ * - Multi-transporte con failover automático (Gmail SMTPS / Resend REST API)
  * - Protección contra inyección CRLF en cabeceras de correo
  * - Rate limiting defensivo con jitter (2-4 seg) para protección de reputación IP
  * - Modo DRY_RUN automático si no hay credenciales configuradas
@@ -10,190 +11,34 @@
  * =============================================================================
  */
 
-import https from 'https';
-import tls from 'tls';
 import fs from 'fs';
 import path from 'path';
+import {
+  dispatchUniversalEmail,
+  sendViaResendApi,
+  maskSecret,
+  sanitizeHeader
+} from '../../lib/universal_email_engine.js';
 
 // Cargar variables de entorno locales de .env si existe
 try { process.loadEnvFile?.(); } catch (e) {}
 
 const PIPELINE_FILE = path.resolve('pipeline/leads_contactados_activos.json');
 
-// Sanitización contra CRLF Injection (RFC 5322)
-function sanitizeHeader(val) {
-  if (!val) return '';
-  return String(val).replace(/[\r\n]/g, ' ').trim();
-}
-
-// Enmascaramiento de credenciales para logs de auditoría
-function maskSecret(secret) {
-  if (!secret) return '(no configurado)';
-  if (secret.length <= 6) return '******';
-  return secret.substring(0, 3) + '...' + secret.substring(secret.length - 3);
-}
-
-/**
- * Enviar vía API REST de Resend (HTTPS estándar sobre Puerto 443)
- * Inmune a bloqueos de puertos en GitHub Actions / Azure
- */
-function sendViaResend(apiKey, fromEmail, toEmail, subject, body) {
-  return new Promise((resolve, reject) => {
-    const payload = JSON.stringify({
-      from: sanitizeHeader(fromEmail || 'Destraba AI <notificaciones@destraba.ai>'),
-      to: [sanitizeHeader(toEmail)],
-      subject: sanitizeHeader(subject),
-      text: body,
-      headers: {
-        'X-Entity-Ref-ID': 'destraba_fiduciary_' + Date.now(),
-        'List-Unsubscribe': '<mailto:soporte@destraba.ai?subject=unsubscribe>'
-      }
-    });
-
-    const req = https.request({
-      hostname: 'api.resend.com',
-      port: 443,
-      path: '/emails',
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + apiKey.trim(),
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(payload)
-      },
-      timeout: 10000
-    }, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          try {
-            const parsed = JSON.parse(data);
-            resolve({ success: true, messageId: parsed.id || 'resend_ok', transport: 'Resend_API' });
-          } catch (e) {
-            resolve({ success: true, messageId: 'resend_ok', transport: 'Resend_API' });
-          }
-        } else {
-          reject(new Error('Resend HTTP ' + res.statusCode + ': ' + data));
-        }
-      });
-    });
-
-    req.on('error', reject);
-    req.on('timeout', () => {
-      req.destroy();
-      reject(new Error('Timeout conectando a api.resend.com'));
-    });
-
-    req.write(payload);
-    req.end();
-  });
-}
-
-/**
- * Enviar vía SMTP Seguro nativo (TLS en puerto 465)
- */
-function sendViaNativeSmtp(host, port, user, pass, fromEmail, toEmail, subject, body) {
-  return new Promise((resolve, reject) => {
-    const cleanHost = sanitizeHeader(host);
-    const cleanPort = parseInt(port, 10) || 465;
-    const cleanUser = sanitizeHeader(user);
-    const cleanPass = pass;
-    const cleanFrom = sanitizeHeader(fromEmail || user);
-    const cleanTo = sanitizeHeader(toEmail);
-    const cleanSubject = sanitizeHeader(subject);
-
-    const socket = tls.connect({
-      host: cleanHost,
-      port: cleanPort,
-      rejectUnauthorized: true,
-      timeout: 12000
-    }, () => {
-      // Conexión TLS establecida
-    });
-
-    let step = 0;
-    let responseBuffer = '';
-
-    socket.on('data', (chunk) => {
-      responseBuffer += chunk.toString();
-      const lines = responseBuffer.split('\r\n');
-      responseBuffer = lines.pop();
-
-      for (const line of lines) {
-        if (!line) continue;
-        const code = parseInt(line.substring(0, 3), 10);
-        if (isNaN(code)) continue;
-
-        if (step === 0 && code === 220) {
-          socket.write('EHLO destraba.ai\r\n');
-          step = 1;
-        } else if (step === 1 && code === 250 && !line.startsWith('250-')) {
-          socket.write('AUTH LOGIN\r\n');
-          step = 2;
-        } else if (step === 2 && code === 334) {
-          socket.write(Buffer.from(cleanUser).toString('base64') + '\r\n');
-          step = 3;
-        } else if (step === 3 && code === 334) {
-          socket.write(Buffer.from(cleanPass).toString('base64') + '\r\n');
-          step = 4;
-        } else if (step === 4 && code === 235) {
-          socket.write('MAIL FROM:<' + cleanFrom + '>\r\n');
-          step = 5;
-        } else if (step === 5 && code === 250) {
-          socket.write('RCPT TO:<' + cleanTo + '>\r\n');
-          step = 6;
-        } else if (step === 6 && code === 250) {
-          socket.write('DATA\r\n');
-          step = 7;
-        } else if (step === 7 && code === 354) {
-          const rfcMessage = [
-            'From: ' + cleanFrom,
-            'To: ' + cleanTo,
-            'Subject: ' + cleanSubject,
-            'MIME-Version: 1.0',
-            'Content-Type: text/plain; charset=UTF-8',
-            'Content-Transfer-Encoding: 8bit',
-            'X-Mailer: Destraba-AI-Fiduciary-Autonomous-Engine/2.5',
-            '',
-            body,
-            '.',
-            ''
-          ].join('\r\n');
-          socket.write(rfcMessage);
-          step = 8;
-        } else if (step === 8 && code === 250) {
-          socket.write('QUIT\r\n');
-          step = 9;
-          resolve({ success: true, messageId: 'smtp_' + Date.now(), transport: 'Native_SMTPS' });
-        } else if (code >= 400) {
-          socket.destroy();
-          reject(new Error('SMTP Error (' + code + '): ' + line));
-        }
-      }
-    });
-
-    socket.on('error', (err) => {
-      reject(err);
-    });
-
-    socket.on('timeout', () => {
-      socket.destroy();
-      reject(new Error('Timeout en conexión SMTP con ' + cleanHost));
-    });
-  });
-}
-
 /**
  * Orquestador principal de despacho outbound
  */
 export async function executeOutboundDispatch(options = {}) {
   const resendKey = process.env.RESEND_API_KEY || process.env.RESFND_APT_KEY;
-  const isDryRun = options.dryRun || process.argv.includes('--dry-run') || (!resendKey && !process.env.SMTP_HOST);
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpHost = process.env.SMTP_HOST || 'smtp.gmail.com';
+  const isSmtpReady = Boolean(smtpHost && smtpPass && smtpPass.trim().length >= 8);
+  const isDryRun = options.dryRun || process.argv.includes('--dry-run') || (!resendKey && !isSmtpReady);
 
-  console.log('[OUTBOUND DISPATCHER]: Inicializando motor fiduciario...');
+  console.log('[OUTBOUND DISPATCHER]: Inicializando motor fiduciario multi-transporte...');
   console.log('Modo de operación: ' + (isDryRun ? 'DRY_RUN (Simulación segura)' : 'LIVE (Despacho real en red)'));
+  console.log('Gmail SMTP Configurado: ' + (isSmtpReady ? 'SÍ (smtp.gmail.com)' : 'NO (Esperando Contraseña de Aplicación)'));
   console.log('Resend API Key: ' + maskSecret(resendKey));
-  console.log('SMTP Host: ' + (process.env.SMTP_HOST || '(no configurado)'));
 
   if (!fs.existsSync(PIPELINE_FILE)) {
     console.warn('[OUTBOUND DISPATCHER]: Archivo de pipeline no encontrado: ' + PIPELINE_FILE);
@@ -231,51 +76,35 @@ export async function executeOutboundDispatch(options = {}) {
       lead.status = 'TRANSMISION_SIMULADA_OK';
       sentCount++;
     } else {
-      try {
-        let result;
-        if (resendKey) {
-          result = await sendViaResend(
-            resendKey,
-            process.env.SMTP_FROM || process.env.OFFICIAL_SUPPORT_EMAIL || 'notificaciones@destraba.ai',
-            toEmail,
-            subject,
-            body
-          );
-        } else if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
-          result = await sendViaNativeSmtp(
-            process.env.SMTP_HOST,
-            process.env.SMTP_PORT || 465,
-            process.env.SMTP_USER,
-            process.env.SMTP_PASS,
-            process.env.SMTP_FROM,
-            toEmail,
-            subject,
-            body
-          );
-        } else {
-          throw new Error('Sin transporte configurado');
-        }
+      const dispatchResult = await dispatchUniversalEmail({
+        to: toEmail,
+        subject,
+        text: body,
+        html: `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;">${body.replace(/\n/g, '<br>')}</div>`
+      });
 
-        console.log('-> [LIVE DISPATCH SUCCESS]: ' + result.transport + ' | MessageId: ' + result.messageId);
+      if (dispatchResult.success) {
+        console.log('-> [LIVE DISPATCH SUCCESS]: ' + dispatchResult.transport + ' | MessageId: ' + dispatchResult.messageId);
         lead.deliveryAudit = {
           dispatchedAt: new Date().toISOString(),
           mode: 'LIVE',
-          transport: result.transport,
-          messageId: result.messageId,
+          transport: dispatchResult.transport,
+          messageId: dispatchResult.messageId,
           recipient: toEmail,
           status: 'TRANSMITIDO_EXITOSO'
         };
         lead.status = 'ENVIADO_REAL_EN_RED';
         sentCount++;
-      } catch (err) {
-        console.error('-> [ERROR DE TRANSMISION]: ' + err.message);
-        if (err.message.includes('testing emails to your own email address') || err.message.includes('resend.com/domains')) {
-          sandboxBlockedLeads.push({ lead, toEmail, subject, body });
+      } else {
+        console.error('-> [ERROR DE TRANSMISION]: ' + dispatchResult.error);
+        if (dispatchResult.isSandboxBlocked || dispatchResult.reason === 'RESEND_SANDBOX_DOMAIN_REQUIRED') {
+          sandboxBlockedLeads.push({ lead, toEmail, subject, body, error: dispatchResult.error });
         }
         lead.deliveryAudit = {
           attemptedAt: new Date().toISOString(),
           mode: 'LIVE_FAILED',
-          error: err.message,
+          reason: dispatchResult.reason,
+          error: dispatchResult.error,
           status: 'REINTENTO_PROGRAMADO'
         };
       }
@@ -286,12 +115,12 @@ export async function executeOutboundDispatch(options = {}) {
     await new Promise(r => setTimeout(r, delayMs));
   }
 
-  // Digest Fiduciario de contingencia para Ricardo
-  if (sandboxBlockedLeads.length > 0 && resendKey) {
+  // Digest Fiduciario de contingencia para Ricardo (si Resend está en sandbox y no hay SMTP activo)
+  if (sandboxBlockedLeads.length > 0) {
     try {
       console.log('\n[DIGEST FIDUCIARIO]: Generando Resumen Ejecutivo para Ricardo...');
       const digestSubject = `🎯 [DESTRABA AI] ${sandboxBlockedLeads.length} Oportunidades Auditadas en Internet`;
-      let digestBody = `Hola Ricardo,\n\nEl Cazador Autónomo 24/7 completó el escaneo perimetral y detectó ${sandboxBlockedLeads.length} empresas con vulnerabilidades monetizables en el cohort de hoy.\n\nComo tu cuenta de Resend requiere verificar dominio en resend.com/domains para envíos directos a terceros, aquí tienes los prospectos con sus enlaces de cobro a rick2818@strike.me:\n\n`;
+      let digestBody = `Hola Ricardo,\n\nEl Cazador Autónomo 24/7 completó el escaneo perimetral y detectó ${sandboxBlockedLeads.length} empresas con vulnerabilidades monetizables en el cohort de hoy.\n\nComo tu cuenta de Resend requiere verificar dominio en resend.com/domains para envíos directos a terceros y no se ha configurado la contraseña SMTP de Gmail, aquí tienes los prospectos con sus enlaces de cobro a rick2818@strike.me:\n\n`;
 
       for (const item of sandboxBlockedLeads) {
         digestBody += `-----------------------------------------------------\n`;
@@ -303,16 +132,19 @@ export async function executeOutboundDispatch(options = {}) {
         digestBody += `Mensaje preparado:\n${item.body}\n\n`;
       }
 
-      digestBody += `\nPara habilitar el envío automático directo a terceros sin intermediación, solo agrega tu dominio en https://resend.com/domains.\n\nDestino de liquidación: rick2818@strike.me\nDestraba AI Engine 2.5`;
+      digestBody += `\nPara activar el envío directo e inmediato a cualquier tercero sin necesidad de dominio propio, ingresa tu contraseña de aplicación de Gmail (16 letras) en el archivo .env como:\nSMTP_HOST=smtp.gmail.com\nSMTP_PORT=465\nSMTP_USER=ricardo.destrabaai@gmail.com\nSMTP_PASS=tu_clave_de_16_letras\n\nDestino de liquidación: rick2818@strike.me\nDestraba AI Engine 3.0`;
 
-      const digestRes = await sendViaResend(
-        resendKey,
-        'Destraba AI <onboarding@resend.dev>',
-        'rick28191@gmail.com',
-        digestSubject,
-        digestBody
-      );
-      console.log('-> [DIGEST ENTREGADO]: Resumen ejecutivo enviado con éxito a rick28191@gmail.com (ID: ' + digestRes.messageId + ')');
+      // Enviar digest a Ricardo vía Resend API (que en sandbox SÍ permite enviar a la cuenta registrada)
+      if (resendKey) {
+        const digestRes = await sendViaResendApi({
+          apiKey: resendKey,
+          from: 'Destraba AI <onboarding@resend.dev>',
+          to: 'rick28191@gmail.com',
+          subject: digestSubject,
+          text: digestBody
+        });
+        console.log('-> [DIGEST ENTREGADO]: Resumen ejecutivo enviado con éxito a rick28191@gmail.com (ID: ' + digestRes.messageId + ')');
+      }
     } catch (digestErr) {
       console.warn('-> [DIGEST WARNING]: No se pudo entregar digest:', digestErr.message);
     }

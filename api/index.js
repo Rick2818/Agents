@@ -26,6 +26,11 @@ import {
   sendCustomerDeliveryEmail,
   sendExecutiveTelegramAlert
 } from '../lib/fiduciary_delivery.js';
+import {
+  dispatchUniversalEmail,
+  inspectResendAccount,
+  maskSecret
+} from '../lib/universal_email_engine.js';
 import telegramHandler from './telegram.js';
 import cronHandler from './cron/master-dispatcher.js';
 
@@ -62,6 +67,53 @@ export default async function handler(req, res) {
     const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown-client';
     if (!checkRateLimit(clientIp, 60, 60000)) {
       return res.status(429).json({ error: 'Too Many Requests', retryAfterSeconds: 60 });
+    }
+
+    // --- ENDPOINTS UNIVERSALES DE CORREO: ESTADO Y DESPACHO ---
+    if (req.method === 'GET' && (pathname === '/api/email/status' || pathname.endsWith('/email/status'))) {
+      const resendKey = process.env.RESEND_API_KEY || process.env.RESFND_APT_KEY;
+      const resendAudit = await inspectResendAccount(resendKey);
+      const isSmtpReady = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.SMTP_PASS.trim().length >= 8);
+
+      return res.status(200).json({
+        success: true,
+        smtp: {
+          configured: isSmtpReady,
+          host: process.env.SMTP_HOST || 'smtp.gmail.com',
+          port: parseInt(process.env.SMTP_PORT, 10) || 465,
+          user: process.env.SMTP_USER || 'ricardo.destrabaai@gmail.com',
+          from: process.env.SMTP_FROM || `Destraba AI <${process.env.SMTP_USER || 'ricardo.destrabaai@gmail.com'}>`,
+          status: isSmtpReady ? 'OPERATIONAL_LIVE' : 'PENDING_APP_PASSWORD'
+        },
+        resend: {
+          keyConfigured: Boolean(resendKey),
+          keyMasked: maskSecret(resendKey),
+          hasVerifiedDomain: resendAudit.hasVerifiedDomain || false,
+          domainsCount: resendAudit.domainsCount || 0,
+          domains: resendAudit.domains || [],
+          mode: resendAudit.hasVerifiedDomain ? 'VERIFIED_DOMAIN_LIVE' : 'SANDBOX_OWNER_ONLY'
+        },
+        activeCarrier: isSmtpReady ? 'GMAIL_SMTPS' : (resendAudit.hasVerifiedDomain ? 'RESEND_VERIFIED' : 'RESEND_SANDBOX_DIGEST_ONLY'),
+        hint: !isSmtpReady
+          ? 'Ingresa tu contraseña de aplicación de Gmail (16 caracteres) en .env (SMTP_PASS) para habilitar envíos a terceros al 100% sin esperar verificación de dominio.'
+          : 'Motor listo para despachar a cualquier tercero.'
+      });
+    }
+
+    if (req.method === 'POST' && (pathname === '/api/email/dispatch' || pathname.endsWith('/email/dispatch'))) {
+      const { to, subject, body, html } = req.body || {};
+      if (!to || !subject || (!body && !html)) {
+        return res.status(400).json({ success: false, error: 'Faltan campos requeridos: to, subject, body/html' });
+      }
+
+      const dispatchResult = await dispatchUniversalEmail({
+        to,
+        subject,
+        text: body || '',
+        html: html || ''
+      });
+
+      return res.status(dispatchResult.success ? 200 : 422).json(dispatchResult);
     }
 
     if (req.method === 'GET' && (pathname === '/api/catalog' || pathname.endsWith('/catalog'))) {

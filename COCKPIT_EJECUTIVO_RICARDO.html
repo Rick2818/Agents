@@ -537,30 +537,33 @@ Mandate:
         return;
       }
 
-      status.innerHTML = "<span class='text-amber-400'>Despachando con Resend...</span>";
+      status.innerHTML = "<span class='text-amber-400'>Despachando vía Motor Universal (Gmail SMTP / Resend)...</span>";
 
       try {
-        const res = await fetch("https://api.resend.com/emails", {
+        const res = await fetch("/api/email/dispatch", {
           method: "POST",
           headers: {
-            "Authorization": "Bearer " + RESEND_API_KEY,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            from: "Destraba AI <onboarding@resend.dev>",
-            to: [to],
+            to: to,
             subject: subj,
-            text: body,
+            body: body,
             html: "<div style='font-family: sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;'>" + body.replace(/\n/g, "<br>") + "</div>"
           })
         });
 
-        const json = await res.json();
-        if (res.ok && json.id) {
-          status.innerHTML = "<span class='text-emerald-400 font-bold'>✅ Despachado: " + json.id + "</span>";
-          appendMessage('assistant', `✉️ **Correo Despachado Exitosamente con Resend**\n\n• **Destinatario:** ` + to + `\n• **Asunto:** ` + subj + `\n• **Identificador Resend:** ` + json.id + `\n\nEl mensaje está en tránsito.`);
+        const json = await res.json().catch(() => ({}));
+
+        if (res.ok && json.success) {
+          const transportName = json.transport || 'Universal_Engine';
+          status.innerHTML = "<span class='text-emerald-400 font-bold'>✅ Despachado [" + transportName + "]: " + json.messageId + "</span>";
+          appendMessage('assistant', `✉️ **Correo Despachado Exitosamente**\n\n• **Transporte:** ` + transportName + `\n• **Destinatario:** ` + to + `\n• **Asunto:** ` + subj + `\n• **ID de Mensaje:** ` + json.messageId + `\n\nEl mensaje está en tránsito sin restricciones de sandbox.`);
+        } else if (json.reason === 'RESEND_SANDBOX_DOMAIN_REQUIRED' || json.isSandboxBlocked) {
+          status.innerHTML = "<span class='text-amber-400'>⚠️ Sandbox Activo: Requiere Gmail SMTP</span>";
+          appendMessage('assistant', `⚠️ **Aviso de Sandbox Resend**\n\nResend requiere un dominio verificado para enviar a **` + to + `**.\n\n💡 **Solución Inmediata:** Configura tu contraseña de aplicación de Gmail (\`ricardo.destrabaai@gmail.com\`) en el archivo \`.env\` como \`SMTP_PASS\` para despacho instantáneo 100% libre de restricciones.`);
         } else {
-          status.innerHTML = "<span class='text-red-400'>Error: " + (json.message || JSON.stringify(json)) + "</span>";
+          status.innerHTML = "<span class='text-red-400'>Error: " + (json.error || json.message || "Fallo en el despacho") + "</span>";
         }
       } catch (e) {
         status.innerHTML = "<span class='text-red-400'>Fallo de red: " + e.message + "</span>";

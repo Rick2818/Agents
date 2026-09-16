@@ -1,36 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=dashboard.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acceso Directo — Destraba AI | Unblock AI</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    window.location.href = "dashboard.html";
-  </script>
   <style>
     body {
       background-color: #0f172a;
       color: #f8fafc;
       font-family: system-ui, -apple-system, sans-serif;
     }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+    }
+    .pulse-dot { animation: pulseDot 2s infinite ease-in-out; }
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-6">
-  <div class="max-w-md w-full bg-slate-900 border border-slate-700 rounded-2xl p-8 shadow-2xl text-center">
-    <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl mx-auto mb-4 shadow-lg shadow-blue-500/30">
+<body class="min-h-screen flex items-center justify-center p-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+  <div class="max-w-md w-full bg-slate-900 border border-slate-700/80 rounded-3xl p-8 shadow-2xl text-center space-y-5">
+    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-3xl mx-auto shadow-lg shadow-blue-500/30">
       ⚡
     </div>
-    <h1 class="text-xl font-bold text-white mb-1">Destraba AI / Unblock AI</h1>
-    <p class="text-xs text-blue-400 font-mono mb-2">Gemini Flash 2.5 • Google Antigravity</p>
-    <p class="text-xs text-slate-400 mb-6">Abriendo la plataforma en tu navegador...</p>
     
-    <a href="dashboard.html" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">
-      <span>🚀 Ingresar a Destraba AI</span>
+    <div>
+      <h1 class="text-xl font-extrabold text-white mb-1">Destraba AI / Unblock AI</h1>
+      <p class="text-xs text-blue-400 font-mono">Gemini Flash 2.5 • Google Antigravity</p>
+      <p class="text-xs text-slate-400 mt-2">Selecciona cómo deseas acceder a la plataforma hoy:</p>
+    </div>
+
+    <!-- Botón Principal: Plataforma Cloud 24/7 en la Nube -->
+    <a href="https://destraba-ai.vercel.app" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs transition-all shadow-xl shadow-cyan-500/20 border border-cyan-400/30">
+      <div class="flex items-center gap-3">
+        <span class="pulse-dot w-2.5 h-2.5 rounded-full bg-cyan-300"></span>
+        <div class="text-left">
+          <span class="block text-sm font-extrabold text-white">🌐 Plataforma Cloud 24/7</span>
+          <span class="block text-[10px] text-cyan-200 font-normal">Corre en la nube • Cero dependencias locales</span>
+        </div>
+      </div>
+      <span class="text-base group-hover:translate-x-1 transition-transform">→</span>
     </a>
 
-    <div class="mt-6 pt-6 border-t border-slate-800 text-[11px] text-slate-500">
+    <!-- Botón Secundario: Abrir Dashboard Local -->
+    <a href="dashboard.html" class="flex items-center justify-between w-full py-3 px-5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-all border border-slate-700/80">
+      <div class="flex items-center gap-3">
+        <span>💻</span>
+        <div class="text-left">
+          <span class="block text-xs font-bold text-slate-200">Abrir Dashboard Local</span>
+          <span class="block text-[10px] text-slate-400">Ejecución en navegador local</span>
+        </div>
+      </div>
+      <span class="text-xs text-slate-400">→</span>
+    </a>
+
+    <div class="pt-4 border-t border-slate-800 text-[11px] text-slate-500 font-mono">
       "Destraba tu empresa en 60 segundos"
     </div>
   </div>
