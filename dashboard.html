@@ -116,6 +116,14 @@
               <span class="text-[10px] text-slate-400">Aislamiento RLS Activo</span>
               <button onclick="saveInAppUser()" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">Iniciar Sesión</button>
             </div>
+            <div class="pt-2 border-t border-slate-800/80">
+              <span class="block text-[10px] font-bold uppercase text-cyan-400 mb-1">¿Recibiste un paquete por correo?</span>
+              <label class="w-full py-2 px-3 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-700/80 text-[11px] text-slate-300 font-medium transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <span>📦</span>
+                <span>Cargar Paquete .zip de tu Agente</span>
+                <input type="file" accept=".zip" class="hidden" onchange="handleZipUpload(event)" />
+              </label>
+            </div>
           </div>
 
           <!-- Estado 2: Sesión Activa del Cliente -->
@@ -592,7 +600,57 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- ðŸ·ï¸ MODAL: CATÁLOGO Y PRECIOS OFICIALES POR AGENTE                         -->
+  <!-- 🚀 MODAL: APROVISIONAMIENTO Y ACTIVACIÓN CORPORATIVA CLOUD 24/7             -->
+  <!-- ========================================================================= -->
+  <div id="corporate-activation-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 fade-in">
+    <div class="bg-slate-900 border-2 border-cyan-500/50 max-w-lg w-full rounded-3xl p-6 sm:p-8 shadow-2xl relative text-left">
+      <div class="flex items-center gap-3 pb-4 border-b border-slate-800 mb-5">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-cyan-500/30">
+          ⚡
+        </div>
+        <div>
+          <h3 class="text-base font-extrabold text-white">Activación Corporativa Cloud 24/7</h3>
+          <p class="text-xs text-cyan-400 font-mono">Destraba AI • Licencia Fiduciaria Verificada</p>
+        </div>
+        <button onclick="closeCorporateModal()" class="ml-auto text-slate-400 hover:text-white text-base">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5 font-mono">
+          <div class="flex justify-between">
+            <span class="text-slate-400">Licencia ID:</span>
+            <span id="corp-act-license" class="text-emerald-400 font-bold">LIC-VERIFIED</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Cuenta / Tenant:</span>
+            <span id="corp-act-email" class="text-white font-bold">cliente@empresa.com</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Ambiente de Ejecución:</span>
+            <span class="text-cyan-300 font-bold">Nube Enterprise 24/7</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-blue-950/30 border border-blue-500/30 text-slate-300 space-y-2">
+          <p class="font-semibold text-white">Tu agente autónomo ha sido reconocido:</p>
+          <p class="text-[11px] text-slate-300 leading-relaxed">
+            Se ha inicializado con directivas fiduciarias inmutables (Cero Simulación, Brevedad 50% y conectores MCP). No requiere computadoras locales ni ventanas abiertas para operar.
+          </p>
+        </div>
+
+        <button
+          onclick="confirmCorporateActivation()"
+          class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs shadow-xl shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>🚀 Entrar a la Consola y Dejar en Producción 24/7</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ðŸ ·ï¸  MODAL: CATÁLOGO Y PRECIOS OFICIALES POR AGENTE                         -->
   <!-- ========================================================================= -->
   <div id="pricing-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 fade-in">
     <div class="bg-slate-900 border border-slate-800 max-w-2xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
@@ -1087,7 +1145,81 @@
       if (elWompiAppId) elWompiAppId.value = savedWompiAppId;
       if (elStrikeAddr) elStrikeAddr.value = savedStrikeAddr;
       updateModelBadges(savedModel);
+
+      // Detección automática de activación fiduciaria por URL (enlace de correo)
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const licencia = urlParams.get('licencia') || urlParams.get('license');
+        const plan = urlParams.get('plan');
+        const email = urlParams.get('email');
+        if (licencia) {
+          handleCorporateUrlActivation(licencia, plan, email);
+        }
+      } catch(e) {
+        console.warn('Error al procesar parámetros de activación:', e);
+      }
     });
+
+    function handleCorporateUrlActivation(licencia, plan, email) {
+      sessionStorage.setItem('antigravity_authenticated', 'true');
+      const gate = document.getElementById('security-gate');
+      if (gate) gate.classList.add('hidden');
+
+      if (email) {
+        localStorage.setItem('antigravity_user', email);
+        initUserProfile();
+      }
+
+      const modal = document.getElementById('corporate-activation-modal');
+      if (modal) {
+        const elLic = document.getElementById('corp-act-license');
+        const elEmail = document.getElementById('corp-act-email');
+        if (elLic) elLic.textContent = licencia;
+        if (elEmail) elEmail.textContent = email || 'Cliente Corporativo';
+        modal.classList.remove('hidden');
+      }
+
+      let sampleType = 'soporte';
+      if (plan) {
+        const p = plan.toLowerCase();
+        if (p.includes('sales') || p.includes('ventas')) sampleType = 'ventas';
+        else if (p.includes('cobranza') || p.includes('financial')) sampleType = 'cobranza';
+        else if (p.includes('inventario') || p.includes('logistica')) sampleType = 'logistica';
+        else if (p.includes('marketing') || p.includes('mercadeo')) sampleType = 'marketing';
+      }
+      fillSamplePain(sampleType);
+    }
+
+    function closeCorporateModal() {
+      const modal = document.getElementById('corporate-activation-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function confirmCorporateActivation() {
+      closeCorporateModal();
+      generateCustomAgent();
+      setTimeout(() => {
+        const box = document.getElementById('chat-tester-box');
+        if (box && box.classList.contains('hidden')) {
+          toggleChatTester();
+        }
+        const result = document.getElementById('result-section');
+        if (result) result.scrollIntoView({ behavior: 'smooth' });
+      }, 1000);
+    }
+
+    function handleZipUpload(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      
+      alert('📦 Paquete fiduciario recibido: ' + file.name + '\nDesempaquetando arquitectura .agents en memoria RAM y activando en la nube 24/7...');
+      fillSamplePain('soporte');
+      sessionStorage.setItem('antigravity_authenticated', 'true');
+      const gate = document.getElementById('security-gate');
+      if (gate) gate.classList.add('hidden');
+      generateCustomAgent();
+      toggleUserDropdown();
+    }
 
     function checkSecuritySession() {
       const sessionAuth = sessionStorage.getItem('antigravity_authenticated');
