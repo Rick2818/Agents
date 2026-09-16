@@ -1,5 +1,181 @@
 [
   {
+    "auditId": "audit_1789526260116_992",
+    "timestamp": "2026-09-16T02:37:40.116Z",
+    "company": "MRW Corporativo",
+    "domain": "mrw.es",
+    "scannedHost": "mrw.es",
+    "country": "España",
+    "industry": "Envíos Corporativos",
+    "contactEmail": "informacion@mrw.es",
+    "serverDetected": "volt-adc",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": false,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=mrw.es",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "informacion@mrw.es",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en mrw.es",
+      "body": "Estimado equipo técnico en MRW Corporativo,\n\nDurante nuestra inspección perimetral automatizada sobre mrw.es, detectamos 1 anomalías de seguridad perimetral:\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=mrw.es\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789526257673_84",
+    "timestamp": "2026-09-16T02:37:37.673Z",
+    "company": "Logisfashion España",
+    "domain": "logisfashion.com",
+    "scannedHost": "logisfashion.com",
+    "country": "España / Global",
+    "industry": "Fashion & Retail Logistics",
+    "contactEmail": "info@logisfashion.com",
+    "serverDetected": "nginx/1.31.5",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=logisfashion.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "info@logisfashion.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en logisfashion.com",
+      "body": "Estimado equipo técnico en Logisfashion España,\n\nDurante nuestra inspección perimetral automatizada sobre logisfashion.com, detectamos 3 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=logisfashion.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789526256563_102",
+    "timestamp": "2026-09-16T02:37:36.563Z",
+    "company": "Packlink PRO España",
+    "domain": "packlink.es",
+    "scannedHost": "packlink.es",
+    "country": "España",
+    "industry": "E-commerce Shipping",
+    "contactEmail": "pro@packlink.es",
+    "serverDetected": "nginx",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=packlink.es",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "pro@packlink.es",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en packlink.es",
+      "body": "Estimado equipo técnico en Packlink PRO España,\n\nDurante nuestra inspección perimetral automatizada sobre packlink.es, detectamos 3 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=packlink.es\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789526255347_218",
+    "timestamp": "2026-09-16T02:37:35.347Z",
+    "company": "Ontime Transporte & Logística",
+    "domain": "ontime.es",
+    "scannedHost": "ontime.es",
+    "country": "España",
+    "industry": "Logística Integral",
+    "contactEmail": "info@ontime.es",
+    "serverDetected": "HTTPd",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": false
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=ontime.es",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "info@ontime.es",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en ontime.es",
+      "body": "Estimado equipo técnico en Ontime Transporte & Logística,\n\nDurante nuestra inspección perimetral automatizada sobre ontime.es, detectamos 2 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=ontime.es\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789526253387_407",
+    "timestamp": "2026-09-16T02:37:33.387Z",
+    "company": "SEUR Frío y Urgente B2B",
+    "domain": "seur.com",
+    "scannedHost": "seur.com",
+    "country": "España",
+    "industry": "Transporte Express",
+    "contactEmail": "empresas@seur.net",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": false
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://rick2818.github.io/Agents/?plan=flash&domain=seur.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "empresas@seur.net",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en seur.com",
+      "body": "Estimado equipo técnico en SEUR Frío y Urgente B2B,\n\nDurante nuestra inspección perimetral automatizada sobre seur.com, detectamos 2 anomalías de seguridad perimetral:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=seur.com\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
     "auditId": "audit_1789492876363_292",
     "timestamp": "2026-09-15T17:21:16.363Z",
     "company": "Servientrega Soluciones Digitales",
