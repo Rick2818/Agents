@@ -220,7 +220,7 @@ export default async function handler(req, res) {
       }
 
       const checksumHeader = req.headers['x-event-checksum'];
-      const rawBody = typeof req.body === 'string' ? req.body : JSON.stringify(req.body);
+      const rawBody = req.rawBody || (typeof req.body === 'string' ? req.body : JSON.stringify(req.body));
 
       if (!wompi.verifyWebhookSignature(rawBody, checksumHeader)) {
         return res.status(401).json({ error: 'Invalid Wompi Signature' });

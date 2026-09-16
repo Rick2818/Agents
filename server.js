@@ -46,9 +46,20 @@ import masterDispatcherHandler from './api/cron/master-dispatcher.js';
 const app = express();
 const PORT = process.env.PORT || 8765;
 
-// PILAR 5: Límite estricto de buffers en RAM (Anti-DoS)
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// PILAR 5: Límite estricto de buffers en RAM (Anti-DoS) & Preservación de Raw Body para HMAC
+app.use(express.json({
+  limit: '10mb',
+  verify: (req, res, buf) => {
+    req.rawBody = buf.toString('utf8');
+  }
+}));
+app.use(express.urlencoded({
+  extended: true,
+  limit: '10mb',
+  verify: (req, res, buf) => {
+    req.rawBody = buf.toString('utf8');
+  }
+}));
 
 // PILAR 6 & 7: Cabeceras Bancarias y CORS Aislado
 app.use((req, res, next) => {
@@ -118,8 +129,33 @@ app.all(/^\/api(\/.*)?$/, safeHandler(async (req, res) => {
   await mainApiHandler(req, res);
 }));
 
-// 4. ARCHIVOS ESTÁTICOS FRONTEND
-app.use(express.static(__dirname));
+// 4. ARCHIVOS ESTÁTICOS FRONTEND (PROTECCIÓN ESTRICTA CONTRA FUGA DE SECRETOS CWE-200 / CWE-552)
+// Bloqueo total de dotfiles, archivos de configuración, secretos y código fuente de backend
+const BLOCKED_STATIC_EXTENSIONS = new Set([
+  '.env', '.json', '.js', '.mjs', '.yml', '.yaml', '.zip', '.patch', '.sh', '.key', '.pem', '.log'
+]);
+
+app.use((req, res, next) => {
+  const cleanPath = (req.path || '').toLowerCase();
+  
+  // 1. Bloquear cualquier intento de acceso a dotfiles (.env, .git, etc.)
+  if (cleanPath.includes('/.') || cleanPath.startsWith('.')) {
+    return res.status(403).json({ error: 'Access Denied: Forbidden resource' });
+  }
+
+  // 2. Bloquear extensiones sensibles de backend
+  const ext = path.extname(cleanPath);
+  if (BLOCKED_STATIC_EXTENSIONS.has(ext)) {
+    return res.status(403).json({ error: 'Access Denied: Protected server resource' });
+  }
+
+  next();
+});
+
+app.use(express.static(__dirname, {
+  dotfiles: 'deny',
+  index: false
+}));
 
 // Rutas de conveniencia
 app.get('/', (req, res) => {

@@ -12,6 +12,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { ExecutiveAssistantMCPHub } from '../lib/mcp_executive_assistant.js';
+import { dispatchUniversalEmail } from '../lib/universal_email_engine.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -103,32 +104,20 @@ const mcpHub = new ExecutiveAssistantMCPHub({
 
 const TELEGRAM_API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
-// --- 2. MOTOR DE CORREO EJECUTIVO & RESEND DISPATCH ---
+// --- 2. MOTOR DE CORREO EJECUTIVO (MOTOR UNIVERSAL SMTPS + RESEND FAILOVER) ---
 async function sendExecutiveEmail({ to, subject, body, html = null }) {
-  if (!RESEND_API_KEY) {
-    return { ok: false, error: 'RESEND_API_KEY no configurado en .env' };
-  }
   try {
-    const res = await fetchWithTimeout('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${RESEND_API_KEY.trim()}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: SMTP_FROM,
-        to: [to.trim()],
-        subject: subject.trim(),
-        text: body.trim(),
-        html: html || `<div style="font-family: sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;">${body.replace(/\n/g, '<br>')}</div>`
-      })
-    }, 20000);
+    const result = await dispatchUniversalEmail({
+      to: to.trim(),
+      subject: subject.trim(),
+      text: body.trim(),
+      html: html || `<div style="font-family: sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;">${body.replace(/\n/g, '<br>')}</div>`
+    });
 
-    const json = await res.json();
-    if (res.ok && json.id) {
-      return { ok: true, id: json.id };
+    if (result.success) {
+      return { ok: true, id: result.messageId, transport: result.transport };
     }
-    return { ok: false, error: json.message || JSON.stringify(json) };
+    return { ok: false, error: result.error || result.reason || 'Error en despacho universal' };
   } catch (err) {
     return { ok: false, error: err.message };
   }
