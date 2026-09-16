@@ -12,7 +12,6 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { ExecutiveAssistantMCPHub } from '../lib/mcp_executive_assistant.js';
-import { dispatchUniversalEmail } from '../lib/universal_email_engine.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -104,20 +103,32 @@ const mcpHub = new ExecutiveAssistantMCPHub({
 
 const TELEGRAM_API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
-// --- 2. MOTOR DE CORREO EJECUTIVO & MULTI-TRANSPORTE DISPATCH ---
+// --- 2. MOTOR DE CORREO EJECUTIVO & RESEND DISPATCH ---
 async function sendExecutiveEmail({ to, subject, body, html = null }) {
+  if (!RESEND_API_KEY) {
+    return { ok: false, error: 'RESEND_API_KEY no configurado en .env' };
+  }
   try {
-    const result = await dispatchUniversalEmail({
-      to: to.trim(),
-      subject: subject.trim(),
-      text: body.trim(),
-      html: html || `<div style="font-family: sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;">${body.replace(/\n/g, '<br>')}</div>`
-    });
+    const res = await fetchWithTimeout('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${RESEND_API_KEY.trim()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: SMTP_FROM,
+        to: [to.trim()],
+        subject: subject.trim(),
+        text: body.trim(),
+        html: html || `<div style="font-family: sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6;">${body.replace(/\n/g, '<br>')}</div>`
+      })
+    }, 20000);
 
-    if (result.success) {
-      return { ok: true, id: result.messageId, transport: result.transport };
+    const json = await res.json();
+    if (res.ok && json.id) {
+      return { ok: true, id: json.id };
     }
-    return { ok: false, error: result.error || result.reason, hint: result.hint };
+    return { ok: false, error: json.message || JSON.stringify(json) };
   } catch (err) {
     return { ok: false, error: err.message };
   }
@@ -145,6 +156,20 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 30000, retries = 
       clearTimeout(timer);
     }
   }
+}
+
+/**
+ * Extrae el texto de una respuesta de Gemini 3.x de forma robusta.
+ * Los modelos "thinking" de la familia Gemini 3 pueden devolver varios
+ * `parts`, algunos con solo `thoughtSignature` y sin `.text` — tomar
+ * ciegamente `parts[0].text` pierde la respuesta si ese primer part
+ * no la trae. Unimos el texto de todos los parts que sí lo tienen.
+ */
+function extractGeminiText(data) {
+  const parts = data?.candidates?.[0]?.content?.parts;
+  if (!Array.isArray(parts)) return null;
+  const joined = parts.filter(p => typeof p?.text === 'string').map(p => p.text).join('').trim();
+  return joined || null;
 }
 
 function escapeHtml(text) {
@@ -380,13 +405,16 @@ class TelegramExecutiveBot {
       header.writeUInt32LE(dataSize, 40);
       const wav = Buffer.concat([header, pcmData]);
 
+      // Telegram exige OGG/Opus, MP3 o M4A para sendVoice — un WAV disfrazado
+      // de .ogg no cumple el formato real. sendDocument entrega el audio sin
+      // exigir transcodificación y Telegram lo muestra con reproductor inline.
       const blob = new Blob([wav], { type: 'audio/wav' });
       const form = new FormData();
       form.append('chat_id', chatId);
-      form.append('voice', blob, 'voice.ogg');
+      form.append('document', blob, 'nota_de_voz.wav');
       if (caption) form.append('caption', caption.substring(0, 1024));
 
-      const sendRes = await fetchWithTimeout(`${TELEGRAM_API_BASE}/sendVoice`, {
+      const sendRes = await fetchWithTimeout(`${TELEGRAM_API_BASE}/sendDocument`, {
         method: 'POST',
         body: form
       }, 30000);
@@ -425,12 +453,13 @@ class TelegramExecutiveBot {
               { text: 'Faithfully transcribe what the user says in this audio clip. The user may speak in English, Spanish, or a mix. Return ONLY the exact transcribed text with proper capitalization and punctuation, with zero added commentary or quotes.' },
               { inline_data: { mime_type: 'audio/ogg', data: audioBase64 } }
             ]
-          }]
+          }],
+          generationConfig: { thinkingConfig: { thinkingLevel: 'low' } }
         })
       }, 25000);
 
       const data = await res.json();
-      return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
+      return extractGeminiText(data);
     } catch (e) {
       console.error('[AUDIO TRANSCRIBE ERROR]:', e.message);
       return null;
@@ -864,7 +893,7 @@ Language & Demeanor Mandate:
         }, 25000);
 
         const gData = await geminiRes.json();
-        const reply = gData.candidates?.[0]?.content?.parts?.[0]?.text;
+        const reply = extractGeminiText(gData);
         if (reply) {
           this.conversationalMemory.push({ role: 'user', content: text });
           this.conversationalMemory.push({ role: 'assistant', content: reply });
