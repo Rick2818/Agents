@@ -13,7 +13,7 @@ jobs:
       - name: Trigger Master Cloud Dispatcher Endpoint
         env:
           VERCEL_APP_URL: ${{ secrets.VERCEL_APP_URL || 'https://destraba-ai.vercel.app' }}
-          CRON_SECRET: ${{ secrets.CRON_SECRET || secrets.PLATFORM_MASTER_KEY }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET || secrets.PLATFORM_MASTER_KEY || 'destraba_cron_sec_2026_prod' }}
         run: |
           echo "Disparando Master Cloud Dispatcher en $VERCEL_APP_URL/api/cron/master-dispatcher..."
           curl -s -f -X POST \
