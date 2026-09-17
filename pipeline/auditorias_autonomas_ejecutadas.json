@@ -1,5 +1,248 @@
 [
   {
+    "auditId": "audit_1789612923136_498",
+    "timestamp": "2026-09-17T02:42:03.136Z",
+    "company": "Clip México",
+    "domain": "clip.mx",
+    "scannedHost": "clip.mx",
+    "country": "México",
+    "industry": "Pagos Digitales",
+    "contactEmail": "contacto@clip.mx",
+    "serverDetected": "cloudflare",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": false,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://destraba-ai.vercel.app/?plan=flash&domain=clip.mx",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@clip.mx",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en clip.mx",
+      "body": "Estimado equipo directivo y técnico en Clip México,\n\nDurante nuestra inspección perimetral automatizada sobre clip.mx, detectamos 1 anomalías de seguridad y eficiencia operativa:\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=clip.mx\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789612921889_737",
+    "timestamp": "2026-09-17T02:42:01.889Z",
+    "company": "Super Selectos El Salvador",
+    "domain": "superselectos.com",
+    "scannedHost": "superselectos.com",
+    "country": "El Salvador",
+    "industry": "Retail y Almacén",
+    "contactEmail": "contacto@superselectos.com",
+    "serverDetected": "Microsoft-IIS/10.0",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://destraba-ai.vercel.app/?plan=flash&domain=superselectos.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@superselectos.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en superselectos.com",
+      "body": "Estimado equipo directivo y técnico en Super Selectos El Salvador,\n\nDurante nuestra inspección perimetral automatizada sobre superselectos.com, detectamos 3 anomalías de seguridad y eficiencia operativa:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=superselectos.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789612907587_841",
+    "timestamp": "2026-09-17T02:41:47.587Z",
+    "company": "Chilexpress Empresas",
+    "domain": "chilexpress.cl",
+    "scannedHost": "chilexpress.cl",
+    "country": "Chile",
+    "industry": "Envíos Corporativos",
+    "contactEmail": "empresas@chilexpress.cl",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://destraba-ai.vercel.app/?plan=flash&domain=chilexpress.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "empresas@chilexpress.cl",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en chilexpress.cl",
+      "body": "Estimado equipo directivo y técnico en Chilexpress Empresas,\n\nDurante nuestra inspección perimetral automatizada sobre chilexpress.cl, detectamos 1 anomalías de seguridad y eficiencia operativa:\n• Falta Content-Security-Policy (Riesgo XSS)\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=chilexpress.cl\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789612905521_275",
+    "timestamp": "2026-09-17T02:41:45.521Z",
+    "company": "Blue Express",
+    "domain": "blue.cl",
+    "scannedHost": "blue.cl",
+    "country": "Chile",
+    "industry": "Last Mile Fulfillment",
+    "contactEmail": "soporte@blue.cl",
+    "serverDetected": "cloudflare",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://destraba-ai.vercel.app/?plan=flash&domain=blue.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@blue.cl",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en blue.cl",
+      "body": "Estimado equipo directivo y técnico en Blue Express,\n\nDurante nuestra inspección perimetral automatizada sobre blue.cl, detectamos 0 anomalías de seguridad y eficiencia operativa:\n\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=blue.cl\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789612904415_165",
+    "timestamp": "2026-09-17T02:41:44.415Z",
+    "company": "Starken Logística",
+    "domain": "starken.cl",
+    "scannedHost": "starken.cl",
+    "country": "Chile",
+    "industry": "Transporte Corporativo",
+    "contactEmail": "empresas@starken.cl",
+    "serverDetected": "nginx/1.14.1",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://destraba-ai.vercel.app/?plan=flash&domain=starken.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "empresas@starken.cl",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en starken.cl",
+      "body": "Estimado equipo directivo y técnico en Starken Logística,\n\nDurante nuestra inspección perimetral automatizada sobre starken.cl, detectamos 3 anomalías de seguridad y eficiencia operativa:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=starken.cl\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789612902366_602",
+    "timestamp": "2026-09-17T02:41:42.366Z",
+    "company": "99Minutos Last Mile",
+    "domain": "99minutos.com",
+    "scannedHost": "99minutos.com",
+    "country": "México / LatAm",
+    "industry": "Last Mile Fulfillment",
+    "contactEmail": "hola@99minutos.com",
+    "serverDetected": "Vercel",
+    "httpStatusCode": 308,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": false
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://destraba-ai.vercel.app/?plan=flash&domain=99minutos.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "hola@99minutos.com",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en 99minutos.com",
+      "body": "Estimado equipo directivo y técnico en 99Minutos Last Mile,\n\nDurante nuestra inspección perimetral automatizada sobre 99minutos.com, detectamos 2 anomalías de seguridad y eficiencia operativa:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=99minutos.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1789612901314_25",
+    "timestamp": "2026-09-17T02:41:41.314Z",
+    "company": "Kavak Logistics & Operaciones",
+    "domain": "kavak.com",
+    "scannedHost": "kavak.com",
+    "country": "México",
+    "industry": "Fintech & Retail Automotriz",
+    "contactEmail": "soporte@kavak.com",
+    "serverDetected": "CloudFront",
+    "httpStatusCode": 403,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://destraba-ai.vercel.app/?plan=flash&domain=kavak.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@kavak.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en kavak.com",
+      "body": "Estimado equipo directivo y técnico en Kavak Logistics & Operaciones,\n\nDurante nuestra inspección perimetral automatizada sobre kavak.com, detectamos 3 anomalías de seguridad y eficiencia operativa:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=kavak.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
     "auditId": "audit_1789573892079_963",
     "timestamp": "2026-09-16T15:51:32.079Z",
     "company": "MRW Corporativo",
