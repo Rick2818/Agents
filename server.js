@@ -161,6 +161,12 @@ app.use(express.static(__dirname, {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
+app.get('/executive-dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'executive_dashboard.html'));
+});
+app.get('/dashboard-ejecutivo', (req, res) => {
+  res.sendFile(path.join(__dirname, 'executive_dashboard.html'));
+});
 app.get('/readme', (req, res) => {
   res.sendFile(path.join(__dirname, 'LEER_README.html'));
 });
