@@ -129,15 +129,15 @@ export class AutonomousHunter {
           flaws,
           severity,
           monetization: {
-            offer: "$19 USD (Auditoría Forense Flash + Parche de Blindaje)",
+            offer: "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
             checkoutStrike: "https://strike.me/rick2818",
-            checkoutDirectApp: `https://rick2818.github.io/Agents/?plan=flash&domain=${domain}`,
+            checkoutDirectApp: `https://destraba-ai.vercel.app/?plan=flash&domain=${domain}`,
             destinationAddress: "rick2818@strike.me"
           },
           generatedDispatchMessage: {
             to: contactEmail,
             subject: `Informe de Seguridad Perimetral: ${flaws.length} vulnerabilidades detectadas en ${domain}`,
-            body: `Estimado equipo técnico en ${company},\n\nDurante nuestra inspección perimetral automatizada sobre ${domain}, detectamos ${flaws.length} anomalías de seguridad perimetral:\n${flaws.map(f => `• ${f}`).join('\n')}\n\nEn Destraba AI generamos la auditoría forense completa y el parche de configuración listo para producción por $19 USD:\nhttps://rick2818.github.io/Agents/?plan=flash&domain=${domain}\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nAgente Autónomo de Ciberseguridad Defensiva — Destraba AI`
+            body: `Estimado equipo directivo y técnico en ${company},\n\nDurante nuestra inspección perimetral automatizada sobre ${domain}, detectamos ${flaws.length} anomalías de seguridad y eficiencia operativa:\n${flaws.map(f => `• ${f}`).join('\n')}\n\nEn Destraba AI aplicamos el modelo de resolución ganar-ganar: generamos la auditoría forense completa y el parche de remediación listo para producción por solo $19 USD (o despliegue de agente autónomo 24/7 en la nube por $69 USD/mes con garantía de amortización en 7 días):\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=${domain}\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI`
           },
           status: "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
         };

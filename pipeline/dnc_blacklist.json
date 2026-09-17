@@ -38,5 +38,13 @@
     "reason": "TEST_OPTOUT",
     "addedAt": "2026-09-17T00:00:31.563Z",
     "sha256Hash": "c1fbd27ee476649d1a6188ef2573c638d3872a689937a4e5833b7d85cfe3b6b7"
+  },
+  {
+    "id": "dnc_1789603616671_137",
+    "email": "optout_1789603616671_6466@unique-test-1789603616671.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-17T00:06:56.671Z",
+    "sha256Hash": "94a615d546d8bd4fa4a7701e411ae402ad251abdb3475a6e1f1c1c3dade48d16"
   }
 ]
