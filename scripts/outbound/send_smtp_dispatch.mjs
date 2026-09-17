@@ -47,12 +47,17 @@ export async function executeOutboundDispatch(options = {}) {
   }
 
   const pipeline = JSON.parse(fs.readFileSync(PIPELINE_FILE, 'utf8'));
-  const pendingLeads = pipeline.filter(l => l.status === 'CONTACTADO_IMPACTO_1' || l.status === 'PREPARADO_PARA_DISPARO_MARTES' || l.status.includes('LISTO'));
+  const pendingLeads = pipeline.filter(l => 
+    l.status === 'PYME_CALIFICADA_LISTA' || 
+    l.status === 'PREPARADO_PARA_DISPARO_MARTES' || 
+    l.status.includes('LISTO') ||
+    (l.status === 'CONTACTADO_IMPACTO_1' && l.deliveryAudit?.status === 'REINTENTO_PROGRAMADO')
+  );
 
   console.log('Total leads elegibles para transmisión: ' + pendingLeads.length);
 
   let sentCount = 0;
-  const BATCH_LIMIT = 5;
+  const BATCH_LIMIT = options.batchLimit || (parseInt(process.env.BATCH_LIMIT, 10) || 25);
   const targets = pendingLeads.slice(0, BATCH_LIMIT);
   const sandboxBlockedLeads = [];
 

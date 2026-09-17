@@ -14,35 +14,42 @@ import fs from 'fs';
 import path from 'path';
 import { isBlacklisted } from '../../lib/compliance_dnc.js';
 
-// Catálogo dinámico expandido de sectores de alta monetización B2B (Latinoamérica & España)
+// Catálogo dinámico de PYMEs y Marcas D2C de Alta Conversión (Decisión Ágil < 24h)
 const DYNAMIC_TARGET_POOL = [
-  // Sector 1: Finanzas, Facturación & Pagos
+  // Sector 1: Marcas D2C E-commerce (Shopify / WooCommerce)
+  { company: "Amor Perfecto Café de Especialidad", domain: "amorperfectocafes.com", contactEmail: "contacto@amorperfectocafes.com", country: "Colombia", industry: "Café D2C & Retail" },
+  { company: "Café San Alberto", domain: "cafesanalberto.com", contactEmail: "info@cafesanalberto.com", country: "Colombia", industry: "E-commerce Premium" },
+  { company: "Luuna Descanso D2C", domain: "luuna.mx", contactEmail: "hola@luuna.mx", country: "México", industry: "D2C Retail & Sueño" },
+  { company: "Ben & Frank Óptica Digital", domain: "benandfrank.com", contactEmail: "contacto@benandfrank.com", country: "México / Chile", industry: "D2C Óptica & E-commerce" },
+  { company: "Mattelsa E-commerce", domain: "mattelsa.net", contactEmail: "contacto@mattelsa.net", country: "Colombia", industry: "Moda & E-commerce" },
+  { company: "Offcorss Moda Infantil", domain: "offcorss.com", contactEmail: "servicioalcliente@offcorss.com", country: "Colombia", industry: "Retail Infantil D2C" },
+  { company: "Laika Mascotas", domain: "laika.com.co", contactEmail: "contacto@laika.com.co", country: "Colombia / México", industry: "Pet-Commerce D2C" },
+  { company: "Vopero Moda Circular", domain: "vopero.mx", contactEmail: "contacto@vopero.mx", country: "México", industry: "Circular Fashion & D2C" },
+  
+  // Sector 2: Agencias Digitales & Boutiques de Software B2B
+  { company: "Branch Agencia Digital", domain: "branch.com.co", contactEmail: "contacto@branch.com.co", country: "Colombia / Regional", industry: "Agencia Marketing Digital" },
+  { company: "Truora Validación & Identidad", domain: "truora.com", contactEmail: "contacto@truora.com", country: "Colombia / Latam", industry: "Software KYC & Auth" },
+  { company: "Treinta App Financiera", domain: "treinta.co", contactEmail: "hola@treinta.co", country: "Colombia / México", industry: "App Contable para PYMEs" },
+  
+  // Sector 3: Logística Urbana, Courriers 3PL & Fulfillment Mediano
+  { company: "Moova Logística Urbana", domain: "moova.io", contactEmail: "contacto@moova.io", country: "México / Latam", industry: "Last Mile Tech" },
+  { company: "Cubbo E-commerce Fulfillment", domain: "cubbo.com", contactEmail: "hola@cubbo.com", country: "México / Colombia", industry: "3PL Fulfillment D2C" },
+  { company: "Chazki Entregas Last Mile", domain: "chazki.com", contactEmail: "hola@chazki.com", country: "Colombia / México / Perú", industry: "Last Mile Fulfillment" },
+  { company: "Clicoh Fulfillment", domain: "clicoh.com", contactEmail: "info@clicoh.com", country: "Latam Regional", industry: "Fulfillment E-commerce" },
+  { company: "Mensajeros Urbanos B2B", domain: "mensajerosurbanos.com", contactEmail: "contacto@mensajerosurbanos.com", country: "Colombia / México", industry: "Courrier Urbano Corporativo" },
+  { company: "Skydropx Plataforma Envíos", domain: "skydropx.com", contactEmail: "hola@skydropx.com", country: "México / Colombia", industry: "Agregador Logístico" },
+  { company: "Envia.com Logistics", domain: "envia.com", contactEmail: "soporte@envia.com", country: "México / Latam", industry: "Plataforma Envíos E-commerce" },
+  { company: "Liftit Carga Digital", domain: "liftit.co", contactEmail: "contacto@liftit.co", country: "Colombia / México", industry: "Transporte y Flota" },
+  { company: "Frubana Abastecimiento B2B", domain: "frubana.com", contactEmail: "contacto@frubana.com", country: "Colombia / México", industry: "Logística Restaurantes" },
+  { company: "Surtiapp Proveeduría", domain: "surtiapp.com.co", contactEmail: "contacto@surtiapp.com.co", country: "Colombia", industry: "Abastecimiento B2B" },
+
+  // Sector 4: Fintechs Ágiles & Pagos
   { company: "Bold Pagos Colombia", domain: "bold.co", contactEmail: "soporte@bold.co", country: "Colombia", industry: "Fintech & Adquirencia" },
   { company: "Cobre Latam", domain: "cobre.co", contactEmail: "contacto@cobre.co", country: "Colombia / México", industry: "B2B Payment Rails" },
   { company: "Simetrik Finanzas", domain: "simetrik.com", contactEmail: "info@simetrik.com", country: "Latam / Global", industry: "Conciliación Financiera" },
-  { company: "Addi Crédito y Pagos", domain: "co.addi.com", contactEmail: "soporte@addi.com", country: "Colombia", industry: "Fintech BNPL" },
-  { company: "Clip México", domain: "clip.mx", contactEmail: "contacto@clip.mx", country: "México", industry: "Pagos Digitales" },
+  { company: "Addi Checkout & Crédito", domain: "co.addi.com", contactEmail: "soporte@addi.com", country: "Colombia", industry: "Fintech BNPL" },
   { company: "Kushki Pagos", domain: "kushkipagos.com", contactEmail: "info@kushkipagos.com", country: "Ecuador / Latam", industry: "Pasarela de Pagos" },
-  
-  // Sector 2: Logística 3PL, Flota & Almacenes Fiscales
-  { company: "Solistica FEMSA Logistics", domain: "solistica.com", contactEmail: "contacto@solistica.com", country: "México / Latam", industry: "Logística Integral 3PL" },
-  { company: "Ransa Logística Integral", domain: "ransa.biz", contactEmail: "contacto@ransa.net", country: "Perú / Centroamérica", industry: "Operador Logístico 3PL" },
-  { company: "Chazki Entregas Last Mile", domain: "chazki.com", contactEmail: "hola@chazki.com", country: "Perú / Colombia / México", industry: "Last Mile Fulfillment" },
-  { company: "Moffin Automatización", domain: "moffin.mx", contactEmail: "contacto@moffin.mx", country: "México", industry: "Infraestructura B2B" },
-  { company: "Liftit Carga y Fletes", domain: "liftit.co", contactEmail: "contacto@liftit.co", country: "Colombia / México", industry: "Logística y Transporte" },
-  { company: "Clicoh Fulfillment", domain: "clicoh.com", contactEmail: "info@clicoh.com", country: "Latam Regional", industry: "Fulfillment E-commerce" },
-  
-  // Sector 3: Salud, Farma & Distribución Hospitalaria
-  { company: "Droguerías Cafam Logística", domain: "cafam.com.co", contactEmail: "servicioalcliente@cafam.com.co", country: "Colombia", industry: "Distribución Farmacéutica" },
-  { company: "Audifarma Logística Médica", domain: "audifarma.com.co", contactEmail: "contacto@audifarma.com.co", country: "Colombia", industry: "Cadena de Suministro Farma" },
-  { company: "Nadro Distribución Farma", domain: "nadro.co", contactEmail: "contacto@nadro.mx", country: "México", industry: "Farma y Logística" },
-  
-  // Sector 4: Retail, Consumo Masivo & Proveeduría
-  { company: "Alkosto Distribución Mayorista", domain: "alkosto.com", contactEmail: "sugerencias@alkosto.com.co", country: "Colombia", industry: "Retail & Cadena de Suministro" },
-  { company: "El Rosado Corporativo", domain: "elrosado.com", contactEmail: "servicioalcliente@elrosado.com", country: "Ecuador", industry: "Supermercados & Logística" },
-  { company: "Super Selectos El Salvador", domain: "superselectos.com", contactEmail: "contacto@superselectos.com", country: "El Salvador", industry: "Retail y Almacén" },
-  { company: "EPA Ferreterías Regional", domain: "epaenlinea.com", contactEmail: "atencion@epaenlinea.com", country: "El Salvador / Guatemala", industry: "Distribución y Materiales" },
-  { company: "Simán Corporativo", domain: "siman.com", contactEmail: "contacto@siman.com", country: "Centroamérica", industry: "Retail Departamental" }
+  { company: "Moffin Infraestructura", domain: "moffin.mx", contactEmail: "contacto@moffin.mx", country: "México", industry: "Infraestructura B2B" }
 ];
 
 const AUDIT_LOG_FILE = path.resolve('pipeline/auditorias_autonomas_ejecutadas.json');

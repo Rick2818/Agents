@@ -12,6 +12,7 @@ import path from 'path';
 const PIPELINE_DIR = path.resolve('pipeline');
 const ACTIVE_LEADS_FILE = path.join(PIPELINE_DIR, 'leads_contactados_activos.json');
 const MARTES_LEADS_FILE = path.join(PIPELINE_DIR, 'leads_colombia_martes.json');
+const PYMES_LEADS_FILE = path.join(PIPELINE_DIR, 'leads_pymes_alta_conversion.json');
 const OPP_FILE = path.join(PIPELINE_DIR, 'oportunidades_detectadas.json');
 
 function loadJson(filePath) {
@@ -34,11 +35,21 @@ export async function dispatchDailyPipeline() {
 
   let activeLeads = loadJson(ACTIVE_LEADS_FILE);
   const martesLeads = loadJson(MARTES_LEADS_FILE);
+  const pymesLeads = loadJson(PYMES_LEADS_FILE);
   let opps = loadJson(OPP_FILE);
 
   let newlyDispatched = 0;
   const now = new Date().toISOString();
   const followUpDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+
+  // Sincronizar catálogo PYME de alta conversión
+  for (const pyme of pymesLeads) {
+    const existingIndex = activeLeads.findIndex(a => a.id === pyme.id || a.domain === pyme.domain);
+    if (existingIndex === -1) {
+      activeLeads.push(pyme);
+      newlyDispatched++;
+    }
+  }
 
   for (const lead of martesLeads) {
     const existingIndex = activeLeads.findIndex(a => a.id === lead.id || a.domain === lead.domain);
