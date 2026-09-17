@@ -49,6 +49,7 @@ export async function executeOutboundDispatch(options = {}) {
   const pipeline = JSON.parse(fs.readFileSync(PIPELINE_FILE, 'utf8'));
   const pendingLeads = pipeline.filter(l => 
     l.status === 'PYME_CALIFICADA_LISTA' || 
+    l.status === 'TRANSMISION_SIMULADA_OK' ||
     l.status === 'PREPARADO_PARA_DISPARO_MARTES' || 
     l.status.includes('LISTO') ||
     (l.status === 'CONTACTADO_IMPACTO_1' && l.deliveryAudit?.status === 'REINTENTO_PROGRAMADO')
