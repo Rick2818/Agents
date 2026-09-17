@@ -135,7 +135,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://rick2818.github.io/Agents/?plan=pro",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "CONTACTADO_IMPACTO_1",
+    "status": "ENVIADO_REAL_EN_RED",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
       "subject": "Elimina 80 horas de consultas repetitivas en WhatsApp de tu operación",
@@ -144,11 +144,12 @@
     "dispatchedAt": "2026-09-17T15:57:35.722Z",
     "nextFollowUpDate": "2026-09-19",
     "deliveryAudit": {
-      "attemptedAt": "2026-09-17T15:57:35.885Z",
-      "mode": "LIVE_FAILED",
-      "reason": "RESEND_SANDBOX_DOMAIN_REQUIRED",
-      "error": "Resend HTTP 403: {\"statusCode\":403,\"name\":\"validation_error\",\"message\":\"You can only send testing emails to your own email address (rick28191@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.\"}",
-      "status": "REINTENTO_PROGRAMADO"
+      "dispatchedAt": "2026-09-17T16:46:08.418Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789663568417_5560f3",
+      "recipient": "contacto@coordinadora.com",
+      "status": "TRANSMITIDO_EXITOSO"
     }
   },
   {
@@ -162,7 +163,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://rick2818.github.io/Agents/?plan=pro",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "CONTACTADO_IMPACTO_1",
+    "status": "ENVIADO_REAL_EN_RED",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
       "subject": "Respuesta a cotizaciones B2B en 60 segundos sin nómina extra",
@@ -171,11 +172,12 @@
     "dispatchedAt": "2026-09-17T15:57:35.722Z",
     "nextFollowUpDate": "2026-09-19",
     "deliveryAudit": {
-      "attemptedAt": "2026-09-17T15:57:39.567Z",
-      "mode": "LIVE_FAILED",
-      "reason": "RESEND_SANDBOX_DOMAIN_REQUIRED",
-      "error": "Resend HTTP 403: {\"statusCode\":403,\"name\":\"validation_error\",\"message\":\"You can only send testing emails to your own email address (rick28191@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.\"}",
-      "status": "REINTENTO_PROGRAMADO"
+      "dispatchedAt": "2026-09-17T16:46:13.993Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789663573993_37b5ca",
+      "recipient": "contacto@tcc.com.co",
+      "status": "TRANSMITIDO_EXITOSO"
     }
   },
   {
@@ -189,7 +191,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://rick2818.github.io/Agents/?plan=pro",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "CONTACTADO_IMPACTO_1",
+    "status": "ENVIADO_REAL_EN_RED",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
       "subject": "Reduce en un 70% la carga de reclamos y soporte en tu operación",
@@ -198,11 +200,12 @@
     "dispatchedAt": "2026-09-17T15:57:35.722Z",
     "nextFollowUpDate": "2026-09-19",
     "deliveryAudit": {
-      "attemptedAt": "2026-09-17T15:57:43.171Z",
-      "mode": "LIVE_FAILED",
-      "reason": "RESEND_SANDBOX_DOMAIN_REQUIRED",
-      "error": "Resend HTTP 403: {\"statusCode\":403,\"name\":\"validation_error\",\"message\":\"You can only send testing emails to your own email address (rick28191@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.\"}",
-      "status": "REINTENTO_PROGRAMADO"
+      "dispatchedAt": "2026-09-17T16:46:18.551Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789663578551_f0b698",
+      "recipient": "contacto@enviacolvanes.com",
+      "status": "TRANSMITIDO_EXITOSO"
     }
   },
   {
@@ -216,7 +219,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://rick2818.github.io/Agents/?plan=pro",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "CONTACTADO_IMPACTO_1",
+    "status": "ENVIADO_REAL_EN_RED",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
       "subject": "Automatiza la trazabilidad y cobro de envíos express en 60 segundos",
@@ -225,11 +228,12 @@
     "dispatchedAt": "2026-09-17T15:57:35.722Z",
     "nextFollowUpDate": "2026-09-19",
     "deliveryAudit": {
-      "attemptedAt": "2026-09-17T15:57:46.146Z",
-      "mode": "LIVE_FAILED",
-      "reason": "RESEND_SANDBOX_DOMAIN_REQUIRED",
-      "error": "Resend HTTP 403: {\"statusCode\":403,\"name\":\"validation_error\",\"message\":\"You can only send testing emails to your own email address (rick28191@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.\"}",
-      "status": "REINTENTO_PROGRAMADO"
+      "dispatchedAt": "2026-09-17T16:46:23.798Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789663583798_ed520c",
+      "recipient": "contacto@deprisa.com",
+      "status": "TRANSMITIDO_EXITOSO"
     }
   },
   {
@@ -243,7 +247,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://rick2818.github.io/Agents/?plan=flash",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "CONTACTADO_IMPACTO_1",
+    "status": "ENVIADO_REAL_EN_RED",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
       "subject": "Auditoría de integración operativa y seguridad perimetral en 60 segundos",
@@ -252,11 +256,12 @@
     "dispatchedAt": "2026-09-17T15:57:35.722Z",
     "nextFollowUpDate": "2026-09-19",
     "deliveryAudit": {
-      "attemptedAt": "2026-09-17T15:57:48.752Z",
-      "mode": "LIVE_FAILED",
-      "reason": "RESEND_SANDBOX_DOMAIN_REQUIRED",
-      "error": "Resend HTTP 403: {\"statusCode\":403,\"name\":\"validation_error\",\"message\":\"You can only send testing emails to your own email address (rick28191@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.\"}",
-      "status": "REINTENTO_PROGRAMADO"
+      "dispatchedAt": "2026-09-17T16:46:29.208Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789663589208_ebd535",
+      "recipient": "contacto@servientrega.com",
+      "status": "TRANSMITIDO_EXITOSO"
     }
   }
 ]
