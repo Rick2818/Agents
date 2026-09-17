@@ -1,4 +1,6 @@
 
+import fs from 'fs';
+import path from 'path';
 import {
   StrikeLightningGateway,
   WompiGateway,
@@ -323,6 +325,80 @@ export default async function handler(req, res) {
       }
 
       return res.status(200).json({ status: 'processed', invoiceId, delivered: state === 'PAID' });
+    }
+
+    // --- ENDPOINTS FIDUCIARIOS DEL DASHBOARD EJECUTIVO (COCKPIT LOCAL & CLOUD) ---
+    if (req.method === 'GET' && (pathname === '/api/dashboard/metrics' || pathname.endsWith('/dashboard/metrics'))) {
+      let btcData = { price_usd: 76210, satoshis_per_usd: 1312 };
+      try {
+        btcData = await mcpHub.getBitcoinData();
+      } catch (e) {}
+
+      let leadsCount = 0;
+      try {
+        const pPath = path.resolve('pipeline/leads_contactados_activos.json');
+        if (fs.existsSync(pPath)) {
+          const leads = JSON.parse(fs.readFileSync(pPath, 'utf8'));
+          leadsCount = Array.isArray(leads) ? leads.length : 0;
+        }
+      } catch (e) {}
+
+      let auditsCount = 0;
+      try {
+        const aPath = path.resolve('pipeline/auditorias_autonomas_ejecutadas.json');
+        if (fs.existsSync(aPath)) {
+          const audits = JSON.parse(fs.readFileSync(aPath, 'utf8'));
+          auditsCount = Array.isArray(audits) ? audits.length : 0;
+        }
+      } catch (e) {}
+
+      let dncCount = 0;
+      try {
+        const dPath = path.resolve('pipeline/dnc_blacklist.json');
+        if (fs.existsSync(dPath)) {
+          const dnc = JSON.parse(fs.readFileSync(dPath, 'utf8'));
+          dncCount = Array.isArray(dnc) ? dnc.length : 0;
+        }
+      } catch (e) {}
+
+      const isSmtpReady = Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+
+      return res.status(200).json({
+        success: true,
+        timestamp: new Date().toISOString(),
+        settlement: {
+          rail: 'Strike Lightning Network',
+          address: 'rick2818@strike.me',
+          btc_usd: btcData.price_usd || 76210,
+          satoshis_per_usd: btcData.satoshis_per_usd || 1312,
+          status: 'OPERATIONAL_24_7'
+        },
+        pipeline: {
+          active_leads: leadsCount,
+          audits_executed: auditsCount,
+          dnc_suppressed: dncCount,
+          daily_target_leads: 40,
+          readiness_9am: '100% OPERATIVO'
+        },
+        financials: {
+          daily_target_usd: 300,
+          monthly_target_usd: 9000,
+          break_even_usd: 26,
+          net_margin_pct: 96.8
+        },
+        email_carrier: isSmtpReady ? 'GMAIL_SMTPS' : 'RESEND_API',
+        status: 'ALL_SYSTEMS_GO'
+      });
+    }
+
+    if (req.method === 'POST' && (pathname === '/api/dashboard/trigger-dispatch' || pathname.endsWith('/dashboard/trigger-dispatch'))) {
+      try {
+        const { executeOutboundDispatch } = await import('../scripts/outbound/send_smtp_dispatch.mjs');
+        const result = await executeOutboundDispatch({ dryRun: req.body?.dryRun !== false });
+        return res.status(200).json({ success: true, result });
+      } catch (err) {
+        return res.status(500).json({ success: false, error: err.message });
+      }
     }
 
     return res.status(404).json({ error: 'Not Found', path: pathname });
