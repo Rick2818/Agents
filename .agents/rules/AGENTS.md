@@ -38,4 +38,8 @@
    3. **Garantía Fiduciaria Incondicional de 7 Días:** Si en los primeros 7 días el sistema no le ahorra al menos 10 horas de trabajo manual al cliente, se reembolsa el 100% de su pago sin preguntas ni fricción.
    4. **Privacidad Bancaria SOC-2 (Retención Cero en Disco):** Procesamiento 100% en memoria volátil RAM; ninguna conversación sensible ni dato del cliente toca disco ni se usa para entrenar modelos.
    5. **Matemática de Ahorro y ROI Objetivo:** Un analista u operador cuesta $600+ USD/mes; el agente opera 24/7 por $2.30 USD al día ($69 USD/mes), pagándose solo con recuperar 1 venta o evitar 1 error operativo.
+10. **Regla de Oro de Marca Dual Geográfica (Destraba AI en LatAm/España vs. Unblock AI en EE.UU./Europa/Global):**
+   - Para toda prospección, comunicación y checkout en **Latinoamérica y España**, la marca oficial es **Destraba AI** en español.
+   - Para toda prospección, comunicación y checkout en **Estados Unidos, Reino Unido, países nórdicos, Europa no hispana y mercados globales**, la marca oficial es estrictamente **Unblock AI** en inglés.
+   - Jamás presentarse como 'Destraba AI' a prospectos anglosajones; la URL de acceso llevará el parámetro `?lang=en` para activar automáticamente la interfaz y los 5 Trust Anchors en inglés.
 

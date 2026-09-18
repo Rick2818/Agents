@@ -72,12 +72,12 @@
       </div>
       <div>
         <div class="flex items-center gap-2">
-          <h1 class="text-sm font-bold tracking-tight text-white">Destraba AI</h1>
+          <h1 id="brand-header-title" class="text-sm font-bold tracking-tight text-white">Destraba AI</h1>
           <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-medium">
             Gemini Flash 2.5
           </span>
         </div>
-        <p class="text-[11px] text-slate-400">Agentes Autónomos para Empresas</p>
+        <p id="brand-header-sub" class="text-[11px] text-slate-400">Agentes Autónomos para Empresas</p>
       </div>
     </div>
 
@@ -141,10 +141,16 @@
 
       <!-- Asistente Personal Soberano: Reservado exclusivamente para Ricardo -->
 
+      <!-- Idioma / Marca Toggle (ES / EN) -->
+      <button onclick="toggleAppLanguage()" id="btn-lang-toggle" class="px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/80 hover:border-cyan-400/50 text-xs font-mono text-cyan-300 transition-all flex items-center gap-1">
+        <span>🌐</span>
+        <span id="btn-lang-text">ES</span>
+      </button>
+
       <!-- Precios -->
       <button onclick="openAboutModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all flex items-center gap-1.5">
         <span>🏛️</span>
-        <span>Quiénes Somos</span>
+        <span id="btn-nav-about">Quiénes Somos</span>
       </button>
       <button onclick="openPricingModal()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700/70 hover:border-slate-600 text-xs font-medium text-slate-200 transition-all">
         Precios
@@ -191,16 +197,16 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 pulse-dot"></span>
-            <h3 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
+            <h3 id="free-scan-title" class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
               <span>🔍 Escáner Perimetral Gratuito para Tiendas & PYMEs</span>
             </h3>
           </div>
-          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 font-semibold font-mono self-start sm:self-auto">
+          <span id="free-scan-badge" class="text-[10px] px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 font-semibold font-mono self-start sm:self-auto">
             100% No Invasivo • Diagnóstico en 15s
           </span>
         </div>
 
-        <p class="text-xs text-slate-300 mt-2.5 mb-3 leading-relaxed">
+        <p id="free-scan-desc" class="text-xs text-slate-300 mt-2.5 mb-3 leading-relaxed">
           Ingresa el dominio web de tu empresa (ej. <span class="font-mono text-cyan-300">mitienda.com</span>). Nuestro motor audita externamente tus cabeceras bancarias (CSP/HSTS), riesgo de fuga en checkout y tiempos de respuesta de soporte <strong>sin tocar tu servidor</strong>.
         </p>
 
@@ -267,16 +273,16 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-dot"></span>
-            <h3 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
+            <h3 id="trust-anchors-title" class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-1.5">
               <span>🏛️ ¿Quiénes Somos y Por Qué Confiar en Destraba AI?</span>
             </h3>
           </div>
-          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-semibold font-mono self-start sm:self-auto">
+          <span id="trust-anchors-badge" class="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-semibold font-mono self-start sm:self-auto">
             5 Anclajes de Apertura • Cero Riesgo
           </span>
         </div>
 
-        <p class="text-xs text-slate-300 mt-2.5 mb-3 leading-relaxed">
+        <p id="trust-anchors-desc" class="text-xs text-slate-300 mt-2.5 mb-3 leading-relaxed">
           Somos una firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7. Erradicamos el trabajo manual improductivo protegiendo el 100% de la privacidad y el capital de tu empresa:
         </p>
 
@@ -2915,9 +2921,59 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
       openFiduciaryModal('pro', domain, 1);
     }
 
-    // Interceptar parámetros ?plan=... y ?domain=... al cargar la página
+    function setLanguage(lang) {
+      const isEn = (lang === 'en');
+      try { localStorage.setItem('destraba_lang', isEn ? 'en' : 'es'); } catch(e){}
+      
+      const titleElem = document.getElementById('brand-header-title');
+      const subElem = document.getElementById('brand-header-sub');
+      const btnLangText = document.getElementById('btn-lang-text');
+      const btnNavAbout = document.getElementById('btn-nav-about');
+      
+      if (titleElem) titleElem.innerText = isEn ? 'Unblock AI' : 'Destraba AI';
+      if (subElem) subElem.innerText = isEn ? 'Autonomous AI Agents for Business' : 'Agentes Autónomos para Empresas';
+      if (btnLangText) btnLangText.innerText = isEn ? 'EN (USA/EU)' : 'ES (LatAm)';
+      if (btnNavAbout) btnNavAbout.innerText = isEn ? 'About Us' : 'Quiénes Somos';
+
+      // Actualizar Escáner
+      const scanTitle = document.getElementById('free-scan-title');
+      if (scanTitle) scanTitle.innerHTML = isEn ? '<span>🔍 Free 15-Second Perimeter Scanner</span>' : '<span>🔍 Escáner Perimetral Gratuito para Tiendas & PYMEs</span>';
+      const scanBadge = document.getElementById('free-scan-badge');
+      if (scanBadge) scanBadge.innerText = isEn ? '100% Non-Invasive • 15s Audit' : '100% No Invasivo • Diagnóstico en 15s';
+      const scanDesc = document.getElementById('free-scan-desc');
+      if (scanDesc) scanDesc.innerHTML = isEn 
+        ? 'Enter your company web domain (e.g. <span class="font-mono text-cyan-300">yourstore.com</span>). Our engine externally audits your bank-grade headers (CSP/HSTS), checkout leakage, and support latency <strong>without touching your servers</strong>.'
+        : 'Ingresa el dominio web de tu empresa (ej. <span class="font-mono text-cyan-300">mitienda.com</span>). Nuestro motor audita externamente tus cabeceras bancarias (CSP/HSTS), riesgo de fuga en checkout y tiempos de respuesta de soporte <strong>sin tocar tu servidor</strong>.';
+      const scanBtn = document.getElementById('btn-run-free-scan');
+      if (scanBtn) scanBtn.innerHTML = isEn ? '<span>⚡ Audit for Free</span>' : '<span>⚡ Auditar Gratis</span>';
+
+      // Actualizar 5 Anclajes de Apertura
+      const trustTitle = document.getElementById('trust-anchors-title');
+      if (trustTitle) trustTitle.innerHTML = isEn ? '<span>🏛️ Who We Are & Why Trust Unblock AI?</span>' : '<span>🏛️ ¿Quiénes Somos y Por Qué Confiar en Destraba AI?</span>';
+      const trustBadge = document.getElementById('trust-anchors-badge');
+      if (trustBadge) trustBadge.innerText = isEn ? '5 Fiduciary Anchors • Zero Risk' : '5 Anclajes de Apertura • Cero Riesgo';
+      const trustDesc = document.getElementById('trust-anchors-desc');
+      if (trustDesc) trustDesc.innerText = isEn
+        ? 'We are an autonomous operations engineering & defensive cybersecurity firm built on Google Antigravity and 24/7 Cloud Infrastructure. We eliminate manual waste while strictly protecting your privacy and bottom line:'
+        : 'Somos una firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7. Erradicamos el trabajo manual improductivo protegiendo el 100% de la privacidad y el capital de tu empresa:';
+    }
+
+    function toggleAppLanguage() {
+      let current = 'es';
+      try { current = localStorage.getItem('destraba_lang') || 'es'; } catch(e){}
+      setLanguage(current === 'es' ? 'en' : 'es');
+    }
+
+    // Interceptar parámetros ?plan=..., ?domain=... y ?lang=... al cargar la página
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
+      let lang = params.get('lang');
+      if (!lang) {
+        try { lang = localStorage.getItem('destraba_lang'); } catch(e){}
+      }
+      if (lang) {
+        setLanguage(lang);
+      }
       const plan = params.get('plan');
       const domain = params.get('domain');
       const flaws = params.get('flaws');
