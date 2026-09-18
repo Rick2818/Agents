@@ -1,5 +1,141 @@
 [
   {
+    "id": "audit_1789754820236_703",
+    "company": "Estafeta Carga",
+    "domain": "estafeta.com",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "México",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://destraba-ai.vercel.app/?plan=flash&domain=estafeta.com",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "proyectos@estafeta.com",
+    "outboundMessage": {
+      "to": "proyectos@estafeta.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en estafeta.com",
+      "body": "Estimado equipo directivo y técnico en Estafeta Carga,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre estafeta.com, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=estafeta.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-18T18:07:06.193Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789754826192_e7c4bc",
+      "recipient": "proyectos@estafeta.com",
+      "status": "TRANSMITIDO_EXITOSO"
+    }
+  },
+  {
+    "id": "audit_1789754819035_103",
+    "company": "Redpack Logística",
+    "domain": "redpack.com.mx",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "México",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Certificado SSL Anómalo / Vencido: CERT_HAS_EXPIRED",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://destraba-ai.vercel.app/?plan=flash&domain=redpack.com.mx",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "contacto@redpack.com.mx",
+    "outboundMessage": {
+      "to": "contacto@redpack.com.mx",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en redpack.com.mx",
+      "body": "Estimado equipo directivo y técnico en Redpack Logística,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre redpack.com.mx, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Certificado SSL Anómalo / Vencido: CERT_HAS_EXPIRED\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://destraba-ai.vercel.app/?plan=flash&domain=redpack.com.mx\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Certificado SSL Anómalo / Vencido: CERT_HAS_EXPIRED"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-18T18:07:11.279Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789754831279_2a4458",
+      "recipient": "contacto@redpack.com.mx",
+      "status": "TRANSMITIDO_EXITOSO"
+    }
+  },
+  {
+    "id": "audit_1789754817757_666",
+    "company": "SGS Logistics Central America",
+    "domain": "sgs.com",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "Global / CA",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Forensic Flash Audit + Security Patch) / $69 USD/mo (Autonomous 24/7 Agent)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://destraba-ai.vercel.app/?lang=en&plan=flash&domain=sgs.com",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "enquiry@sgs.com",
+    "outboundMessage": {
+      "to": "enquiry@sgs.com",
+      "subject": "Perimeter Security Report: 3 critical flaws detected on sgs.com",
+      "body": "Dear Leadership & Engineering Team at SGS Logistics Central America,\n\nThis is the team at Unblock AI (autonomous operations engineering & defensive cybersecurity built on Google Antigravity & 24/7 Cloud Infrastructure).\n\nDuring our non-invasive external perimeter inspection of sgs.com, we identified 3 critical opportunities to harden security and eliminate checkout friction:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nWhy trust us before opening any door? (Our 5 Fiduciary Trust Anchors):\n1. Zero Invasive Access: We never ask for passwords, API keys, or internal database access. All evaluations run 100% externally.\n2. Micro-Risk Asymmetry: Run a free 15-second audit on our site or download the executive report and production-ready remediation patches for just $19 USD (Flash Plan).\n3. 7-Day Unconditional Fiduciary Guarantee: If the solution does not save your team at least 10 hours of manual operational work in the first 7 days, we refund 100% of your payment with zero friction.\n4. SOC-2 Grade Banking Privacy: Zero disk retention; 100% processed in volatile RAM and immediately purged.\n5. Objective ROI Math: A human operator costs $600+ USD/month; our autonomous agent runs 24/7 for $2.30 USD/day ($69 USD/month), paying for itself with a single recovered lead or resolved ticket.\n\nAudit your portal live or deploy patches in 60 seconds:\n🔗 https://destraba-ai.vercel.app/?lang=en&plan=flash&domain=sgs.com\n\nOr instant zero-fee settlement via Bitcoin Lightning Network to: rick2818@strike.me\n\nBest regards,\nSenior Cybersecurity & Solutions Team — Unblock AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-18T18:07:15.526Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789754835526_ce1bae",
+      "recipient": "enquiry@sgs.com",
+      "status": "TRANSMITIDO_EXITOSO"
+    }
+  },
+  {
+    "id": "audit_1789754816285_152",
+    "company": "Intertek Centroamérica",
+    "domain": "intertek.com",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "Global / Regional",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Forensic Flash Audit + Security Patch) / $69 USD/mo (Autonomous 24/7 Agent)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://destraba-ai.vercel.app/?lang=en&plan=flash&domain=intertek.com",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "info.latam@intertek.com",
+    "outboundMessage": {
+      "to": "info.latam@intertek.com",
+      "subject": "Perimeter Security Report: 3 critical flaws detected on intertek.com",
+      "body": "Dear Leadership & Engineering Team at Intertek Centroamérica,\n\nThis is the team at Unblock AI (autonomous operations engineering & defensive cybersecurity built on Google Antigravity & 24/7 Cloud Infrastructure).\n\nDuring our non-invasive external perimeter inspection of intertek.com, we identified 3 critical opportunities to harden security and eliminate checkout friction:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\nWhy trust us before opening any door? (Our 5 Fiduciary Trust Anchors):\n1. Zero Invasive Access: We never ask for passwords, API keys, or internal database access. All evaluations run 100% externally.\n2. Micro-Risk Asymmetry: Run a free 15-second audit on our site or download the executive report and production-ready remediation patches for just $19 USD (Flash Plan).\n3. 7-Day Unconditional Fiduciary Guarantee: If the solution does not save your team at least 10 hours of manual operational work in the first 7 days, we refund 100% of your payment with zero friction.\n4. SOC-2 Grade Banking Privacy: Zero disk retention; 100% processed in volatile RAM and immediately purged.\n5. Objective ROI Math: A human operator costs $600+ USD/month; our autonomous agent runs 24/7 for $2.30 USD/day ($69 USD/month), paying for itself with a single recovered lead or resolved ticket.\n\nAudit your portal live or deploy patches in 60 seconds:\n🔗 https://destraba-ai.vercel.app/?lang=en&plan=flash&domain=intertek.com\n\nOr instant zero-fee settlement via Bitcoin Lightning Network to: rick2818@strike.me\n\nBest regards,\nSenior Cybersecurity & Solutions Team — Unblock AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-18T18:07:19.918Z",
+      "mode": "LIVE",
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1789754839918_1d4bd5",
+      "recipient": "info.latam@intertek.com",
+      "status": "TRANSMITIDO_EXITOSO"
+    }
+  },
+  {
     "id": "lead_b2b_real_1",
     "company": "ALG El Salvador (3PL & Distribución E-commerce)",
     "domain": "alg3pl.com",
@@ -151,8 +287,8 @@
       "subject": "Elimina 80 horas de consultas repetitivas en WhatsApp de tu operación",
       "body": "Hola,\n\n¿Cuánto tiempo dedica el equipo de Coordinadora a responder consultas idénticas por WhatsApp, rastrear guías de clientes impacientes y actualizar novedades manuales?\n\nDestraba AI implementa un Concierge Autónomo en 60 segundos que responde en milisegundos 24/7 y erradica ese cuello de botella en piloto automático.\n\nPuedes probarlo y activar la licencia por $69 USD/mes aquí:\nhttps://rick2818.github.io/Agents/?plan=pro\n\nO liquidar en satoshis vía Lightning sin comisiones a rick2818@strike.me.\n\nAtentamente,\nEquipo de Soluciones B2B — Destraba AI"
     },
-    "dispatchedAt": "2026-09-17T22:42:43.893Z",
-    "nextFollowUpDate": "2026-09-19",
+    "dispatchedAt": "2026-09-18T18:07:04.649Z",
+    "nextFollowUpDate": "2026-09-20",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-17T16:46:08.418Z",
       "mode": "LIVE",
@@ -179,8 +315,8 @@
       "subject": "Respuesta a cotizaciones B2B en 60 segundos sin nómina extra",
       "body": "Estimado Gerente de Operaciones en TCC,\n\nEn el sector logístico B2B, responder una solicitud de flete 4 horas tarde significa perder la cuenta frente a la competencia.\n\nDestraba AI sintetiza un agente calificador que atiende a tus prospectos corporativos, calcula tarifas estimadas y agenda el cierre al instante.\n\nActiva tu prueba operativa hoy por $69 USD/mes:\nhttps://rick2818.github.io/Agents/?plan=pro\n\nLiquidación directa vía Lightning: rick2818@strike.me.\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-17T22:42:43.893Z",
-    "nextFollowUpDate": "2026-09-19",
+    "dispatchedAt": "2026-09-18T18:07:04.649Z",
+    "nextFollowUpDate": "2026-09-20",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-17T16:46:13.993Z",
       "mode": "LIVE",
@@ -207,8 +343,8 @@
       "subject": "Reduce en un 70% la carga de reclamos y soporte en tu operación",
       "body": "Hola,\n\nAtender manualmente estados de envío y reclamos de mercancía genera sobrecostos de nómina y fatiga en tus agentes humanos.\n\nNuestros agentes soberanos para Google Antigravity asumen el triaje automático y resuelven el 70% de las consultas sin intervención humana.\n\nConoce la plataforma y comienza por $69 USD/mes:\nhttps://rick2818.github.io/Agents/?plan=pro\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-17T22:42:43.893Z",
-    "nextFollowUpDate": "2026-09-19",
+    "dispatchedAt": "2026-09-18T18:07:04.649Z",
+    "nextFollowUpDate": "2026-09-20",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-17T16:46:18.551Z",
       "mode": "LIVE",
@@ -235,8 +371,8 @@
       "subject": "Automatiza la trazabilidad y cobro de envíos express en 60 segundos",
       "body": "Hola,\n\nLos clientes corporativos de paquetería express exigen confirmaciones en tiempo real y facturación inmediata.\n\nDestraba AI genera un flujo desatendido que notifica y concilia pagos en segundos con protocolos bancarios seguros.\n\nAccede a la consola ejecutiva aquí por $89 USD/mes:\nhttps://rick2818.github.io/Agents/?plan=pro\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-17T22:42:43.893Z",
-    "nextFollowUpDate": "2026-09-19",
+    "dispatchedAt": "2026-09-18T18:07:04.649Z",
+    "nextFollowUpDate": "2026-09-20",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-17T16:46:23.798Z",
       "mode": "LIVE",
@@ -263,8 +399,8 @@
       "subject": "Auditoría de integración operativa y seguridad perimetral en 60 segundos",
       "body": "Estimado VP de Tecnología en Servientrega,\n\nDesplegamos agentes soberanos con protocolo MCP que se conectan a tu infraestructura sin tocar código legacy ni exponer datos sensibles.\n\nRealiza un diagnóstico de cuellos de botella y seguridad perimetral por $19 USD aquí:\nhttps://rick2818.github.io/Agents/?plan=flash&ref=colombia_b2b\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nEquipo de Ingeniería — Destraba AI"
     },
-    "dispatchedAt": "2026-09-17T22:42:43.893Z",
-    "nextFollowUpDate": "2026-09-19",
+    "dispatchedAt": "2026-09-18T18:07:04.649Z",
+    "nextFollowUpDate": "2026-09-20",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-17T16:46:29.208Z",
       "mode": "LIVE",
