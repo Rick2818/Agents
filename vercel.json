@@ -4,6 +4,11 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/telegram.js": {
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
     { "source": "/", "destination": "/dashboard.html" },
     { "source": "/readme", "destination": "/LEER_README.html" },

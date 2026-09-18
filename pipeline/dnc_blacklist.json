@@ -54,5 +54,29 @@
     "reason": "TEST_OPTOUT",
     "addedAt": "2026-09-17T00:18:41.553Z",
     "sha256Hash": "d1c87f06c1a9feb4e0bc497046f7265168721a38e78360a2de0a717342df16fd"
+  },
+  {
+    "id": "dnc_1789774437648_627",
+    "email": "optout_1789774437648_4925@unique-test-1789774437648.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-18T23:33:57.648Z",
+    "sha256Hash": "bc8bf6a1e38e22b4a74e607d0cb2f2a297e767c945e3c46c4815b4dceabd13b7"
+  },
+  {
+    "id": "dnc_1789774810386_612",
+    "email": "optout_1789774810385_6819@unique-test-1789774810385.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-18T23:40:10.386Z",
+    "sha256Hash": "762dac4c3316eb8d25aab43185b74f19535100b6cd0510c6618aa02fa2d63e97"
+  },
+  {
+    "id": "dnc_1789774835933_848",
+    "email": "optout_1789774835933_5341@unique-test-1789774835933.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-18T23:40:35.933Z",
+    "sha256Hash": "2501bfb0e69d9c50b247cb064d9db9411fda194fb162e0c9a0ff2a38dd0d23fe"
   }
 ]

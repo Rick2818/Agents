@@ -36,7 +36,7 @@ function loadEnv() {
 }
 loadEnv();
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const BOT_TOKEN = (process.env.TELEGRAM_BOT_TOKEN || '').trim();
 if (!BOT_TOKEN) {
   console.error('❌ [ERROR FATAL]: TELEGRAM_BOT_TOKEN no está definido en .env');
   process.exit(1);
@@ -50,7 +50,7 @@ async function getWebhookInfo() {
 }
 
 async function setCloudWebhook(vercelUrl) {
-  let webhookSecret = process.env.TELEGRAM_WEBHOOK_SECRET;
+  let webhookSecret = (process.env.TELEGRAM_WEBHOOK_SECRET || '').trim();
   if (!webhookSecret) {
     webhookSecret = `destraba_sec_${crypto.randomBytes(16).toString('hex')}`;
     process.env.TELEGRAM_WEBHOOK_SECRET = webhookSecret;

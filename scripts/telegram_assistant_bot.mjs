@@ -88,18 +88,19 @@ function persistAuthorizedUserId(userId) {
   }
 }
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
+const BOT_TOKEN = (process.env.TELEGRAM_BOT_TOKEN_DEV || process.env.TELEGRAM_BOT_TOKEN || '').trim();
+const IS_DEV_BOT = Boolean(process.env.TELEGRAM_BOT_TOKEN_DEV);
 let AUTHORIZED_USER_ID = getStoredAuthorizedUserId();
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
-const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
-const SMTP_FROM = process.env.SMTP_FROM || 'Destraba AI <onboarding@resend.dev>';
-const MASTER_KEY = process.env.PLATFORM_MASTER_KEY || 'antigravity2026!';
+const GEMINI_API_KEY = (process.env.GEMINI_API_KEY || '').trim();
+const OPENAI_API_KEY = (process.env.OPENAI_API_KEY || '').trim();
+const RESEND_API_KEY = (process.env.RESEND_API_KEY || '').trim();
+const SMTP_FROM = (process.env.SMTP_FROM || 'Destraba AI <onboarding@resend.dev>').trim();
+const MASTER_KEY = (process.env.PLATFORM_MASTER_KEY || 'antigravity2026!').trim();
 const GEMINI_MODEL = 'gemini-3.6-flash';
 const TTS_MODEL = 'gemini-2.5-flash-preview-tts';
 
 const mcpHub = new ExecutiveAssistantMCPHub({
-  strikeAddress: process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me'
+  strikeAddress: (process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me').trim()
 });
 
 const TELEGRAM_API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
@@ -457,7 +458,24 @@ class TelegramExecutiveBot {
 
   async checkBotIdentity() {
     try {
-      await this.sendRequest('deleteWebhook', { drop_pending_updates: false });
+      // Regla de Oro: Un solo modo de entrega. Si hay un webhook activo en la nube,
+      // el poller local se niega a arrancar para no romper la producción ni borrar el webhook.
+      const webhookInfo = await this.sendRequest('getWebhookInfo');
+      if (webhookInfo.ok && webhookInfo.result?.url) {
+        console.warn(`\n⚠️  =======================================================`);
+        console.warn(`🛡️  MODO CLOUD 24/7 ACTIVO: Se detectó un Webhook en producción`);
+        console.warn(`🌐 URL de Webhook: ${webhookInfo.result.url}`);
+        console.warn(`⏳ Actualizaciones pendientes: ${webhookInfo.result.pending_update_count || 0}`);
+        console.warn(`❌ EL POLLER LOCAL SE NIEGA A ARRANCAR PARA PROTEGER PRODUCCIÓN.`);
+        console.warn(`   Telegram solo admite un modo de entrega (Webhook o Polling).`);
+        console.warn(`   Tu asistente ya está operando 24/7 en la nube (tu laptop puede apagarse).`);
+        console.warn(`\n💡 Opciones fiduciarias:`);
+        console.warn(`   - Para desarrollo local, define TELEGRAM_BOT_TOKEN_DEV con un bot secundario.`);
+        console.warn(`   - Para apagar el modo cloud y forzar local: node scripts/deploy_cloud_webhook.mjs --delete`);
+        console.warn(`⚠️  =======================================================\n`);
+        return null;
+      }
+
       await this.sendRequest('deleteMyCommands');
 
       try {
@@ -472,6 +490,9 @@ class TelegramExecutiveBot {
         console.log(`🔒 MODO FANTASMA: Activo (Únicamente autorizado: ${AUTHORIZED_USER_ID})`);
         console.log(`🗣️ MOTOR BILINGÜE: Gemini 3.6 Flash & TTS Puck 100% Operativo`);
         console.log(`📅 CALENDARIO ACTIVO: Demonio de Alarmas 24/7 Iniciado`);
+        if (IS_DEV_BOT) {
+          console.log(`🧪 ENTORNO AISLADO: Usando TELEGRAM_BOT_TOKEN_DEV (desarrollo local)`);
+        }
         console.log(`🛡️ =======================================================\n`);
         return me.result;
       }
@@ -929,9 +950,9 @@ Language & Demeanor Mandate:
             }
           }
         } else if (updates.error_code === 409) {
-          console.warn('[TELEGRAM 409 CONFLICT]: Instancia concurrente detectada. Purgando webhooks y pausando 8s...');
-          await this.sendRequest('deleteWebhook', { drop_pending_updates: false });
-          await new Promise(r => setTimeout(r, 8000));
+          console.warn('[TELEGRAM 409 CONFLICT]: Conflicto detectado (posible webhook en la nube u otra instancia activa).');
+          console.warn('Protección activa: NO se borrará el webhook. Pausando 15s antes de reintentar...');
+          await new Promise(r => setTimeout(r, 15000));
         } else if (updates.error_code === 429) {
           const retrySec = updates.parameters?.retry_after || 5;
           console.warn(`[TELEGRAM 429 RATE LIMIT]: Esperando ${retrySec}s...`);

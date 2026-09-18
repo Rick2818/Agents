@@ -15,6 +15,29 @@ import {
 } from '../lib/fiduciary_core.js';
 import { processCloudTelegramUpdate } from '../lib/telegram_cloud_processor.js';
 
+// Cache de deduplicación en memoria para evitar reprocesar reintentos de Telegram
+const processedUpdatesCache = new Map();
+const UPDATE_CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutos
+const MAX_UPDATE_CACHE_SIZE = 1000;
+
+function isUpdateDuplicate(updateId) {
+  if (!updateId) return false;
+  const now = Date.now();
+  if (processedUpdatesCache.has(updateId)) {
+    return true;
+  }
+  processedUpdatesCache.set(updateId, now);
+  // Limpieza periódica de entradas vencidas
+  if (processedUpdatesCache.size > MAX_UPDATE_CACHE_SIZE) {
+    for (const [id, time] of processedUpdatesCache.entries()) {
+      if (now - time > UPDATE_CACHE_TTL_MS) {
+        processedUpdatesCache.delete(id);
+      }
+    }
+  }
+  return false;
+}
+
 export default async function handler(req, res) {
   applyStrictBankingHeaders(res);
 
@@ -45,18 +68,27 @@ export default async function handler(req, res) {
     return res.status(429).json({ error: 'Too Many Requests', retryAfterSeconds: remainingSeconds });
   }
 
-  // PILAR 4: Verificación Criptográfica del Token Secreto de Webhook
-  const expectedSecret = process.env.TELEGRAM_WEBHOOK_SECRET;
-  if (expectedSecret) {
-    const incomingSecret = req.headers['x-telegram-bot-api-secret-token'];
-    if (!incomingSecret || !timingSafeCompare(incomingSecret, expectedSecret)) {
-      console.warn('[SEGURIDAD CLOUD] Intento de webhook con token secreto inválido.');
-      return res.status(401).json({ error: 'Unauthorized Webhook Source' });
-    }
+  // PILAR 4: Verificación Criptográfica Obligatoria del Token Secreto de Webhook
+  const expectedSecret = (process.env.TELEGRAM_WEBHOOK_SECRET || '').trim();
+  if (!expectedSecret) {
+    console.error('[CRITICAL SECURITY CONFIG]: TELEGRAM_WEBHOOK_SECRET no está configurado en el servidor.');
+    return res.status(500).json({ error: 'Server misconfiguration: TELEGRAM_WEBHOOK_SECRET is required' });
+  }
+
+  const incomingSecret = req.headers['x-telegram-bot-api-secret-token'];
+  if (!incomingSecret || !timingSafeCompare(incomingSecret, expectedSecret)) {
+    console.warn('[SEGURIDAD CLOUD] Intento de webhook con token secreto inválido o ausente.');
+    return res.status(401).json({ error: 'Unauthorized Webhook Source' });
   }
 
   try {
     const update = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+
+    // Deduplicación rápida por update_id
+    if (update?.update_id && isUpdateDuplicate(update.update_id)) {
+      console.log(`[DEDUPE]: Update #${update.update_id} ya procesado recientemente. Ignorando reintento.`);
+      return res.status(200).json({ ok: true, duplicate: true });
+    }
 
     // Procesar actualización de Telegram en memoria RAM
     const result = await processCloudTelegramUpdate(update, process.env);
