@@ -32,6 +32,19 @@ Plataforma fiduciaria B2B, simple, bilingüe (Español / English) y de máxima c
 
 ---
 
+## 🏛️ ¿Quiénes Somos y Por Qué Confiar en Destraba AI?
+
+Destraba AI es una firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Vercel Cloud 24/7. Erradicamos el trabajo manual repetitivo en empresas (PYMEs, comercio digital, logística y finanzas) mediante agentes autónomos soberanos.
+
+### 🛡️ Los 5 Anclajes de Apertura y Confianza Fiduciaria (Cero Riesgo):
+1. **Cero Invasión Previa:** No solicitamos contraseñas, claves de API ni acceso a bases de datos. Todo diagnóstico y servicio opera de forma no invasiva desde la nube.
+2. **Micro-Riesgo / Entrada Asimétrica:** Escáner gratuito en 15 segundos en la web o informe forense ejecutivo con parches listos para producción por solo **$19 USD** (Plan Flash).
+3. **Garantía Fiduciaria Incondicional de 7 Días:** Si en los primeros 7 días el agente no le ahorra al menos 10 horas de trabajo manual al equipo del cliente, se reembolsa el 100% de su pago sin preguntas ni fricción.
+4. **Privacidad Bancaria SOC-2 (Retención Cero en Disco):** Procesamiento 100% en memoria volátil RAM; ninguna conversación sensible ni dato del cliente toca disco ni se usa para entrenar modelos públicos.
+5. **Matemática de Ahorro y ROI Objetivo:** Un operador o analista cuesta $600+ USD/mes; el agente opera 24/7 por **$2.30 USD al día ($69 USD/mes)**, pagándose solo con recuperar 1 carrito o evitar 1 error operativo.
+
+---
+
 ## 🚀 Despliegue en la Nube & Endpoints Serverless (Vercel)
 
 - **URL Oficial de Producción:** [`https://destraba-ai.vercel.app`](https://destraba-ai.vercel.app)

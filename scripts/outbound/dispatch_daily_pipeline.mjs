@@ -62,7 +62,10 @@ export async function dispatchDailyPipeline() {
     };
 
     if (existingIndex >= 0) {
-      activeLeads[existingIndex] = { ...activeLeads[existingIndex], ...activeRecord };
+      // No sobreescribir si ya fue enviado exitosamente en red
+      if (activeLeads[existingIndex].status !== 'ENVIADO_REAL_EN_RED') {
+        activeLeads[existingIndex] = { ...activeLeads[existingIndex], ...activeRecord };
+      }
     } else {
       activeLeads.push(activeRecord);
       newlyDispatched++;

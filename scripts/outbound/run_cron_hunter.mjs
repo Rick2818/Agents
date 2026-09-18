@@ -5,6 +5,8 @@
  * =============================================================================
  */
 
+import fs from 'fs';
+import path from 'path';
 import { AutonomousHunter } from './autonomous_hunter.mjs';
 import { dispatchDailyPipeline } from './dispatch_daily_pipeline.mjs';
 import { executeOutboundDispatch } from './send_smtp_dispatch.mjs';
@@ -95,6 +97,47 @@ async function main() {
   console.log(`Pipeline de ventas fiduciario generado con ofertas de $19 USD / $69 USD`);
   console.log(`Destino de liquidación: rick2818@strike.me`);
   console.log(`=============================================================================\n`);
+
+  // Sincronizar los resultados auditados con el pipeline de leads contactados
+  const activeLeadsPath = path.resolve('pipeline/leads_contactados_activos.json');
+  if (fs.existsSync(activeLeadsPath)) {
+    try {
+      const activeLeads = JSON.parse(fs.readFileSync(activeLeadsPath, 'utf8'));
+      for (const r of results) {
+        if (!r.domain) continue;
+        const exists = activeLeads.findIndex(a => a.domain?.toLowerCase() === r.domain.toLowerCase());
+        const leadRecord = {
+          id: r.auditId,
+          company: r.company,
+          domain: r.domain,
+          decisionMakerRole: "Oficial de Seguridad / Dirección de Operaciones",
+          country: r.country,
+          operationalPain: `Brechas perimetrales detectadas: ${r.flaws.join(', ') || 'Optimización perimetral'}`,
+          offer: r.monetization.offer,
+          strikePaymentDestination: "rick2818@strike.me",
+          checkoutUrl: r.monetization.checkoutDirectApp,
+          directStrikePaymentUrl: "https://strike.me/rick2818",
+          status: "AUDITADO_Y_LISTO_PARA_NOTIFICACION",
+          contactEmail: r.contactEmail,
+          outboundMessage: r.generatedDispatchMessage,
+          flawsCount: r.flawsCount,
+          flaws: r.flaws,
+          severity: r.severity
+        };
+        if (exists >= 0) {
+          if (activeLeads[exists].status !== 'ENVIADO_REAL_EN_RED') {
+            activeLeads[exists] = { ...activeLeads[exists], ...leadRecord };
+          }
+        } else {
+          activeLeads.unshift(leadRecord);
+        }
+      }
+      fs.writeFileSync(activeLeadsPath, JSON.stringify(activeLeads, null, 2), 'utf8');
+      console.log(`[PIPELINE SYNC]: ${results.length} auditorías incorporadas a la cola de contacto.`);
+    } catch (err) {
+      console.error('[PIPELINE SYNC ERROR]:', err.message);
+    }
+  }
 
   // 1. Ejecución y sincronización del pipeline diario de prospección
   await dispatchDailyPipeline();
