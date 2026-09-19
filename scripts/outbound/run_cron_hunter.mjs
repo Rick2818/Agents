@@ -8,7 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import { AutonomousHunter } from './autonomous_hunter.mjs';
-import { dispatchDailyPipeline } from './dispatch_daily_pipeline.mjs';
+import { dispatchDailyPipeline, advancePipelineToImpact2 } from './dispatch_daily_pipeline.mjs';
 import { executeOutboundDispatch } from './send_smtp_dispatch.mjs';
 import { sendCloudMessage } from '../../lib/telegram_cloud_processor.js';
 
@@ -139,10 +139,20 @@ async function main() {
     }
   }
 
-  // 1. Ejecución y sincronización del pipeline diario de prospección
-  await dispatchDailyPipeline();
+  const cadenceAction = process.env.CADENCE_ACTION || 'all';
 
-  // 2. Transmisión autónoma outbound (SMTP / REST API / DRY_RUN)
+  // 1. Ejecución y sincronización del pipeline diario de prospección
+  if (cadenceAction !== 'impact_2_video_followup') {
+    await dispatchDailyPipeline();
+  }
+
+  // 2. Avance de cadencia a Impacto 2 (Video Briefing Ejecutivo de 70s)
+  if (cadenceAction === 'all' || cadenceAction === 'impact_2_video_followup') {
+    const forceAll = cadenceAction === 'impact_2_video_followup';
+    await advancePipelineToImpact2({ forceAll, minHours: 48 });
+  }
+
+  // 3. Transmisión autónoma outbound (SMTP / REST API / DRY_RUN)
   await executeOutboundDispatch();
 
   // 3. Notificación Ejecutiva a Telegram de Ricardo (Cierre de Ciclo 10/10)

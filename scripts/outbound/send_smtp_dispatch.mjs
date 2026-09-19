@@ -79,15 +79,19 @@ export async function executeOutboundDispatch(options = {}) {
     console.log('Destinatario: ' + toEmail);
     console.log('Asunto: ' + subject);
 
+    const isImpact2 = lead.targetImpact === 2 || lead.status === 'LISTO_IMPACTO_2';
+
     if (isDryRun) {
-      console.log('-> [DRY_RUN]: Despacho simulado exitoso. Mensaje verificado y retenido para audit trail.');
+      console.log(`-> [DRY_RUN]: Despacho simulado exitoso (${isImpact2 ? 'IMPACTO 2 - VIDEO' : 'IMPACTO 1'}).`);
       lead.deliveryAudit = {
         dispatchedAt: new Date().toISOString(),
         mode: 'DRY_RUN_SIMULATION',
+        impact: isImpact2 ? 2 : 1,
         recipient: toEmail,
         status: 'VERIFICADO_LISTO_PARA_TRANSMISION'
       };
-      lead.status = 'TRANSMISION_SIMULADA_OK';
+      lead.status = isImpact2 ? 'TRANSMISION_SIMULADA_IMPACTO_2_OK' : 'TRANSMISION_SIMULADA_OK';
+      lead.currentImpact = isImpact2 ? 2 : 1;
       sentCount++;
     } else {
       const dispatchResult = await dispatchUniversalEmail({
@@ -98,16 +102,18 @@ export async function executeOutboundDispatch(options = {}) {
       });
 
       if (dispatchResult.success) {
-        console.log('-> [LIVE DISPATCH SUCCESS]: ' + dispatchResult.transport + ' | MessageId: ' + dispatchResult.messageId);
+        console.log(`-> [LIVE DISPATCH SUCCESS - ${isImpact2 ? 'IMPACTO 2 (VIDEO)' : 'IMPACTO 1'}]: ` + dispatchResult.transport + ' | MessageId: ' + dispatchResult.messageId);
         lead.deliveryAudit = {
           dispatchedAt: new Date().toISOString(),
           mode: 'LIVE',
+          impact: isImpact2 ? 2 : 1,
           transport: dispatchResult.transport,
           messageId: dispatchResult.messageId,
           recipient: toEmail,
           status: 'TRANSMITIDO_EXITOSO'
         };
-        lead.status = 'ENVIADO_REAL_EN_RED';
+        lead.status = isImpact2 ? 'ENVIADO_IMPACTO_2' : 'ENVIADO_REAL_EN_RED';
+        lead.currentImpact = isImpact2 ? 2 : 1;
         sentCount++;
       } else {
         console.error('-> [ERROR DE TRANSMISION]: ' + dispatchResult.error);

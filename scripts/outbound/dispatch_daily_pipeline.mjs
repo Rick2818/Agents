@@ -98,6 +98,83 @@ export async function dispatchDailyPipeline() {
   return { activeCount: activeLeads.length, newlyDispatched };
 }
 
+/**
+ * Avanza automáticamente los leads que ya recibieron Impacto 1 al Impacto 2 (Video Briefing 70s)
+ */
+export async function advancePipelineToImpact2(options = {}) {
+  const { renderCampaignMessage } = await import('./campaign_engine.mjs');
+  console.log('[CADENCE ADVANCER]: Evaluando leads para el Impacto 2 (Video Briefing 70s)...');
+
+  let activeLeads = loadJson(ACTIVE_LEADS_FILE);
+  if (!activeLeads.length) {
+    console.log('[CADENCE ADVANCER]: No hay leads en el pipeline.');
+    return { preparedCount: 0 };
+  }
+
+  const minHours = options.minHours ?? 48; // Ventana recomendada de 48h hábiles
+  const forceAll = options.forceAll ?? false;
+  const limit = options.limit ?? (parseInt(process.env.BATCH_LIMIT, 10) || 25);
+  const now = Date.now();
+
+  let preparedCount = 0;
+
+  for (const lead of activeLeads) {
+    if (preparedCount >= limit) break;
+
+    // Solo candidatos que recibieron Impacto 1 y no han recibido Impacto 2
+    const wasImpact1Sent = lead.status === 'ENVIADO_REAL_EN_RED' || lead.status === 'CONTACTADO_IMPACTO_1';
+    const notYetImpact2 = lead.status !== 'ENVIADO_IMPACTO_2' && lead.status !== 'LISTO_IMPACTO_2' && lead.currentImpact !== 2;
+
+    if (!wasImpact1Sent || !notYetImpact2) continue;
+
+    // Chequeo de ventana de tiempo (si no es forceAll)
+    const sentTime = lead.deliveryAudit?.dispatchedAt ? new Date(lead.deliveryAudit.dispatchedAt).getTime() : 0;
+    const hoursElapsed = sentTime > 0 ? (now - sentTime) / (1000 * 60 * 60) : 999;
+
+    if (!forceAll && hoursElapsed < minHours) {
+      continue;
+    }
+
+    // Identificar idioma y mercado fiduciario
+    const country = (lead.country || '').toLowerCase();
+    const isEnglish = country.includes('usa') || country.includes('ee.uu') || country.includes('united states') || 
+                      country.includes('uk') || country.includes('europe') || country.includes('global') || 
+                      country.includes('denmark') || country.includes('sweden') || country.includes('finland');
+    const lang = isEnglish ? 'en' : 'es';
+
+    const rendered = renderCampaignMessage(
+      'CYBERSECURITY_DEFENSE_AUDIT',
+      2,
+      lead.company,
+      lang,
+      lead.domain
+    );
+
+    const toEmail = lead.corporateEmail || lead.contactEmail || ('contacto@' + lead.domain);
+
+    lead.status = 'LISTO_IMPACTO_2';
+    lead.targetImpact = 2;
+    lead.preparedForImpact2At = new Date().toISOString();
+    lead.outboundMessage = {
+      to: toEmail,
+      subject: rendered.subject,
+      body: rendered.body
+    };
+
+    preparedCount++;
+    console.log(`-> [IMPACTO 2 PREPARADO]: ${lead.company} (${lead.domain}) | Dest: ${toEmail} | Idioma: ${lang.toUpperCase()}`);
+  }
+
+  saveJson(ACTIVE_LEADS_FILE, activeLeads);
+
+  console.log('\n=============================================================================');
+  console.log(`[CADENCE ADVANCER]: ${preparedCount} leads programados para Impacto 2 (Video Briefing)`);
+  console.log(`Estado en pipeline: LISTO_IMPACTO_2`);
+  console.log('=============================================================================\n');
+
+  return { preparedCount };
+}
+
 if (process.argv[1]?.includes('dispatch_daily_pipeline.mjs')) {
   dispatchDailyPipeline().catch(console.error);
 }
