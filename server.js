@@ -123,6 +123,16 @@ app.all('/api/cron/master-dispatcher', safeHandler(async (req, res) => {
   await masterDispatcherHandler(req, res);
 }));
 
+// 2.5 CONFIGURACIÓN LOCAL DE CABINA SOBERANA
+app.get('/api/cockpit/config', (req, res) => {
+  res.json({
+    geminiApiKey: (process.env.GEMINI_API_KEY || '').trim(),
+    authorizedUserId: (process.env.TELEGRAM_AUTHORIZED_USER_ID || '6311509947').trim(),
+    strikeAddress: (process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me').trim(),
+    serverOnline: true
+  });
+});
+
 // 3. API REST GENERAL (Catálogo, Strike, Wompi, MCP Hub)
 // Compatible universalmente con Express 4 y Express 5
 app.all(/^\/api(\/.*)?$/, safeHandler(async (req, res) => {
@@ -160,6 +170,12 @@ app.use(express.static(__dirname, {
 // Rutas de conveniencia
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dashboard.html'));
+});
+app.get('/cockpit', (req, res) => {
+  res.sendFile(path.join(__dirname, 'COCKPIT_EJECUTIVO_RICARDO.html'));
+});
+app.get('/cabina', (req, res) => {
+  res.sendFile(path.join(__dirname, 'COCKPIT_EJECUTIVO_RICARDO.html'));
 });
 app.get('/executive-dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'executive_dashboard.html'));

@@ -91,6 +91,17 @@ export default async function handler(req, res) {
       return res.status(429).json({ error: 'Too Many Requests', retryAfterSeconds: 60 });
     }
 
+    // --- ENDPOINT CONFIGURACIÓN DE CABINA SOBERANA ---
+    if (req.method === 'GET' && (pathname === '/api/cockpit/config' || pathname.endsWith('/cockpit/config'))) {
+      return res.status(200).json({
+        success: true,
+        geminiApiKey: (process.env.GEMINI_API_KEY || '').trim(),
+        authorizedUserId: (process.env.TELEGRAM_AUTHORIZED_USER_ID || '6311509947').trim(),
+        strikeAddress: (process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me').trim(),
+        serverOnline: true
+      });
+    }
+
     // --- ENDPOINTS UNIVERSALES DE CORREO: ESTADO Y DESPACHO ---
     if (req.method === 'GET' && (pathname === '/api/email/status' || pathname.endsWith('/email/status'))) {
       const resendKey = process.env.RESEND_API_KEY || process.env.RESFND_APT_KEY;

@@ -12,6 +12,8 @@
   "rewrites": [
     { "source": "/", "destination": "/dashboard.html" },
     { "source": "/readme", "destination": "/LEER_README.html" },
+    { "source": "/cockpit", "destination": "/COCKPIT_EJECUTIVO_RICARDO.html" },
+    { "source": "/cabina", "destination": "/COCKPIT_EJECUTIVO_RICARDO.html" },
     { "source": "/api/(.*)", "destination": "/api" }
   ],
   "headers": [
