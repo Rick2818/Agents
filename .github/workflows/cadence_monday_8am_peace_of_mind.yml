@@ -1,9 +1,9 @@
-name: Cadence Monday 8:00 AM - Peace of Mind 24/7 (Video Briefing)
+name: Cadence Monday 2:00 PM - Peace of Mind 24/7 (Follow-up)
 
 on:
   schedule:
-    # Corre los lunes a las 8:00 AM CST (14:00 UTC)
-    - cron: '0 14 * * 1'
+    # Corre los lunes a las 2:00 PM CST (20:00 UTC) para seguimiento de paz mental a cohortes previas
+    - cron: '0 20 * * 1'
   workflow_dispatch: # Permite ejecución manual con 1 clic desde GitHub Actions
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Execute 8:00 AM Peace of Mind & 70s Video Briefing Follow-up
+      - name: Execute 2:00 PM Peace of Mind & 70s Video Briefing Follow-up
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || secrets.RESFND_APT_KEY }}
           SMTP_HOST: ${{ secrets.SMTP_HOST || 'smtp.gmail.com' }}

@@ -1,9 +1,9 @@
-name: Cadence Monday 7:00 AM - New Leads + Video Briefing
+name: Cadence Monday 8:45 AM - Tactical Impact 1 (High Conversion ICP)
 
 on:
   schedule:
-    # Corre los lunes a las 7:00 AM CST (13:00 UTC)
-    - cron: '0 13 * * 1'
+    # Corre los lunes a las 8:45 AM CST (14:45 UTC) - Apertura de Guante Blanco e ICP Alta Conversión
+    - cron: '45 14 * * 1'
   workflow_dispatch: # Permite ejecución manual con 1 clic desde GitHub Actions
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Execute 7:00 AM New Cohort Cadence with 70s Video Briefing
+      - name: Execute 8:45 AM Tactical Impact 1 Cadence (5 Anclajes + Cierre Asimetrico)
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || secrets.RESFND_APT_KEY }}
           SMTP_HOST: ${{ secrets.SMTP_HOST || 'smtp.gmail.com' }}

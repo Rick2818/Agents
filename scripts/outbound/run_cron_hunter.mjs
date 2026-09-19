@@ -17,13 +17,15 @@ try { process.loadEnvFile?.(); } catch (e) {}
 
 const WEEKLY_COHORTS = {
   1: {
-    name: "LUNES: Logística 3PL & Aduanas (Centroamérica / El Salvador)",
+    name: "LUNES 8:45 AM: ICP Alta Conversión (E-commerce D2C, Agencias B2B & Last-Mile)",
     targets: [
+      { company: "Amor Perfecto Café de Especialidad", domain: "amorperfectocafes.com", contactEmail: "contacto@amorperfectocafes.com", country: "Colombia", industry: "E-commerce D2C" },
+      { company: "Café San Alberto", domain: "cafesanalberto.com", contactEmail: "info@cafesanalberto.com", country: "Colombia", industry: "E-commerce & Suscripciones" },
+      { company: "Branch Agencia Digital", domain: "branch.com.co", contactEmail: "contacto@branch.com.co", country: "Colombia / Regional", industry: "Agencia B2B" },
+      { company: "Moova Logística Urbana", domain: "moova.io", contactEmail: "contacto@moova.io", country: "México / Latam", industry: "Logística Last-Mile" },
+      { company: "Cubbo E-commerce Fulfillment", domain: "cubbo.com", contactEmail: "hola@cubbo.com", country: "México / Colombia", industry: "Fulfillment E-commerce" },
       { company: "ALG El Salvador (3PL Logistics)", domain: "alg3pl.com", contactEmail: "info@alg3pl.com", country: "El Salvador / Regional", industry: "Distribución 3PL" },
-      { company: "Aldesa Logística & Almacenes Fiscales", domain: "aldesalogistica.com", contactEmail: "contacto@aldesalogistica.com", country: "El Salvador", industry: "Almacenes Fiscales" },
-      { company: "TRS Logística El Salvador", domain: "trslogistica.com", contactEmail: "info@trslogistica.com", country: "El Salvador / CA", industry: "Flota y Transporte" },
-      { company: "Networld Logistics Centroamérica", domain: "networldslogistics.com", contactEmail: "contacto@networldslogistics.com", country: "Centroamérica", industry: "Logística y Facturación" },
-      { company: "Logistics Centroamérica S.A.", domain: "logisticscentroamerica.com", contactEmail: "contacto@logisticscentroamerica.com", country: "El Salvador / Guatemala", industry: "Cuentas B2B" }
+      { company: "Aldesa Logística & Almacenes Fiscales", domain: "aldesalogistica.com", contactEmail: "contacto@aldesalogistica.com", country: "El Salvador", industry: "Almacenes Fiscales" }
     ]
   },
   2: {

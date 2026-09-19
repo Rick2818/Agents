@@ -89,6 +89,20 @@ Para aquellos leads que visitan la web o reciben el impacto en frío pero no com
   *«¿Trabajas con proveedores o clientes logísticos? Audita a tu contraparte gratis en Destraba AI y obtén 1 mes gratis de Plan Pro al referir a una empresa.»*
 * **Efecto Red:** Un cliente satisfecho que comparte su diagnóstico con sus socios comerciales genera nuevos leads B2B calificados con costo de adquisición (\$0 CAC).
 
+### 🛡️ Prioridad 6: Expansión a Comunidades de Ingeniería, DevOps & Ciberseguridad (Canal Técnico)
+A los ingenieros de redes, administradores de sistemas (SysAdmins) y líderes de seguridad (SecOps) se les aborda con transparencia técnica radical, cero adornos comerciales y soluciones inmediatas a dolores de guardia nocturna:
+
+1. **Reddit (`r/sysadmin`, `r/netsec`, `r/devops`):**
+   * *El dolor técnico:* Configurar políticas CSP/HSTS a mano en múltiples servidores y atender alertas de certificados o caídas a las 3:00 AM.
+   * *El enfoque:* Post técnico transparente compartiendo el escáner perimetral de 15s y snippets limpios para Nginx/Apache.
+2. **Hacker News (Y Combinator - `news.ycombinator.com`):**
+   * *Formato:* **"Show HN: Unblock AI Shield — Automated Perimeter Hardening & Zero-Disk SOC-2"**.
+   * *Puntos clave de atracción:* Procesamiento volátil en RAM (cero persistencia en disco), auditoría no invasiva y parches descargables de $19 USD.
+3. **Canales de Discord / Slack Especializados (InfoSec, OWASP, HangOps):**
+   * Compartir hallazgos objetivos sobre la falta de cabeceras bancarias en tiendas online y ofrecer el escáner gratuito como herramienta defensiva para auditorías rápidas.
+4. **Dev.to / Hashnode:**
+   * Artículos técnicos: *"Why 70% of e-commerce checkout endpoints still lack CSP/HSTS headers (and how to auto-remediate in 60s)"*.
+
 ---
 
 ## ⚡ 5. Plan de Acción y Cronograma de Despliegue (Ejecución Inmediata)
@@ -98,8 +112,9 @@ Para aquellos leads que visitan la web o reciben el impacto en frío pero no com
 | **Fase 1** | **Hoy (Inmediato)** | Integración del Catálogo PYME de 30 leads y validación de motor de despacho a 25/día. | `send_smtp_dispatch.mjs` + GitHub Actions | 100% de la cola despachada por Gmail SMTPS. |
 | **Fase 2** | **Semana 1** | Lanzamiento del Escáner Rápido en `index.html` para captura de leads inbound. | Frontend Destraba AI + API `/api/scan` | Tasa de conversión de visitante a lead > 8%. |
 | **Fase 3** | **Semana 1-2** | Publicación de los primeros 6 artículos/casos de autoridad en LinkedIn y Buffer. | `marketing-director` + Distribución Cloud | +500 visitas de decisores B2B a la web. |
-| **Fase 4** | **Semana 2** | Activación del bucle de retargeting educativo (Día 2, 4 y 7) en el pipeline. | `campaign_engine.mjs` | Tasa de respuesta acumulada > 18%. |
-| **Fase 5** | **Semana 3** | Implementación del sistema de referidos en reportes de remediación descargables. | `fiduciary_delivery.js` | 1 cliente referido por cada 5 activaciones. |
+| **Fase 4** | **Semana 2** | Activación del canal técnico en Reddit (`r/sysadmin`) y Hacker News (Show HN). | Post técnico + `unblock-shield` | +1,000 escaneos técnicos perimetrales. |
+| **Fase 5** | **Semana 2-3** | Activación del bucle de retargeting educativo (Día 2, 4 y 7) en el pipeline. | `campaign_engine.mjs` | Tasa de respuesta acumulada > 18%. |
+| **Fase 6** | **Semana 3** | Implementación del sistema de referidos en reportes de remediación descargables. | `fiduciary_delivery.js` | 1 cliente referido por cada 5 activaciones. |
 
 ---
 
