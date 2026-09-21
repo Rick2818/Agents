@@ -12,6 +12,7 @@
   "rewrites": [
     { "source": "/", "destination": "/dashboard" },
     { "source": "/readme", "destination": "/LEER_README" },
+    { "source": "/boltech", "destination": "/boltech.html" },
     { "source": "/cockpit", "destination": "/COCKPIT_EJECUTIVO_RICARDO" },
     { "source": "/cabina", "destination": "/COCKPIT_EJECUTIVO_RICARDO" },
     { "source": "/api/(.*)", "destination": "/api" }
