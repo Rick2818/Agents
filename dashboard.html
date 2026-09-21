@@ -557,9 +557,13 @@
     }
 
     function filterTable() {
-      const q = document.getElementById('tableSearch').value.toLowerCase();
+      const searchEl = document.getElementById('tableSearch');
+      if (!searchEl) return;
+      const q = searchEl.value.toLowerCase().trim();
       const filtered = (currentFeed.targetCompaniesTable || []).filter(c => 
-        c.company.toLowerCase().includes(q) || c.domain.toLowerCase().includes(q) || c.country.toLowerCase().includes(q)
+        (c.company && c.company.toLowerCase().includes(q)) || 
+        (c.domain && c.domain.toLowerCase().includes(q)) || 
+        (c.country && c.country.toLowerCase().includes(q))
       );
       renderCompanyTable(filtered);
     }

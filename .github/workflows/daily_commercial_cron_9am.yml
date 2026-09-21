@@ -14,9 +14,9 @@ jobs:
     name: Actualizar Dashboard Fiduciario 09:00 AM
     runs-on: ubuntu-latest
     env:
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || 'destraba_cron_sec_2026_prod' }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || 'destraba_chat_default' }}
-      APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY || 'c3AVRyvj-p25sEDCMV63PA' }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '' }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '' }}
+      APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY || '' }}
     steps:
       - name: Checkout Repositorio
         uses: actions/checkout@v4
