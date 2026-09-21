@@ -786,7 +786,7 @@
             <div>
               <span class="text-[10px] font-bold uppercase text-slate-400 block mb-1">Diagnóstico Rápido</span>
               <span class="text-xl font-bold text-white font-mono">$19 USD</span>
-              <p class="text-[11px] text-slate-400 mt-1">Pago único. Auditoría forense + arquitectura completa descargable.</p>
+              <p class="text-[11px] text-slate-400 mt-1">Pago único. auditoría técnica defensiva + arquitectura completa descargable.</p>
             </div>
             <button onclick="closePricingModal(); document.getElementById('pain-input').focus();" class="mt-3 w-full py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold text-[11px]">
               Diagnosticar
@@ -2844,7 +2844,7 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
   </div>
 
   <!-- ========================================================================= -->
-  <!-- ⚡ MODAL: CHECKOUT FIDUCIARIO & AUDITORÍA FORENSE ($19 / $69 USD)          -->
+  <!-- ⚡ MODAL: CHECKOUT FIDUCIARIO & auditoría técnica defensiva ($19 / $69 USD)          -->
   <!-- ========================================================================= -->
   <div id="fiduciary-checkout-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 fade-in">
     <div class="bg-slate-900 border border-slate-700 max-w-xl w-full rounded-2xl p-6 shadow-2xl relative max-h-[95vh] overflow-y-auto text-left text-slate-200">
@@ -2855,7 +2855,7 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
           </div>
           <div>
             <h3 class="text-base font-bold text-white flex items-center gap-2">
-              <span>Auditoría Forense & Blindaje</span>
+              <span>auditoría técnica defensiva & Blindaje</span>
               <span id="modal-plan-badge" class="text-[10px] px-2 py-0.5 rounded bg-blue-600/30 text-blue-400 border border-blue-500/30 font-mono font-bold">$19 USD</span>
             </h3>
             <p class="text-[11px] text-slate-400">Objetivo Auditado: <span id="modal-target-domain" class="font-mono text-amber-400 font-bold">empresa.com</span></p>
@@ -2881,7 +2881,7 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
             <span id="modal-price-tag" class="text-sm font-bold text-white font-mono">$19.00 USD</span>
           </div>
           <ul class="text-[11px] text-slate-300 space-y-1">
-            <li>• <strong>Reporte Forense Completo:</strong> Mapeo exhaustivo de cabeceras y puertos en PDF/MD.</li>
+            <li>• <strong>Reporte defensivo Completo:</strong> Mapeo exhaustivo de cabeceras y puertos en PDF/MD.</li>
             <li>• <strong>Script de Blindaje Nginx / Apache / Cloudflare:</strong> Configuración lista para producción.</li>
             <li>• <strong>Cero Fricción:</strong> Descarga instantánea tras la liquidación fiduciaria.</li>
           </ul>
@@ -2924,11 +2924,11 @@ Regla inmutable 2: SÍNTESIS EJECUTIVA (-50%). Responde de forma muy breve, en v
     async function downloadRemediationZip() {
       const domain = document.getElementById('modal-target-domain').innerText || 'empresa.com';
       if (typeof JSZip === 'undefined') {
-        alert('Generando reporte forense para ' + domain);
+        alert('Generando reporte defensivo para ' + domain);
         return;
       }
       const zip = new JSZip();
-      zip.file("REPORTE_FORENSE_AUDITORIA.md", `# Informe Forense de Ciberseguridad Defensiva\n\nDominio: ${domain}\nAuditor: Destraba AI Defensive Engine 2.5\nDestino Fiduciario: rick2818@strike.me\n\n## Hallazgos:\n1. Falta Content-Security-Policy (Riesgo XSS bancario)\n2. Falta Strict-Transport-Security (Riesgo SSL Strip)\n\n## Solución:\nAplicar los archivos de configuración adjuntos en tu servidor web.\n`);
+      zip.file("REPORTE_defensivo_AUDITORIA.md", `# informe técnico ejecutivo de Ciberseguridad Defensiva\n\nDominio: ${domain}\nAuditor: Destraba AI Defensive Engine 2.5\nDestino Fiduciario: rick2818@strike.me\n\n## Hallazgos:\n1. Falta Content-Security-Policy (Riesgo XSS bancario)\n2. Falta Strict-Transport-Security (Riesgo SSL Strip)\n\n## Solución:\nAplicar los archivos de configuración adjuntos en tu servidor web.\n`);
       zip.file("nginx_security_headers.conf", `# Parche de Blindaje Nginx para ${domain}\nadd_header Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';" always;\nadd_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;\nadd_header X-Frame-Options "SAMEORIGIN" always;\nadd_header X-Content-Type-Options "nosniff" always;\nadd_header Referrer-Policy "strict-origin-when-cross-origin" always;\n`);
       zip.file("apache_htaccess_security.conf", `# Parche de Blindaje Apache para ${domain}\n<IfModule mod_headers.c>\n  Header always set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'"\n  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"\n  Header always set X-Frame-Options "SAMEORIGIN"\n  Header always set X-Content-Type-Options "nosniff"\n</IfModule>\n`);
       zip.file("LEEME_INSTRUCCIONES.txt", `INSTRUCCIONES DE DESPLIEGUE EN 60 SEGUNDOS:\n1. Copia nginx_security_headers.conf dentro del bloque server {} de tu sitio.\n2. Ejecuta: nginx -t && systemctl reload nginx\n3. Soporte y liquidación: soporte@destraba.ai / rick2818@strike.me\n`);
