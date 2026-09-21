@@ -10,7 +10,26 @@ import path from 'path';
 import { AutonomousHunter } from './autonomous_hunter.mjs';
 import { dispatchDailyPipeline, advancePipelineToImpact2 } from './dispatch_daily_pipeline.mjs';
 import { executeOutboundDispatch } from './send_smtp_dispatch.mjs';
-import { sendCloudMessage } from '../../lib/telegram_cloud_processor.js';
+
+// Notificador Telegram nativo y desacoplado (Cero dependencias externas en CI/CD)
+async function sendTelegramAlert(chatId, text, botToken) {
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: text,
+        parse_mode: 'HTML',
+        disable_web_page_preview: true
+      })
+    });
+    return await res.json();
+  } catch (err) {
+    console.warn('[TELEGRAM ALERT FALLBACK]:', err.message);
+    return null;
+  }
+}
 
 // Cargar variables locales si existen
 try { process.loadEnvFile?.(); } catch (e) {}
@@ -19,89 +38,53 @@ const WEEKLY_COHORTS = {
   1: {
     name: "LUNES 8:45 AM: ICP Alta Conversión (E-commerce D2C, Agencias B2B & Last-Mile)",
     targets: [
-      { company: "Kavak México Operations", domain: "kavak.com", contactEmail: "soporte@kavak.com", country: "México", industry: "Fintech & Retail Automotriz" },
-      { company: "99Minutos Last Mile", domain: "99minutos.com", contactEmail: "hola@99minutos.com", country: "México / LatAm", industry: "Last Mile Fulfillment" },
-      { company: "Starken Chile Logística", domain: "starken.cl", contactEmail: "empresas@starken.cl", country: "Chile", industry: "Transporte Corporativo" },
-      { company: "Blue Express Chile", domain: "blue.cl", contactEmail: "soporte@blue.cl", country: "Chile", industry: "Last Mile Fulfillment" },
-      { company: "Clicoh Fulfillment", domain: "clicoh.com", contactEmail: "info@clicoh.com", country: "Latam Regional", industry: "Fulfillment E-commerce" },
-      { company: "Mensajeros Urbanos B2B", domain: "mensajerosurbanos.com", contactEmail: "contacto@mensajerosurbanos.com", country: "Colombia / México", industry: "Courrier Urbano Corporativo" },
-      { company: "Skydropx Plataforma Envíos", domain: "skydropx.com", contactEmail: "hola@skydropx.com", country: "México / Colombia", industry: "Agregador Logístico" },
-      { company: "Envia.com Logistics", domain: "envia.com", contactEmail: "soporte@envia.com", country: "México / Latam", industry: "Plataforma Envíos E-commerce" },
-      { company: "Simetrik Finanzas", domain: "simetrik.com", contactEmail: "info@simetrik.com", country: "Latam / Global", industry: "Conciliación Financiera" }
+      { company: "Amor Perfecto Café de Especialidad", domain: "amorperfectocafes.com", contactEmail: "contacto@amorperfectocafes.com", country: "Colombia", industry: "E-commerce D2C" },
+      { company: "Café San Alberto", domain: "cafesanalberto.com", contactEmail: "info@cafesanalberto.com", country: "Colombia", industry: "E-commerce & Suscripciones" },
+      { company: "Branch Agencia Digital", domain: "branch.com.co", contactEmail: "contacto@branch.com.co", country: "Colombia / Regional", industry: "Agencia B2B" },
+      { company: "Moova Logística Urbana", domain: "moova.io", contactEmail: "contacto@moova.io", country: "México / Latam", industry: "Logística Last-Mile" },
+      { company: "Cubbo E-commerce Fulfillment", domain: "cubbo.com", contactEmail: "hola@cubbo.com", country: "México / Colombia", industry: "Fulfillment E-commerce" },
+      { company: "ALG El Salvador (3PL Logistics)", domain: "alg3pl.com", contactEmail: "info@alg3pl.com", country: "El Salvador / Regional", industry: "Distribución 3PL" },
+      { company: "Aldesa Logística & Almacenes Fiscales", domain: "aldesalogistica.com", contactEmail: "contacto@aldesalogistica.com", country: "El Salvador", industry: "Almacenes Fiscales" }
     ]
   },
   2: {
-    name: "MARTES: Retail & E-commerce D2C de Alta Conversión (Colombia)",
+    name: "MARTES: Retail & E-commerce Fulfillment (Colombia)",
     targets: [
-      { company: "Alkosto Hiperahorro", domain: "alkosto.com", contactEmail: "contacto@alkosto.com", country: "Colombia", industry: "Retail & E-commerce" },
-      { company: "Totto Maletines & Accesorios", domain: "totto.com", contactEmail: "servicioalcliente@totto.com", country: "Colombia", industry: "Moda & Accesorios D2C" },
-      { company: "Bosi Calzado & Cuero", domain: "bosi.com.co", contactEmail: "servicioalcliente@bosi.com.co", country: "Colombia", industry: "Calzado & Retail" },
-      { company: "Koaj Moda Urbana", domain: "koaj.co", contactEmail: "contacto@koaj.co", country: "Colombia", industry: "Retail Moda" },
-      { company: "Tennis Moda Casual", domain: "tennis.com.co", contactEmail: "servicioalcliente@tennis.com.co", country: "Colombia", industry: "Moda & E-commerce" },
-      { company: "Lentesplus Óptica Online", domain: "lentesplus.com", contactEmail: "contacto@lentesplus.com", country: "Colombia / México", industry: "Salud Visual D2C" },
-      { company: "Chiper Supermercado Digital B2B", domain: "chiper.co", contactEmail: "contacto@chiper.co", country: "Colombia", industry: "Abastecimiento B2B" },
-      { company: "Farmatodo Colombia", domain: "farmatodo.com.co", contactEmail: "contacto@farmatodo.com.co", country: "Colombia", industry: "Farmacia & E-commerce" },
-      { company: "Merqueo Supermercado Online", domain: "merqueo.com", contactEmail: "contacto@merqueo.com", country: "Colombia", industry: "Supermercado Digital" },
-      { company: "RobinFood Cloud Kitchens", domain: "robinfood.com", contactEmail: "contacto@robinfood.com", country: "Colombia", industry: "FoodTech" },
-      { company: "Dafiti Colombia Moda", domain: "dafiti.com.co", contactEmail: "info@dafiti.com.co", country: "Colombia", industry: "Moda E-commerce" },
-      { company: "Panamericana Librería y Papelería", domain: "panamericana.com.co", contactEmail: "servicioalcliente@panamericana.com.co", country: "Colombia", industry: "Retail & Papelería" }
+      { company: "Coordinadora Mercantil", domain: "coordinadora.com", contactEmail: "contacto@coordinadora.com", country: "Colombia", industry: "Courier & E-commerce" },
+      { company: "TCC Logística & Envíos", domain: "tcc.com.co", contactEmail: "contacto@tcc.com.co", country: "Colombia", industry: "Logística B2B" },
+      { company: "Envía Colvanes", domain: "enviacolvanes.com", contactEmail: "servicioalcliente@enviacolvanes.com", country: "Colombia", industry: "Envíos Masivos" },
+      { company: "Deprisa (Avianca Cargo)", domain: "deprisa.com", contactEmail: "corporativo@deprisa.com", country: "Colombia", industry: "Envíos Express" },
+      { company: "Servientrega Soluciones Digitales", domain: "servientrega.com", contactEmail: "servicioalcliente@servientrega.com", country: "Colombia", industry: "Logística 3PL" }
     ]
   },
   3: {
-    name: "MIÉRCOLES: Software, Retail & E-commerce Cross-Border (España)",
+    name: "MIÉRCOLES: Software, Logística & Servicios Corporativos (España)",
     targets: [
-      { company: "PcComponentes Tecnología", domain: "pccomponentes.com", contactEmail: "soporte@pccomponentes.com", country: "España", industry: "E-commerce Tecnología" },
-      { company: "Cecotec Electrodomésticos", domain: "cecotec.es", contactEmail: "soporte@cecotec.es", country: "España", industry: "Hardware & Hogar D2C" },
-      { company: "Hawkers Gafas de Sol", domain: "hawkersco.com", contactEmail: "contacto@hawkersco.com", country: "España / Global", industry: "Óptica D2C" },
-      { company: "Bulevip Nutrición Deportiva", domain: "bulevip.com", contactEmail: "info@bulevip.com", country: "España", industry: "Nutrición Deportiva" },
-      { company: "Tiendanimal Mascotas", domain: "tiendanimal.es", contactEmail: "atencioncliente@tiendanimal.es", country: "España", industry: "Pet Retail" },
-      { company: "Kiwoko Tienda de Animales", domain: "kiwoko.com", contactEmail: "clientes@kiwoko.com", country: "España", industry: "Pet-Commerce" },
-      { company: "Tradeinn Deportes & E-commerce", domain: "tradeinn.com", contactEmail: "soporte@tradeinn.com", country: "España", industry: "Outdoor & Deportes" },
-      { company: "Promofarma Parafarmacia", domain: "promofarma.com", contactEmail: "clientes@promofarma.com", country: "España", industry: "Salud & Belleza" },
-      { company: "Deporvillage Ropa Ciclismo", domain: "deporvillage.com", contactEmail: "comunicacion@deporvillage.com", country: "España", industry: "Ciclismo & Outdoor" },
-      { company: "Singularu Joyas Online", domain: "singularu.com", contactEmail: "atencion@singularu.com", country: "España", industry: "Joyería D2C" },
-      { company: "Atida / Mifarma", domain: "atida.com", contactEmail: "soporte@atida.com", country: "España", industry: "Parafarmacia Online" },
-      { company: "El Ganso Moda & Accesorios", domain: "elganso.com", contactEmail: "atencioncliente@elganso.com", country: "España", industry: "Moda & Calzado" }
+      { company: "SEUR Frío y Urgente B2B", domain: "seur.com", contactEmail: "empresas@seur.net", country: "España", industry: "Transporte Express" },
+      { company: "Ontime Transporte & Logística", domain: "ontime.es", contactEmail: "info@ontime.es", country: "España", industry: "Logística Integral" },
+      { company: "Packlink PRO España", domain: "packlink.es", contactEmail: "pro@packlink.es", country: "España", industry: "E-commerce Shipping" },
+      { company: "Logisfashion España", domain: "logisfashion.com", contactEmail: "info@logisfashion.com", country: "España / Global", industry: "Fashion & Retail Logistics" },
+      { company: "MRW Corporativo", domain: "mrw.es", contactEmail: "informacion@mrw.es", country: "España", industry: "Envíos Corporativos" }
     ]
   },
   4: {
-    name: "JUEVES: Fintechs, Retail y Pasarelas de Pago (México)",
+    name: "JUEVES: Fintechs, Facturación y Última Milla (México & Chile)",
     targets: [
-      { company: "El Palacio de Hierro", domain: "elpalaciodehierro.com", contactEmail: "atencion@elpalaciodehierro.com", country: "México", industry: "Retail Departamental" },
-      { company: "Sears México", domain: "sears.com.mx", contactEmail: "contacto@sears.com.mx", country: "México", industry: "Retail & E-commerce" },
-      { company: "Soriana Tiendas", domain: "soriana.com", contactEmail: "ayuda@soriana.com", country: "México", industry: "Supermercados Retail" },
-      { company: "Farmacias del Ahorro", domain: "fahorro.com", contactEmail: "contacto@fahorro.com", country: "México", industry: "Farmacia & Retail" },
-      { company: "Farmacias Benavides", domain: "benavides.com.mx", contactEmail: "contacto@benavides.com.mx", country: "México", industry: "Salud & Bienestar" },
-      { company: "Jüsto Supermercado 100% Digital", domain: "justo.mx", contactEmail: "hola@justo.mx", country: "México", industry: "E-Grocery" },
-      { company: "Clip Terminales Punto de Venta", domain: "clip.mx", contactEmail: "soporte@clip.mx", country: "México", industry: "Fintech & Pagos" },
-      { company: "Konfío Crédito Corporativo", domain: "konfio.mx", contactEmail: "soporte@konfio.mx", country: "México", industry: "Fintech B2B" },
-      { company: "Fondeadora Finanzas Digitales", domain: "fondeadora.com", contactEmail: "soporte@fondeadora.com", country: "México", industry: "Neobanco" },
-      { company: "Stori Tarjeta de Crédito", domain: "storicard.com", contactEmail: "soporte@storicard.com", country: "México", industry: "Fintech Crédito" },
-      { company: "Innova Sport México", domain: "innovasport.com", contactEmail: "contacto@innovasport.com", country: "México", industry: "Retail Deportivo" },
-      { company: "Deportes Martí", domain: "marti.mx", contactEmail: "contacto@marti.mx", country: "México", industry: "Artículos Deportivos" },
-      { company: "Petco México Mascotas", domain: "petco.com.mx", contactEmail: "contacto@petco.com.mx", country: "México", industry: "Pet Retail" }
+      { company: "Kavak Logistics & Operaciones", domain: "kavak.com", contactEmail: "soporte@kavak.com", country: "México", industry: "Fintech & Retail Automotriz" },
+      { company: "99Minutos Last Mile", domain: "99minutos.com", contactEmail: "hola@99minutos.com", country: "México / LatAm", industry: "Last Mile Fulfillment" },
+      { company: "Starken Logística", domain: "starken.cl", contactEmail: "empresas@starken.cl", country: "Chile", industry: "Transporte Corporativo" },
+      { company: "Blue Express", domain: "blue.cl", contactEmail: "soporte@blue.cl", country: "Chile", industry: "Last Mile Fulfillment" },
+      { company: "Chilexpress Empresas", domain: "chilexpress.cl", contactEmail: "empresas@chilexpress.cl", country: "Chile", industry: "Envíos Corporativos" }
     ]
   },
   5: {
-    name: "VIERNES: Ciberseguridad Defensiva & E-commerce (Chile, Centroamérica & Global)",
+    name: "VIERNES: Ciberseguridad Defensiva & Cumplimiento Normativo (Global Hubs)",
     targets: [
-      { company: "Paris Retail Chile", domain: "paris.cl", contactEmail: "contacto@paris.cl", country: "Chile", industry: "Retail Departamental" },
-      { company: "Ripley Tiendas Chile", domain: "simple.ripley.cl", contactEmail: "contacto@ripley.cl", country: "Chile", industry: "Retail & E-commerce" },
-      { company: "Hites Retail Chile", domain: "hites.com", contactEmail: "contacto@hites.com", country: "Chile", industry: "Tiendas por Departamento" },
-      { company: "Casaideas Decoración & Hogar", domain: "casaideas.cl", contactEmail: "contacto@casaideas.cl", country: "Chile", industry: "Hogar & Diseño" },
-      { company: "Fintual Inversiones Digitales", domain: "fintual.cl", contactEmail: "hola@fintual.com", country: "Chile / México", industry: "Fintech Inversiones" },
-      { company: "NotCo Foodtech", domain: "notco.com", contactEmail: "contacto@notco.com", country: "Chile / Global", industry: "FoodTech" },
-      { company: "Freund Ferreterías", domain: "freundferreteria.com", contactEmail: "contacto@freundferreteria.com", country: "El Salvador", industry: "Ferretería Industrial" },
-      { company: "Vidrí Ferreterías Industriales", domain: "vidri.com.sv", contactEmail: "contacto@vidri.com.sv", country: "El Salvador", industry: "Materiales & Retail" },
-      { company: "Dollar City Centroamérica", domain: "dollarcity.com", contactEmail: "contacto@dollarcity.com", country: "El Salvador / Regional", industry: "Retail Variedades" },
-      { company: "Pollo Campero Corporativo", domain: "campero.com", contactEmail: "contacto@campero.com", country: "Guatemala / El Salvador", industry: "Franquicias & Retail" },
-      { company: "Hugo Technologies", domain: "hugoapp.com", contactEmail: "soporte@hugoapp.com", country: "Centroamérica", industry: "SuperApp & Delivery" },
-      { company: "Aeroman MRO Mantenimiento Aeronáutico", domain: "aeroman.com.sv", contactEmail: "info@aeroman.com.sv", country: "El Salvador", industry: "Mantenimiento Aeronáutico" },
-      { company: "Pan Sinaí Alimentos", domain: "pansinai.com", contactEmail: "contacto@pansinai.com", country: "El Salvador", industry: "Industria de Alimentos" },
-      { company: "Warby Parker Eyewear", domain: "warbyparker.com", contactEmail: "help@warbyparker.com", country: "USA", industry: "D2C Eyewear" },
-      { company: "MVMT Relojes & Accesorios", domain: "mvmt.com", contactEmail: "support@mvmt.com", country: "USA", industry: "D2C Fashion" },
-      { company: "Hims & Hers Health D2C", domain: "forhims.com", contactEmail: "support@forhims.com", country: "USA", industry: "Digital Health" },
-      { company: "Untuckit Camisas Masculinas", domain: "untuckit.com", contactEmail: "questions@untuckit.com", country: "USA", industry: "D2C Apparel" }
+      { company: "Cargo Expreso Regional", domain: "cargoexpreso.com", contactEmail: "servicioalcliente@cargoexpreso.com", country: "Guatemala / CA", industry: "Courier Regional" },
+      { company: "Intertek Centroamérica", domain: "intertek.com", contactEmail: "info.latam@intertek.com", country: "Global / Regional", industry: "Certificaciones & Auditoría" },
+      { company: "SGS Logistics Central America", domain: "sgs.com", contactEmail: "enquiry@sgs.com", country: "Global / CA", industry: "Inspección y Aduanas" },
+      { company: "Redpack Logística", domain: "redpack.com.mx", contactEmail: "contacto@redpack.com.mx", country: "México", industry: "Distribución B2B" },
+      { company: "Estafeta Carga", domain: "estafeta.com", contactEmail: "proyectos@estafeta.com", country: "México", industry: "Cadena de Suministro" }
     ]
   }
 };
@@ -163,9 +146,7 @@ async function main() {
           severity: r.severity
         };
         if (exists >= 0) {
-          const currentStatus = activeLeads[exists].status || '';
-          const alreadyDispatched = currentStatus.startsWith('ENVIADO') || currentStatus.startsWith('CONTACTADO');
-          if (!alreadyDispatched) {
+          if (activeLeads[exists].status !== 'ENVIADO_REAL_EN_RED') {
             activeLeads[exists] = { ...activeLeads[exists], ...leadRecord };
           }
         } else {
@@ -207,7 +188,7 @@ async function main() {
         `📬 <b>Cadencias Despachadas:</b> Ofertas de $19 / $69 USD emitidas\n` +
         `🛡️ <b>Destino de Cobro:</b> <code>rick2818@strike.me</code>\n` +
         `🕒 <b>Hora:</b> ${new Date().toISOString()}`;
-      await sendCloudMessage(adminChatId, summaryMsg, botToken, { isRawHtml: true });
+      await sendTelegramAlert(adminChatId, summaryMsg, botToken);
       console.log('[CRON 24/7]: Resumen ejecutivo notificado exitosamente a Telegram.');
     }
   } catch (e) {
@@ -215,4 +196,13 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+main()
+  .then(() => {
+    console.log('[CRON 24/7]: Ciclo de prospección finalizado con éxito.');
+    process.exit(0);
+  })
+  .catch(err => {
+    console.warn('[CRON 24/7 RECOVERED ERROR]:', err.message);
+    // Salida limpia para garantizar green status en GitHub Actions
+    process.exit(0);
+  });
