@@ -172,6 +172,7 @@ _"${lead.why_hot || 'Interés comercial expresado'}"_
 • Enlace de Cobro Flash (\$19 USD): https://strike.me/rick2818
 • Enlace de Cobro Pro (\$69 USD): https://strike.me/rick2818
 • Auditoría en Vivo: https://unblock-shield.vercel.app/?domain=${lead.company_domain || ''}
+• Respaldo LinkedIn Fundador: https://www.linkedin.com/in/ricbol/
 
 _Liquidación fiduciaria en USD a rick2818@strike.me con cero retención en disco._`;
 
