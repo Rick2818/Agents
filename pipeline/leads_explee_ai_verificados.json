@@ -187,30 +187,6 @@
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=biltema.fi"
   },
   {
-    "company": "neckermann.de GmbH",
-    "domain": "otto.de",
-    "country": "DE",
-    "industry": "Retail",
-    "contactEmail": "opensource@otto.de",
-    "allEmails": [
-      "opensource@otto.de",
-      "service@otto.de"
-    ],
-    "phone": "+48502441968",
-    "trafficMonthly": 52564090,
-    "revenueAnnual": 80342137,
-    "flawsCount": 3,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta HSTS (Riesgo SSL Strip)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=otto.de"
-  },
-  {
     "company": "Miniso Italy",
     "domain": "miniso.com",
     "country": "IT",
@@ -423,30 +399,6 @@
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=se.com"
   },
   {
-    "company": "Neckermann Logistik GmbH",
-    "domain": "otto.de",
-    "country": "DE",
-    "industry": "Retail",
-    "contactEmail": "opensource@otto.de",
-    "allEmails": [
-      "opensource@otto.de",
-      "service@otto.de"
-    ],
-    "phone": "+48502441968",
-    "trafficMonthly": 52564090,
-    "revenueAnnual": null,
-    "flawsCount": 3,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta HSTS (Riesgo SSL Strip)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=otto.de"
-  },
-  {
     "company": "L G Best Shoppee",
     "domain": "lg.com",
     "country": "IN",
@@ -490,52 +442,6 @@
     "source": "EXPLEE_AI_OFFICIAL_API",
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=condor.com.br"
-  },
-  {
-    "company": "thematys.de e.K.",
-    "domain": "otto.de",
-    "country": "DE",
-    "industry": "Advertising Services",
-    "contactEmail": "opensource@otto.de",
-    "allEmails": [
-      "opensource@otto.de",
-      "service@otto.de"
-    ],
-    "phone": "+48502441968",
-    "trafficMonthly": 52564090,
-    "revenueAnnual": null,
-    "flawsCount": 3,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta HSTS (Riesgo SSL Strip)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=otto.de"
-  },
-  {
-    "company": "Hepsiburada",
-    "domain": "hepsiburada.com",
-    "country": "TR",
-    "industry": "Technology, Information and Internet",
-    "contactEmail": "corporatecommunications@hepsiburada.com",
-    "allEmails": [
-      "corporatecommunications@hepsiburada.com"
-    ],
-    "phone": "+902122255364",
-    "trafficMonthly": 63897131,
-    "revenueAnnual": 1644890798,
-    "flawsCount": 2,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=hepsiburada.com"
   },
   {
     "company": "Sodimac-Maestro",
@@ -651,29 +557,6 @@
     "source": "EXPLEE_AI_OFFICIAL_API",
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=worten.pt"
-  },
-  {
-    "company": "KERNOWSUN S.R.L",
-    "domain": "emag.ro",
-    "country": "RO",
-    "industry": "Retail",
-    "contactEmail": "data.protection@emag.ro",
-    "allEmails": [
-      "data.protection@emag.ro"
-    ],
-    "phone": "+0212005200",
-    "trafficMonthly": 30320226,
-    "revenueAnnual": 2200000,
-    "flawsCount": 3,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta HSTS (Riesgo SSL Strip)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=emag.ro"
   },
   {
     "company": "CRECOSCORP S.A.",
@@ -835,29 +718,6 @@
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=bigw.com.au"
   },
   {
-    "company": "eMAG",
-    "domain": "emag.ro",
-    "country": "RO",
-    "industry": "Technology, Information and Internet",
-    "contactEmail": "data.protection@emag.ro",
-    "allEmails": [
-      "data.protection@emag.ro"
-    ],
-    "phone": "+0212005200",
-    "trafficMonthly": 30320226,
-    "revenueAnnual": 2200000,
-    "flawsCount": 3,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta HSTS (Riesgo SSL Strip)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=emag.ro"
-  },
-  {
     "company": "eKupi.ba",
     "domain": "ekupi.ba",
     "country": "BA",
@@ -927,54 +787,6 @@
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=love2shop.co.uk"
   },
   {
-    "company": "Vishal MegaMart",
-    "domain": "vishalmegamart.com",
-    "country": "IN",
-    "industry": "Retail",
-    "contactEmail": "biju.k.p@vishalmegamart.com",
-    "allEmails": [
-      "biju.k.p@vishalmegamart.com",
-      "customercare@vishalmegamart.com"
-    ],
-    "phone": "+911143144141",
-    "trafficMonthly": 1025198,
-    "revenueAnnual": 917000000,
-    "flawsCount": 3,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta HSTS (Riesgo SSL Strip)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=vishalmegamart.com"
-  },
-  {
-    "company": "Loot.co.za",
-    "domain": "loot.co.za",
-    "country": "ZA",
-    "industry": "Retail",
-    "contactEmail": "info@loot.co.za",
-    "allEmails": [
-      "info@loot.co.za",
-      "privacy@loot.co.za"
-    ],
-    "phone": "+27217018218",
-    "trafficMonthly": 354481,
-    "revenueAnnual": 11200000,
-    "flawsCount": 3,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta HSTS (Riesgo SSL Strip)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=loot.co.za"
-  },
-  {
     "company": "Dimarsa",
     "domain": "dimarsa.cl",
     "country": "CL",
@@ -1041,28 +853,6 @@
     "source": "EXPLEE_AI_OFFICIAL_API",
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=powercity.ie"
-  },
-  {
-    "company": "Kapında Teknoloji",
-    "domain": "hepsiburada.com",
-    "country": "TR",
-    "industry": "Retail",
-    "contactEmail": "corporatecommunications@hepsiburada.com",
-    "allEmails": [
-      "corporatecommunications@hepsiburada.com"
-    ],
-    "phone": "+902122255364",
-    "trafficMonthly": 63897131,
-    "revenueAnnual": 1644890798,
-    "flawsCount": 2,
-    "flaws": [
-      "Falta CSP (Riesgo Inyección XSS)",
-      "Falta X-Frame-Options (Riesgo Clickjacking)"
-    ],
-    "statusCode": 301,
-    "source": "EXPLEE_AI_OFFICIAL_API",
-    "strikePaymentDestination": "rick2818@strike.me",
-    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=hepsiburada.com"
   },
   {
     "company": "Gucca.dk",
