@@ -144,6 +144,7 @@
       <!-- Navigation Links -->
       <div class="hidden md:flex items-center gap-8 text-xs font-medium text-slate-300">
         <a href="#proposito" class="hover:text-cyan-400 transition-colors" data-i18n="nav-purpose">Propósito</a>
+        <a href="#video" class="hover:text-cyan-400 transition-colors text-cyan-300 font-semibold flex items-center gap-1.5" data-i18n="nav-video"><span class="pulse-dot w-1.5 h-1.5 rounded-full bg-cyan-400"></span>Master Pitch</a>
         <a href="#portafolio" class="hover:text-cyan-400 transition-colors" data-i18n="nav-portfolio">Portafolio</a>
         <a href="#paz-mental" class="hover:text-cyan-400 transition-colors" data-i18n="nav-peace">Paz Mental</a>
         <a href="#liderazgo" class="hover:text-cyan-400 transition-colors" data-i18n="nav-leadership">Liderazgo</a>
@@ -243,6 +244,52 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PRESENTACIÓN EJECUTIVA EN VIDEO: MASTER PITCH BOLTECH GROUP           -->
+    <!-- ===================================================================== -->
+    <section id="video" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase mb-3">
+          <span class="pulse-dot w-2 h-2 rounded-full bg-cyan-400"></span>
+          <span data-i18n="video-pill">SESIÓN ESTRATÉGICA DE DIRECCIÓN • HOLDING PITCH</span>
+        </div>
+        <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="video-title">
+          Master Pitch: Infraestructura Autónoma & Ciberseguridad Fiduciaria
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2" data-i18n="video-desc">
+          Sesión ejecutiva de 15 escenas sobre blindaje perimetral, liquidación multidivisa y escala desatendida.
+        </p>
+      </div>
+
+      <!-- Selector de Presentación de Video -->
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <button type="button" id="btn-boltech-master" onclick="switchBoltechVideo('master')" class="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs font-mono transition-all cursor-pointer shadow-lg shadow-cyan-500/30">
+          ⚡ Master Pitch BolTech (3m)
+        </button>
+        <button type="button" id="btn-boltech-sales" onclick="switchBoltechVideo('sales')" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white font-bold text-xs font-mono transition-all cursor-pointer">
+          💼 Agente de Ventas B2B (Caso Harvard · 2m)
+        </button>
+        <button type="button" id="btn-boltech-exec" onclick="switchBoltechVideo('exec')" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white font-bold text-xs font-mono transition-all cursor-pointer">
+          🏛️ Síntesis de Dirección (70s)
+        </button>
+      </div>
+
+      <div class="relative w-full aspect-video rounded-2xl overflow-hidden glass-card border-2 border-cyan-500/30 shadow-2xl shadow-cyan-950/60">
+        <video id="boltech-pitch-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/poster_sales_closer.jpg" class="w-full h-full object-cover">
+          <source src="assets/videos/boltech_master_pitch.mp4" type="video/mp4">
+          Tu navegador no soporta reproducción de video HTML5.
+        </video>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 mt-4 px-2 text-[11px] font-mono text-slate-400">
+        <span class="flex items-center gap-1.5 text-cyan-300">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 pulse-dot"></span>
+          <span>Resolución 1080p · Subtítulos Ejecutivos Incrustados</span>
+        </span>
+        <span class="text-slate-400">Audio Neuronal Calibrado (/ʃiːld/) · Cero Términos Invasivos</span>
       </div>
     </section>
 
@@ -606,10 +653,14 @@
     const translations = {
       es: {
         'nav-purpose': 'Propósito',
+        'nav-video': 'Master Pitch',
         'nav-portfolio': 'Portafolio',
         'nav-peace': 'Paz Mental',
         'nav-leadership': 'Liderazgo',
         'cta-primary-nav': 'Explorar Unblock AI',
+        'video-pill': 'SESIÓN ESTRATÉGICA DE DIRECCIÓN • HOLDING PITCH',
+        'video-title': 'Master Pitch: Infraestructura Autónoma & Ciberseguridad Fiduciaria',
+        'video-desc': 'Sesión ejecutiva de 15 escenas sobre blindaje perimetral, liquidación multidivisa y escala desatendida.',
         'hero-pill': 'HOLDING TECNOLÓGICO & VENTURE STUDIO DE INFRAESTRUCTURA AUTÓNOMA',
         'hero-h1-1': 'Ingeniería autónoma que protege su capital y le devuelve',
         'hero-h1-2': 'la paz mental operativa 24/7.',
@@ -639,10 +690,14 @@
       },
       en: {
         'nav-purpose': 'Purpose',
+        'nav-video': 'Master Pitch',
         'nav-portfolio': 'Portfolio',
         'nav-peace': 'Peace of Mind',
         'nav-leadership': 'Leadership',
         'cta-primary-nav': 'Explore Unblock AI',
+        'video-pill': 'EXECUTIVE STRATEGY SESSION • HOLDING PITCH',
+        'video-title': 'Master Pitch: Autonomous Infrastructure & Fiduciary Cybersecurity',
+        'video-desc': '15-scene executive briefing on perimeter hardening, multi-currency settlement, and unattended scale.',
         'hero-pill': 'AUTONOMOUS CLOUD INFRASTRUCTURE & TECH VENTURE HOLDING',
         'hero-h1-1': 'Autonomous engineering defending your capital and delivering',
         'hero-h1-2': 'true 24/7 operational peace of mind.',
@@ -663,7 +718,7 @@
         'port-title': 'Purpose-Built Engineering Units',
         'port-desc': 'We operate autonomous specialized business divisions, each architected to solve a critical enterprise bottleneck with technical precision and zero human intervention.',
         'unblock-card-desc': 'Unified enterprise platform pairing defensive cybersecurity with operational automation: (1) Non-invasive 15-second perimeter auditing & header hardening (CSP, HSTS, X-Frame) and (2) Custom autonomous agent synthesis to eradicate bottlenecks in customer service, sales qualification, and day-to-day operations.',
-        'auditflow-card-desc': 'B2B contract forensic auditing & redline generation engine delivering reviewed Word (.docx) files in under 10 seconds. Processes 100% in volatile RAM (EU GDPR Art. 28, zero disk retention), preventing $3,500 - $18,500 USD in hidden liabilities, indemnity traps, and financial leakage before signing.',
+        'auditflow-card-desc': 'B2B contract clinical auditing & redline generation engine delivering reviewed Word (.docx) files in under 10 seconds. Processes 100% in volatile RAM (EU GDPR Art. 28, zero disk retention), preventing $3,500 - $18,500 USD in hidden liabilities, indemnity traps, and financial leakage before signing.',
         'leader-role': 'Founder & Managing Director — BolTech Group',
         'leader-quote': '«Without paying clients there is no revenue, and without revenue there is no business. At BolTech Group, we do not build fragile prototypes; we engineer sovereign software that resolves real cash leaks, settles in minutes, and restores true peace of mind to leadership.»',
         'final-cta-title': 'Ready to harden your enterprise and operate with total peace of mind?',
@@ -689,6 +744,37 @@
 
     function toggleLanguage() {
       setLanguage(currentLang === 'es' ? 'en' : 'es');
+    }
+
+    // Video Switcher for BolTech Group App
+    function switchBoltechVideo(type) {
+      const vid = document.getElementById('boltech-pitch-video');
+      const btnMaster = document.getElementById('btn-boltech-master');
+      const btnSales = document.getElementById('btn-boltech-sales');
+      const btnExec = document.getElementById('btn-boltech-exec');
+      if (!vid) return;
+
+      const activeClass = 'px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs font-mono transition-all cursor-pointer shadow-lg shadow-cyan-500/30';
+      const inactiveClass = 'px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white font-bold text-xs font-mono transition-all cursor-pointer';
+
+      if (btnMaster) btnMaster.className = inactiveClass;
+      if (btnSales) btnSales.className = inactiveClass;
+      if (btnExec) btnExec.className = inactiveClass;
+
+      if (type === 'master') {
+        vid.poster = 'assets/videos/poster_sales_closer.jpg';
+        vid.src = 'assets/videos/boltech_master_pitch.mp4';
+        if (btnMaster) btnMaster.className = activeClass;
+      } else if (type === 'sales') {
+        vid.poster = 'assets/videos/poster_sales_closer.jpg';
+        vid.src = 'assets/videos/sales_closer_briefing.mp4';
+        if (btnSales) btnSales.className = activeClass;
+      } else if (type === 'exec') {
+        vid.poster = 'assets/videos/poster_executive.jpg';
+        vid.src = 'assets/videos/executive_briefing.mp4';
+        if (btnExec) btnExec.className = activeClass;
+      }
+      vid.load();
     }
 
     // Auto-detect browser language or query param ?lang=en
