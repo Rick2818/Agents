@@ -1,0 +1,1158 @@
+[
+  {
+    "company": "OTTO",
+    "domain": "otto.de",
+    "country": "DE",
+    "industry": "Online and Mail Order Retail",
+    "contactEmail": "opensource@otto.de",
+    "allEmails": [
+      "opensource@otto.de",
+      "service@otto.de"
+    ],
+    "phone": "+48502441968",
+    "trafficMonthly": 52564090,
+    "revenueAnnual": 9424705,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=otto.de"
+  },
+  {
+    "company": "Vishal Mega Mart Limited",
+    "domain": "vishalmegamart.com",
+    "country": "IN",
+    "industry": "Retail",
+    "contactEmail": "biju.k.p@vishalmegamart.com",
+    "allEmails": [
+      "biju.k.p@vishalmegamart.com",
+      "customercare@vishalmegamart.com"
+    ],
+    "phone": "+911143144141",
+    "trafficMonthly": 1025198,
+    "revenueAnnual": 917000000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=vishalmegamart.com"
+  },
+  {
+    "company": "Alza",
+    "domain": "alza.cz",
+    "country": "CZ",
+    "industry": "Consumer Goods",
+    "contactEmail": "info@alza.hu",
+    "allEmails": [
+      "info@alza.hu",
+      "info@publero.com",
+      "security@alza.cz"
+    ],
+    "phone": "+2782440",
+    "trafficMonthly": 16040716,
+    "revenueAnnual": 1135454500,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)"
+    ],
+    "statusCode": 403,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=alza.cz"
+  },
+  {
+    "company": "Verkkokauppa.com",
+    "domain": "verkkokauppa.com",
+    "country": "FI",
+    "industry": "Retail",
+    "contactEmail": "myynti@verkkokauppa.com",
+    "allEmails": [
+      "myynti@verkkokauppa.com"
+    ],
+    "phone": "+0600552424",
+    "trafficMonthly": 4457140,
+    "revenueAnnual": 512441782,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=verkkokauppa.com"
+  },
+  {
+    "company": "Empik. Salon partnerski",
+    "domain": "empik.com",
+    "country": "DE",
+    "industry": "Retail Office Equipment",
+    "contactEmail": "media@empik.com",
+    "allEmails": [
+      "media@empik.com"
+    ],
+    "phone": "+48224610606",
+    "trafficMonthly": 18352604,
+    "revenueAnnual": null,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=empik.com"
+  },
+  {
+    "company": "Skroutz",
+    "domain": "skroutz.gr",
+    "country": "GR",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "pr@skroutz.gr",
+    "allEmails": [
+      "pr@skroutz.gr"
+    ],
+    "phone": "+302102752057",
+    "trafficMonthly": 40125290,
+    "revenueAnnual": 40000000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=skroutz.gr"
+  },
+  {
+    "company": "eMAG Poland",
+    "domain": "emag.ro",
+    "country": "PL",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "data.protection@emag.ro",
+    "allEmails": [
+      "data.protection@emag.ro"
+    ],
+    "phone": "+0212005200",
+    "trafficMonthly": 30320226,
+    "revenueAnnual": 2200000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=emag.ro"
+  },
+  {
+    "company": "Biltema Suomi Oy",
+    "domain": "biltema.fi",
+    "country": "FI",
+    "industry": "Retail",
+    "contactEmail": "asiakaspalvelu@biltema.fi",
+    "allEmails": [
+      "asiakaspalvelu@biltema.fi",
+      "biltema@biltema.fi",
+      "talous@biltema.fi"
+    ],
+    "phone": "+0942705830",
+    "trafficMonthly": 2298256,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=biltema.fi"
+  },
+  {
+    "company": "neckermann.de GmbH",
+    "domain": "otto.de",
+    "country": "DE",
+    "industry": "Retail",
+    "contactEmail": "opensource@otto.de",
+    "allEmails": [
+      "opensource@otto.de",
+      "service@otto.de"
+    ],
+    "phone": "+48502441968",
+    "trafficMonthly": 52564090,
+    "revenueAnnual": 80342137,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=otto.de"
+  },
+  {
+    "company": "Miniso Italy",
+    "domain": "miniso.com",
+    "country": "IT",
+    "industry": "Retail",
+    "contactEmail": "compliance@miniso.com",
+    "allEmails": [
+      "compliance@miniso.com",
+      "franchise@miniso.com",
+      "globalsourcing@miniso.com",
+      "pr@miniso.com",
+      "privacy@miniso.com"
+    ],
+    "phone": "+12245208474",
+    "trafficMonthly": 1116019,
+    "revenueAnnual": 2019081636,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 200,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=miniso.com"
+  },
+  {
+    "company": "Coop.dk",
+    "domain": "coop.dk",
+    "country": "DK",
+    "industry": "E-commerce & Retail",
+    "contactEmail": "forbrugerservice@forbruger.coop.dk",
+    "allEmails": [
+      "forbrugerservice@forbruger.coop.dk",
+      "jens.juul.nielsen@coop.dk",
+      "simon.nyborg@coop.dk"
+    ],
+    "phone": "+26259495",
+    "trafficMonthly": 2434899,
+    "revenueAnnual": 6467521,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)"
+    ],
+    "statusCode": 200,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=coop.dk"
+  },
+  {
+    "company": "TVentas",
+    "domain": "tventas.com",
+    "country": "EC",
+    "industry": "Retail",
+    "contactEmail": "ordersweb@tventas.net",
+    "allEmails": [
+      "ordersweb@tventas.net"
+    ],
+    "phone": "+0103192",
+    "trafficMonthly": 236042,
+    "revenueAnnual": 5541433,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)"
+    ],
+    "statusCode": 302,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=tventas.com"
+  },
+  {
+    "company": "HKTVmall",
+    "domain": "hktvmall.com",
+    "country": "HK",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "pr@hktv.com.hk",
+    "allEmails": [
+      "pr@hktv.com.hk"
+    ],
+    "phone": "+818072259881",
+    "trafficMonthly": 3146782,
+    "revenueAnnual": 24100000,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)"
+    ],
+    "statusCode": 302,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=hktvmall.com"
+  },
+  {
+    "company": "Tradeinn SL",
+    "domain": "tradeinn.com",
+    "country": "ES",
+    "industry": "Sporting Goods Manufacturing",
+    "contactEmail": "lopd@tradeinn.com",
+    "allEmails": [
+      "lopd@tradeinn.com",
+      "tradeinn.com@tradeinn.com"
+    ],
+    "phone": "+17527524",
+    "trafficMonthly": 17778206,
+    "revenueAnnual": 720780000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=tradeinn.com"
+  },
+  {
+    "company": "NilinDunyasi",
+    "domain": "hepsiburada.com",
+    "country": "TR",
+    "industry": "Personal Care Product Manufacturing",
+    "contactEmail": "corporatecommunications@hepsiburada.com",
+    "allEmails": [
+      "corporatecommunications@hepsiburada.com"
+    ],
+    "phone": "+902122255364",
+    "trafficMonthly": 63897131,
+    "revenueAnnual": 1644890798,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=hepsiburada.com"
+  },
+  {
+    "company": "Kırtasiye Shop",
+    "domain": "godaddy.com",
+    "country": "TR",
+    "industry": "Manufacturing",
+    "contactEmail": "help@godaddy.com",
+    "allEmails": [
+      "help@godaddy.com",
+      "nima@godaddy.com",
+      "pr@godaddy.com",
+      "questions@godaddy.com",
+      "support@godaddy.com"
+    ],
+    "phone": "+12029386542",
+    "trafficMonthly": 45530709,
+    "revenueAnnual": 4951100000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=godaddy.com"
+  },
+  {
+    "company": "Webcontinental",
+    "domain": "webcontinental.com.br",
+    "country": "BR",
+    "industry": "Retail",
+    "contactEmail": "lgpd@webcontinental.com.br",
+    "allEmails": [
+      "lgpd@webcontinental.com.br",
+      "ouvidoria@webcontinental.com.br",
+      "webcontinental@webcontinental.com.br"
+    ],
+    "phone": "+08007411174",
+    "trafficMonthly": 1060884,
+    "revenueAnnual": 6940020,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=webcontinental.com.br"
+  },
+  {
+    "company": "NLSHOP",
+    "domain": "se.com",
+    "country": "NL",
+    "industry": "E-commerce & Retail",
+    "contactEmail": "global.dnsadmin@eud.schneider-electric.com",
+    "allEmails": [
+      "global.dnsadmin@eud.schneider-electric.com"
+    ],
+    "phone": "+12013489240",
+    "trafficMonthly": 5853127,
+    "revenueAnnual": 44384274240,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=se.com"
+  },
+  {
+    "company": "Neckermann Logistik GmbH",
+    "domain": "otto.de",
+    "country": "DE",
+    "industry": "Retail",
+    "contactEmail": "opensource@otto.de",
+    "allEmails": [
+      "opensource@otto.de",
+      "service@otto.de"
+    ],
+    "phone": "+48502441968",
+    "trafficMonthly": 52564090,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=otto.de"
+  },
+  {
+    "company": "L G Best Shoppee",
+    "domain": "lg.com",
+    "country": "IN",
+    "industry": "Retail",
+    "contactEmail": "lgpr@lge.com",
+    "allEmails": [
+      "lgpr@lge.com"
+    ],
+    "phone": "+12018162000",
+    "trafficMonthly": 36171273,
+    "revenueAnnual": 59345193823,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=lg.com"
+  },
+  {
+    "company": "Hiper Condor Jardim Carvalho",
+    "domain": "condor.com.br",
+    "country": "BR",
+    "industry": "Retail",
+    "contactEmail": "sac@condor.com.br",
+    "allEmails": [
+      "sac@condor.com.br"
+    ],
+    "phone": "+551129050594",
+    "trafficMonthly": 415649,
+    "revenueAnnual": 84335000,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=condor.com.br"
+  },
+  {
+    "company": "thematys.de e.K.",
+    "domain": "otto.de",
+    "country": "DE",
+    "industry": "Advertising Services",
+    "contactEmail": "opensource@otto.de",
+    "allEmails": [
+      "opensource@otto.de",
+      "service@otto.de"
+    ],
+    "phone": "+48502441968",
+    "trafficMonthly": 52564090,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=otto.de"
+  },
+  {
+    "company": "Hepsiburada",
+    "domain": "hepsiburada.com",
+    "country": "TR",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "corporatecommunications@hepsiburada.com",
+    "allEmails": [
+      "corporatecommunications@hepsiburada.com"
+    ],
+    "phone": "+902122255364",
+    "trafficMonthly": 63897131,
+    "revenueAnnual": 1644890798,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=hepsiburada.com"
+  },
+  {
+    "company": "Sodimac-Maestro",
+    "domain": "falabella.com.pe",
+    "country": "PE",
+    "industry": "E-commerce & Retail",
+    "contactEmail": "atencionalcliente@falabella.com.pe",
+    "allEmails": [
+      "atencionalcliente@falabella.com.pe",
+      "contacto@sagafalabella.com.pe"
+    ],
+    "phone": "+012037050",
+    "trafficMonthly": 21801595,
+    "revenueAnnual": null,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=falabella.com.pe"
+  },
+  {
+    "company": "Brand Factor Pune",
+    "domain": "puma.com",
+    "country": "IN",
+    "industry": "Retail Apparel and Fashion",
+    "contactEmail": "customerservice@puma.com",
+    "allEmails": [
+      "customerservice@puma.com"
+    ],
+    "phone": "+12156371063",
+    "trafficMonthly": 41680088,
+    "revenueAnnual": 8886345469,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=puma.com"
+  },
+  {
+    "company": "Croma",
+    "domain": "croma.com",
+    "country": "IN",
+    "industry": "Retail",
+    "contactEmail": "care@cromaretail.com",
+    "allEmails": [
+      "care@cromaretail.com"
+    ],
+    "phone": "+911149634163",
+    "trafficMonthly": 18468571,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 403,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=croma.com"
+  },
+  {
+    "company": "Loot.co.za (Africa Online Retail (Pty) Ltd)",
+    "domain": "loot.co.za",
+    "country": "ZA",
+    "industry": "Retail",
+    "contactEmail": "info@loot.co.za",
+    "allEmails": [
+      "info@loot.co.za",
+      "privacy@loot.co.za"
+    ],
+    "phone": "+27217018218",
+    "trafficMonthly": 354481,
+    "revenueAnnual": 11200000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=loot.co.za"
+  },
+  {
+    "company": "Dott",
+    "domain": "worten.pt",
+    "country": "PT",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "cliente@worten.pt",
+    "allEmails": [
+      "cliente@worten.pt"
+    ],
+    "phone": "+351210155222",
+    "trafficMonthly": 11113264,
+    "revenueAnnual": null,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=worten.pt"
+  },
+  {
+    "company": "KERNOWSUN S.R.L",
+    "domain": "emag.ro",
+    "country": "RO",
+    "industry": "Retail",
+    "contactEmail": "data.protection@emag.ro",
+    "allEmails": [
+      "data.protection@emag.ro"
+    ],
+    "phone": "+0212005200",
+    "trafficMonthly": 30320226,
+    "revenueAnnual": 2200000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=emag.ro"
+  },
+  {
+    "company": "CRECOSCORP S.A.",
+    "domain": "crecos.com",
+    "country": "EC",
+    "industry": "Retail",
+    "contactEmail": "privacidad@cresa.ec",
+    "allEmails": [
+      "privacidad@cresa.ec",
+      "servicioalcliente@creditoseconomicos.com"
+    ],
+    "phone": "+59322330900",
+    "trafficMonthly": 225418,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=crecos.com"
+  },
+  {
+    "company": "mimovrste d.o.o.",
+    "domain": "mimovrste.com",
+    "country": "SI",
+    "industry": "Retail",
+    "contactEmail": "info@mimovrste.com",
+    "allEmails": [
+      "info@mimovrste.com",
+      "pr@mimovrste.si"
+    ],
+    "phone": "+38645811600",
+    "trafficMonthly": 2306379,
+    "revenueAnnual": 4724741,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta HSTS (Riesgo SSL Strip)"
+    ],
+    "statusCode": 403,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=mimovrste.com"
+  },
+  {
+    "company": "MALL.HR",
+    "domain": "mall.hr",
+    "country": "HR",
+    "industry": "Retail",
+    "contactEmail": "info@mall.hr",
+    "allEmails": [
+      "info@mall.hr"
+    ],
+    "phone": "+38518000190",
+    "trafficMonthly": 1043646,
+    "revenueAnnual": null,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta HSTS (Riesgo SSL Strip)"
+    ],
+    "statusCode": 403,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=mall.hr"
+  },
+  {
+    "company": "HabibiDeal Online Shopping in Middle East",
+    "domain": "telkomsel.com",
+    "country": "AE",
+    "industry": "Wholesale",
+    "contactEmail": "cs@telkomsel.co.id",
+    "allEmails": [
+      "cs@telkomsel.co.id"
+    ],
+    "phone": "+0215240811",
+    "trafficMonthly": 24348249,
+    "revenueAnnual": 5726552189,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 302,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=telkomsel.com"
+  },
+  {
+    "company": "Pepita Group",
+    "domain": "pepita.hu",
+    "country": "HU",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "email@pepita.hu",
+    "allEmails": [
+      "email@pepita.hu",
+      "varga.zoltan@pepita.hu"
+    ],
+    "phone": "+3615100500",
+    "trafficMonthly": 3219275,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 200,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=pepita.hu"
+  },
+  {
+    "company": "Bauer Weltbild Media",
+    "domain": "taniaksiazka.pl",
+    "country": "PL",
+    "industry": "E-commerce & Retail",
+    "contactEmail": "kontakt@taniaksiazka.pl",
+    "allEmails": [
+      "kontakt@taniaksiazka.pl"
+    ],
+    "phone": "+445423151157",
+    "trafficMonthly": 1438670,
+    "revenueAnnual": 13197900,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=taniaksiazka.pl"
+  },
+  {
+    "company": "BIG W BrickworksS",
+    "domain": "bigw.com.au",
+    "country": "AU",
+    "industry": "Retail",
+    "contactEmail": "onlineorders@bigw.com.au",
+    "allEmails": [
+      "onlineorders@bigw.com.au"
+    ],
+    "phone": "+1300244999",
+    "trafficMonthly": 23969946,
+    "revenueAnnual": 3124426500,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=bigw.com.au"
+  },
+  {
+    "company": "eMAG",
+    "domain": "emag.ro",
+    "country": "RO",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "data.protection@emag.ro",
+    "allEmails": [
+      "data.protection@emag.ro"
+    ],
+    "phone": "+0212005200",
+    "trafficMonthly": 30320226,
+    "revenueAnnual": 2200000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=emag.ro"
+  },
+  {
+    "company": "eKupi.ba",
+    "domain": "ekupi.ba",
+    "country": "BA",
+    "industry": "Technology, Information and Internet",
+    "contactEmail": "info@ekupi.ba",
+    "allEmails": [
+      "info@ekupi.ba"
+    ],
+    "phone": "+00547006",
+    "trafficMonthly": 609879,
+    "revenueAnnual": 3528883,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=ekupi.ba"
+  },
+  {
+    "company": "Wollongong Unishop",
+    "domain": "uow.edu.au",
+    "country": "AU",
+    "industry": "Book and Periodical Publishing",
+    "contactEmail": "campuseast@uow.edu.au",
+    "allEmails": [
+      "campuseast@uow.edu.au"
+    ],
+    "phone": "+611300367869",
+    "trafficMonthly": 1615887,
+    "revenueAnnual": 820679000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 302,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=uow.edu.au"
+  },
+  {
+    "company": "LOVE2SHOP LTD",
+    "domain": "love2shop.co.uk",
+    "country": "GB",
+    "industry": "E-commerce & Retail",
+    "contactEmail": "info@love2shop.co.uk",
+    "allEmails": [
+      "info@love2shop.co.uk"
+    ],
+    "phone": "+00402152",
+    "trafficMonthly": 807054,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=love2shop.co.uk"
+  },
+  {
+    "company": "Vishal MegaMart",
+    "domain": "vishalmegamart.com",
+    "country": "IN",
+    "industry": "Retail",
+    "contactEmail": "biju.k.p@vishalmegamart.com",
+    "allEmails": [
+      "biju.k.p@vishalmegamart.com",
+      "customercare@vishalmegamart.com"
+    ],
+    "phone": "+911143144141",
+    "trafficMonthly": 1025198,
+    "revenueAnnual": 917000000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=vishalmegamart.com"
+  },
+  {
+    "company": "Loot.co.za",
+    "domain": "loot.co.za",
+    "country": "ZA",
+    "industry": "Retail",
+    "contactEmail": "info@loot.co.za",
+    "allEmails": [
+      "info@loot.co.za",
+      "privacy@loot.co.za"
+    ],
+    "phone": "+27217018218",
+    "trafficMonthly": 354481,
+    "revenueAnnual": 11200000,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=loot.co.za"
+  },
+  {
+    "company": "Dimarsa",
+    "domain": "dimarsa.cl",
+    "country": "CL",
+    "industry": "Retail",
+    "contactEmail": "contacto@dimarsa.cl",
+    "allEmails": [
+      "contacto@dimarsa.cl"
+    ],
+    "phone": "+16004018700",
+    "trafficMonthly": 199638,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=dimarsa.cl"
+  },
+  {
+    "company": "pearl.fr",
+    "domain": "pearl.fr",
+    "country": "FR",
+    "industry": "Computers and Electronics Manufacturing",
+    "contactEmail": "commercial@pearl.fr",
+    "allEmails": [
+      "commercial@pearl.fr",
+      "support@pearl.fr"
+    ],
+    "phone": "+0388580202",
+    "trafficMonthly": 355174,
+    "revenueAnnual": 1759222,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=pearl.fr"
+  },
+  {
+    "company": "Powercity 2020 All",
+    "domain": "powercity.ie",
+    "country": "IE",
+    "industry": "Retail",
+    "contactEmail": "info@powercity.ie",
+    "allEmails": [
+      "info@powercity.ie"
+    ],
+    "phone": "+35312855733",
+    "trafficMonthly": 277285,
+    "revenueAnnual": null,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)"
+    ],
+    "statusCode": 200,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=powercity.ie"
+  },
+  {
+    "company": "Kapında Teknoloji",
+    "domain": "hepsiburada.com",
+    "country": "TR",
+    "industry": "Retail",
+    "contactEmail": "corporatecommunications@hepsiburada.com",
+    "allEmails": [
+      "corporatecommunications@hepsiburada.com"
+    ],
+    "phone": "+902122255364",
+    "trafficMonthly": 63897131,
+    "revenueAnnual": 1644890798,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=hepsiburada.com"
+  },
+  {
+    "company": "Gucca.dk",
+    "domain": "gucca.dk",
+    "country": "DK",
+    "industry": "Online and Mail Order Retail",
+    "contactEmail": "customerservice@gucca.dk",
+    "allEmails": [
+      "customerservice@gucca.dk",
+      "kundeservice@gucca.dk"
+    ],
+    "phone": "+25794583",
+    "trafficMonthly": 328915,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=gucca.dk"
+  },
+  {
+    "company": "Freemans",
+    "domain": "freemans.com",
+    "country": "GB",
+    "industry": "Retail",
+    "contactEmail": "customer.services@freemans.com",
+    "allEmails": [
+      "customer.services@freemans.com"
+    ],
+    "phone": "+12486349641",
+    "trafficMonthly": 3237926,
+    "revenueAnnual": 6212992,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=freemans.com"
+  },
+  {
+    "company": "KEMIK.COM",
+    "domain": "kemik.gt",
+    "country": "GT",
+    "industry": "IT Services and IT Consulting",
+    "contactEmail": "info@kemik.gt",
+    "allEmails": [
+      "info@kemik.gt"
+    ],
+    "phone": "+50223005678",
+    "trafficMonthly": 1233575,
+    "revenueAnnual": null,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta HSTS (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 308,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=kemik.gt"
+  },
+  {
+    "company": "Weis Market",
+    "domain": "weismarkets.com",
+    "country": "US",
+    "industry": "IT Services and IT Consulting",
+    "contactEmail": "customerservice@weismarkets.com",
+    "allEmails": [
+      "customerservice@weismarkets.com"
+    ],
+    "phone": "+12152491440",
+    "trafficMonthly": 1259983,
+    "revenueAnnual": 4895578000,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo Inyección XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301,
+    "source": "EXPLEE_AI_OFFICIAL_API",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=weismarkets.com"
+  }
+]
