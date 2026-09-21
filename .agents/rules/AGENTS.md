@@ -52,4 +52,11 @@
    - **Cero Leads Sintéticos ni Simulación:** Queda terminantemente prohibido utilizar prospectos ficticios, generadores aleatorios, banderas de prueba forzada (`dryRun = true`), correos sintéticos o mocks en operaciones de producción y cadencias programadas.
    - **Auditabilidad de Red Obligatoria:** Cada despacho debe generar y registrar su ID de transacción genuino emitido por el servidor de transporte (Gmail SMTPS / Resend API) en el registro inmutable `pipeline/leads_contactados_activos.json`.
    - **Vigencia Universal e Inmutable:** Esta regla rige de manera perpetua para `Destraba AI`, `Unblock AI Shield` y cualquier proyecto, agente o flujo futuro creado en este ecosistema fiduciario.
+13. **Regla de Oro de Rigor Analítico, Diagnóstico Profundo y Planificación Previa (Cero Análisis a la Ligera, Cero Alucinación, Cero Respuestas Superficiales):**
+   - **Prohibición de Análisis a la Ligera:** Para toda consulta, corrección, reporte de fallo o desarrollo de software, queda terminantemente prohibido emitir análisis superficiales, respuestas precipitadas o asumir premisas sin inspección técnica exhaustiva.
+   - **Diagnóstico Profundo Obligatorio:** Antes de proponer o aplicar cualquier cambio, el sistema DEBE inspeccionar a fondo el código fuente, los scripts, las dependencias, los logs de ejecución y la causa raíz exacta del problema o requerimiento.
+   - **Plan Estructurado Previo:** Todo desarrollo o corrección requiere la formulación de un plan claro con diagnóstico, estrategia anti-fallos y pasos de verificación antes de proceder a la ejecución.
+   - **Cero Alucinación y Veracidad Estricta:** Queda estrictamente prohibido alucinar, inventar explicaciones, especular sin evidencia o contestar a la ligera. Cada afirmación técnica debe estar sustentada en hechos verificables, pruebas reproducibles y código real.
+   - **Ejecución Precisa de lo Solicitado:** Una vez diagnosticado y planificado, se procederá rigurosamente con lo que el usuario solicita, resolviendo la necesidad de raíz con calidad de ingeniería bancaria y cero dilación.
+
 
