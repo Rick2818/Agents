@@ -1,5 +1,144 @@
 [
   {
+    "id": "audit_1790002239948_303",
+    "company": "Blue Express Chile",
+    "domain": "blue.cl",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "Chile",
+    "operationalPain": "Brechas perimetrales detectadas: Optimización perimetral",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=blue.cl",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "soporte@blue.cl",
+    "outboundMessage": {
+      "to": "soporte@blue.cl",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en blue.cl",
+      "body": "Estimado equipo directivo y técnico en Blue Express Chile,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre blue.cl, identificamos 0 anomalías críticas que impactan la seguridad y conversión de su portal:\n\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=blue.cl\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=blue.cl\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-21T14:50:54.090Z",
+      "mode": "LIVE",
+      "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790002254090_c8a03d",
+      "recipient": "soporte@blue.cl",
+      "status": "TRANSMITIDO_EXITOSO"
+    },
+    "currentImpact": 1
+  },
+  {
+    "id": "audit_1790002238536_417",
+    "company": "Starken Chile Logística",
+    "domain": "starken.cl",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "Chile",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=starken.cl",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "empresas@starken.cl",
+    "outboundMessage": {
+      "to": "empresas@starken.cl",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en starken.cl",
+      "body": "Estimado equipo directivo y técnico en Starken Chile Logística,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre starken.cl, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=starken.cl\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=starken.cl\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-21T14:50:57.950Z",
+      "mode": "LIVE",
+      "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790002257950_6f9f19",
+      "recipient": "empresas@starken.cl",
+      "status": "TRANSMITIDO_EXITOSO"
+    },
+    "currentImpact": 1
+  },
+  {
+    "id": "audit_1790002236638_33",
+    "company": "99Minutos Last Mile",
+    "domain": "99minutos.com",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "México / LatAm",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=99minutos.com",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "hola@99minutos.com",
+    "outboundMessage": {
+      "to": "hola@99minutos.com",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en 99minutos.com",
+      "body": "Estimado equipo directivo y técnico en 99Minutos Last Mile,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre 99minutos.com, identificamos 2 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=99minutos.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=99minutos.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-21T14:51:03.069Z",
+      "mode": "LIVE",
+      "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790002263069_a3189d",
+      "recipient": "hola@99minutos.com",
+      "status": "TRANSMITIDO_EXITOSO"
+    },
+    "currentImpact": 1
+  },
+  {
+    "id": "audit_1790002235291_372",
+    "company": "Kavak México Operations",
+    "domain": "kavak.com",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "México",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=kavak.com",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "ENVIADO_REAL_EN_RED",
+    "contactEmail": "soporte@kavak.com",
+    "outboundMessage": {
+      "to": "soporte@kavak.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en kavak.com",
+      "body": "Estimado equipo directivo y técnico en Kavak México Operations,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre kavak.com, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=kavak.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=kavak.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-21T14:51:08.394Z",
+      "mode": "LIVE",
+      "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790002268394_bd32eb",
+      "recipient": "soporte@kavak.com",
+      "status": "TRANSMITIDO_EXITOSO"
+    },
+    "currentImpact": 1
+  },
+  {
     "id": "audit_1789754820236_703",
     "company": "Estafeta Carga",
     "domain": "estafeta.com",
@@ -331,15 +470,14 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=coordinadora.com",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "ENVIADO_IMPACTO_2_HARVARD",
+    "status": "CONTACTADO_IMPACTO_1",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
-      "to": "contacto@coordinadora.com",
-      "subject": "🎯 3 opciones de resolución perimetral para Coordinadora Mercantil (E-commerce Fulfillment & 3PL) (Diagnóstico Harvard & Paz Mental)",
-      "body": "Estimado equipo directivo y de tecnología en Coordinadora Mercantil (E-commerce Fulfillment & 3PL),\n\nLe saluda el equipo de ingeniería de Destraba AI. Le escribo en seguimiento a la auditoría perimetral no invasiva que emitimos recientemente sobre coordinadora.com.\n\nAntes de cualquier propuesta, deseamos puntualizar un principio fundamental de negociación por principios:\n1. Separamos a las personas del problema: Reconocemos el enorme esfuerzo y las prioridades de desarrollo continuo que gestiona su equipo técnico. El desafío que observamos no obedece a deficiencias internas, sino a la rápida evolución de normativas de seguridad (PCI-DSS v4.0 y RFC 6797) y al incremento de escaneos automatizados en la red durante este 2026.\n\n2. Enfoque en sus intereses, no en posiciones: Nuestro objetivo no es insistir en reuniones ni vender software innecesario, sino proteger sus intereses fiduciarios críticos:\n   • Blindar la tasa de conversión en sus pasarelas evitando bloqueos o caídas silenciosas.\n   • Eliminar riesgos de inyección en cabeceras HTTP (XSS, Clickjacking, MIME sniffing).\n   • Proporcionar a la dirección general la auténtica paz mental de operar 24/7 sin sumar costos fijos en nómina.\n\n3. Tres Opciones de Mutuo Beneficio (Sin presiones comerciales):\nPara facilitar una resolución eficiente y alineada a sus tiempos, ponemos a su disposición tres caminos objetivos:\n\n  🔹 OPCIÓN A (Autoservicio Libre / Cero Costo):\n     Obsequiamos a su departamento de TI las especificaciones técnicas exactas para que las implementen internamente:\n     - Cabecera Content-Security-Policy (CSP) estricta contra vectores XSS.\n     - Strict-Transport-Security (HSTS: max-age=63072000; includeSubDomains; preload).\n     - X-Frame-Options: DENY contra ataques de clickjacking.\n\n  🔹 OPCIÓN B (Micro-Inversión Flash $19 USD — Remediación en 60s):\n     Si su equipo prefiere ahorrar tiempo y evitar pruebas manuales, puede descargar el paquete forense con los parches listos para pegar en producción por solo $19 USD:\n     🔗 https://destraba-ai.vercel.app/?plan=flash&domain=coordinadora.com\n\n  🔹 OPCIÓN C (Centinela Autónomo 24/7 — $2.30 USD/día / $69 USD/mes):\n     Delegue la vigilancia y remediación continua de su infraestructura en nuestro agente fiduciario con Garantía Incondicional de Reembolso a 7 Días (si en una semana no le ahorra 10 horas de trabajo manual a su equipo, devolvemos el 100% de su pago sin preguntas).\n     🔗 https://unblock-shield.vercel.app/?domain=coordinadora.com\n\n▶️ VEA EL BRIEFING EJECUTIVO EN VIDEO (70 Segundos):\n🔗 https://unblock-shield.vercel.app/?domain=coordinadora.com\n\n4. Criterio Objetivo & Salida Limpia (Harvard Clean Exit):\nLiquidación fiduciaria directa e instantánea vía Bitcoin Lightning Network: rick2818@strike.me\n\nSi este asunto ya fue solventado internamente o no forma parte de sus prioridades para este trimestre, respetamos profundamente su tiempo: responda simplemente «Cerrar caso» y archivaremos el expediente de inmediato sin ningún seguimiento posterior.\n\nAtentamente,\nEspecialista Senior en Automatización y Seguridad Fiduciaria — Destraba AI"
+      "subject": "Elimina 80 horas de consultas repetitivas en WhatsApp de tu operación",
+      "body": "Hola,\n\n¿Cuánto tiempo dedica el equipo de Coordinadora a responder consultas idénticas por WhatsApp, rastrear guías de clientes impacientes y actualizar novedades manuales?\n\nDestraba AI implementa un Concierge Autónomo en 60 segundos que responde en milisegundos 24/7 y erradica ese cuello de botella en piloto automático.\n\nPuedes probarlo y activar la licencia por $69 USD/mes aquí:\nhttps://unblock-shield.vercel.app/?domain=coordinadora.com\n\nO liquidar en satoshis vía Lightning sin comisiones a rick2818@strike.me.\n\nAtentamente,\nEquipo de Soluciones B2B — Destraba AI"
     },
-    "dispatchedAt": "2026-09-18T22:22:36.993Z",
-    "nextFollowUpDate": "2026-09-20",
+    "dispatchedAt": "2026-09-21T14:50:52.654Z",
+    "nextFollowUpDate": "2026-09-23",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T14:40:04.290Z",
       "mode": "LIVE",
@@ -365,15 +503,14 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=tcc.com.co",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "ENVIADO_IMPACTO_2_HARVARD",
+    "status": "CONTACTADO_IMPACTO_1",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
-      "to": "contacto@tcc.com.co",
-      "subject": "🎯 3 opciones de resolución perimetral para TCC Logística & Envíos (Diagnóstico Harvard & Paz Mental)",
-      "body": "Estimado equipo directivo y de tecnología en TCC Logística & Envíos,\n\nLe saluda el equipo de ingeniería de Destraba AI. Le escribo en seguimiento a la auditoría perimetral no invasiva que emitimos recientemente sobre tcc.com.co.\n\nAntes de cualquier propuesta, deseamos puntualizar un principio fundamental de negociación por principios:\n1. Separamos a las personas del problema: Reconocemos el enorme esfuerzo y las prioridades de desarrollo continuo que gestiona su equipo técnico. El desafío que observamos no obedece a deficiencias internas, sino a la rápida evolución de normativas de seguridad (PCI-DSS v4.0 y RFC 6797) y al incremento de escaneos automatizados en la red durante este 2026.\n\n2. Enfoque en sus intereses, no en posiciones: Nuestro objetivo no es insistir en reuniones ni vender software innecesario, sino proteger sus intereses fiduciarios críticos:\n   • Blindar la tasa de conversión en sus pasarelas evitando bloqueos o caídas silenciosas.\n   • Eliminar riesgos de inyección en cabeceras HTTP (XSS, Clickjacking, MIME sniffing).\n   • Proporcionar a la dirección general la auténtica paz mental de operar 24/7 sin sumar costos fijos en nómina.\n\n3. Tres Opciones de Mutuo Beneficio (Sin presiones comerciales):\nPara facilitar una resolución eficiente y alineada a sus tiempos, ponemos a su disposición tres caminos objetivos:\n\n  🔹 OPCIÓN A (Autoservicio Libre / Cero Costo):\n     Obsequiamos a su departamento de TI las especificaciones técnicas exactas para que las implementen internamente:\n     - Cabecera Content-Security-Policy (CSP) estricta contra vectores XSS.\n     - Strict-Transport-Security (HSTS: max-age=63072000; includeSubDomains; preload).\n     - X-Frame-Options: DENY contra ataques de clickjacking.\n\n  🔹 OPCIÓN B (Micro-Inversión Flash $19 USD — Remediación en 60s):\n     Si su equipo prefiere ahorrar tiempo y evitar pruebas manuales, puede descargar el paquete forense con los parches listos para pegar en producción por solo $19 USD:\n     🔗 https://destraba-ai.vercel.app/?plan=flash&domain=tcc.com.co\n\n  🔹 OPCIÓN C (Centinela Autónomo 24/7 — $2.30 USD/día / $69 USD/mes):\n     Delegue la vigilancia y remediación continua de su infraestructura en nuestro agente fiduciario con Garantía Incondicional de Reembolso a 7 Días (si en una semana no le ahorra 10 horas de trabajo manual a su equipo, devolvemos el 100% de su pago sin preguntas).\n     🔗 https://unblock-shield.vercel.app/?domain=tcc.com.co\n\n▶️ VEA EL BRIEFING EJECUTIVO EN VIDEO (70 Segundos):\n🔗 https://unblock-shield.vercel.app/?domain=tcc.com.co\n\n4. Criterio Objetivo & Salida Limpia (Harvard Clean Exit):\nLiquidación fiduciaria directa e instantánea vía Bitcoin Lightning Network: rick2818@strike.me\n\nSi este asunto ya fue solventado internamente o no forma parte de sus prioridades para este trimestre, respetamos profundamente su tiempo: responda simplemente «Cerrar caso» y archivaremos el expediente de inmediato sin ningún seguimiento posterior.\n\nAtentamente,\nEspecialista Senior en Automatización y Seguridad Fiduciaria — Destraba AI"
+      "subject": "Respuesta a cotizaciones B2B en 60 segundos sin nómina extra",
+      "body": "Estimado Gerente de Operaciones en TCC,\n\nEn el sector logístico B2B, responder una solicitud de flete 4 horas tarde significa perder la cuenta frente a la competencia.\n\nDestraba AI sintetiza un agente calificador que atiende a tus prospectos corporativos, calcula tarifas estimadas y agenda el cierre al instante.\n\nActiva tu prueba operativa hoy por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=tcc.com.co\n\nLiquidación directa vía Lightning: rick2818@strike.me.\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-18T22:22:36.993Z",
-    "nextFollowUpDate": "2026-09-20",
+    "dispatchedAt": "2026-09-21T14:50:52.654Z",
+    "nextFollowUpDate": "2026-09-23",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T14:40:09.512Z",
       "mode": "LIVE",
@@ -399,15 +536,14 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=enviacolvanes.com",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "ENVIADO_IMPACTO_2_HARVARD",
+    "status": "CONTACTADO_IMPACTO_1",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
-      "to": "contacto@enviacolvanes.com",
-      "subject": "🎯 3 opciones de resolución perimetral para Envía Colvanes (Diagnóstico Harvard & Paz Mental)",
-      "body": "Estimado equipo directivo y de tecnología en Envía Colvanes,\n\nLe saluda el equipo de ingeniería de Destraba AI. Le escribo en seguimiento a la auditoría perimetral no invasiva que emitimos recientemente sobre enviacolvanes.com.\n\nAntes de cualquier propuesta, deseamos puntualizar un principio fundamental de negociación por principios:\n1. Separamos a las personas del problema: Reconocemos el enorme esfuerzo y las prioridades de desarrollo continuo que gestiona su equipo técnico. El desafío que observamos no obedece a deficiencias internas, sino a la rápida evolución de normativas de seguridad (PCI-DSS v4.0 y RFC 6797) y al incremento de escaneos automatizados en la red durante este 2026.\n\n2. Enfoque en sus intereses, no en posiciones: Nuestro objetivo no es insistir en reuniones ni vender software innecesario, sino proteger sus intereses fiduciarios críticos:\n   • Blindar la tasa de conversión en sus pasarelas evitando bloqueos o caídas silenciosas.\n   • Eliminar riesgos de inyección en cabeceras HTTP (XSS, Clickjacking, MIME sniffing).\n   • Proporcionar a la dirección general la auténtica paz mental de operar 24/7 sin sumar costos fijos en nómina.\n\n3. Tres Opciones de Mutuo Beneficio (Sin presiones comerciales):\nPara facilitar una resolución eficiente y alineada a sus tiempos, ponemos a su disposición tres caminos objetivos:\n\n  🔹 OPCIÓN A (Autoservicio Libre / Cero Costo):\n     Obsequiamos a su departamento de TI las especificaciones técnicas exactas para que las implementen internamente:\n     - Cabecera Content-Security-Policy (CSP) estricta contra vectores XSS.\n     - Strict-Transport-Security (HSTS: max-age=63072000; includeSubDomains; preload).\n     - X-Frame-Options: DENY contra ataques de clickjacking.\n\n  🔹 OPCIÓN B (Micro-Inversión Flash $19 USD — Remediación en 60s):\n     Si su equipo prefiere ahorrar tiempo y evitar pruebas manuales, puede descargar el paquete forense con los parches listos para pegar en producción por solo $19 USD:\n     🔗 https://destraba-ai.vercel.app/?plan=flash&domain=enviacolvanes.com\n\n  🔹 OPCIÓN C (Centinela Autónomo 24/7 — $2.30 USD/día / $69 USD/mes):\n     Delegue la vigilancia y remediación continua de su infraestructura en nuestro agente fiduciario con Garantía Incondicional de Reembolso a 7 Días (si en una semana no le ahorra 10 horas de trabajo manual a su equipo, devolvemos el 100% de su pago sin preguntas).\n     🔗 https://unblock-shield.vercel.app/?domain=enviacolvanes.com\n\n▶️ VEA EL BRIEFING EJECUTIVO EN VIDEO (70 Segundos):\n🔗 https://unblock-shield.vercel.app/?domain=enviacolvanes.com\n\n4. Criterio Objetivo & Salida Limpia (Harvard Clean Exit):\nLiquidación fiduciaria directa e instantánea vía Bitcoin Lightning Network: rick2818@strike.me\n\nSi este asunto ya fue solventado internamente o no forma parte de sus prioridades para este trimestre, respetamos profundamente su tiempo: responda simplemente «Cerrar caso» y archivaremos el expediente de inmediato sin ningún seguimiento posterior.\n\nAtentamente,\nEspecialista Senior en Automatización y Seguridad Fiduciaria — Destraba AI"
+      "subject": "Reduce en un 70% la carga de reclamos y soporte en tu operación",
+      "body": "Hola,\n\nAtender manualmente estados de envío y reclamos de mercancía genera sobrecostos de nómina y fatiga en tus agentes humanos.\n\nNuestros agentes soberanos para Google Antigravity asumen el triaje automático y resuelven el 70% de las consultas sin intervención humana.\n\nConoce la plataforma y comienza por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=enviacolvanes.com\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-18T22:22:36.993Z",
-    "nextFollowUpDate": "2026-09-20",
+    "dispatchedAt": "2026-09-21T14:50:52.654Z",
+    "nextFollowUpDate": "2026-09-23",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T14:40:14.631Z",
       "mode": "LIVE",
@@ -433,15 +569,14 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=deprisa.com",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "ENVIADO_IMPACTO_2_HARVARD",
+    "status": "CONTACTADO_IMPACTO_1",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
-      "to": "contacto@deprisa.com",
-      "subject": "🎯 3 opciones de resolución perimetral para Deprisa (Avianca Cargo) (Diagnóstico Harvard & Paz Mental)",
-      "body": "Estimado equipo directivo y de tecnología en Deprisa (Avianca Cargo),\n\nLe saluda el equipo de ingeniería de Destraba AI. Le escribo en seguimiento a la auditoría perimetral no invasiva que emitimos recientemente sobre deprisa.com.\n\nAntes de cualquier propuesta, deseamos puntualizar un principio fundamental de negociación por principios:\n1. Separamos a las personas del problema: Reconocemos el enorme esfuerzo y las prioridades de desarrollo continuo que gestiona su equipo técnico. El desafío que observamos no obedece a deficiencias internas, sino a la rápida evolución de normativas de seguridad (PCI-DSS v4.0 y RFC 6797) y al incremento de escaneos automatizados en la red durante este 2026.\n\n2. Enfoque en sus intereses, no en posiciones: Nuestro objetivo no es insistir en reuniones ni vender software innecesario, sino proteger sus intereses fiduciarios críticos:\n   • Blindar la tasa de conversión en sus pasarelas evitando bloqueos o caídas silenciosas.\n   • Eliminar riesgos de inyección en cabeceras HTTP (XSS, Clickjacking, MIME sniffing).\n   • Proporcionar a la dirección general la auténtica paz mental de operar 24/7 sin sumar costos fijos en nómina.\n\n3. Tres Opciones de Mutuo Beneficio (Sin presiones comerciales):\nPara facilitar una resolución eficiente y alineada a sus tiempos, ponemos a su disposición tres caminos objetivos:\n\n  🔹 OPCIÓN A (Autoservicio Libre / Cero Costo):\n     Obsequiamos a su departamento de TI las especificaciones técnicas exactas para que las implementen internamente:\n     - Cabecera Content-Security-Policy (CSP) estricta contra vectores XSS.\n     - Strict-Transport-Security (HSTS: max-age=63072000; includeSubDomains; preload).\n     - X-Frame-Options: DENY contra ataques de clickjacking.\n\n  🔹 OPCIÓN B (Micro-Inversión Flash $19 USD — Remediación en 60s):\n     Si su equipo prefiere ahorrar tiempo y evitar pruebas manuales, puede descargar el paquete forense con los parches listos para pegar en producción por solo $19 USD:\n     🔗 https://destraba-ai.vercel.app/?plan=flash&domain=deprisa.com\n\n  🔹 OPCIÓN C (Centinela Autónomo 24/7 — $2.30 USD/día / $69 USD/mes):\n     Delegue la vigilancia y remediación continua de su infraestructura en nuestro agente fiduciario con Garantía Incondicional de Reembolso a 7 Días (si en una semana no le ahorra 10 horas de trabajo manual a su equipo, devolvemos el 100% de su pago sin preguntas).\n     🔗 https://unblock-shield.vercel.app/?domain=deprisa.com\n\n▶️ VEA EL BRIEFING EJECUTIVO EN VIDEO (70 Segundos):\n🔗 https://unblock-shield.vercel.app/?domain=deprisa.com\n\n4. Criterio Objetivo & Salida Limpia (Harvard Clean Exit):\nLiquidación fiduciaria directa e instantánea vía Bitcoin Lightning Network: rick2818@strike.me\n\nSi este asunto ya fue solventado internamente o no forma parte de sus prioridades para este trimestre, respetamos profundamente su tiempo: responda simplemente «Cerrar caso» y archivaremos el expediente de inmediato sin ningún seguimiento posterior.\n\nAtentamente,\nEspecialista Senior en Automatización y Seguridad Fiduciaria — Destraba AI"
+      "subject": "Automatiza la trazabilidad y cobro de envíos express en 60 segundos",
+      "body": "Hola,\n\nLos clientes corporativos de paquetería express exigen confirmaciones en tiempo real y facturación inmediata.\n\nDestraba AI genera un flujo desatendido que notifica y concilia pagos en segundos con protocolos bancarios seguros.\n\nAccede a la consola ejecutiva aquí por $89 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=deprisa.com\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-18T22:22:36.993Z",
-    "nextFollowUpDate": "2026-09-20",
+    "dispatchedAt": "2026-09-21T14:50:52.654Z",
+    "nextFollowUpDate": "2026-09-23",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T14:40:19.547Z",
       "mode": "LIVE",
@@ -467,15 +602,14 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=servientrega.com",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "ENVIADO_IMPACTO_2_HARVARD",
+    "status": "CONTACTADO_IMPACTO_1",
     "scheduledDate": "2026-09-15",
     "outboundMessage": {
-      "to": "contacto@servientrega.com",
-      "subject": "🎯 3 opciones de resolución perimetral para Servientrega Soluciones Digitales (Diagnóstico Harvard & Paz Mental)",
-      "body": "Estimado equipo directivo y de tecnología en Servientrega Soluciones Digitales,\n\nLe saluda el equipo de ingeniería de Destraba AI. Le escribo en seguimiento a la auditoría perimetral no invasiva que emitimos recientemente sobre servientrega.com.\n\nAntes de cualquier propuesta, deseamos puntualizar un principio fundamental de negociación por principios:\n1. Separamos a las personas del problema: Reconocemos el enorme esfuerzo y las prioridades de desarrollo continuo que gestiona su equipo técnico. El desafío que observamos no obedece a deficiencias internas, sino a la rápida evolución de normativas de seguridad (PCI-DSS v4.0 y RFC 6797) y al incremento de escaneos automatizados en la red durante este 2026.\n\n2. Enfoque en sus intereses, no en posiciones: Nuestro objetivo no es insistir en reuniones ni vender software innecesario, sino proteger sus intereses fiduciarios críticos:\n   • Blindar la tasa de conversión en sus pasarelas evitando bloqueos o caídas silenciosas.\n   • Eliminar riesgos de inyección en cabeceras HTTP (XSS, Clickjacking, MIME sniffing).\n   • Proporcionar a la dirección general la auténtica paz mental de operar 24/7 sin sumar costos fijos en nómina.\n\n3. Tres Opciones de Mutuo Beneficio (Sin presiones comerciales):\nPara facilitar una resolución eficiente y alineada a sus tiempos, ponemos a su disposición tres caminos objetivos:\n\n  🔹 OPCIÓN A (Autoservicio Libre / Cero Costo):\n     Obsequiamos a su departamento de TI las especificaciones técnicas exactas para que las implementen internamente:\n     - Cabecera Content-Security-Policy (CSP) estricta contra vectores XSS.\n     - Strict-Transport-Security (HSTS: max-age=63072000; includeSubDomains; preload).\n     - X-Frame-Options: DENY contra ataques de clickjacking.\n\n  🔹 OPCIÓN B (Micro-Inversión Flash $19 USD — Remediación en 60s):\n     Si su equipo prefiere ahorrar tiempo y evitar pruebas manuales, puede descargar el paquete forense con los parches listos para pegar en producción por solo $19 USD:\n     🔗 https://destraba-ai.vercel.app/?plan=flash&domain=servientrega.com\n\n  🔹 OPCIÓN C (Centinela Autónomo 24/7 — $2.30 USD/día / $69 USD/mes):\n     Delegue la vigilancia y remediación continua de su infraestructura en nuestro agente fiduciario con Garantía Incondicional de Reembolso a 7 Días (si en una semana no le ahorra 10 horas de trabajo manual a su equipo, devolvemos el 100% de su pago sin preguntas).\n     🔗 https://unblock-shield.vercel.app/?domain=servientrega.com\n\n▶️ VEA EL BRIEFING EJECUTIVO EN VIDEO (70 Segundos):\n🔗 https://unblock-shield.vercel.app/?domain=servientrega.com\n\n4. Criterio Objetivo & Salida Limpia (Harvard Clean Exit):\nLiquidación fiduciaria directa e instantánea vía Bitcoin Lightning Network: rick2818@strike.me\n\nSi este asunto ya fue solventado internamente o no forma parte de sus prioridades para este trimestre, respetamos profundamente su tiempo: responda simplemente «Cerrar caso» y archivaremos el expediente de inmediato sin ningún seguimiento posterior.\n\nAtentamente,\nEspecialista Senior en Automatización y Seguridad Fiduciaria — Destraba AI"
+      "subject": "Auditoría de integración operativa y seguridad perimetral en 60 segundos",
+      "body": "Estimado VP de Tecnología en Servientrega,\n\nDesplegamos agentes soberanos con protocolo MCP que se conectan a tu infraestructura sin tocar código legacy ni exponer datos sensibles.\n\nRealiza un diagnóstico de cuellos de botella y seguridad perimetral por $19 USD aquí:\nhttps://rick2818.github.io/Agents/?plan=flash&ref=colombia_b2b\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nEquipo de Ingeniería — Destraba AI\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=servientrega.com\n"
     },
-    "dispatchedAt": "2026-09-18T22:22:36.993Z",
-    "nextFollowUpDate": "2026-09-20",
+    "dispatchedAt": "2026-09-21T14:50:52.654Z",
+    "nextFollowUpDate": "2026-09-23",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T14:40:23.949Z",
       "mode": "LIVE",
