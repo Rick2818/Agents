@@ -16,7 +16,8 @@
 1. **`marketing-director` (Directora de Mercadeo)**: Posicionamiento fiduciario, distribución desatendida en Buffer/LinkedIn y siembra de autoridad.
 2. **`sales-closer-specialist` (Especialista en Ventas & Cierre)**: Cadencias de prospección hiperpersonalizada (3 impactos), calificación y despacho de enlaces de cobro.
 3. **`cfo-financial-strategist` (Director Financiero & Precios)**: Custodia del presupuesto (\$300 USD/día — \$9,000 USD/mes), unit economics (LTV/CAC > 4.5x) y pricing por tramos.
-4. **`international-trade-specialist` (Comercio Internacional & Cross-Border)**: Expansión multijurisdicción, conciliación multidivisa y liquidación en Wompi, Stripe y Strike Lightning.
+4. **`international-trade-specialist` (Comercio Internacional & Cross-Border)**: Expansión multijurisdicción, conciliación multidivisa y liquidación fiduciaria.  
+   - **Arquitectura de Cobro Stripe vs. El Salvador:** Stripe no opera apertura directa de cuentas locales en El Salvador. Para prospectos internacionales (EE.UU./Europa) que operan con Stripe, el sistema permite que el cliente pague o liquide vía Stripe a través de puentes autorizados, y los fondos se canalizan y concilian de inmediato hacia la infraestructura soberana de cobro del holding (**Strike Lightning `rick2818@strike.me`** y **Wompi SV**), garantizando cero fricción para el pagador y liquidación disponible en USD para la dirección.
 5. **`consumer-psychology-diagnostician` (Psicólogo de Ventas & Persuasión Cognitiva)**: Auditoría de sesgos (aversión a la pérdida, fatiga de decisión) y desactivación preventiva de objeciones.
 
 ---
