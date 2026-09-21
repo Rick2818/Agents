@@ -1,0 +1,21 @@
+{
+  "name": "boltech-group",
+  "version": "1.0.0",
+  "description": "BolTech Group — Enterprise Cloud Automation, Sovereign Software Holding & Defensive Cyber-Infrastructure",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "holding",
+    "venture-studio",
+    "cybersecurity",
+    "autonomous-software",
+    "google-antigravity",
+    "peace-of-mind",
+    "boltech"
+  ],
+  "author": "Ricardo Bolaños — BolTech Group",
+  "license": "MIT"
+}
