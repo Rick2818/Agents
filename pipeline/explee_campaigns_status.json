@@ -1,0 +1,22 @@
+[
+  {
+    "imported_at": "2026-09-21T16:11:31.015Z",
+    "task_id": "ff719c94-a258-45d5-b948-85e136749549",
+    "project_id": 38828,
+    "campaign_name": "Unblock AI Shield - 41 Verified Security Perimeter Breaches (2026-09-21)",
+    "leads_count": 41,
+    "result": {
+      "campaign_id": 180451,
+      "project_id": 38828,
+      "name": "Unblock AI Shield - 41 Verified Security Perimeter Breaches (2026-09-21)",
+      "leads_total": 41,
+      "leads_imported": 41,
+      "deduped": 0,
+      "enriched_from_base": 41,
+      "skipped_missing": 0,
+      "skipped_invalid_email": 0,
+      "flagged_freemail": 0,
+      "skipped": []
+    }
+  }
+]

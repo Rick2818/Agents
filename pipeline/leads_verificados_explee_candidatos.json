@@ -1,0 +1,723 @@
+[
+  {
+    "company": "Alkosto Hiperahorro",
+    "domain": "alkosto.com",
+    "country": "Colombia",
+    "contactEmail": "contacto@alkosto.com",
+    "statusCode": 301,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "*"
+  },
+  {
+    "company": "Totto Maletines & Accesorios",
+    "domain": "totto.com",
+    "country": "Colombia",
+    "contactEmail": "servicioalcliente@totto.com",
+    "statusCode": 301,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "server": "Microsoft-IIS/10.0"
+  },
+  {
+    "company": "Bosi Calzado & Cuero",
+    "domain": "bosi.com.co",
+    "country": "Colombia",
+    "contactEmail": "servicioalcliente@bosi.com.co",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Koaj Moda Urbana",
+    "domain": "koaj.co",
+    "country": "Colombia",
+    "contactEmail": "contacto@koaj.co",
+    "statusCode": 403,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Tennis Moda Casual",
+    "domain": "tennis.com.co",
+    "country": "Colombia",
+    "contactEmail": "servicioalcliente@tennis.com.co",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Lentesplus Óptica Online",
+    "domain": "lentesplus.com",
+    "country": "Colombia / México",
+    "contactEmail": "contacto@lentesplus.com",
+    "statusCode": 301,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Chiper Supermercado Digital B2B",
+    "domain": "chiper.co",
+    "country": "Colombia",
+    "contactEmail": "contacto@chiper.co",
+    "statusCode": 200,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "nginx/1.27.5"
+  },
+  {
+    "company": "Farmatodo Colombia",
+    "domain": "farmatodo.com.co",
+    "country": "Colombia",
+    "contactEmail": "contacto@farmatodo.com.co",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Merqueo Supermercado Online",
+    "domain": "merqueo.com",
+    "country": "Colombia",
+    "contactEmail": "contacto@merqueo.com",
+    "statusCode": 200,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "RobinFood Cloud Kitchens",
+    "domain": "robinfood.com",
+    "country": "Colombia",
+    "contactEmail": "contacto@robinfood.com",
+    "statusCode": 200,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "AmazonS3"
+  },
+  {
+    "company": "El Palacio de Hierro",
+    "domain": "elpalaciodehierro.com",
+    "country": "México",
+    "contactEmail": "atencion@elpalaciodehierro.com",
+    "statusCode": 301,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Sears México",
+    "domain": "sears.com.mx",
+    "country": "México",
+    "contactEmail": "contacto@sears.com.mx",
+    "statusCode": 403,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Titania/8.0"
+  },
+  {
+    "company": "Soriana Tiendas",
+    "domain": "soriana.com",
+    "country": "México",
+    "contactEmail": "ayuda@soriana.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Farmacias del Ahorro",
+    "domain": "fahorro.com",
+    "country": "México",
+    "contactEmail": "contacto@fahorro.com",
+    "statusCode": 403,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Farmacias Benavides",
+    "domain": "benavides.com.mx",
+    "country": "México",
+    "contactEmail": "contacto@benavides.com.mx",
+    "statusCode": 403,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "rdwr"
+  },
+  {
+    "company": "Jüsto Supermercado 100% Digital",
+    "domain": "justo.mx",
+    "country": "México",
+    "contactEmail": "hola@justo.mx",
+    "statusCode": 200,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Clip Terminales Punto de Venta",
+    "domain": "clip.mx",
+    "country": "México",
+    "contactEmail": "soporte@clip.mx",
+    "statusCode": 301,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Konfío Crédito Corporativo",
+    "domain": "konfio.mx",
+    "country": "México",
+    "contactEmail": "soporte@konfio.mx",
+    "statusCode": 403,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Fondeadora Finanzas Digitales",
+    "domain": "fondeadora.com",
+    "country": "México",
+    "contactEmail": "soporte@fondeadora.com",
+    "statusCode": 200,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "nginx"
+  },
+  {
+    "company": "Stori Tarjeta de Crédito",
+    "domain": "storicard.com",
+    "country": "México",
+    "contactEmail": "soporte@storicard.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "awselb/2.0"
+  },
+  {
+    "company": "Paris Retail Chile",
+    "domain": "paris.cl",
+    "country": "Chile",
+    "contactEmail": "contacto@paris.cl",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "awselb/2.0"
+  },
+  {
+    "company": "Ripley Tiendas Chile",
+    "domain": "simple.ripley.cl",
+    "country": "Chile",
+    "contactEmail": "contacto@ripley.cl",
+    "statusCode": 403,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Hites Retail Chile",
+    "domain": "hites.com",
+    "country": "Chile",
+    "contactEmail": "contacto@hites.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Casaideas Decoración & Hogar",
+    "domain": "casaideas.cl",
+    "country": "Chile",
+    "contactEmail": "contacto@casaideas.cl",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Fintual Inversiones Digitales",
+    "domain": "fintual.cl",
+    "country": "Chile / México",
+    "contactEmail": "hola@fintual.com",
+    "statusCode": 200,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "NotCo Foodtech",
+    "domain": "notco.com",
+    "country": "Chile / Global",
+    "contactEmail": "contacto@notco.com",
+    "statusCode": 200,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "nginx"
+  },
+  {
+    "company": "Freund Ferreterías",
+    "domain": "freundferreteria.com",
+    "country": "El Salvador",
+    "contactEmail": "contacto@freundferreteria.com",
+    "statusCode": 200,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Vidrí Ferreterías Industriales",
+    "domain": "vidri.com.sv",
+    "country": "El Salvador",
+    "contactEmail": "contacto@vidri.com.sv",
+    "statusCode": 301,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Dollar City Centroamérica",
+    "domain": "dollarcity.com",
+    "country": "El Salvador / Regional",
+    "contactEmail": "contacto@dollarcity.com",
+    "statusCode": 200,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)"
+    ],
+    "server": "nginx"
+  },
+  {
+    "company": "Pollo Campero Corporativo",
+    "domain": "campero.com",
+    "country": "Guatemala / El Salvador",
+    "contactEmail": "contacto@campero.com",
+    "statusCode": 301,
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Hugo Technologies",
+    "domain": "hugoapp.com",
+    "country": "Centroamérica",
+    "contactEmail": "soporte@hugoapp.com",
+    "statusCode": 403,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Aeroman MRO Mantenimiento Aeronáutico",
+    "domain": "aeroman.com.sv",
+    "country": "El Salvador",
+    "contactEmail": "info@aeroman.com.sv",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Apache"
+  },
+  {
+    "company": "Pan Sinaí Alimentos",
+    "domain": "pansinai.com",
+    "country": "El Salvador",
+    "contactEmail": "contacto@pansinai.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Apache"
+  },
+  {
+    "company": "PcComponentes Tecnología",
+    "domain": "pccomponentes.com",
+    "country": "España",
+    "contactEmail": "soporte@pccomponentes.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Cecotec Electrodomésticos",
+    "domain": "cecotec.es",
+    "country": "España",
+    "contactEmail": "soporte@cecotec.es",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "CloudFront"
+  },
+  {
+    "company": "Hawkers Gafas de Sol",
+    "domain": "hawkersco.com",
+    "country": "España / Global",
+    "contactEmail": "contacto@hawkersco.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Bulevip Nutrición Deportiva",
+    "domain": "bulevip.com",
+    "country": "España",
+    "contactEmail": "info@bulevip.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Tiendanimal Mascotas",
+    "domain": "tiendanimal.es",
+    "country": "España",
+    "contactEmail": "atencioncliente@tiendanimal.es",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "AmazonS3"
+  },
+  {
+    "company": "Kiwoko Tienda de Animales",
+    "domain": "kiwoko.com",
+    "country": "España",
+    "contactEmail": "clientes@kiwoko.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "AmazonS3"
+  },
+  {
+    "company": "Tradeinn Deportes & E-commerce",
+    "domain": "tradeinn.com",
+    "country": "España",
+    "contactEmail": "soporte@tradeinn.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "nginx"
+  },
+  {
+    "company": "Promofarma Parafarmacia",
+    "domain": "promofarma.com",
+    "country": "España",
+    "contactEmail": "clientes@promofarma.com",
+    "statusCode": 200,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Deporvillage Ropa Ciclismo",
+    "domain": "deporvillage.com",
+    "country": "España",
+    "contactEmail": "comunicacion@deporvillage.com",
+    "statusCode": 403,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Singularu Joyas Online",
+    "domain": "singularu.com",
+    "country": "España",
+    "contactEmail": "atencion@singularu.com",
+    "statusCode": 200,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Mifarma By Atida",
+    "domain": "atida.com",
+    "country": "España",
+    "contactEmail": "soporte@atida.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "El Ganso Ropa & Accesorios",
+    "domain": "elganso.com",
+    "country": "España",
+    "contactEmail": "atencioncliente@elganso.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "nginx"
+  },
+  {
+    "company": "Warby Parker Eyewear",
+    "domain": "warbyparker.com",
+    "country": "USA",
+    "contactEmail": "help@warbyparker.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "AmazonS3"
+  },
+  {
+    "company": "MVMT Relojes & Moda",
+    "domain": "mvmt.com",
+    "country": "USA",
+    "contactEmail": "support@mvmt.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "DNSME HTTP Redirection"
+  },
+  {
+    "company": "Hims & Hers Salud D2C",
+    "domain": "forhims.com",
+    "country": "USA",
+    "contactEmail": "support@forhims.com",
+    "statusCode": 301,
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "Edge Cloud"
+  },
+  {
+    "company": "Untuckit Camisas Masculinas",
+    "domain": "untuckit.com",
+    "country": "USA",
+    "contactEmail": "questions@untuckit.com",
+    "statusCode": 301,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "server": "cloudflare"
+  },
+  {
+    "company": "Innova Sport México",
+    "domain": "innovasport.com",
+    "country": "México",
+    "contactEmail": "contacto@innovasport.com",
+    "flawsCount": 2,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "statusCode": 403
+  },
+  {
+    "company": "Deportes Martí México",
+    "domain": "marti.mx",
+    "country": "México",
+    "contactEmail": "contacto@marti.mx",
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301
+  },
+  {
+    "company": "Dafiti Colombia Moda",
+    "domain": "dafiti.com.co",
+    "country": "Colombia",
+    "contactEmail": "info@dafiti.com.co",
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301
+  },
+  {
+    "company": "Petco México Mascotas",
+    "domain": "petco.com.mx",
+    "country": "México",
+    "contactEmail": "contacto@petco.com.mx",
+    "flawsCount": 1,
+    "flaws": [
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)"
+    ],
+    "statusCode": 499
+  },
+  {
+    "company": "Kiwoko Mascotas España",
+    "domain": "kiwoko.com",
+    "country": "España",
+    "contactEmail": "contacto@kiwoko.com",
+    "flawsCount": 3,
+    "flaws": [
+      "Falta CSP (Riesgo XSS / Script Injection)",
+      "Falta HSTS (Riesgo SSL Strip / Man-in-the-middle)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "statusCode": 301
+  }
+]

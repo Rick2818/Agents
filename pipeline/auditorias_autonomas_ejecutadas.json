@@ -1,5 +1,445 @@
 [
   {
+    "auditId": "audit_1790002251604_255",
+    "timestamp": "2026-09-21T14:50:51.604Z",
+    "company": "Truora Validación & Identidad",
+    "domain": "truora.com",
+    "scannedHost": "truora.com",
+    "country": "Colombia / Latam",
+    "industry": "Software KYC & Auth",
+    "contactEmail": "contacto@truora.com",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "AmazonS3",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=truora.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@truora.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en truora.com",
+      "body": "Estimado equipo directivo y técnico en Truora Validación & Identidad,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre truora.com, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=truora.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=truora.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002250210_970",
+    "timestamp": "2026-09-21T14:50:50.210Z",
+    "company": "Bold Pagos Colombia",
+    "domain": "bold.co",
+    "scannedHost": "bold.co",
+    "country": "Colombia",
+    "industry": "Fintech & Adquirencia",
+    "contactEmail": "soporte@bold.co",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "CloudFront",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=bold.co",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@bold.co",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en bold.co",
+      "body": "Estimado equipo directivo y técnico en Bold Pagos Colombia,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre bold.co, identificamos 0 anomalías críticas que impactan la seguridad y conversión de su portal:\n\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=bold.co\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=bold.co\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002248789_171",
+    "timestamp": "2026-09-21T14:50:48.789Z",
+    "company": "Moova Logística Urbana",
+    "domain": "moova.io",
+    "scannedHost": "moova.io",
+    "country": "México / Latam",
+    "industry": "Last Mile Tech",
+    "contactEmail": "contacto@moova.io",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "AmazonS3",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=moova.io",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@moova.io",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en moova.io",
+      "body": "Estimado equipo directivo y técnico en Moova Logística Urbana,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre moova.io, identificamos 1 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=moova.io\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=moova.io\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002247365_945",
+    "timestamp": "2026-09-21T14:50:47.365Z",
+    "company": "Simetrik Finanzas",
+    "domain": "simetrik.com",
+    "scannedHost": "simetrik.com",
+    "country": "Latam / Global",
+    "industry": "Conciliación Financiera",
+    "contactEmail": "info@simetrik.com",
+    "brandName": "Unblock AI",
+    "language": "en",
+    "serverDetected": "nginx",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Forensic Flash Audit + Security Patch) / $69 USD/mo (Autonomous 24/7 Agent)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?lang=en&domain=simetrik.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "info@simetrik.com",
+      "subject": "Perimeter Security Report: 1 critical flaws detected on simetrik.com",
+      "body": "Dear Leadership & Engineering Team at Simetrik Finanzas,\n\nThis is the team at Unblock AI (autonomous operations engineering & defensive cybersecurity built on Google Antigravity & 24/7 Cloud Infrastructure).\n\nDuring our non-invasive external perimeter inspection of simetrik.com, we identified 1 critical opportunities to harden security and eliminate checkout friction:\n• Falta Content-Security-Policy (Riesgo XSS)\n\n🎬 70s Executive Video Briefing:\nhttps://unblock-shield.vercel.app/?lang=en&domain=simetrik.com\n\nWhy trust us before opening any door? (Our 5 Fiduciary Trust Anchors):\n1. Zero Invasive Access: We never ask for passwords, API keys, or internal database access. All evaluations run 100% externally.\n2. Micro-Risk Asymmetry: Run a free 15-second audit on our site or download the executive report and production-ready remediation patches for just $19 USD (Flash Plan).\n3. 7-Day Unconditional Fiduciary Guarantee: If the solution does not save your team at least 10 hours of manual operational work in the first 7 days, we refund 100% of your payment with zero friction.\n4. SOC-2 Grade Banking Privacy: Zero disk retention; 100% processed in volatile RAM and immediately purged.\n5. Objective ROI Math: A human operator costs $600+ USD/month; our autonomous agent runs 24/7 for $2.30 USD/day ($69 USD/month), paying for itself with a single recovered lead or resolved ticket.\n\nAudit your portal live or deploy patches in 60 seconds:\n🔗 https://unblock-shield.vercel.app/?lang=en&domain=simetrik.com\n\nOr instant zero-fee settlement via Bitcoin Lightning Network to: rick2818@strike.me\n\nBest regards,\nSenior Cybersecurity & Solutions Team — Unblock AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002245667_788",
+    "timestamp": "2026-09-21T14:50:45.667Z",
+    "company": "Envia.com Logistics",
+    "domain": "envia.com",
+    "scannedHost": "envia.com",
+    "country": "México / Latam",
+    "industry": "Plataforma Envíos E-commerce",
+    "contactEmail": "soporte@envia.com",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "cloudflare",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": false
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=envia.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@envia.com",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en envia.com",
+      "body": "Estimado equipo directivo y técnico en Envia.com Logistics,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre envia.com, identificamos 2 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=envia.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=envia.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002244324_685",
+    "timestamp": "2026-09-21T14:50:44.324Z",
+    "company": "Skydropx Plataforma Envíos",
+    "domain": "skydropx.com",
+    "scannedHost": "skydropx.com",
+    "country": "México / Colombia",
+    "industry": "Agregador Logístico",
+    "contactEmail": "hola@skydropx.com",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "cloudflare",
+    "httpStatusCode": 301,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=skydropx.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "hola@skydropx.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en skydropx.com",
+      "body": "Estimado equipo directivo y técnico en Skydropx Plataforma Envíos,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre skydropx.com, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=skydropx.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=skydropx.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002243091_951",
+    "timestamp": "2026-09-21T14:50:43.091Z",
+    "company": "Mensajeros Urbanos B2B",
+    "domain": "mensajerosurbanos.com",
+    "scannedHost": "mensajerosurbanos.com",
+    "country": "Colombia / México",
+    "industry": "Courrier Urbano Corporativo",
+    "contactEmail": "contacto@mensajerosurbanos.com",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "Apache/2.4.51 (Unix) OpenSSL/1.1.1n",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=mensajerosurbanos.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "contacto@mensajerosurbanos.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en mensajerosurbanos.com",
+      "body": "Estimado equipo directivo y técnico en Mensajeros Urbanos B2B,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre mensajerosurbanos.com, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=mensajerosurbanos.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=mensajerosurbanos.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002241382_121",
+    "timestamp": "2026-09-21T14:50:41.382Z",
+    "company": "Clicoh Fulfillment",
+    "domain": "clicoh.com",
+    "scannedHost": "clicoh.com",
+    "country": "Latam Regional",
+    "industry": "Fulfillment E-commerce",
+    "contactEmail": "info@clicoh.com",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": false,
+      "hasXFrame": true
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)"
+    ],
+    "severity": "MEDIA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=clicoh.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "info@clicoh.com",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en clicoh.com",
+      "body": "Estimado equipo directivo y técnico en Clicoh Fulfillment,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre clicoh.com, identificamos 1 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=clicoh.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=clicoh.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002239948_303",
+    "timestamp": "2026-09-21T14:50:39.948Z",
+    "company": "Blue Express Chile",
+    "domain": "blue.cl",
+    "scannedHost": "blue.cl",
+    "country": "Chile",
+    "industry": "Last Mile Fulfillment",
+    "contactEmail": "soporte@blue.cl",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "cloudflare",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": true,
+      "hasHsts": true,
+      "hasXFrame": true
+    },
+    "flawsCount": 0,
+    "flaws": [],
+    "severity": "BAJA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=blue.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@blue.cl",
+      "subject": "Informe de Seguridad Perimetral: 0 vulnerabilidades detectadas en blue.cl",
+      "body": "Estimado equipo directivo y técnico en Blue Express Chile,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre blue.cl, identificamos 0 anomalías críticas que impactan la seguridad y conversión de su portal:\n\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=blue.cl\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=blue.cl\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002238536_417",
+    "timestamp": "2026-09-21T14:50:38.536Z",
+    "company": "Starken Chile Logística",
+    "domain": "starken.cl",
+    "scannedHost": "starken.cl",
+    "country": "Chile",
+    "industry": "Transporte Corporativo",
+    "contactEmail": "empresas@starken.cl",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "nginx/1.14.1",
+    "httpStatusCode": 200,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=starken.cl",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "empresas@starken.cl",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en starken.cl",
+      "body": "Estimado equipo directivo y técnico en Starken Chile Logística,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre starken.cl, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=starken.cl\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=starken.cl\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002236638_33",
+    "timestamp": "2026-09-21T14:50:36.638Z",
+    "company": "99Minutos Last Mile",
+    "domain": "99minutos.com",
+    "scannedHost": "99minutos.com",
+    "country": "México / LatAm",
+    "industry": "Last Mile Fulfillment",
+    "contactEmail": "hola@99minutos.com",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "Vercel",
+    "httpStatusCode": 308,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": true,
+      "hasXFrame": false
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=99minutos.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "hola@99minutos.com",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en 99minutos.com",
+      "body": "Estimado equipo directivo y técnico en 99Minutos Last Mile,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre 99minutos.com, identificamos 2 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=99minutos.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=99minutos.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
+    "auditId": "audit_1790002235291_372",
+    "timestamp": "2026-09-21T14:50:35.291Z",
+    "company": "Kavak México Operations",
+    "domain": "kavak.com",
+    "scannedHost": "kavak.com",
+    "country": "México",
+    "industry": "Fintech & Retail Automotriz",
+    "contactEmail": "soporte@kavak.com",
+    "brandName": "Destraba AI",
+    "language": "es",
+    "serverDetected": "Desconocido",
+    "httpStatusCode": 308,
+    "securityHeaders": {
+      "hasCsp": false,
+      "hasHsts": false,
+      "hasXFrame": false
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "monetization": {
+      "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+      "checkoutStrike": "https://strike.me/rick2818",
+      "checkoutDirectApp": "https://unblock-shield.vercel.app/?domain=kavak.com",
+      "destinationAddress": "rick2818@strike.me"
+    },
+    "generatedDispatchMessage": {
+      "to": "soporte@kavak.com",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en kavak.com",
+      "body": "Estimado equipo directivo y técnico en Kavak México Operations,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre kavak.com, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=kavak.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=kavak.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "status": "AUDITADO_Y_LISTO_PARA_NOTIFICACION"
+  },
+  {
     "auditId": "audit_1789770155986_658",
     "timestamp": "2026-09-18T22:22:35.986Z",
     "company": "Skydropx Plataforma Envíos",
