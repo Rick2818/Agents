@@ -1,10 +1,11 @@
 /**
  * =============================================================================
- * ENDPOINT SERVERLESS: WHATSAPP BUSINESS & SMS (TWILIO)
+ * ENDPOINT SERVERLESS: WHATSAPP BUSINESS & SOPORTE CON GEMINI 2.5 FLASH
  * =============================================================================
  * Rutas:
- *   GET  /api/whatsapp  -> Estado de conexión Twilio
- *   POST /api/whatsapp  -> Despacho de mensaje WhatsApp
+ *   GET  /api/whatsapp          -> Estado del servicio y número de soporte (5037574344)
+ *   POST /api/whatsapp/support  -> Chat de soporte respondido por Google Gemini 2.5 Flash
+ *   POST /api/whatsapp          -> Despacho saliente o webhook entrante de Twilio
  * =============================================================================
  */
 
@@ -15,7 +16,10 @@ import {
 } from '../lib/fiduciary_core.js';
 import {
   getWhatsAppStatus,
-  sendWhatsAppMessage
+  sendWhatsAppMessage,
+  handleSupportWithGemini,
+  BOLTECH_SUPPORT_PHONE,
+  BOLTECH_SUPPORT_PHONE_DISPLAY
 } from '../lib/whatsapp_engine.js';
 
 export default async function handler(req, res) {
@@ -35,36 +39,74 @@ export default async function handler(req, res) {
   }
 
   const clientIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '127.0.0.1';
-  const { allowed, remainingSeconds } = checkRateLimit(clientIp, 30, 60000);
+  const { allowed, remainingSeconds } = checkRateLimit(clientIp, 40, 60000);
   if (!allowed) {
     res.setHeader('Retry-After', remainingSeconds);
     return res.status(429).json({ error: 'Too Many Requests', retryAfterSeconds: remainingSeconds });
   }
 
   try {
+    const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
+    const pathname = url.pathname;
+
+    // 1. GET: Información de soporte y estado
     if (req.method === 'GET') {
-      return res.status(200).json(getWhatsAppStatus());
+      const status = getWhatsAppStatus();
+      return res.status(200).json({
+        ...status,
+        supportPhone: BOLTECH_SUPPORT_PHONE,
+        supportPhoneDisplay: BOLTECH_SUPPORT_PHONE_DISPLAY,
+        aiEngine: 'Google Gemini 2.5 Flash'
+      });
     }
 
+    // 2. POST: Manejo de consultas y soporte
     if (req.method === 'POST') {
-      const { to, body, mediaUrl } = req.body || {};
-      if (!to || !body) {
+      const body = req.body || {};
+
+      // Caso A: Consulta al Asistente de Soporte Gemini 2.5 Flash (desde Web App o Webhook)
+      const userMessage = body.message || body.query || body.Body;
+      const isSupportQuery = Boolean(
+        pathname.endsWith('/support') ||
+        pathname.includes('support') ||
+        (userMessage && !body.to && !body.mediaUrl)
+      );
+
+      if (isSupportQuery && userMessage) {
+        const supportRes = await handleSupportWithGemini({
+          message: userMessage,
+          senderPhone: body.From || body.phone,
+          history: body.history || []
+        });
+
+        // Si la petición viene de un Webhook de Twilio (Body & From presentes)
+        if (body.From && body.Body) {
+          res.setHeader('Content-Type', 'text/xml; charset=utf-8');
+          return res.status(200).send(`<?xml version="1.0" encoding="UTF-8"?><Response><Message>${supportRes.reply}</Message></Response>`);
+        }
+
+        return res.status(200).json(supportRes);
+      }
+
+      // Caso B: Despacho saliente de mensaje a un destinatario específico
+      const { to, body: msgBody, mediaUrl } = body;
+      if (!to || !msgBody) {
         return res.status(400).json({
           success: false,
-          error: 'Los parámetros "to" y "body" son obligatorios.'
+          error: 'Para enviar WhatsApp se requieren los campos "to" y "body", o "message" para consultar a Soporte Gemini 2.5 Flash.'
         });
       }
 
-      const result = await sendWhatsAppMessage({ to, body, mediaUrl });
+      const result = await sendWhatsAppMessage({ to, body: msgBody, mediaUrl });
       return res.status(result.success ? 200 : 422).json(result);
     }
 
     return res.status(405).json({ error: 'Método HTTP no permitido' });
   } catch (error) {
-    console.error('[WhatsApp API Error]:', error);
+    console.error('[WhatsApp Support API Error]:', error);
     return res.status(500).json({
       success: false,
-      error: error?.message || 'Error interno en servicio WhatsApp'
+      error: error?.message || 'Error interno en servicio WhatsApp Soporte'
     });
   }
 }

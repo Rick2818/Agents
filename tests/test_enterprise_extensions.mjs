@@ -61,22 +61,40 @@ const mcpServer = createBoltechMCPServer();
 console.assert(mcpServer !== null, 'Servidor MCP debe instanciarse');
 console.log('  ✅ Servidor MCP Estandarizado: PASADO');
 
-// 5. Endpoint GET & POST /api/whatsapp
-console.log('\n5. Probando Endpoints /api/whatsapp:');
+// 5. Endpoint GET & POST /api/whatsapp y Soporte Gemini 2.5 Flash
+console.log('\n5. Probando Endpoints /api/whatsapp y Soporte Gemini 2.5 Flash (5037574344):');
 let waHttpStatus = 0;
+let waJsonData = null;
 const mockResWa = {
   setHeader: () => {},
   status: (code) => {
     waHttpStatus = code;
-    return { json: () => {} };
+    return {
+      json: (data) => { waJsonData = data; },
+      send: (txt) => { waJsonData = txt; }
+    };
   }
 };
 await whatsappHandler({ method: 'GET', headers: {}, socket: {} }, mockResWa);
 console.assert(waHttpStatus === 200, 'GET /api/whatsapp debe responder HTTP 200');
+console.assert(waJsonData.supportPhone === '5037574344', 'Número de soporte debe ser 5037574344');
+console.assert(waJsonData.aiEngine.includes('Gemini 2.5 Flash'), 'Motor de IA debe ser Gemini 2.5 Flash');
 
+// Prueba de Soporte interactivo
+await whatsappHandler({
+  method: 'POST',
+  body: { message: '¿Qué pasarelas de pago fiduciarias aceptan en BolTech?' },
+  headers: {},
+  socket: {}
+}, mockResWa);
+console.assert(waHttpStatus === 200, 'POST /api/whatsapp con message debe responder HTTP 200');
+console.assert(typeof waJsonData.reply === 'string' && waJsonData.reply.length > 20, 'Debe devolver respuesta de soporte');
+console.assert(waJsonData.whatsappNumber === '5037574344', 'Número en respuesta debe ser 5037574344');
+
+// Prueba con falta de parámetros
 await whatsappHandler({ method: 'POST', body: {}, headers: {}, socket: {} }, mockResWa);
 console.assert(waHttpStatus === 400, 'POST /api/whatsapp sin parámetros debe responder HTTP 400');
-console.log('  ✅ Endpoints /api/whatsapp: PASADO');
+console.log('  ✅ Endpoints /api/whatsapp & Soporte Gemini 2.5 Flash: PASADO');
 
 // 6. Endpoint GET & POST /api/intel
 console.log('\n6. Probando Endpoints /api/intel:');
