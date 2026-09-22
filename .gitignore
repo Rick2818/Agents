@@ -1,3 +1,6 @@
+# Node dependencies
+node_modules/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -13,7 +16,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-# lib/
 !lib/
 !lib/**
 lib64/
@@ -29,6 +31,7 @@ wheels/
 .env
 .env.local
 .env.*.local
+.env*
 
 # IDE and OS
 .vscode/
@@ -37,17 +40,16 @@ wheels/
 *.swo
 .DS_Store
 Thumbs.db
+*.log
+
+# Vercel and builds
+.vercel/
+.vercel
 
 # Test artifacts
 test_export/
 scratch/
-
-.vercel
-.env*
 *.zip
-
-# Node dependencies
-node_modules/
 
 # Sensitive sovereign auth
 lib/sovereign_auth.json

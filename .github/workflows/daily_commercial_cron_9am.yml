@@ -1,0 +1,43 @@
+name: BolTech Group — Daily 9:00 AM Commercial Cron
+
+on:
+  schedule:
+    # 15:00 UTC = 09:00 AM El Salvador / Central America (UTC-6)
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-daily-dashboard:
+    name: Actualizar Dashboard Fiduciario 09:00 AM
+    runs-on: ubuntu-latest
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '' }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID || '' }}
+      APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY || '' }}
+    steps:
+      - name: Checkout Repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ejecutar Cron 09:00 AM de Consolidación Comercial
+        run: |
+          node scripts/cron/update_daily_dashboard_9am.mjs
+
+      - name: Verificar Cambios y Publicar Feed
+        run: |
+          git config --global user.name "BolTech Autonomous Bot"
+          git config --global user.email "bot@boltech-group.com"
+          if [[ -n $(git status -s data/dashboard_feed.json) ]]; then
+            git add data/dashboard_feed.json
+            git commit -m "chore(cron): actualización diaria comercial 09:00 AM [skip ci]"
+            git push origin main
+          else
+            echo "Sin cambios en data/dashboard_feed.json para hoy."
+          fi

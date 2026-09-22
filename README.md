@@ -1,47 +1,59 @@
-# ⚡ Destraba AI / Unblock AI
+# 🏛️ BolTech Group
 
-> **"Destraba tu empresa en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático 24/7 en la nube."**  
-> *"Unblock your business in 60 seconds. Deploy your autonomous agent today and put operations on 24/7 cloud autopilot."*
+> **Technology Holding & Venture Studio of Autonomous Cloud Infrastructure**  
+> Fundador & Managing Director: **Ricardo Bolaños**  
+> Portal Oficial: [https://boltech-group.vercel.app](https://boltech-group.vercel.app)
 
-Plataforma fiduciaria B2B, simple, bilingüe (Español / English) y de máxima ciberseguridad, diseñada para transformar **dolores operativos no resueltos** en **Custom Agents autónomos** listos para producción en **Google Antigravity**, impulsados nativamente por **Google Gemini 3.6 Flash** y desplegados 24/7 en **Vercel Serverless** con cero dependencia de computadoras locales.
+---
 
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed%2024%2F7-black?logo=vercel)](https://destraba-ai.vercel.app)
-[![Telegram Bot](https://img.shields.io/badge/Telegram-@ricardo__asistente__2026__bot-26A5E4?logo=telegram)](https://t.me/ricardo_asistente_2026_bot)
-[![Supabase Database](https://img.shields.io/badge/Supabase-Hardened%20Postgres-3ECF8E?logo=supabase)](https://iocwkuvkjeyonqosetvj.supabase.co)
-[![Bitcoin Lightning](https://img.shields.io/badge/Strike-Lightning%20USD-FFD700?logo=bitcoin)](https://strike.me)
-[![Node Tests](https://img.shields.io/badge/Tests-Passing%20100%25-brightgreen)](https://github.com/Rick2818/Agents)
+## 💎 Axioma Maestro Fundacional
+
+> **«SIN CLIENTES NO HAY INGRESOS, Y SIN INGRESOS NO HAY TRABAJO.»**  
+> Todo sistema, arquitectura de software, flujo automatizado y división operativa existe con un único propósito fiduciario irrenunciable: **adquirir, deleitar, cerrar y retener clientes de pago reales para generar flujo de caja recurrente en USD con cero fricción**.
+
+---
+
+## 🚀 Divisiones Operativas de BolTech Group
+
+### 1. 🛡️ Unblock AI Shield
+- **Enfoque:** Ciberdefensa perimetral no invasiva, endurecimiento de cabeceras en la nube (CSP, HSTS, X-Frame) y síntesis de agentes autónomos para erradicar fricción operativa 24/7.
+- **Acceso:** [https://unblock-shield.vercel.app](https://unblock-shield.vercel.app)
+
+### 2. ⚖️ AuditFlow AI
+- **Enfoque:** Auditoría clínica y redline automatizado de contratos comerciales B2B en menos de 10 segundos en memoria RAM volátil (GDPR Art. 28, cero retención en disco), blindando entre \$3,500 y \$18,500 USD por contrato en pasivos ocultos antes de la firma.
+- **Acceso:** [https://audiflowai.com](https://audiflowai.com)
+
+### 3. ⚡ Destraba AI / Custom Autonomous Agents
+- **Enfoque:** Plataforma fiduciaria B2B para transformar dolores operativos no resueltos en Custom Agents autónomos listos para producción en Google Antigravity, impulsados nativamente por Google Gemini y desplegados 24/7 en Vercel Serverless.
+- **Acceso:** [https://destraba-ai.vercel.app](https://destraba-ai.vercel.app)
+
+---
+
+## 🛡️ Estándares de Grado Bancario & Seguridad
+
+- **Cero Invasión:** Sin acceso a bases de datos ni contraseñas maestras. Todo análisis opera de forma perimetral desde la nube.
+- **Privacidad SOC-2:** Procesamiento 100% en memoria volátil RAM; sin retención en disco ni entrenamiento de modelos con datos de clientes.
+- **Liquidación Multidivisa:** Wompi (COP/SV), Stripe (USD Global) y Strike Lightning Network (Bitcoin / USD instantáneo).
+- **Infraestructura:** Google Antigravity 2.0 Cloud & Vercel Edge Network.
 
 ---
 
 ## 🏛️ Los 7 Pilares Inviolables de la Arquitectura Fiduciaria Enterprise
 
 1. **Arquitectura Cloud-Native 24/7 (Cero Dependencia Local):**
-   - El sistema corre 100% en la nube a través de Vercel Serverless. Tu computadora puede permanecer apagada durante semanas y el asistente de Telegram y los despachadores siguen respondiendo de inmediato.
+   - El sistema corre 100% en la nube a través de Vercel Serverless.
 2. **Retención Cero en Disco (100% Memoria Volátil RAM):**
-   - Ninguna nota de voz (`.oga` / `.ogg` / `.wav`), archivo adjunto o mensaje sensible toca el disco del servidor. Todo se procesa en `Buffer` volátil y se destruye en bloques `finally { purgeMemoryBuffer(buf); }`.
+   - Ninguna nota de voz, archivo adjunto o mensaje sensible toca el disco del servidor. Todo se procesa en `Buffer` volátil y se destruye en bloques `finally`.
 3. **Secretos Fail-Closed e Inviolabilidad de Credenciales:**
-   - La falta de variables críticas (`GEMINI_API_KEY`, `TELEGRAM_BOT_TOKEN`, `PLATFORM_MASTER_KEY`) aborta el inicio con HTTP 503. Cero fallbacks a credenciales por defecto.
+   - La falta de variables críticas aborta el inicio con HTTP 503. Cero fallbacks a credenciales por defecto.
 4. **Mitigación Criptográfica de Timing Attacks:**
-   - Comparaciones de tokens (`X-Telegram-Bot-Api-Secret-Token`, `Authorization: Bearer <CRON_SECRET>`) ejecutadas en tiempo constante vía `crypto.timingSafeEqual`.
+   - Comparaciones de tokens ejecutadas en tiempo constante vía `crypto.timingSafeEqual`.
 5. **Anti-DoS, ReDoS y Rate Limiting en Memoria:**
-   - Ventanas deslizantes de rate limiting por IP, cuotas de payload (máximo 10 MB) y sanitización universal anti-XSS.
+   - Ventanas deslizantes de rate limiting por IP, cuotas de payload y sanitización universal anti-XSS.
 6. **Cabeceras de Ciberseguridad Bancaria y CORS Restringido:**
-   - HSTS 2 años preload, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff` y orígenes estrictamente controlados (prohibido comodín `*`).
+   - HSTS 2 años preload, `X-Frame-Options`, `X-Content-Type-Options: nosniff` y orígenes estrictamente controlados.
 7. **Liquidación Fiduciaria Directa (Strike Lightning & Wompi):**
    - Recaudación sin intermediarios hacia `rick2818@strike.me` y pasarela Wompi con verificación HMAC SHA-256.
-
----
-
-## 🏛️ ¿Quiénes Somos y Por Qué Confiar en Destraba AI?
-
-Destraba AI es una firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Vercel Cloud 24/7. Erradicamos el trabajo manual repetitivo en empresas (PYMEs, comercio digital, logística y finanzas) mediante agentes autónomos soberanos.
-
-### 🛡️ Los 5 Anclajes de Apertura y Confianza Fiduciaria (Cero Riesgo):
-1. **Cero Invasión Previa:** No solicitamos contraseñas, claves de API ni acceso a bases de datos. Todo diagnóstico y servicio opera de forma no invasiva desde la nube.
-2. **Micro-Riesgo / Entrada Asimétrica:** Escáner gratuito en 15 segundos en la web o informe técnico ejecutivo con parches listos para producción por solo **$19 USD** (Plan Flash).
-3. **Garantía Fiduciaria Incondicional de 7 Días:** Si en los primeros 7 días el agente no le ahorra al menos 10 horas de trabajo manual al equipo del cliente, se reembolsa el 100% de su pago sin preguntas ni fricción.
-4. **Privacidad Bancaria SOC-2 (Retención Cero en Disco):** Procesamiento 100% en memoria volátil RAM; ninguna conversación sensible ni dato del cliente toca disco ni se usa para entrenar modelos públicos.
-5. **Matemática de Ahorro y ROI Objetivo:** Un operador o analista cuesta $600+ USD/mes; el agente opera 24/7 por **$2.30 USD al día ($69 USD/mes)**, pagándose solo con recuperar 1 carrito o evitar 1 error operativo.
 
 ---
 
@@ -71,136 +83,10 @@ npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabas
 
 ---
 
-## 🚀 Despliegue en la Nube & Endpoints Serverless (Vercel)
-
-- **URL Oficial de Producción:** [`https://destraba-ai.vercel.app`](https://destraba-ai.vercel.app)
-- **Dashboard Ejecutivo:** [`https://destraba-ai.vercel.app/dashboard`](https://destraba-ai.vercel.app/dashboard)
-- **Telegram Webhook Serverless:** [`https://destraba-ai.vercel.app/api/telegram`](https://destraba-ai.vercel.app/api/telegram)
-- **Master Cloud Dispatcher (Cron):** [`https://destraba-ai.vercel.app/api/cron/master-dispatcher`](https://destraba-ai.vercel.app/api/cron/master-dispatcher)
-- **Catálogo Fiduciario:** [`https://destraba-ai.vercel.app/api/catalog`](https://destraba-ai.vercel.app/api/catalog)
-
----
-
 ## 👥 Equipo Multi-Agente Fiduciario Activo
 
-| Agente | Rol Operativo | Modelo | Misión Principal |
-| :--- | :--- | :--- | :--- |
-| **`marketing-director`** | Directora de Mercadeo | `gemini-2.5-flash` | Posicionamiento fiduciario, distribución en Buffer/LinkedIn y siembra de autoridad. |
-| **`sales-closer-specialist`** | Especialista en Ventas & Cierre | `gemini-2.5-flash` | Prospección outbound en 3 impactos, calificación y links de cobro 1-clic. |
-| **`cfo-financial-strategist`** | Director Financiero & Precios | `gemini-2.5-flash` | Custodio del presupuesto ($300 USD/día — $9,000 USD/mes), unit economics (LTV/CAC > 4.5x) y precios oficiales. |
-| **`international-trade-specialist`** | Especialista en Comercio Exterior | `gemini-2.5-flash` | Expansión multijurisdicción, cumplimiento cambiario y enrutamiento cross-border. |
-| **`consumer-psychology-diagnostician`** | Psicólogo de Ventas | `gemini-2.5-flash` | Auditoría de sesgos (aversión a la pérdida), desactivación preventiva de objeciones. |
-
----
-
-## 💰 Catálogo de Precios Oficial (USD)
-
-| Nivel / Agente | Precio Mensual (USD) | Pago Anual (USD - Ahorro 2 Meses) | Entrega |
-| :--- | :--- | :--- | :--- |
-| **Diagnóstico Flash Express** | **$19** (pago único) | N/A | Diagnóstico exhaustivo + arquitectura preliminar |
-| **Agente Soporte & Concierge** | **$49 / mes** | **$490 / año** | Full Cloud 24/7 o descarga `.zip` |
-| **Agente Directora de Mercadeo** | **$59 / mes** | **$590 / año** | Integración Buffer/LinkedIn + generación de copys |
-| **Agente Custodio de Inventarios** | **$69 / mes** | **$690 / año** | Monitor ERP/Shopify + alertas de reposición |
-| **Agente Closer de Ventas B2B** | **$79 / mes** | **$790 / año** | Cadencias 3 impactos + links de pago instantáneos |
-| **Agente Auditor Financiero & Cobranza** | **$89 / mes** | **$890 / año** | Conciliación bancaria + recordatorios fiduciarios |
-| **👑 Suite Élite Completa (5 Agentes)** | **$249 / mes** | **$2,490 / año** | Ecosistema integral con orquestador centralizado |
-
----
-
-## 💳 Pasarelas de Pago Seguras
-
-- **Strike Lightning Network**:
-  - Pagos instantáneos en Bitcoin Lightning o USD sin comisiones de intermediarios.
-  - Dirección receptora fiduciaria: `rick2818@strike.me`
-  - Invoices dinámicos y webhooks con firma criptográfica `v1`.
-- **Wompi SV (Bancolombia / El Salvador)**:
-  - Enlaces de pago 3DSecure con soporte de tarjetas internacionales Visa, Mastercard y transferencias QR.
-  - Validación de firma bancaria `X-Event-Checksum` (HMAC SHA-256).
-
----
-
-## ☁️ Despliegue en Vercel (1-Clic Serverless)
-
-El proyecto incluye configuración nativa para **Vercel** (`vercel.json`, `package.json` y `api/index.js`).
-
-### Despliegue Automático:
-```bash
-# Iniciar sesión en Vercel
-vercel login
-
-# Desplegar directamente a producción
-vercel --prod
-```
-
-### Endpoints Serverless Expuestos:
-- `GET /api/catalog`: Retorna el catálogo oficial con precios y direcciones fiduciarias.
-- `POST /api/strike/invoice`: Genera una factura Lightning para liquidación inmediata.
-- `POST /api/wompi/checkout`: Construye la URL de pasarela Wompi con parámetros firmados.
-- `POST /api/webhooks/strike`: Recibe y valida notificaciones de pago Strike.
-- `POST /api/webhooks/wompi`: Recibe y valida notificaciones bancarias Wompi.
-
----
-
-## 🗄️ Base de Datos & Autenticación (Supabase)
-
-- **Instancia Oficial**: `https://iocwkuvkjeyonqosetvj.supabase.co`
-- **Script SQL de Migración**: `supabase_schema.sql`
-
-### Pasos para Aplicar en Supabase:
-1. Accede a tu dashboard en [Supabase](https://supabase.com/dashboard/project/iocwkuvkjeyonqosetvj).
-2. Abre el **SQL Editor**.
-3. Copia y pega el contenido completo de [`supabase_schema.sql`](./supabase_schema.sql).
-4. Ejecuta el script (`RUN`).
-5. **Seguridad Aplicada**:
-   - `search_path = public, pg_temp` en funciones `SECURITY DEFINER` (prevención de search path hijacking).
-   - RLS activo en `clients`, `referrals` y `referral_conversions`.
-   - Índices creados en foreign keys para búsquedas ultrarrápidas.
-   - Hashing `bcrypt` con `pgcrypto`.
-
----
-
-## 📱 Operación Móvil 24/7 en Telegram
-
-El bot opera conectado a Vercel Serverless con inteligencia Gemini 3.6 Flash y voz Gemini Flash TTS:
-- **Bot Oficial:** [`@ricardo_asistente_2026_bot`](https://t.me/ricardo_asistente_2026_bot) (`Asistente_ejecutivo_bot`)
-- **Modo Fantasma (Zero-Trust):** Restringido al usuario maestro autorizado (Chat ID: `6311509947`).
-- **Comandos Soportados:** Texto libre, notas de voz (`.oga`), `/start`, `/btc` (precio satoshis), `/flights`, `/calendar`, `/balance`.
-
-### Inspección del Webhook en Telegram:
-```bash
-# Consultar estado del webhook en Telegram
-node scripts/deploy_cloud_webhook.mjs --status
-
-# Vincular nuevo dominio a Telegram Webhook
-node scripts/deploy_cloud_webhook.mjs https://destraba-ai.vercel.app
-```
-
----
-
-## 🧪 Suite de Pruebas Fiduciarias Automatizadas
-
-```bash
-# 1. Validación de Primitivas Criptográficas y Sanitización (SOC-2)
-node tests/test_fiduciary_core.mjs
-
-# 2. Validación de Master Cloud Dispatcher (Cron 24/7)
-node tests/test_master_dispatcher.mjs
-
-# 3. Simulación de Webhook Serverless Telegram
-node tests/test_telegram_serverless.mjs
-
-# 4. Tests Unitarios del Generador
-python -m unittest discover tests
-```
-
----
-
-## 📖 Documentación & Soporte
-
-- **Manual de Usuario Completo**: [`MANUAL_DE_USUARIO_APP.md`](./MANUAL_DE_USUARIO_APP.md)
-- **Estrategia Desatendida**: [`.agents/knowledge/ESTRATEGIA_VENTAS_DESATENDIDA_PARETO.md`](./.agents/knowledge/ESTRATEGIA_VENTAS_DESATENDIDA_PARETO.md)
-- **Estudio de Mercado & Pricing**: [`.agents/knowledge/ESTUDIO_MERCADO_Y_PRICING_POR_AGENTE.md`](./.agents/knowledge/ESTUDIO_MERCADO_Y_PRICING_POR_AGENTE.md)
-- **Soporte Oficial**: `soporte@destraba.ai` / `support@unblock.ai`
-
----
-*Destraba AI / Unblock AI © 2026. Todos los derechos reservados.*
+1. **`marketing-director` (Directora de Mercadeo)**: Posicionamiento fiduciario, distribución desatendida y siembra de autoridad.
+2. **`sales-closer-specialist` (Especialista en Ventas & Cierre)**: Cadencias de prospección hiperpersonalizada (3 impactos) y enlaces de cobro.
+3. **`cfo-financial-strategist` (Director Financiero & Precios)**: Custodia del presupuesto, unit economics (LTV/CAC > 4.5x) y pricing por tramos.
+4. **`international-trade-specialist` (Comercio Internacional & Cross-Border)**: Expansión multijurisdicción, conciliación multidivisa y liquidación fiduciaria.
+5. **`consumer-psychology-diagnostician` (Psicólogo de Ventas & Persuasión Cognitiva)**: Auditoría de sesgos y desactivación preventiva de objeciones.

@@ -1,6 +1,9 @@
+.git
+.agents
+node_modules
+*.log
 *.zip
 *.bat
-.git
 tests/
 scratch/
 .env

@@ -64,3 +64,4 @@
      `npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator`
    - **Cero Desarrollo en Blanco:** Queda estrictamente prohibido inicializar proyectos sin este stack base. Cada SDK resuelve una necesidad bancaria crítica (Gemini Flash/Pro, esquemas Zod en RAM, secretos Dotenv, contratos Docx en RAM, informes PDF en RAM, pagos Stripe/Strike/Wompi, scraping perimetral Cheerio 15ms, correo Resend, base de datos Supabase, tokens Nanoid, sanitización Validator y verificación anti-rebotes DeepEmailValidator).
    - **Vigencia Institucional:** Esta directiva rige de forma perpetua para toda la flota de agentes y futuros desarrollos de MicroSaaS del holding.
+
