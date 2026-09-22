@@ -3,7 +3,7 @@
  * ENDPOINT SERVERLESS: WHATSAPP BUSINESS & SOPORTE CON GEMINI 2.5 FLASH
  * =============================================================================
  * Rutas:
- *   GET  /api/whatsapp          -> Estado del servicio y número de soporte (5037574344)
+ *   GET  /api/whatsapp          -> Estado del servicio y número de soporte (50375743444)
  *   POST /api/whatsapp/support  -> Chat de soporte respondido por Google Gemini 2.5 Flash
  *   POST /api/whatsapp          -> Despacho saliente o webhook entrante de Twilio
  * =============================================================================

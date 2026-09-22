@@ -62,7 +62,7 @@ console.assert(mcpServer !== null, 'Servidor MCP debe instanciarse');
 console.log('  ✅ Servidor MCP Estandarizado: PASADO');
 
 // 5. Endpoint GET & POST /api/whatsapp y Soporte Gemini 2.5 Flash
-console.log('\n5. Probando Endpoints /api/whatsapp y Soporte Gemini 2.5 Flash (5037574344):');
+console.log('\n5. Probando Endpoints /api/whatsapp y Soporte Gemini 2.5 Flash (50375743444):');
 let waHttpStatus = 0;
 let waJsonData = null;
 const mockResWa = {
@@ -77,7 +77,7 @@ const mockResWa = {
 };
 await whatsappHandler({ method: 'GET', headers: {}, socket: {} }, mockResWa);
 console.assert(waHttpStatus === 200, 'GET /api/whatsapp debe responder HTTP 200');
-console.assert(waJsonData.supportPhone === '5037574344', 'Número de soporte debe ser 5037574344');
+console.assert(waJsonData.supportPhone === '50375743444', 'Número de soporte debe ser 50375743444');
 console.assert(waJsonData.aiEngine.includes('Gemini 2.5 Flash'), 'Motor de IA debe ser Gemini 2.5 Flash');
 
 // Prueba de Soporte interactivo
@@ -89,7 +89,7 @@ await whatsappHandler({
 }, mockResWa);
 console.assert(waHttpStatus === 200, 'POST /api/whatsapp con message debe responder HTTP 200');
 console.assert(typeof waJsonData.reply === 'string' && waJsonData.reply.length > 20, 'Debe devolver respuesta de soporte');
-console.assert(waJsonData.whatsappNumber === '5037574344', 'Número en respuesta debe ser 5037574344');
+console.assert(waJsonData.whatsappNumber === '50375743444', 'Número en respuesta debe ser 50375743444');
 
 // Prueba con falta de parámetros
 await whatsappHandler({ method: 'POST', body: {}, headers: {}, socket: {} }, mockResWa);
