@@ -2,6 +2,9 @@
  * ==============================================================================
  * ENDPOINT SERVERLESS: HUBSPOT BIDIRECTIONAL WEBHOOK (BOLTECH GROUP)
  * ==============================================================================
+ * Recibe eventos de HubSpot CRM (cambios de etapa de Deals, nuevos contactos)
+ * y ejecuta aprovisionamiento de la Cabina Cloud en tiempo real.
+ * ==============================================================================
  */
 
 import { handleHubSpotWebhookEvent } from '../lib/bidirectional_commercial_sync.js';
