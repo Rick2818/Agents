@@ -84,8 +84,8 @@
           <span>💬</span> <span class="hidden md:inline">WhatsApp</span> <span>+503 7574 3444</span>
         </a>
 
-        <button type="button" onclick="toggleLanguage()" id="lang-switch-btn" aria-label="Cambiar idioma" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-cyan-300 font-bold transition-all cursor-pointer flex items-center gap-1.5">
-          <span>🌐</span> <span id="lang-btn-label">ESPAÑOL</span>
+        <button type="button" onclick="toggleLanguage()" id="lang-switch-btn" aria-label="Cambiar idioma" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-cyan-300 font-bold transition-all cursor-pointer flex items-center gap-1.5 shadow-sm">
+          <span>🌐</span> <span id="lang-btn-label">ES | EN</span>
         </button>
 
         <a href="#soluciones" class="hidden sm:inline-flex px-4 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs font-mono transition-all shadow-md shadow-cyan-500/20">
@@ -345,36 +345,26 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE VIDEO BRIEFING EJECUTIVO: UNBLOCK AI SHIELD (70 SEGUNDOS) -->
+  <!-- SECCIÓN DE VIDEO BRIEFING EJECUTIVO: DEMOSTRACIÓN EN VIVO -->
   <section class="py-16 relative overflow-hidden bg-cyber-dark/40 border-b border-slate-800/80">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase mb-4">
-        <span id="video-showroom-badge-text">🎬 Sala de Presentaciones Ejecutivas • Soluciones en Acción</span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-wider mb-4">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span id="video-showroom-badge-text">🎬 Demostración Ejecutiva • Soluciones en Acción</span>
       </div>
       <h2 id="video-heading" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
-        Agente de Ventas B2B: El Caso UnblockAI Shield
+        Agente Autónomo en Acción: Demostración Ejecutiva
       </h2>
-      <p id="video-desc" class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed mb-6">
-        Diagnóstico riguroso, descomposición económica de ROI y cierre fiduciario con estándar Harvard Business School.
+      <p id="video-desc" class="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8 font-sans">
+        Diagnóstico riguroso, descomposición económica de ROI y resolución instantánea en 3 segundos sin nómina humana ni contraseñas.
       </p>
 
-      <!-- Selector de Video Ejecutivo -->
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <button type="button" id="btn-vid-sales" onclick="switchVideo('sales')" class="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs font-mono transition-all cursor-pointer shadow-lg shadow-cyan-500/30">
-          💼 Agente de Ventas B2B (Caso Harvard · 2m)
-        </button>
-        <button type="button" id="btn-vid-exec" onclick="switchVideo('exec')" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs font-mono transition-all cursor-pointer">
-          🏛️ Síntesis de Dirección (70s)
-        </button>
-        <button type="button" id="btn-vid-master" onclick="switchVideo('master')" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs font-mono transition-all cursor-pointer">
-          ⚡ Master Pitch Institucional (3m)
-        </button>
-      </div>
-
-      <div class="relative w-full aspect-video rounded-2xl overflow-hidden glass-shield border-2 border-cyan-500/30 shadow-2xl shadow-cyan-950/60">
+      <div class="relative w-full aspect-video rounded-2xl overflow-hidden glass-shield border-2 border-cyan-500/40 shadow-2xl shadow-cyan-950/70">
         <video id="main-executive-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/poster_sales_closer.jpg" class="w-full h-full object-cover">
           <source src="assets/videos/sales_closer_briefing.mp4" type="video/mp4">
+          <track id="video-sub-es" src="assets/videos/gerente_general_estrategia_ejecutiva.vtt" kind="subtitles" srclang="es" label="Español" default>
+          <track id="video-sub-en" src="assets/videos/gerente_general_estrategia_ejecutiva_en.vtt" kind="subtitles" srclang="en" label="English">
           Tu navegador no soporta reproducción de video HTML5.
         </video>
       </div>
@@ -545,43 +535,8 @@
         </div>
       </div>
 
-      <!-- DEMOSTRACIÓN EN VIDEO: CÓMO UN AGENTE RESUELVE PROBLEMAS EN LA EMPRESA -->
-      <div class="mt-14 pt-12 border-t border-slate-800/80">
-        
-        <div class="text-center max-w-3xl mx-auto mb-10">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-mono uppercase tracking-wider mb-4">
-            <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-            <span id="agent-vid-badge">🎬 Demostración de Solución • Agentes Autónomos en Acción</span>
-          </div>
-          <h3 id="agent-vid-title" class="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight mb-3">
-            Video Demostrativo: Cómo un Agente a la Medida resuelve los problemas en tu empresa
-          </h3>
-          <p id="agent-vid-desc" class="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed font-sans mb-8">
-            Reproduce el video a continuación para ver cómo la tecnología de agentes autónomos erradica cuellos de botella manuales de 24 horas y los convierte en resoluciones instantáneas de 3 segundos dentro de tu organización:
-          </p>
-        </div>
-
-        <!-- REPRODUCTOR DE VIDEO EJECUTIVO: AGENTES SOLUCIONANDO PROBLEMAS -->
-        <div class="relative w-full max-w-4xl mx-auto aspect-video rounded-3xl overflow-hidden glass-shield border-2 border-indigo-500/40 shadow-2xl shadow-indigo-950/70 mb-10 group">
-          <video
-            id="agent-solution-video"
-            controls
-            playsinline
-            webkit-playsinline
-            controlsList="nodownload"
-            preload="metadata"
-            poster="assets/videos/poster_gerente_estrategia.jpg"
-            class="w-full h-full object-cover"
-          >
-            <source src="assets/videos/gerente_general_estrategia_ejecutiva.mp4" type="video/mp4">
-            <track id="agent-sub-es" src="assets/videos/gerente_general_estrategia_ejecutiva.vtt" kind="subtitles" srclang="es" label="Español" default>
-            <track id="agent-sub-en" src="assets/videos/gerente_general_estrategia_ejecutiva_en.vtt" kind="subtitles" srclang="en" label="English">
-            Tu navegador no soporta reproducción de video HTML5.
-          </video>
-        </div>
-
-        <!-- BLOQUE CRÍTICO DESTACADO: DÓNDE HACER CLIC PARA QUE EL AGENTE FUNCIONE -->
-        <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-indigo-950/50 to-slate-950 border-2 border-amber-400 shadow-2xl shadow-amber-500/20 text-center relative overflow-hidden">
+      <!-- BLOQUE CRÍTICO DESTACADO: DÓNDE HACER CLIC PARA QUE EL AGENTE FUNCIONE -->
+      <div class="mt-14 p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-indigo-950/50 to-slate-950 border-2 border-amber-400 shadow-2xl shadow-amber-500/20 text-center relative overflow-hidden">
           
           <!-- Elemento decorativo de resplandor pulsante -->
           <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-amber-400/20 blur-3xl rounded-full pointer-events-none"></div>
@@ -1500,46 +1455,6 @@
     };
 
     let currentSelectedPain = 'whatsapp';
-    let currentVideoType = 'sales';
-
-    const VIDEO_SHOWROOM = {
-      sales: {
-        poster: 'assets/videos/poster_sales_closer.jpg',
-        src: 'assets/videos/sales_closer_briefing.mp4',
-        es: {
-          heading: 'Agente de Ventas B2B: El Caso UnblockAI Shield',
-          desc: 'Diagnóstico riguroso, descomposición económica de ROI y cierre fiduciario con estándar Harvard Business School.'
-        },
-        en: {
-          heading: 'B2B Sales Closer Agent: The UnblockAI Shield Case',
-          desc: 'Rigorous technical diagnosis, economic ROI breakdown, and fiduciary deal closing with Harvard Business School standard.'
-        }
-      },
-      exec: {
-        poster: 'assets/videos/poster_executive.jpg',
-        src: 'assets/videos/executive_briefing.mp4',
-        es: {
-          heading: '70 Segundos sobre el Costo de la Inacción',
-          desc: 'Mira cómo un escudo tecnológico desatendido resuelve los cuellos de botella operativos y protege los ingresos de tu empresa.'
-        },
-        en: {
-          heading: '70 Seconds on the Real Cost of Inaction',
-          desc: 'Watch how an unattended technological shield eliminates operational friction and protects company revenue.'
-        }
-      },
-      master: {
-        poster: 'assets/videos/poster_sales_closer.jpg',
-        src: 'assets/videos/boltech_master_pitch.mp4',
-        es: {
-          heading: 'Master Pitch Institucional: BolTech & UnblockAI Shield',
-          desc: 'Presentación ejecutiva de 15 escenas sobre blindaje perimetral, liquidación multidivisa y escala desatendida.'
-        },
-        en: {
-          heading: 'Enterprise Master Pitch: BolTech & UnblockAI Shield',
-          desc: 'Comprehensive 15-scene briefing on perimeter hardening, multi-currency settlement, and unattended fiduciary scale.'
-        }
-      }
-    };
 
     const PAIN_SOLUTIONS = {
       es: {
@@ -1609,7 +1524,7 @@
         logoSub: 'Ingeniería en Soluciones Operativas & Ciberseguridad',
         brandText: 'BOLTECH <span class="text-cyan-400">GROUP</span>',
         brandPlain: 'BolTech Group',
-        langBtn: 'ENGLISH',
+        langBtn: '<span class="text-cyan-400 font-bold underline decoration-cyan-400/60 underline-offset-2">ES</span><span class="text-slate-500 mx-1">|</span><span class="text-slate-400 font-normal">EN</span>',
         headerCta: 'Ver Soluciones',
         manualBtn: 'Manual',
         supportBtn: 'Soporte',
@@ -1657,10 +1572,9 @@
         s4h: '24/7 Autopilot Sentinel',
         s4p: 'Un agente centinela en la nube que ejecuta comprobaciones de pulso cada 60 segundos. Si un servicio se cae o un certificado se vence, el sistema actúa de inmediato sin requerir que nadie se despierte a medianoche.',
 
-        videoShowroomBadge: '🎬 Sala de Presentaciones Ejecutivas • Soluciones en Acción',
-        btnVidSales: '💼 Agente de Ventas B2B (Caso Harvard · 2m)',
-        btnVidExec: '🏛️ Síntesis de Dirección (70s)',
-        btnVidMaster: '⚡ Master Pitch Institucional (3m)',
+        videoShowroomBadge: '🎬 Demostración Ejecutiva • Soluciones en Acción',
+        videoHeading: 'Agente Autónomo en Acción: Demostración Ejecutiva',
+        videoDesc: 'Diagnóstico riguroso, descomposición económica de ROI y resolución instantánea en 3 segundos sin nómina humana ni contraseñas.',
 
         customDivisionBadge: 'Solución 2 de Boltech Group • Agentes Hechos a la Medida',
         customAgentsTitle: '¿Tienes un proceso lento o que no está bien en tu empresa?<br><span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent">Lo solucionamos con un Agente inteligente hecho a tu medida.</span>',
@@ -1776,7 +1690,7 @@
         logoSub: 'Autonomous Operational Solutions & Cyber-Defense',
         brandText: 'BOLTECH <span class="text-cyan-400">GROUP</span>',
         brandPlain: 'BolTech Group',
-        langBtn: 'ESPAÑOL',
+        langBtn: '<span class="text-slate-400 font-normal">ES</span><span class="text-slate-500 mx-1">|</span><span class="text-cyan-400 font-bold underline decoration-cyan-400/60 underline-offset-2">EN</span>',
         headerCta: 'View Solutions',
         manualBtn: 'Manual',
         supportBtn: 'Support',
@@ -1824,10 +1738,9 @@
         s4h: '24/7 Autopilot Sentinel',
         s4p: 'A cloud sentinel executing pulse health checks every 60 seconds. If an endpoint stumbles or an SSL certificate nears expiry, autonomous scripts resolve it without waking anyone up at midnight.',
 
-        videoShowroomBadge: '🎬 Executive Showroom • Solutions in Action',
-        btnVidSales: '💼 B2B Sales Agent (Harvard Case · 2m)',
-        btnVidExec: '🏛️ Executive Briefing (70s)',
-        btnVidMaster: '⚡ Enterprise Master Pitch (3m)',
+        videoShowroomBadge: '🎬 Executive Demo • Solutions in Action',
+        videoHeading: 'Autonomous Agent in Action: Executive Briefing',
+        videoDesc: 'Rigorous technical diagnosis, economic ROI breakdown, and instant 3-second resolutions with zero human payroll or passwords.',
 
         customDivisionBadge: 'BolTech Group Solution 2 • Custom Tailored Agents',
         customAgentsTitle: 'Do you have a slow or broken process in your company?<br><span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent">We solve it with a smart Agent built to your measure.</span>',
@@ -1942,10 +1855,10 @@
     };
 
     function updateSubtitles(lang) {
-      const agentVid = document.getElementById('agent-solution-video');
-      if (agentVid && agentVid.textTracks) {
-        for (let i = 0; i < agentVid.textTracks.length; i++) {
-          const track = agentVid.textTracks[i];
+      const vid = document.getElementById('main-executive-video');
+      if (vid && vid.textTracks) {
+        for (let i = 0; i < vid.textTracks.length; i++) {
+          const track = vid.textTracks[i];
           track.mode = (track.language === lang) ? 'showing' : 'disabled';
         }
       }
@@ -1967,7 +1880,7 @@
       safeSet('brand-logo-text', t.brandText, true);
       safeSet('brand-tagline-text', t.logoSub);
       safeSet('footer-brand-name', t.brandPlain);
-      safeSet('lang-btn-label', t.langBtn);
+      safeSet('lang-btn-label', t.langBtn, true);
       safeSet('btn-header-cta', t.headerCta);
       safeSet('nav-manual-label', t.manualBtn);
       safeSet('nav-support-label', t.supportBtn);
@@ -2020,11 +1933,10 @@
       safeSet('shield-4-h', t.s4h);
       safeSet('shield-4-p', t.s4p);
 
-      // Video Showroom Buttons
+      // Video Showroom (Single Executive Video)
       safeSet('video-showroom-badge-text', t.videoShowroomBadge);
-      safeSet('btn-vid-sales', t.btnVidSales);
-      safeSet('btn-vid-exec', t.btnVidExec);
-      safeSet('btn-vid-master', t.btnVidMaster);
+      safeSet('video-heading', t.videoHeading);
+      safeSet('video-desc', t.videoDesc);
 
       // Custom Agents Intake Section
       safeSet('custom-division-badge', t.customDivisionBadge);
@@ -2056,11 +1968,6 @@
       safeSet('flow-step-3-h', t.flowStep3H);
       safeSet('flow-step-3-p', t.flowStep3P);
       safeSet('flow-step-3-tag', t.flowStep3Tag);
-
-      // Custom Agent Video Demo
-      safeSet('agent-vid-badge', t.agentVidBadge);
-      safeSet('agent-vid-title', t.agentVidTitle);
-      safeSet('agent-vid-desc', t.agentVidDesc);
 
       // Cabina CTA Block
       safeSet('cabina-cta-badge', t.cabinaCtaBadge);
@@ -2139,7 +2046,6 @@
 
       // Dynamic modules update
       selectOperationalPain(currentSelectedPain);
-      switchVideo(currentVideoType, false);
       updateSubtitles(currentLanguage);
 
       document.title = (currentLanguage === 'en')
@@ -2509,51 +2415,6 @@
         window.open('https://strike.me/rick2818', '_blank');
       }
     }
-
-    // SELECTOR DE PRESENTACIONES DE VIDEO EJECUTIVO
-    function switchVideo(type, shouldReload = true) {
-      currentVideoType = type || currentVideoType || 'sales';
-      const vid = document.getElementById('main-executive-video');
-      const heading = document.getElementById('video-heading');
-      const desc = document.getElementById('video-desc');
-      const btnSales = document.getElementById('btn-vid-sales');
-      const btnExec = document.getElementById('btn-vid-exec');
-      const btnMaster = document.getElementById('btn-vid-master');
-      if (!vid) return;
-
-      const lang = (currentLanguage === 'en') ? 'en' : 'es';
-      const info = VIDEO_SHOWROOM[currentVideoType] || VIDEO_SHOWROOM.sales;
-
-      const activeClass = 'px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs font-mono transition-all cursor-pointer shadow-lg shadow-cyan-500/30';
-      const inactiveClass = 'px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-bold text-xs font-mono transition-all cursor-pointer';
-
-      if (btnSales) btnSales.className = (currentVideoType === 'sales') ? activeClass : inactiveClass;
-      if (btnExec) btnExec.className = (currentVideoType === 'exec') ? activeClass : inactiveClass;
-      if (btnMaster) btnMaster.className = (currentVideoType === 'master') ? activeClass : inactiveClass;
-
-      if (heading) heading.innerText = info[lang].heading;
-      if (desc) desc.innerText = info[lang].desc;
-
-      if (shouldReload) {
-        vid.poster = info.poster;
-        if (vid.getAttribute('src') !== info.src) {
-          vid.src = info.src;
-          const agentVid = document.getElementById('agent-solution-video');
-          if (agentVid && !agentVid.paused) agentVid.pause();
-          vid.load();
-        }
-      }
-    }
-
-    // Control inteligente de reproducción: exclusión mutua de audio entre reproductores
-    document.addEventListener('DOMContentLoaded', function initVideoExclusion() {
-      const v1 = document.getElementById('main-executive-video');
-      const v2 = document.getElementById('agent-solution-video');
-      if (v1 && v2) {
-        v1.addEventListener('play', () => { if (!v2.paused) v2.pause(); });
-        v2.addEventListener('play', () => { if (!v1.paused) v1.pause(); });
-      }
-    });
 
     // MODAL DEL INFORME TÉCNICO Y DIAGNÓSTICO PERIMETRAL
     // Parches generados por el servidor a partir del resultado REAL del escaneo (solo lo que faltó)

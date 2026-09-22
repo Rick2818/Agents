@@ -46,6 +46,7 @@ import aiApiHandler from './api/ai.js';
 import crmApiHandler from './api/crm.js';
 import whatsappApiHandler from './api/whatsapp.js';
 import intelApiHandler from './api/intel.js';
+import { AutonomousSalesTriadEngine } from './lib/autonomous_triad_engine.js';
 
 const app = express();
 const PORT = process.env.PORT || 8765;
@@ -145,6 +146,28 @@ app.all(/^\/api\/whatsapp(\/.*)?$/, safeHandler(async (req, res) => {
 // 2.45 LEAD INTELLIGENCE (TAVILY)
 app.all(/^\/api\/intel(\/.*)?$/, safeHandler(async (req, res) => {
   await intelApiHandler(req, res);
+}));
+
+// 2.46 AUTONOMOUS SALES TRIAD ENGINE (EXPLEE -> BOLTECH CLOSER -> AIRTABLE)
+const triadEngine = new AutonomousSalesTriadEngine();
+
+app.post('/api/triad/ingest', safeHandler(async (req, res) => {
+  const leadData = req.body || {};
+  const options = {
+    planTier: req.body.planTier || 'PRO_SENTINEL',
+    dryRun: Boolean(req.body.dryRun)
+  };
+  const result = await triadEngine.processTriadFlow(leadData, options);
+  res.json({ success: true, result });
+}));
+
+app.get('/api/dashboard/airtable', safeHandler(async (req, res) => {
+  const DATA_FILE = path.join(__dirname, 'data', 'airtable_local_store.json');
+  let data = { tables: { Leads: [], Deals: [], Dashboard_Metrics: [] } };
+  if (fs.existsSync(DATA_FILE)) {
+    data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+  }
+  res.json(data);
 }));
 
 // 2.5 CONFIGURACIÓN LOCAL DE CABINA SOBERANA
