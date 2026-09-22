@@ -62,11 +62,11 @@
 > **Directiva Fiduciaria:** Todo nuevo entorno de desarrollo de MicroSaaS o instalación de Antigravity en otra computadora DEBE contar con el servidor MCP `mcp-agent-generator` y el Stack Base de 12 SDKs preinstalados antes de iniciar desarrollo:
 
 ```bash
-# Instalación universal del stack base
-npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator
+# Instalación universal del stack base y extensiones empresariales
+npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator ai @ai-sdk/google @ai-sdk/openai @hubspot/api-client jsforce twilio @tavily/core @upstash/redis @modelcontextprotocol/sdk
 ```
 
-### Componentes del Stack Fiduciario:
+### Componentes del Stack Fiduciario & Extensiones Enterprise:
 1. **`@google/genai` (v2.23.0):** Motor cognitivo oficial para Gemini 2.5 Flash/Pro y function calling.
 2. **`zod` (v3.24.2):** Validación de contratos y tipado estricto en RAM (cero alucinaciones).
 3. **`dotenv` (v16.4.7):** Custodia de credenciales y variables de entorno (`.env`).
@@ -79,7 +79,14 @@ npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabas
 10. **`nanoid` (v5.1.3):** Identificadores criptográficos inmutables para licencias y transacciones.
 11. **`validator` (v13.12.0):** Sanitización RFC contra inyecciones XSS y CRLF.
 12. **`deep-email-validator` (v0.1.21):** Validación MX y DNS en tiempo real para 0% tasa de rebote.
-* **Servidor MCP:** `mcp-agent-generator` (`~/.gemini/antigravity/mcp/mcp-agent-generator`) para síntesis y topología multi-agente.
+13. **`ai` + `@ai-sdk/google` + `@ai-sdk/openai`:** Orquestación Vercel AI SDK para streaming HTTP y modelos multi-proveedor.
+14. **`@hubspot/api-client`:** Sincronización e ingesta de contactos, tratos (*deals*) y pipelines de ventas calificados.
+15. **`jsforce`:** Conexión nativa REST/SOAP con Salesforce Enterprise para creación y gestión de Leads.
+16. **`twilio`:** Despacho automatizado de mensajes por WhatsApp Business y SMS para cierre acelerado en LATAM.
+17. **`@tavily/core`:** Motor de búsqueda cognitiva e inteligencia profunda de prospectos y empresas en tiempo real.
+18. **`@upstash/redis`:** Memoria distribuida e idempotencia global sobre HTTP para lambdas serverless en Vercel.
+19. **`@modelcontextprotocol/sdk`:** Servidor MCP estándar para integración bidireccional con Google Antigravity.
+* **Servidor MCP Local:** `mcp-agent-generator` (`~/.gemini/antigravity/mcp/mcp-agent-generator`) para síntesis y topología multi-agente.
 
 ---
 

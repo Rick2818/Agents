@@ -40,6 +40,10 @@ import {
 } from '../lib/universal_email_engine.js';
 import telegramHandler from './telegram.js';
 import cronHandler from './cron/master-dispatcher.js';
+import aiHandler from './ai.js';
+import crmHandler from './crm.js';
+import whatsappHandler from './whatsapp.js';
+import intelHandler from './intel.js';
 
 export default async function handler(req, res) {
   applyStrictBankingHeaders(res);
@@ -51,7 +55,7 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Strike-Signature, X-Event-Checksum, X-Telegram-Bot-Api-Secret-Token');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Strike-Signature, X-Event-Checksum, X-Telegram-Bot-Api-Secret-Token, X-Requested-With');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -60,6 +64,26 @@ export default async function handler(req, res) {
   try {
     const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
     const pathname = url.pathname;
+
+    // Enrutamiento a Vercel AI SDK
+    if (pathname === '/api/ai' || pathname.endsWith('/ai')) {
+      return await aiHandler(req, res);
+    }
+
+    // Enrutamiento a CRM (HubSpot & Salesforce)
+    if (pathname.startsWith('/api/crm') || pathname.includes('/crm')) {
+      return await crmHandler(req, res);
+    }
+
+    // Enrutamiento a WhatsApp Business (Twilio)
+    if (pathname.startsWith('/api/whatsapp') || pathname.includes('/whatsapp')) {
+      return await whatsappHandler(req, res);
+    }
+
+    // Enrutamiento a Inteligencia de Leads (Tavily)
+    if (pathname.startsWith('/api/intel') || pathname.includes('/intel')) {
+      return await intelHandler(req, res);
+    }
 
     // Enrutamiento a Telegram Webhook Serverless
     if (pathname === '/api/telegram' || pathname.endsWith('/telegram')) {

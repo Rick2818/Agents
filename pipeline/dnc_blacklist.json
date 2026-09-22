@@ -86,5 +86,37 @@
     "reason": "TEST_OPTOUT",
     "addedAt": "2026-09-19T00:42:47.937Z",
     "sha256Hash": "fc2cd9b89c5cdb83966cc5f7151f1490585723d40e58aa3136dc9bd2daf64a39"
+  },
+  {
+    "id": "dnc_1790091491082_794",
+    "email": "optout_1790091491081_9596@unique-test-1790091491081.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-22T15:38:11.082Z",
+    "sha256Hash": "da93c94016ae3ad80fe14b8c9ac4bd705386c06b3fdd1d1aa49623d9dea6d720"
+  },
+  {
+    "id": "dnc_1790091513099_17",
+    "email": "optout_1790091513098_170@unique-test-1790091513098.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-22T15:38:33.099Z",
+    "sha256Hash": "8ef38a65f5c190c2f52d3bf4556d4e4af61117ef71df2107bb17d07f2d8f815c"
+  },
+  {
+    "id": "dnc_1790091858251_546",
+    "email": "optout_1790091858250_2183@unique-test-1790091858250.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-22T15:44:18.251Z",
+    "sha256Hash": "6f13122d8c6d686f7b55b2bdcfe9c1e3292fa3c95451e214a08a4f3c4f8e77d8"
+  },
+  {
+    "id": "dnc_1790092520401_177",
+    "email": "optout_1790092520400_4521@unique-test-1790092520400.com",
+    "domain": null,
+    "reason": "TEST_OPTOUT",
+    "addedAt": "2026-09-22T15:55:20.401Z",
+    "sha256Hash": "b871e9d97f552e9f4478c45c445dd9d601b0627c431c0ffcc2a5e4db50ef260a"
   }
 ]

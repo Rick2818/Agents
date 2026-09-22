@@ -43,15 +43,22 @@ Cada paquete cumple una función técnica no reemplazable para operar negocios B
 | **10** | **`nanoid`** | `v5.1.3` | **Identificadores Criptográficos:** Genera hashes y tokens de licencia únicos, no predecibles e inmutables para transacciones y auditorías. |
 | **11** | **`validator`** | `v13.12.0` | **Defensa contra Inyecciones:** Sanitización y normalización estricta de entradas (escapado de cadenas, URLs RFC, emails) para neutralizar ataques XSS y CRLF. |
 | **12** | **`deep-email-validator`** | `v0.1.21` | **Verificación DNS & Anti-Rebotes (0% Bounce):** Valida registros MX y servidores de correo en tiempo real antes de despachar, blindando la reputación IP de los dominios del holding. |
+| **13** | **`ai` + `@ai-sdk/google`** | `v7.0.x / v4.0.x` | **Vercel AI SDK Streaming:** Orquestación de inferencia con streaming HTTP continuo y generación estructurada con Zod para Gemini 2.5/Flash. |
+| **14** | **`@hubspot/api-client`** | `v12.x` | **HubSpot CRM Enterprise:** Ingesta y enriquecimiento automático de contactos, tratos (*deals*) y pipelines de ventas calificados. |
+| **15** | **`jsforce`** | `v3.x` | **Salesforce CRM Enterprise:** Conector nativo SOAP/REST para sincronización bidireccional de Leads y Cuentas corporativas. |
+| **16** | **`twilio`** | `v5.x` | **WhatsApp Business & SMS:** Canal prioritario de cierre comercial acelerado en LATAM (Centroamérica, México, Colombia). |
+| **17** | **`@tavily/core`** | `v0.3.x` | **Lead Intelligence en Tiempo Real:** Búsqueda cognitiva profunda para enriquecer prospectos antes de emitir outreach. |
+| **18** | **`@upstash/redis`** | `v1.x` | **Memoria Distribuida Serverless:** Idempotencia global, rate limiting distribuido y listas DNC sobre HTTP sin socket persistente. |
+| **19** | **`@modelcontextprotocol/sdk`** | `v1.x` | **Servidor MCP Oficial:** Estandarización de herramientas fiduciarias para consumo universal en Google Antigravity. |
 
 ---
 
-### 3. Comando Universal de Instalación (Setup One-Liner)
+### 3. Comando Universal de Instalación (Setup One-Liner Completo)
 
-Para configurar cualquier nueva estación de trabajo o inicializar un nuevo MicroSaaS en Antigravity:
+Para configurar cualquier nueva estación de trabajo o inicializar un nuevo MicroSaaS en Antigravity con todo el ecosistema de IA, CRM, comunicación e infraestructura:
 
 ```bash
-npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator
+npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator ai @ai-sdk/google @ai-sdk/openai @hubspot/api-client jsforce twilio @tavily/core @upstash/redis @modelcontextprotocol/sdk
 ```
 
 ---
@@ -59,4 +66,4 @@ npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabas
 ### 4. Directiva Fiduciaria Institucional (Regla de Oro)
 
 > **Regla de Oro: Prerrequisito Obligatorio para Nuevas Computadoras y Proyectos MicroSaaS:**  
-> Queda terminantemente prohibido inicializar Antigravity en otra máquina o comenzar el desarrollo de un nuevo MicroSaaS sin antes verificar la presencia del servidor MCP `mcp-agent-generator` y ejecutar el comando de instalación del Stack Base de 12 SDKs. Todo repositorio debe contener sus dependencias fijadas y verificadas desde el Commit 1.
+> Queda terminantemente prohibido inicializar Antigravity en otra máquina o comenzar el desarrollo de un nuevo MicroSaaS sin antes verificar la presencia del servidor MCP `mcp-agent-generator` y ejecutar el comando de instalación del Stack Base de SDKs fiduciarios. Todo repositorio debe contener sus dependencias fijadas y verificadas con `npm test`.

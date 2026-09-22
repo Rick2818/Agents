@@ -42,6 +42,10 @@ if (fs.existsSync(ENV_PATH)) {
 import mainApiHandler from './api/index.js';
 import telegramApiHandler from './api/telegram.js';
 import masterDispatcherHandler from './api/cron/master-dispatcher.js';
+import aiApiHandler from './api/ai.js';
+import crmApiHandler from './api/crm.js';
+import whatsappApiHandler from './api/whatsapp.js';
+import intelApiHandler from './api/intel.js';
 
 const app = express();
 const PORT = process.env.PORT || 8765;
@@ -121,6 +125,26 @@ app.all('/api/telegram', safeHandler(async (req, res) => {
 // 2. MASTER CLOUD DISPATCHER
 app.all('/api/cron/master-dispatcher', safeHandler(async (req, res) => {
   await masterDispatcherHandler(req, res);
+}));
+
+// 2.2 VERCEL AI SDK (STREAMING & CHAT)
+app.all('/api/ai', safeHandler(async (req, res) => {
+  await aiApiHandler(req, res);
+}));
+
+// 2.3 CRM INTEGRATION (HUBSPOT & SALESFORCE)
+app.all(/^\/api\/crm(\/.*)?$/, safeHandler(async (req, res) => {
+  await crmApiHandler(req, res);
+}));
+
+// 2.4 WHATSAPP BUSINESS & TWILIO
+app.all(/^\/api\/whatsapp(\/.*)?$/, safeHandler(async (req, res) => {
+  await whatsappApiHandler(req, res);
+}));
+
+// 2.45 LEAD INTELLIGENCE (TAVILY)
+app.all(/^\/api\/intel(\/.*)?$/, safeHandler(async (req, res) => {
+  await intelApiHandler(req, res);
 }));
 
 // 2.5 CONFIGURACIÓN LOCAL DE CABINA SOBERANA
