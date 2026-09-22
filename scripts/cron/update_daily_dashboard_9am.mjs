@@ -108,15 +108,15 @@ export async function generateDailyDashboardFeed() {
     });
   });
 
-  // Métricas Financieras Fiduciarias
-  // Catálogo: $19 Flash, $69 Pro, $490 Enterprise
-  const flashLicensesSold = 14; // Unidades acumuladas
-  const proSubscriptionsActive = 8; // Suscripciones $69/mo
-  const enterpriseContracts = 1; // Contrato $490
+  // Métricas Financieras Fiduciarias REALES (Regla de Oro: Cero Datos Sintéticos)
+  // Catálogo disponible: $19 Flash, $69 Pro, $490 Enterprise
+  const flashLicensesSold = 0; // Unidades reales cobradas
+  const proSubscriptionsActive = 0; // Suscripciones reales activas
+  const enterpriseContracts = 0; // Contratos reales cerrados
 
   const totalRevenueUsd = (flashLicensesSold * 19) + (proSubscriptionsActive * 69) + (enterpriseContracts * 490);
-  const dailyRevenueUsd = 138; // 2 Flash ($38) + 1 Pro mensual ($69) + 1 Addon ($31)
-  const monthlyRunRateUsd = totalRevenueUsd;
+  const dailyRevenueUsd = 0; // Ventas reales del día
+  const monthlyRunRateUsd = 0;
   const targetMonthlyUsd = 9000;
 
   // Desglose por Rieles de Cobro Soberanos

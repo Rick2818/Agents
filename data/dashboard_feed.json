@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-09-21T23:25:09.374Z",
-  "displayDate": "lunes, 21 de septiembre de 2026",
+  "updatedAt": "2026-09-22T16:13:11.286Z",
+  "displayDate": "martes, 22 de septiembre de 2026",
   "displayTime": "09:00 AM",
   "holding": "BolTech Group — Inversiones & Operaciones Autónomas",
   "fiduciaryAxiom": "«Sin clientes no hay ingresos, y sin ingresos no hay trabajo.»",
   "kpis": {
-    "totalRevenueUsd": 1308,
-    "dailyRevenueUsd": 138,
+    "totalRevenueUsd": 0,
+    "dailyRevenueUsd": 0,
     "targetMonthlyUsd": 9000,
-    "progressPercentage": 15,
+    "progressPercentage": 0,
     "totalLeadsContacted": 44,
     "auditsCompleted": 79,
     "deliverabilityRate": "98.4%",
@@ -18,19 +18,19 @@
   "sovereignRails": {
     "strikeLightning": {
       "address": "rick2818@strike.me",
-      "totalCollectedUsd": 589,
+      "totalCollectedUsd": 0,
       "percentage": 45,
       "status": "ONLINE • 0% COMISIÓN",
       "description": "Liquidación instantánea vía Bitcoin Lightning en USD"
     },
     "wompiSv": {
-      "totalCollectedUsd": 458,
+      "totalCollectedUsd": 0,
       "percentage": 35,
       "status": "ONLINE • BANCO AGRÍCOLA",
       "description": "Adquirencia local y transferencias en El Salvador"
     },
     "stripeBridge": {
-      "totalCollectedUsd": 262,
+      "totalCollectedUsd": 0,
       "percentage": 20,
       "status": "ONLINE • CROSS-BORDER BRIDGE",
       "description": "Puente fiduciario para prospectos en EE.UU. y Europa"
@@ -58,7 +58,7 @@
       "role": "Director Financiero & Custodia de Precios",
       "status": "ACTIVO 24/7",
       "efficiency": "100%",
-      "lastAction": "Conciliación de rieles: Strike ($589) / Wompi / Stripe",
+      "lastAction": "Conciliación de rieles: Strike ($0) / Wompi / Stripe",
       "kpi": "LTV/CAC > 4.5x • Margen > 80%"
     },
     {
