@@ -432,7 +432,7 @@
       agentsStatus: [
         { role: "Especialista en Ventas & Cierre", status: "ACTIVO 24/7", efficiency: "98.7%", lastAction: "Despacho de cadencia Impacto 2 a 44 directores B2B" },
         { role: "Defensa Perimetral & Diagnósticos", status: "ACTIVO 24/7", efficiency: "100%", lastAction: "Auditoría completada sobre 44 plataformas (0% fallas falsas)" },
-        { role: "Director Financiero & Precios", status: "ACTIVO 24/7", efficiency: "100%", lastAction: "Conciliación Strike ($589) / Wompi ($458) / Stripe ($262)" },
+        { role: "Director Financiero & Precios", status: "ACTIVO 24/7", efficiency: "100%", lastAction: "Conciliación Strike ($0) / Wompi ($0) / Stripe ($0)" },
         { role: "Comercio Internacional & Cross-Border", status: "ACTIVO 24/7", efficiency: "99.2%", lastAction: "Canalización fiduciaria sin fricción Stripe -> SV" },
         { role: "Psicólogo de Ventas & Persuasión", status: "ACTIVO 24/7", efficiency: "96.4%", lastAction: "5 Anclajes de Apertura implementados en toda comunicación" }
       ],
@@ -471,9 +471,9 @@
 
       // Rieles
       if (data.sovereignRails) {
-        document.getElementById('strikeAmount').innerHTML = '$' + (data.sovereignRails.strikeLightning?.totalCollectedUsd || 589) + ' <span class="text-xs font-normal text-slate-400">USD (' + (data.sovereignRails.strikeLightning?.percentage || 45) + '%)</span>';
-        document.getElementById('wompiAmount').innerHTML = '$' + (data.sovereignRails.wompiSv?.totalCollectedUsd || 458) + ' <span class="text-xs font-normal text-slate-400">USD (' + (data.sovereignRails.wompiSv?.percentage || 35) + '%)</span>';
-        document.getElementById('stripeAmount').innerHTML = '$' + (data.sovereignRails.stripeBridge?.totalCollectedUsd || 262) + ' <span class="text-xs font-normal text-slate-400">USD (' + (data.sovereignRails.stripeBridge?.percentage || 20) + '%)</span>';
+        document.getElementById('strikeAmount').innerHTML = '$' + (data.sovereignRails.strikeLightning?.totalCollectedUsd ?? 0) + ' <span class="text-xs font-normal text-slate-400">USD (' + (data.sovereignRails.strikeLightning?.percentage ?? 0) + '%)</span>';
+        document.getElementById('wompiAmount').innerHTML = '$' + (data.sovereignRails.wompiSv?.totalCollectedUsd ?? 0) + ' <span class="text-xs font-normal text-slate-400">USD (' + (data.sovereignRails.wompiSv?.percentage ?? 0) + '%)</span>';
+        document.getElementById('stripeAmount').innerHTML = '$' + (data.sovereignRails.stripeBridge?.totalCollectedUsd ?? 0) + ' <span class="text-xs font-normal text-slate-400">USD (' + (data.sovereignRails.stripeBridge?.percentage ?? 0) + '%)</span>';
       }
 
       // Renderizar Agentes

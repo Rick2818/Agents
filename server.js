@@ -159,6 +159,16 @@ app.get('/api/cockpit/config', (req, res) => {
 
 // 3. API REST GENERAL (Catálogo, Strike, Wompi, MCP Hub)
 // Compatible universalmente con Express 4 y Express 5
+app.get('/data/dashboard_feed.json', (req, res) => {
+  res.sendFile(path.join(__dirname, 'data', 'dashboard_feed.json'));
+});
+app.get('/api/dashboard/feed', (req, res) => {
+  res.sendFile(path.join(__dirname, 'data', 'dashboard_feed.json'));
+});
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard.html'));
+});
+
 app.all(/^\/api(\/.*)?$/, safeHandler(async (req, res) => {
   await mainApiHandler(req, res);
 }));
