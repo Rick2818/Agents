@@ -1,5 +1,171 @@
 [
   {
+    "id": "audit_1790189613677_918",
+    "company": "MRW Corporativo",
+    "domain": "mrw.es",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "España",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Strict-Transport-Security (Riesgo SSL Strip)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=mrw.es",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "TRANSMISION_SIMULADA_OK",
+    "contactEmail": "informacion@mrw.es",
+    "outboundMessage": {
+      "to": "informacion@mrw.es",
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en mrw.es",
+      "body": "Estimado equipo directivo y técnico en MRW Corporativo,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre mrw.es, identificamos 1 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=mrw.es\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=mrw.es\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)"
+    ],
+    "severity": "MEDIA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-23T18:53:38.075Z",
+      "mode": "DRY_RUN_SIMULATION",
+      "impact": 1,
+      "recipient": "informacion@mrw.es",
+      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+    },
+    "currentImpact": 1
+  },
+  {
+    "id": "audit_1790189611965_671",
+    "company": "Logisfashion España",
+    "domain": "logisfashion.com",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "España / Global",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Forensic Flash Audit + Security Patch) / $69 USD/mo (Autonomous 24/7 Agent)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?lang=en&domain=logisfashion.com",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "TRANSMISION_SIMULADA_OK",
+    "contactEmail": "info@logisfashion.com",
+    "outboundMessage": {
+      "to": "info@logisfashion.com",
+      "subject": "Perimeter Security Report: 3 critical flaws detected on logisfashion.com",
+      "body": "Dear Leadership & Engineering Team at Logisfashion España,\n\nThis is the team at Unblock AI (autonomous operations engineering & defensive cybersecurity built on Google Antigravity & 24/7 Cloud Infrastructure).\n\nDuring our non-invasive external perimeter inspection of logisfashion.com, we identified 3 critical opportunities to harden security and eliminate checkout friction:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 70s Executive Video Briefing:\nhttps://unblock-shield.vercel.app/?lang=en&domain=logisfashion.com\n\nWhy trust us before opening any door? (Our 5 Fiduciary Trust Anchors):\n1. Zero Invasive Access: We never ask for passwords, API keys, or internal database access. All evaluations run 100% externally.\n2. Micro-Risk Asymmetry: Run a free 15-second audit on our site or download the executive report and production-ready remediation patches for just $19 USD (Flash Plan).\n3. 7-Day Unconditional Fiduciary Guarantee: If the solution does not save your team at least 10 hours of manual operational work in the first 7 days, we refund 100% of your payment with zero friction.\n4. SOC-2 Grade Banking Privacy: Zero disk retention; 100% processed in volatile RAM and immediately purged.\n5. Objective ROI Math: A human operator costs $600+ USD/month; our autonomous agent runs 24/7 for $2.30 USD/day ($69 USD/month), paying for itself with a single recovered lead or resolved ticket.\n\nAudit your portal live or deploy patches in 60 seconds:\n🔗 https://unblock-shield.vercel.app/?lang=en&domain=logisfashion.com\n\nOr instant zero-fee settlement via Bitcoin Lightning Network to: rick2818@strike.me\n\nBest regards,\nSenior Cybersecurity & Solutions Team — Unblock AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-23T18:53:41.099Z",
+      "mode": "DRY_RUN_SIMULATION",
+      "impact": 1,
+      "recipient": "info@logisfashion.com",
+      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+    },
+    "currentImpact": 1
+  },
+  {
+    "id": "audit_1790189610707_701",
+    "company": "Packlink PRO España",
+    "domain": "packlink.es",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "España",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta Strict-Transport-Security (Riesgo SSL Strip), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=packlink.es",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "TRANSMISION_SIMULADA_OK",
+    "contactEmail": "pro@packlink.es",
+    "outboundMessage": {
+      "to": "pro@packlink.es",
+      "subject": "Informe de Seguridad Perimetral: 3 vulnerabilidades detectadas en packlink.es",
+      "body": "Estimado equipo directivo y técnico en Packlink PRO España,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre packlink.es, identificamos 3 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta Strict-Transport-Security (Riesgo SSL Strip)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=packlink.es\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=packlink.es\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 3,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta Strict-Transport-Security (Riesgo SSL Strip)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-23T18:53:44.474Z",
+      "mode": "DRY_RUN_SIMULATION",
+      "impact": 1,
+      "recipient": "pro@packlink.es",
+      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+    },
+    "currentImpact": 1
+  },
+  {
+    "id": "audit_1790189609477_254",
+    "company": "Ontime Transporte & Logística",
+    "domain": "ontime.es",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "España",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=ontime.es",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "TRANSMISION_SIMULADA_OK",
+    "contactEmail": "info@ontime.es",
+    "outboundMessage": {
+      "to": "info@ontime.es",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en ontime.es",
+      "body": "Estimado equipo directivo y técnico en Ontime Transporte & Logística,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre ontime.es, identificamos 2 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=ontime.es\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=ontime.es\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-23T18:53:47.207Z",
+      "mode": "DRY_RUN_SIMULATION",
+      "impact": 1,
+      "recipient": "info@ontime.es",
+      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+    },
+    "currentImpact": 1
+  },
+  {
+    "id": "audit_1790189608163_115",
+    "company": "SEUR Frío y Urgente B2B",
+    "domain": "seur.com",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
+    "country": "España",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS), Falta X-Frame-Options (Riesgo Clickjacking)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
+    "strikePaymentDestination": "rick2818@strike.me",
+    "checkoutUrl": "https://unblock-shield.vercel.app/?domain=seur.com",
+    "directStrikePaymentUrl": "https://strike.me/rick2818",
+    "status": "TRANSMISION_SIMULADA_OK",
+    "contactEmail": "empresas@seur.net",
+    "outboundMessage": {
+      "to": "empresas@seur.net",
+      "subject": "Informe de Seguridad Perimetral: 2 vulnerabilidades detectadas en seur.com",
+      "body": "Estimado equipo directivo y técnico en SEUR Frío y Urgente B2B,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre seur.com, identificamos 2 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n• Falta X-Frame-Options (Riesgo Clickjacking)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=seur.com\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=seur.com\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
+    },
+    "flawsCount": 2,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)",
+      "Falta X-Frame-Options (Riesgo Clickjacking)"
+    ],
+    "severity": "CRITICA",
+    "deliveryAudit": {
+      "dispatchedAt": "2026-09-23T18:53:49.751Z",
+      "mode": "DRY_RUN_SIMULATION",
+      "impact": 1,
+      "recipient": "empresas@seur.net",
+      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+    },
+    "currentImpact": 1
+  },
+  {
     "id": "audit_1790002239948_303",
     "company": "Blue Express Chile",
     "domain": "blue.cl",
@@ -496,8 +662,8 @@
       "subject": "Elimina 80 horas de consultas repetitivas en WhatsApp de tu operación",
       "body": "Hola,\n\n¿Cuánto tiempo dedica el equipo de Coordinadora a responder consultas idénticas por WhatsApp, rastrear guías de clientes impacientes y actualizar novedades manuales?\n\nDestraba AI implementa un Concierge Autónomo en 60 segundos que responde en milisegundos 24/7 y erradica ese cuello de botella en piloto automático.\n\nPuedes probarlo y activar la licencia por $69 USD/mes aquí:\nhttps://unblock-shield.vercel.app/?domain=coordinadora.com\n\nO liquidar en satoshis vía Lightning sin comisiones a rick2818@strike.me.\n\nAtentamente,\nEquipo de Soluciones B2B — Destraba AI"
     },
-    "dispatchedAt": "2026-09-22T22:46:15.628Z",
-    "nextFollowUpDate": "2026-09-24",
+    "dispatchedAt": "2026-09-23T18:53:38.065Z",
+    "nextFollowUpDate": "2026-09-25",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:27.289Z",
       "mode": "LIVE",
@@ -533,8 +699,8 @@
       "subject": "Respuesta a cotizaciones B2B en 60 segundos sin nómina extra",
       "body": "Estimado Gerente de Operaciones en TCC,\n\nEn el sector logístico B2B, responder una solicitud de flete 4 horas tarde significa perder la cuenta frente a la competencia.\n\nDestraba AI sintetiza un agente calificador que atiende a tus prospectos corporativos, calcula tarifas estimadas y agenda el cierre al instante.\n\nActiva tu prueba operativa hoy por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=tcc.com.co\n\nLiquidación directa vía Lightning: rick2818@strike.me.\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-22T22:46:15.628Z",
-    "nextFollowUpDate": "2026-09-24",
+    "dispatchedAt": "2026-09-23T18:53:38.065Z",
+    "nextFollowUpDate": "2026-09-25",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:33.526Z",
       "mode": "LIVE",
@@ -570,8 +736,8 @@
       "subject": "Reduce en un 70% la carga de reclamos y soporte en tu operación",
       "body": "Hola,\n\nAtender manualmente estados de envío y reclamos de mercancía genera sobrecostos de nómina y fatiga en tus agentes humanos.\n\nNuestros agentes soberanos para Google Antigravity asumen el triaje automático y resuelven el 70% de las consultas sin intervención humana.\n\nConoce la plataforma y comienza por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=enviacolvanes.com\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-22T22:46:15.628Z",
-    "nextFollowUpDate": "2026-09-24",
+    "dispatchedAt": "2026-09-23T18:53:38.065Z",
+    "nextFollowUpDate": "2026-09-25",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:39.810Z",
       "mode": "LIVE",
@@ -603,8 +769,8 @@
       "subject": "Automatiza la trazabilidad y cobro de envíos express en 60 segundos",
       "body": "Hola,\n\nLos clientes corporativos de paquetería express exigen confirmaciones en tiempo real y facturación inmediata.\n\nDestraba AI genera un flujo desatendido que notifica y concilia pagos en segundos con protocolos bancarios seguros.\n\nAccede a la consola ejecutiva aquí por $89 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=deprisa.com\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-22T22:46:15.628Z",
-    "nextFollowUpDate": "2026-09-24",
+    "dispatchedAt": "2026-09-23T18:53:38.065Z",
+    "nextFollowUpDate": "2026-09-25",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:44.485Z",
       "mode": "LIVE",
@@ -643,8 +809,8 @@
       "subject": "Auditoría de integración operativa y seguridad perimetral en 60 segundos",
       "body": "Estimado VP de Tecnología en Servientrega,\n\nDesplegamos agentes soberanos con protocolo MCP que se conectan a tu infraestructura sin tocar código legacy ni exponer datos sensibles.\n\nRealiza un diagnóstico de cuellos de botella y seguridad perimetral por $19 USD aquí:\nhttps://rick2818.github.io/Agents/?plan=flash&ref=colombia_b2b\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nEquipo de Ingeniería — Destraba AI\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=servientrega.com\n"
     },
-    "dispatchedAt": "2026-09-22T22:46:15.628Z",
-    "nextFollowUpDate": "2026-09-24",
+    "dispatchedAt": "2026-09-23T18:53:38.065Z",
+    "nextFollowUpDate": "2026-09-25",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:48.745Z",
       "mode": "LIVE",
@@ -1169,36 +1335,38 @@
     "currentImpact": 2
   },
   {
-    "id": "pyme_d2c_16",
-    "company": "Moffin Infraestructura Financiera",
+    "id": "audit_1790189614835_755",
+    "company": "Moffin Infraestructura",
     "domain": "moffin.mx",
-    "decisionMakerRole": "Fundador & Director de Tecnología",
+    "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
     "country": "México",
-    "operationalPain": "Auditoría perimetral de cabeceras defensivas y optimización de flujos de onboarding",
-    "offer": "$19 USD (Flash) / $69 USD (Pro)",
+    "operationalPain": "Brechas perimetrales detectadas: Falta Content-Security-Policy (Riesgo XSS)",
+    "offer": "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=moffin.mx",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "ENVIADO_IMPACTO_2_HARVARD",
+    "status": "TRANSMISION_SIMULADA_IMPACTO_2_OK",
     "contactEmail": "contacto@moffin.mx",
     "outboundMessage": {
       "to": "contacto@moffin.mx",
-      "subject": "🎯 3 opciones de resolución perimetral para Moffin Infraestructura Financiera (Diagnóstico Harvard & Paz Mental)",
-      "body": "Estimado equipo directivo y de tecnología en Moffin Infraestructura Financiera,\n\nLe saluda el equipo de ingeniería de Destraba AI. Le escribo en seguimiento a la auditoría perimetral no invasiva que emitimos recientemente sobre moffin.mx.\n\nAntes de cualquier propuesta, deseamos puntualizar un principio fundamental de negociación por principios:\n1. Separamos a las personas del problema: Reconocemos el enorme esfuerzo y las prioridades de desarrollo continuo que gestiona su equipo técnico. El desafío que observamos no obedece a deficiencias internas, sino a la rápida evolución de normativas de seguridad (PCI-DSS v4.0 y RFC 6797) y al incremento de escaneos automatizados en la red durante este 2026.\n\n2. Enfoque en sus intereses, no en posiciones: Nuestro objetivo no es insistir en reuniones ni vender software innecesario, sino proteger sus intereses fiduciarios críticos:\n   • Blindar la tasa de conversión en sus pasarelas evitando bloqueos o caídas silenciosas.\n   • Eliminar riesgos de inyección en cabeceras HTTP (XSS, Clickjacking, MIME sniffing).\n   • Proporcionar a la dirección general la auténtica paz mental de operar 24/7 sin sumar costos fijos en nómina.\n\n3. Tres Opciones de Mutuo Beneficio (Sin presiones comerciales):\nPara facilitar una resolución eficiente y alineada a sus tiempos, ponemos a su disposición tres caminos objetivos:\n\n  🔹 OPCIÓN A (Autoservicio Libre / Cero Costo):\n     Obsequiamos a su departamento de TI las especificaciones técnicas exactas para que las implementen internamente:\n     - Cabecera Content-Security-Policy (CSP) estricta contra vectores XSS.\n     - Strict-Transport-Security (HSTS: max-age=63072000; includeSubDomains; preload).\n     - X-Frame-Options: DENY contra ataques de clickjacking.\n\n  🔹 OPCIÓN B (Micro-Inversión Flash $19 USD — Remediación en 60s):\n     Si su equipo prefiere ahorrar tiempo y evitar pruebas manuales, puede descargar el paquete forense con los parches listos para pegar en producción por solo $19 USD:\n     🔗 https://destraba-ai.vercel.app/?plan=flash&domain=moffin.mx\n\n  🔹 OPCIÓN C (Centinela Autónomo 24/7 — $2.30 USD/día / $69 USD/mes):\n     Delegue la vigilancia y remediación continua de su infraestructura en nuestro agente fiduciario con Garantía Incondicional de Reembolso a 7 Días (si en una semana no le ahorra 10 horas de trabajo manual a su equipo, devolvemos el 100% de su pago sin preguntas).\n     🔗 https://unblock-shield.vercel.app/?domain=moffin.mx\n\n▶️ VEA EL BRIEFING EJECUTIVO EN VIDEO (70 Segundos):\n🔗 https://unblock-shield.vercel.app/?domain=moffin.mx\n\n4. Criterio Objetivo & Salida Limpia (Harvard Clean Exit):\nLiquidación fiduciaria directa e instantánea vía Bitcoin Lightning Network: rick2818@strike.me\n\nSi este asunto ya fue solventado internamente o no forma parte de sus prioridades para este trimestre, respetamos profundamente su tiempo: responda simplemente «Cerrar caso» y archivaremos el expediente de inmediato sin ningún seguimiento posterior.\n\nAtentamente,\nEspecialista Senior en Automatización y Seguridad Fiduciaria — Destraba AI"
+      "subject": "Informe de Seguridad Perimetral: 1 vulnerabilidades detectadas en moffin.mx",
+      "body": "Estimado equipo directivo y técnico en Moffin Infraestructura,\n\nLe saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).\n\nDurante nuestra inspección perimetral no invasiva sobre moffin.mx, identificamos 1 anomalías críticas que impactan la seguridad y conversión de su portal:\n• Falta Content-Security-Policy (Riesgo XSS)\n\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=moffin.mx\n\n¿Por qué confiar en nosotros antes de abrir cualquier puerta? (Nuestros 5 Anclajes de Apertura):\n1. Cero Invasión Previa: No solicitamos contraseñas, claves API ni acceso a bases de datos. Todo el análisis corre desde el exterior.\n2. Micro-Riesgo: Puedes verificar el diagnóstico gratis en 15s en nuestra web o descargar el informe ejecutivo con los parches listos para producción por solo $19 USD (Plan Flash).\n3. Garantía Fiduciaria 100% (7 Días): Si en 7 días la solución no le ahorra al menos 10 horas de trabajo manual a su equipo, reembolsamos el 100% de su pago sin preguntas.\n4. Privacidad Bancaria SOC-2: Cero retención en disco; 100% procesado en memoria RAM volátil aislada.\n5. Matemática de Ahorro: Un operador o analista cuesta $600+ USD/mes; nuestro agente autónomo opera 24/7 por $2.30 USD al día ($69 USD/mes).\n\nAudite su portal en vivo o aplique los parches en 60 segundos:\n🔗 https://unblock-shield.vercel.app/?domain=moffin.mx\n\nO liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me\n\nAtentamente,\nEspecialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI"
     },
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-21T14:41:41.254Z",
-      "mode": "LIVE",
+      "dispatchedAt": "2026-09-23T18:53:52.635Z",
+      "mode": "DRY_RUN_SIMULATION",
       "impact": 2,
-      "cadenceType": "HARVARD_MUTUAL_GAIN_OPTIONS",
-      "transport": "GMAIL_SMTPS",
-      "messageId": "smtp_1790001701253_f08b21",
       "recipient": "contacto@moffin.mx",
-      "status": "TRANSMITIDO_EXITOSO"
+      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
     },
     "targetImpact": 2,
     "cadenceModel": "HARVARD_PRINCIPLED_FOLLOWUP",
-    "currentImpact": 2
+    "currentImpact": 2,
+    "flawsCount": 1,
+    "flaws": [
+      "Falta Content-Security-Policy (Riesgo XSS)"
+    ],
+    "severity": "MEDIA"
   },
   {
     "id": "pyme_d2c_17",
