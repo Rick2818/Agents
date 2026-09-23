@@ -283,8 +283,8 @@
       </div>
 
       <div class="relative w-full aspect-video rounded-2xl overflow-hidden glass-card border-2 border-cyan-500/30 shadow-2xl shadow-cyan-950/60">
-        <video id="boltech-pitch-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/poster_sales_closer.jpg" class="w-full h-full object-cover">
-          <source src="assets/videos/boltech_master_pitch.mp4" type="video/mp4">
+        <video id="boltech-pitch-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/scenes/scene1_operations_report.jpg" class="w-full h-full object-cover">
+          <source src="assets/videos/boltech_corporate_5scenes_es.mp4" type="video/mp4">
           Tu navegador no soporta reproducción de video HTML5.
         </video>
       </div>
@@ -750,6 +750,27 @@
           : '<span class="text-slate-400 font-normal">ES</span><span class="text-slate-500 mx-1">|</span><span class="text-cyan-400 font-bold underline decoration-cyan-400/60 underline-offset-2">EN</span>';
       }
       document.documentElement.lang = lang;
+
+      // Sincronización dinámica de Video Master de 5 Escenas
+      const pitchVid = document.getElementById('boltech-pitch-video');
+      if (pitchVid) {
+        const targetSrc = (lang === 'en')
+          ? 'assets/videos/boltech_corporate_5scenes_en.mp4'
+          : 'assets/videos/boltech_corporate_5scenes_es.mp4';
+        const sourceTag = pitchVid.querySelector('source');
+        if (sourceTag && sourceTag.getAttribute('src') !== targetSrc) {
+          const wasPlaying = !pitchVid.paused && !pitchVid.ended && pitchVid.currentTime > 0;
+          const prevTime = pitchVid.currentTime;
+          sourceTag.src = targetSrc;
+          pitchVid.src = targetSrc;
+          pitchVid.poster = 'assets/videos/scenes/scene1_operations_report.jpg';
+          pitchVid.load();
+          if (wasPlaying) {
+            pitchVid.currentTime = prevTime;
+            pitchVid.play().catch(() => {});
+          }
+        }
+      }
     }
 
     function toggleLanguage() {

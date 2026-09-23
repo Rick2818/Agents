@@ -224,24 +224,134 @@ app.use(express.static(__dirname, {
   index: false
 }));
 
-// Rutas de conveniencia
+// Rutas de conveniencia y visualización
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+app.get('/app', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+app.get('/destraba', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+app.get('/boltech', (req, res) => {
+  res.sendFile(path.join(__dirname, 'boltech.html'));
+});
+app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
-app.get('/cockpit', (req, res) => {
-  res.sendFile(path.join(__dirname, 'COCKPIT_EJECUTIVO_RICARDO.html'));
-});
-app.get('/cabina', (req, res) => {
-  res.sendFile(path.join(__dirname, 'COCKPIT_EJECUTIVO_RICARDO.html'));
-});
-app.get('/executive-dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, 'executive_dashboard.html'));
-});
-app.get('/dashboard-ejecutivo', (req, res) => {
-  res.sendFile(path.join(__dirname, 'executive_dashboard.html'));
-});
-app.get('/readme', (req, res) => {
-  res.sendFile(path.join(__dirname, 'LEER_README.html'));
+app.get('/video2', (req, res) => {
+  res.send(`<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BolTech — Custom Agents Video (Full HD)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #020617;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(0, 212, 255, 0.15);
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 15px;
+      margin-top: 4px;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1080px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -15px rgba(0, 212, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 16px;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #00d4ff;
+      color: #000;
+    }
+    .btn-primary:hover {
+      background: #38bdf8;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="badge">⚡ BOLTECH PRESENTA</div>
+    <h1>Video 2 — “Custom Agents” (Operaciones &amp; Ventas 24/7)</h1>
+    <p>Locución ejecutiva sincronizada (90s / 1080p Full HD)</p>
+  </div>
+  <div class="video-wrapper">
+    <video controls autoplay playsinline poster="assets/videos/poster_gerente_estrategia.jpg">
+      <source src="assets/videos/gerente_bottleneck_agente_es.mp4" type="video/mp4">
+      Tu navegador no soporta reproducción de video HTML5.
+    </video>
+  </div>
+  <div class="actions">
+    <a href="/" class="btn btn-secondary">← Volver a la App Principal</a>
+    <a href="assets/videos/gerente_bottleneck_agente_es.mp4" download class="btn btn-primary">⬇ Descargar Video MP4</a>
+  </div>
+</body>
+</html>`);
 });
 
 // Iniciar servidor
