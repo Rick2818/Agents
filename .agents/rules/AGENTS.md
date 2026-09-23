@@ -64,4 +64,11 @@
      `npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator`
    - **Cero Desarrollo en Blanco:** Queda estrictamente prohibido inicializar proyectos sin este stack base. Cada SDK resuelve una necesidad bancaria crítica (Gemini Flash/Pro, esquemas Zod en RAM, secretos Dotenv, contratos Docx en RAM, informes PDF en RAM, pagos Stripe/Strike/Wompi, scraping perimetral Cheerio 15ms, correo Resend, base de datos Supabase, tokens Nanoid, sanitización Validator y verificación anti-rebotes DeepEmailValidator).
    - **Vigencia Institucional:** Esta directiva rige de forma perpetua para toda la flota de agentes y futuros desarrollos de MicroSaaS del holding.
+15. **Regla de Oro de Responsabilidad y Despacho 100% Autónomo del Agente de Ventas (Cero Carga Manual para el Usuario / Cero Solicitudes de Copiar y Pegar):**
+   - **Responsabilidad Fiduciaria Total del Agente:** El Agente de Ventas & Especialista en Cierre (`sales-closer-specialist`) es el único y total responsable de redactar, gestionar y despachar de forma 100% desatendida las respuestas a todos los correos y leads (anteriores, presentes y nuevos).
+   - **Prohibición de Carga Manual:** Queda terminantemente prohibido pedirle a Don Ricardo o al usuario que copie, pegue o conteste correos manualmente. El agente debe ejecutar el despacho y seguimiento de forma automatizada por APIs, conectores y transporte de red real.
+16. **Regla de Oro de Venta Asíncrona Internacional (Cero Llamadas en Idiomas No Nativos de Oficina):**
+   - **Venta 100% Digital y Asíncrona:** Queda estrictamente prohibido ofrecer llamadas telefónicas, videollamadas o reuniones por voz a prospectos en idiomas no hablados en la oficina (ej. francés o cualquier idioma extranjero no dominado por el equipo).
+   - **Canales de Cierre Autorizados:** Para todo prospecto en estos mercados, el cierre opera mediante diagnósticos web en vivo en su idioma (`unblock-shield.vercel.app`), notas técnicas ejecutivas de 2 páginas y enlaces directos de autoservicio y cobro (\$19 USD Flash / \$69 USD Pro / \$490 USD Enterprise).
+
 
