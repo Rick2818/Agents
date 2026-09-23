@@ -361,8 +361,8 @@
       </p>
 
       <div class="relative w-full aspect-video rounded-2xl overflow-hidden glass-shield border-2 border-cyan-500/40 shadow-2xl shadow-cyan-950/70">
-        <video id="main-executive-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/poster_sales_closer.jpg" class="w-full h-full object-cover">
-          <source src="assets/videos/sales_closer_briefing.mp4" type="video/mp4">
+        <video id="main-executive-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/poster_executive.jpg" class="w-full h-full object-cover">
+          <source src="assets/videos/Unblock_AI_Shield_Oficial.mp4" type="video/mp4">
           Tu navegador no soporta reproducción de video HTML5.
         </video>
       </div>
@@ -557,7 +557,7 @@
             poster="assets/videos/poster_gerente_estrategia.jpg"
             class="w-full h-full object-cover"
           >
-            <source src="assets/videos/gerente_bottleneck_agente.mp4" type="video/mp4">
+            <source src="assets/videos/gerente_bottleneck_agente_es.mp4" type="video/mp4">
             Tu navegador no soporta reproducción de video HTML5.
           </video>
         </div>
@@ -1600,9 +1600,9 @@
         s4h: '24/7 Autopilot Sentinel',
         s4p: 'Un agente centinela en la nube que ejecuta comprobaciones de pulso cada 60 segundos. Si un servicio se cae o un certificado se vence, el sistema actúa de inmediato sin requerir que nadie se despierte a medianoche.',
 
-        videoShowroomBadge: '🎬 Demostración Ejecutiva • Soluciones en Acción',
-        videoHeading: 'Agente Autónomo en Acción: Demostración Ejecutiva',
-        videoDesc: 'Diagnóstico riguroso, descomposición económica de ROI y resolución instantánea en 3 segundos sin nómina humana ni contraseñas.',
+        videoShowroomBadge: '🎬 Demostración Ejecutiva • Unblock AI Shield',
+        videoHeading: 'Unblock AI Shield: Certeza Operativa y Blindaje 24/7',
+        videoDesc: 'Diagnóstico perimetral en 15 segundos, mitigación de riesgos de ciberseguridad y arquitectura en memoria volátil sin tocar disco ni contraseñas.',
 
         customDivisionBadge: 'Solución 2 de Boltech Group • Agentes Hechos a la Medida',
         customAgentsTitle: '¿Tienes un proceso lento o que no está bien en tu empresa?<br><span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent">Lo solucionamos con un Agente inteligente hecho a tu medida.</span>',
@@ -1766,9 +1766,9 @@
         s4h: '24/7 Autopilot Sentinel',
         s4p: 'A cloud sentinel executing pulse health checks every 60 seconds. If an endpoint stumbles or an SSL certificate nears expiry, autonomous scripts resolve it without waking anyone up at midnight.',
 
-        videoShowroomBadge: '🎬 Executive Demo • Solutions in Action',
-        videoHeading: 'Autonomous Agent in Action: Executive Briefing',
-        videoDesc: 'Rigorous technical diagnosis, economic ROI breakdown, and instant 3-second resolutions with zero human payroll or passwords.',
+        videoShowroomBadge: '🎬 Executive Briefing • Unblock AI Shield',
+        videoHeading: 'Unblock AI Shield: Turnkey Defense & 24/7 Operational Certainty',
+        videoDesc: '15-second perimeter audit, automated vulnerability remediation, and zero-disk volatile RAM architecture without invasive access.',
 
         customDivisionBadge: 'BolTech Group Solution 2 • Custom Tailored Agents',
         customAgentsTitle: 'Do you have a slow or broken process in your company?<br><span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent">We solve it with a smart Agent built to your measure.</span>',
@@ -1882,12 +1882,49 @@
       }
     };
 
-    function updateSubtitles(lang) {
-      const vid = document.getElementById('main-executive-video');
-      if (vid && vid.textTracks) {
-        for (let i = 0; i < vid.textTracks.length; i++) {
-          const track = vid.textTracks[i];
-          track.mode = (track.language === lang) ? 'showing' : 'disabled';
+    function syncVideosLanguage(lang) {
+      const v1 = document.getElementById('main-executive-video');
+      const v2 = document.getElementById('agent-solution-video');
+
+      const v1Target = (lang === 'en')
+        ? 'assets/videos/Unblock_AI_Shield_Oficial_en.mp4'
+        : 'assets/videos/Unblock_AI_Shield_Oficial.mp4';
+
+      const v2Target = (lang === 'en')
+        ? 'assets/videos/gerente_bottleneck_agente_en.mp4'
+        : 'assets/videos/gerente_bottleneck_agente_es.mp4';
+
+      if (v1) {
+        const sourceTag = v1.querySelector('source');
+        const activeSrc = (sourceTag ? sourceTag.getAttribute('src') : v1.getAttribute('src')) || '';
+        if (activeSrc !== v1Target) {
+          const wasPlaying = !v1.paused && !v1.ended && v1.currentTime > 0;
+          const prevTime = v1.currentTime;
+          if (sourceTag) sourceTag.src = v1Target;
+          v1.src = v1Target;
+          v1.poster = 'assets/videos/poster_executive.jpg';
+          v1.load();
+          if (wasPlaying) {
+            v1.currentTime = prevTime;
+            v1.play().catch(() => {});
+          }
+        }
+      }
+
+      if (v2) {
+        const sourceTag = v2.querySelector('source');
+        const activeSrc = (sourceTag ? sourceTag.getAttribute('src') : v2.getAttribute('src')) || '';
+        if (activeSrc !== v2Target) {
+          const wasPlaying = !v2.paused && !v2.ended && v2.currentTime > 0;
+          const prevTime = v2.currentTime;
+          if (sourceTag) sourceTag.src = v2Target;
+          v2.src = v2Target;
+          v2.poster = 'assets/videos/poster_gerente_estrategia.jpg';
+          v2.load();
+          if (wasPlaying) {
+            v2.currentTime = prevTime;
+            v2.play().catch(() => {});
+          }
         }
       }
     }
@@ -2079,7 +2116,7 @@
 
       // Dynamic modules update
       selectOperationalPain(currentSelectedPain);
-      updateSubtitles(currentLanguage);
+      syncVideosLanguage(currentLanguage);
 
       document.title = (currentLanguage === 'en')
         ? 'BolTech Group • Turnkey Operational Solutions & 24/7 Peace of Mind'
