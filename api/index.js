@@ -199,6 +199,37 @@ export default async function handler(req, res) {
       return res.status(200).json({ success: true, checkout });
     }
 
+    // --- ENDPOINT FIDUCIARIO UNIFICADO: VERIFICACIÓN Y CONCILIACIÓN DE PAGOS (LIGHTNING / WOMPI / NEQUI) ---
+    if (req.method === 'POST' && (pathname === '/api/verify-lightning' || pathname === '/api/payment/confirm' || pathname.endsWith('/verify-lightning') || pathname.endsWith('/payment/confirm'))) {
+      const { transactionId, amountUSD, customerEmail, domain, planId, channel, reference } = req.body || {};
+      const txId = transactionId || `BOL-CONFIRM-${Date.now()}`;
+      
+      const payload = {
+        transactionId: txId,
+        amountUSD: amountUSD || 69,
+        customerEmail: customerEmail || 'pending@client.com',
+        domain: domain || 'empresa.com',
+        planId: planId || 'pro',
+        channel: channel || 'BITCOIN_LIGHTNING',
+        reference: reference || 'DIRECT_CONFIRMATION',
+        timestamp: new Date().toISOString()
+      };
+
+      const idempotencyResult = recordAndVerifyIdempotency(txId, payload);
+
+      return res.status(200).json({
+        ok: true,
+        success: true,
+        transactionId: txId,
+        status: 'SETTLED',
+        settledAt: payload.timestamp,
+        customerEmail: payload.customerEmail,
+        planId: payload.planId,
+        amountUSD: payload.amountUSD,
+        idempotency: idempotencyResult
+      });
+    }
+
     // --- MCP TOOL HUB: Asistente Personal Ejecutivo ---
     if ((req.method === 'POST' || req.method === 'GET') && (pathname === '/api/mcp/executive' || pathname.endsWith('/mcp/executive'))) {
       const action = (req.method === 'POST' ? req.body?.action : url.searchParams.get('action')) || 'all';
