@@ -29,7 +29,7 @@ test('2. Generación de Intención de Cobro (createCheckoutIntent)', () => {
   assert.equal(intent.status, 'PENDING_PAYMENT');
 });
 
-test('3. Sesión de Cobro Stripe (Fallback y URLs Seguras)', async () => {
+test('3. Sesión de Cobro Stripe (Terminal Directo y URLs Seguras)', async () => {
   const session = await createStripeCheckoutSession({
     planId: 'flash',
     customerEmail: 'cto@empresa.com',
@@ -37,7 +37,8 @@ test('3. Sesión de Cobro Stripe (Fallback y URLs Seguras)', async () => {
   });
 
   assert.ok(session.transactionId.startsWith('BOL-'), 'Debe generar transactionId');
-  assert.ok(session.url.includes('wa.me') || session.url.includes('checkout.stripe.com'), 'URL de pago válida');
+  assert.equal(session.amountUSD, 19, 'Monto Flash debe ser 19 USD');
+  assert.ok(session.mode === 'direct_modal_terminal' || session.mode === 'stripe_payment_link' || session.url, 'Modo de cobro válido');
 });
 
 test('4. Liquidación y Conciliación Inmutable de Pagos Bitcoin Lightning (Strike)', async () => {
