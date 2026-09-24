@@ -1,0 +1,13 @@
+[
+  {
+    "transactionId": "BOL-TEST-1790265812749",
+    "channel": "BITCOIN_LIGHTNING_STRIKE",
+    "destination": "rick2818@strike.me",
+    "planId": "pro",
+    "amountUSD": 69,
+    "customerEmail": "test-audit@boltech.group",
+    "domain": "audit-domain.com",
+    "status": "SETTLED_USD",
+    "settledAt": "2026-09-24T16:03:32.750Z"
+  }
+]

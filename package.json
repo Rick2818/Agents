@@ -12,7 +12,8 @@
     "test:scanner": "node --test tests/test_header_scanner.mjs",
     "test:hardening": "node --test tests/test_scanner_shield_hardening.mjs",
     "test:i18n": "node --test tests/test_i18n_integrity.mjs",
-    "test": "node --test tests/test_header_scanner.mjs && node --test tests/test_scanner_shield_hardening.mjs && node --test tests/test_i18n_integrity.mjs"
+    "test:billing": "node --test tests/test_billing_sentinel.mjs",
+    "test": "node --test tests/test_header_scanner.mjs && node --test tests/test_scanner_shield_hardening.mjs && node --test tests/test_i18n_integrity.mjs && node --test tests/test_billing_sentinel.mjs"
   },
   "keywords": [
     "cybersecurity",

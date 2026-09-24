@@ -2102,15 +2102,48 @@
       });
     }
 
-    function proceedStripeCheckout() {
-      window.open('https://strike.me/rick2818', '_blank');
+    async function proceedStripeCheckout() {
+      const btn = document.querySelector('#content-stripe button');
+      const originalText = btn ? btn.innerText : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = 'Generando Enlace Cifrado de Cobro...';
+      }
+
+      try {
+        const resp = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            planId: currentProduct.id || 'pro',
+            domain: currentScannedDomain || 'empresa.com',
+            channel: 'stripe',
+            successUrl: window.location.origin + '/?payment=success',
+            cancelUrl: window.location.origin + '/?payment=cancelled'
+          })
+        });
+        const data = await resp.json();
+        if (data.ok && data.url) {
+          window.location.href = data.url;
+        } else {
+          window.open('https://strike.me/rick2818?amount=' + currentProduct.price + '&note=' + encodeURIComponent(currentProduct.name), '_blank');
+        }
+      } catch (e) {
+        console.warn('Fallback to Strike direct:', e);
+        window.open('https://strike.me/rick2818?amount=' + currentProduct.price + '&note=' + encodeURIComponent(currentProduct.name), '_blank');
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = originalText;
+        }
+      }
     }
 
     function proceedWompiCheckout() {
       const copEstimate = Math.round(currentProduct.price * 4150);
       const msg = 'Pasarela Wompi / Bancolombia / PSE: Liquidación estimada de $' + copEstimate.toLocaleString('es-CO') + ' COP (' + currentProduct.price + ' USD). ¿Deseas coordinar o pagar de inmediato?';
       if (confirm(msg)) {
-        window.open('https://strike.me/rick2818', '_blank');
+        window.open('https://strike.me/rick2818?amount=' + currentProduct.price + '&note=' + encodeURIComponent(currentProduct.name), '_blank');
       }
     }
 
