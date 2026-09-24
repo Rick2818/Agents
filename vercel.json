@@ -2,22 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "functions": {
-    "api/telegram.js": {
-      "maxDuration": 60
-    },
-    "api/index.js": {
-      "maxDuration": 60
-    }
-  },
   "rewrites": [
     { "source": "/readme", "destination": "/LEER_README" },
     { "source": "/boltech", "destination": "/boltech.html" },
     { "source": "/cockpit", "destination": "/COCKPIT_EJECUTIVO_RICARDO" },
     { "source": "/cabina", "destination": "/COCKPIT_EJECUTIVO_RICARDO" },
     { "source": "/audit", "destination": "/index.html" },
-    { "source": "/patch/(.*)", "destination": "/index.html" },
-    { "source": "/api/(.*)", "destination": "/api" }
+    { "source": "/patch/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
