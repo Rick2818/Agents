@@ -654,26 +654,26 @@
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-mono font-bold uppercase text-amber-400 bg-amber-500/10 px-3 py-0.5 rounded border border-amber-500/20">
-                ⚡ Plan Flash
+                🛡️ Parche Ciberseguridad
               </span>
               <span class="text-xs font-mono text-slate-400">Pago Único</span>
             </div>
-            <h3 id="p1-title" class="text-xl font-bold text-white mb-2 font-mono">Blindaje Perimetral Flash</h3>
+            <h3 id="p1-title" class="text-xl font-bold text-white mb-2 font-mono">Parche de Ciberseguridad Flash</h3>
             <div class="text-3xl font-black text-white mb-4 font-sans">
-              $19 <span class="text-xs font-normal text-slate-400 font-mono">USD</span>
+              $19.00 <span class="text-xs font-normal text-slate-400 font-mono">USD / parche</span>
             </div>
             <p id="p1-desc" class="text-xs text-slate-400 leading-relaxed mb-6">
-              Para empresas que necesitan cerrar vulnerabilidades de cabeceras, protegerse de ataques de clickjacking y asegurar su SSL de inmediato.
+              Parche técnico de remediación inmediata para cerrar vulnerabilidades de cabeceras (CSP, HSTS, Clickjacking y SSL) listo para producción en &lt;60s.
             </p>
             <ul class="space-y-2.5 text-xs text-slate-300 font-mono mb-8">
-              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Auditoría técnica exhaustiva (CSP/HSTS)</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Parches de código listos para Nginx/Cloudflare</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Verificación de re-escaneo en 10 minutos</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Cero acceso a claves o contraseñas</li>
+              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Parches listos para Nginx / Cloudflare / Apache / Vercel</li>
+              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Auditoría perimetral profunda incluida (15s)</li>
+              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Re-escaneo de verificación automática</li>
+              <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Cero acceso a claves o contraseñas del cliente</li>
             </ul>
           </div>
-          <button onclick="openPaymentModal('flash', 19, 'Blindaje Perimetral Flash')" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xs font-mono uppercase tracking-wider shadow-lg shadow-amber-500/20 transition-all cursor-pointer">
-            <span id="btn-p1">Activar Blindaje ($19 USD)</span>
+          <button onclick="openPaymentModal('flash', 19, 'Parche de Ciberseguridad Flash')" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xs font-mono uppercase tracking-wider shadow-lg shadow-amber-500/20 transition-all cursor-pointer">
+            <span id="btn-p1">Descargar Parche de Ciberseguridad ($19.00 USD)</span>
           </button>
         </div>
 
@@ -1435,9 +1435,9 @@
         pricingBadge: '💎 Modelos de Solución Llave en Mano',
         pricingTitle: 'Precios Transparentes. Cero Letra Chica.',
         pricingDesc: 'Soluciones directas diseñadas para pagarse solas con evitar una sola falla operativa o recuperar una sola venta.',
-        p1Title: 'Blindaje Perimetral Flash',
-        p1Desc: 'Para empresas que necesitan cerrar vulnerabilidades de cabeceras, protegerse de ataques de clickjacking y asegurar su SSL de inmediato.',
-        btnP1: 'Activar Blindaje ($19 USD)',
+        p1Title: 'Parche de Ciberseguridad Flash',
+        p1Desc: 'Parche técnico de remediación inmediata para cerrar vulnerabilidades de cabeceras (CSP, HSTS, Clickjacking y SSL) listo para producción en <60s.',
+        btnP1: 'Descargar Parche de Ciberseguridad ($19.00 USD)',
         p2Title: 'Centinela Autónomo 24/7',
         p2Desc: 'Un operador de software autónomo que vigila tu infraestructura, atiende consultas comerciales en WhatsApp y resuelve alertas sin nómina humana.',
         btnP2: 'Desplegar Centinela ($69 USD/mes)',
@@ -1620,9 +1620,9 @@
         pricingBadge: '💎 Turnkey Solutions Pricing',
         pricingTitle: 'Transparent Solutions Pricing. Zero Fine Print.',
         pricingDesc: 'Turnkey solutions engineered to pay for themselves by stopping a single operational error or recovering a single deal.',
-        p1Title: 'Perimeter Flash Armor',
-        p1Desc: 'For businesses needing to remediate header flaws, clickjacking exposure, and SSL anomalies immediately.',
-        btnP1: 'Deploy Flash Shield ($19 USD)',
+        p1Title: 'Cybersecurity Remediation Patch',
+        p1Desc: 'Production-ready technical remediation patch to close CSP, HSTS, Clickjacking, and SSL flaws in under 60 seconds.',
+        btnP1: 'Download Cybersecurity Patch ($19.00 USD)',
         p2Title: '24/7 Autonomous Sentinel',
         p2Desc: 'An unattended software operator watching your infrastructure, handling prospect qualification, and resolving issues without human payroll.',
         btnP2: 'Deploy Pro Sentinel ($69 USD/mo)',
@@ -2208,7 +2208,7 @@
 
     function getLocalizedProductName(planId, lang) {
       const isEn = (lang === 'en');
-      if (planId === 'flash') return isEn ? 'Perimeter Flash Armor' : 'Blindaje Perimetral Flash';
+      if (planId === 'flash') return isEn ? 'Cybersecurity Remediation Patch' : 'Parche de Ciberseguridad Flash';
       if (planId === 'pro') return isEn ? '24/7 Autonomous Sentinel' : 'Centinela Autónomo 24/7';
       if (planId === 'enterprise') return isEn ? 'Sovereign Multi-Agent Fleet' : 'Flota Multi-Agente Soberana';
       return null;
