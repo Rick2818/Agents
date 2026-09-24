@@ -1,6 +1,6 @@
 [
   {
-    "id": "audit_1790275889548_542",
+    "id": "audit_1790291006515_439",
     "company": "Chilexpress Empresas",
     "domain": "chilexpress.cl",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -23,7 +23,7 @@
     ],
     "severity": "MEDIA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:32.849Z",
+      "dispatchedAt": "2026-09-24T23:03:30.344Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 1,
       "recipient": "empresas@chilexpress.cl",
@@ -55,7 +55,7 @@
     ],
     "severity": "MEDIA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:36.817Z",
+      "dispatchedAt": "2026-09-24T23:03:33.198Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 1,
       "recipient": "informacion@mrw.es",
@@ -89,7 +89,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:40.386Z",
+      "dispatchedAt": "2026-09-24T23:03:36.684Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 1,
       "recipient": "info@logisfashion.com",
@@ -123,7 +123,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:44.366Z",
+      "dispatchedAt": "2026-09-24T23:03:40.631Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 1,
       "recipient": "pro@packlink.es",
@@ -156,7 +156,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:47.141Z",
+      "dispatchedAt": "2026-09-24T23:03:43.451Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 1,
       "recipient": "info@ontime.es",
@@ -189,7 +189,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:50.632Z",
+      "dispatchedAt": "2026-09-24T23:03:47.147Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 1,
       "recipient": "empresas@seur.net",
@@ -198,7 +198,7 @@
     "currentImpact": 1
   },
   {
-    "id": "audit_1790275887697_675",
+    "id": "audit_1790291004205_250",
     "company": "Blue Express",
     "domain": "blue.cl",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -223,7 +223,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:53.469Z",
+      "dispatchedAt": "2026-09-24T23:03:49.755Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 2,
       "recipient": "soporte@blue.cl",
@@ -233,7 +233,7 @@
     "targetImpact": 2
   },
   {
-    "id": "audit_1790275886578_999",
+    "id": "audit_1790291003012_485",
     "company": "Starken Logística",
     "domain": "starken.cl",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -258,7 +258,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:56.386Z",
+      "dispatchedAt": "2026-09-24T23:03:52.385Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 2,
       "recipient": "empresas@starken.cl",
@@ -268,7 +268,7 @@
     "targetImpact": 2
   },
   {
-    "id": "audit_1790275884741_267",
+    "id": "audit_1790291001184_560",
     "company": "99Minutos Last Mile",
     "domain": "99minutos.com",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -292,7 +292,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:51:59.679Z",
+      "dispatchedAt": "2026-09-24T23:03:56.194Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 2,
       "recipient": "hola@99minutos.com",
@@ -302,7 +302,7 @@
     "targetImpact": 2
   },
   {
-    "id": "audit_1790275883614_110",
+    "id": "audit_1790290999923_385",
     "company": "Kavak Logistics & Operaciones",
     "domain": "kavak.com",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -327,7 +327,7 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-24T18:52:03.360Z",
+      "dispatchedAt": "2026-09-24T23:03:59.855Z",
       "mode": "DRY_RUN_SIMULATION",
       "impact": 2,
       "recipient": "soporte@kavak.com",
@@ -686,7 +686,7 @@
       "subject": "Elimina 80 horas de consultas repetitivas en WhatsApp de tu operación",
       "body": "Hola,\n\n¿Cuánto tiempo dedica el equipo de Coordinadora a responder consultas idénticas por WhatsApp, rastrear guías de clientes impacientes y actualizar novedades manuales?\n\nDestraba AI implementa un Concierge Autónomo en 60 segundos que responde en milisegundos 24/7 y erradica ese cuello de botella en piloto automático.\n\nPuedes probarlo y activar la licencia por $69 USD/mes aquí:\nhttps://unblock-shield.vercel.app/?domain=coordinadora.com\n\nO liquidar en satoshis vía Lightning sin comisiones a rick2818@strike.me.\n\nAtentamente,\nEquipo de Soluciones B2B — Destraba AI"
     },
-    "dispatchedAt": "2026-09-24T18:51:32.842Z",
+    "dispatchedAt": "2026-09-24T23:03:30.036Z",
     "nextFollowUpDate": "2026-09-26",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:27.289Z",
@@ -723,7 +723,7 @@
       "subject": "Respuesta a cotizaciones B2B en 60 segundos sin nómina extra",
       "body": "Estimado Gerente de Operaciones en TCC,\n\nEn el sector logístico B2B, responder una solicitud de flete 4 horas tarde significa perder la cuenta frente a la competencia.\n\nDestraba AI sintetiza un agente calificador que atiende a tus prospectos corporativos, calcula tarifas estimadas y agenda el cierre al instante.\n\nActiva tu prueba operativa hoy por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=tcc.com.co\n\nLiquidación directa vía Lightning: rick2818@strike.me.\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-24T18:51:32.842Z",
+    "dispatchedAt": "2026-09-24T23:03:30.036Z",
     "nextFollowUpDate": "2026-09-26",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:33.526Z",
@@ -760,7 +760,7 @@
       "subject": "Reduce en un 70% la carga de reclamos y soporte en tu operación",
       "body": "Hola,\n\nAtender manualmente estados de envío y reclamos de mercancía genera sobrecostos de nómina y fatiga en tus agentes humanos.\n\nNuestros agentes soberanos para Google Antigravity asumen el triaje automático y resuelven el 70% de las consultas sin intervención humana.\n\nConoce la plataforma y comienza por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=enviacolvanes.com\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-24T18:51:32.842Z",
+    "dispatchedAt": "2026-09-24T23:03:30.036Z",
     "nextFollowUpDate": "2026-09-26",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:39.810Z",
@@ -793,7 +793,7 @@
       "subject": "Automatiza la trazabilidad y cobro de envíos express en 60 segundos",
       "body": "Hola,\n\nLos clientes corporativos de paquetería express exigen confirmaciones en tiempo real y facturación inmediata.\n\nDestraba AI genera un flujo desatendido que notifica y concilia pagos en segundos con protocolos bancarios seguros.\n\nAccede a la consola ejecutiva aquí por $89 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=deprisa.com\n\nAtentamente,\nDestraba AI"
     },
-    "dispatchedAt": "2026-09-24T18:51:32.842Z",
+    "dispatchedAt": "2026-09-24T23:03:30.036Z",
     "nextFollowUpDate": "2026-09-26",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:44.485Z",
@@ -833,7 +833,7 @@
       "subject": "Auditoría de integración operativa y seguridad perimetral en 60 segundos",
       "body": "Estimado VP de Tecnología en Servientrega,\n\nDesplegamos agentes soberanos con protocolo MCP que se conectan a tu infraestructura sin tocar código legacy ni exponer datos sensibles.\n\nRealiza un diagnóstico de cuellos de botella y seguridad perimetral por $19 USD aquí:\nhttps://rick2818.github.io/Agents/?plan=flash&ref=colombia_b2b\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nEquipo de Ingeniería — Destraba AI\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=servientrega.com\n"
     },
-    "dispatchedAt": "2026-09-24T18:51:32.842Z",
+    "dispatchedAt": "2026-09-24T23:03:30.036Z",
     "nextFollowUpDate": "2026-09-26",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-21T22:54:48.745Z",
