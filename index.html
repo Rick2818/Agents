@@ -742,12 +742,12 @@
       <!-- Pasarelas Activas Badge Bar -->
       <div class="mt-12 p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
-          <span class="text-cyan-400 font-bold">💳 Pasarelas Fiduciarias Activas:</span>
-          <span>Strike Lightning (0% comisión), Stripe (Global 3DS), Wompi (Bancolombia / PSE / Nequi)</span>
+          <span id="badge-active-gateways-title" class="text-cyan-400 font-bold">💳 Rieles de Cobro Activos:</span>
+          <span id="badge-active-gateways-desc">Strike Lightning (0% comisión a rick2818@strike.me), Wompi SV / Red Bancaria (Visa, Mastercard)</span>
         </div>
         <div class="flex items-center gap-3">
           <button onclick="openPaymentModal('pro', 69, 'Centinela Autónomo 24/7')" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 underline cursor-pointer">
-            Abrir Checkout Fiduciario →
+            <span id="badge-open-checkout-link">Abrir Checkout Fiduciario →</span>
           </button>
         </div>
       </div>
@@ -802,10 +802,10 @@
             </div>
             <div>
               <div class="text-xs font-mono font-bold text-white flex items-center gap-1.5">
-                <span>Centinela de Cobro IA</span>
-                <span class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 font-mono">EN VIVO</span>
+                <span id="modal-agent-title">Centinela de Cobro IA</span>
+                <span id="modal-agent-live-tag" class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 font-mono">EN VIVO</span>
               </div>
-              <div class="text-[10px] font-mono text-emerald-400">● Vigilando transacción en tiempo real</div>
+              <div id="modal-agent-status" class="text-[10px] font-mono text-emerald-400">● Vigilando transacción en tiempo real</div>
             </div>
           </div>
           <span class="text-[9px] font-mono text-slate-500 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">SOC-2 RAM</span>
@@ -819,13 +819,13 @@
         <!-- Micro-píldoras de ayuda rápida del Agente -->
         <div class="flex flex-wrap gap-1.5 mt-2 font-mono text-[10px]">
           <button type="button" onclick="askAgentAbout('garantia')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-slate-700 transition-all cursor-pointer">
-            🛡️ ¿Garantía 7 Días?
+            <span id="modal-faq-warranty">🛡️ ¿Garantía 7 Días?</span>
           </button>
           <button type="button" onclick="askAgentAbout('entrega')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-cyan-400 border border-slate-700 transition-all cursor-pointer">
-            ⚡ ¿Cómo se Entrega?
+            <span id="modal-faq-delivery">⚡ ¿Cómo se Entrega?</span>
           </button>
           <button type="button" onclick="askAgentAbout('soporte')" class="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-700 transition-all cursor-pointer">
-            💬 Ayuda Humana
+            <span id="modal-faq-support">💬 Ayuda Humana</span>
           </button>
         </div>
       </div>
@@ -843,12 +843,12 @@
       <!-- Selector de Pestañas de Pasarelas Soberanas (2 Rieles Activos) -->
       <div class="grid grid-cols-2 gap-2.5 mb-4 font-mono text-xs">
         <button id="tab-strike" onclick="switchGatewayTab('strike')" class="py-2.5 px-2 rounded-xl bg-amber-500/20 border-2 border-amber-500 text-amber-300 font-bold flex flex-col items-center gap-1 cursor-pointer transition-all">
-          <span class="flex items-center gap-1">⚡ Bitcoin Lightning</span>
-          <span class="text-[9px] opacity-80">Strike rick2818@strike.me (0% Fee)</span>
+          <span id="modal-tab-strike-title" class="flex items-center gap-1">⚡ Bitcoin Lightning</span>
+          <span id="modal-tab-strike-sub" class="text-[9px] opacity-80">Strike rick2818@strike.me (0% Fee)</span>
         </button>
         <button id="tab-wompi" onclick="switchGatewayTab('wompi')" class="py-2.5 px-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-400 font-bold flex flex-col items-center gap-1 cursor-pointer transition-all">
-          <span class="flex items-center gap-1">💳 Tarjetas / Wompi SV</span>
-          <span class="text-[9px] opacity-80">Visa, MC, Nequi & Transferencias</span>
+          <span id="modal-tab-wompi-title" class="flex items-center gap-1">💳 Tarjetas / Wompi SV</span>
+          <span id="modal-tab-wompi-sub" class="text-[9px] opacity-80">Visa, MC & Transferencias</span>
         </button>
       </div>
 
@@ -860,10 +860,10 @@
           </div>
           <div class="text-xs font-mono space-y-1.5 text-left flex-1">
             <div class="flex items-center justify-between text-slate-300">
-              <span>Dirección Lightning:</span>
+              <span id="modal-strike-title">Dirección Lightning:</span>
               <span id="strike-addr-badge" class="text-amber-400 font-bold">rick2818@strike.me</span>
             </div>
-            <p class="text-[11px] text-slate-400 leading-relaxed font-sans">
+            <p id="modal-strike-desc" class="text-[11px] text-slate-400 leading-relaxed font-sans">
               Escanea desde cualquier app (Strike, Cash App, Blink, Muun, Binance) o copia la dirección para transferir en USD/Satoshis con 0% comisión.
             </p>
           </div>
@@ -873,11 +873,11 @@
             <span>📋</span> <span id="label-copy-lightning">Copiar rick2818@strike.me</span>
           </button>
           <a href="lightning:rick2818@strike.me" class="py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-mono text-xs font-black text-center shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-            <span>⚡</span> <span>Abrir Billetera / App</span>
+            <span>⚡</span> <span id="label-open-wallet">Abrir Billetera / App</span>
           </a>
         </div>
         <button onclick="confirmLightningPaymentSent()" class="w-full py-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[11px] font-mono transition-all cursor-pointer">
-          ✓ Ya transferí: Notificar al Centinela para Aprovisionamiento Inmediato
+          <span id="modal-btn-confirm-lightning">✓ Ya transferí: Notificar al Centinela para Aprovisionamiento Inmediato</span>
         </button>
       </div>
 
@@ -885,30 +885,30 @@
       <div id="content-wompi" class="hidden space-y-3 text-left">
         <div class="p-3 rounded-xl bg-slate-950 border border-emerald-500/30 text-xs font-mono space-y-1">
           <div class="flex items-center justify-between text-slate-300">
-            <span>Riel Fiduciario de Tarjetas:</span>
-            <span class="text-emerald-400 font-bold">Wompi SV / Bancaria</span>
+            <span id="modal-wompi-rail-title">Riel Fiduciario de Tarjetas:</span>
+            <span id="modal-wompi-rail-name" class="text-emerald-400 font-bold">Wompi SV / Bancaria</span>
           </div>
-          <p class="text-[11px] text-slate-400 leading-relaxed font-sans">
+          <p id="modal-wompi-rail-desc" class="text-[11px] text-slate-400 leading-relaxed font-sans">
             Acepta tarjetas de crédito/débito Visa, Mastercard y transferencias locales directas. El Centinela concilia la referencia y emite tu licencia de inmediato.
           </p>
         </div>
 
         <form id="wompi-checkout-form" onsubmit="handleDirectWompiCheckout(event)" class="space-y-2.5">
           <div>
-            <label class="block text-[10px] font-mono text-slate-400 mb-0.5">CORREO PARA DESPACHO DE LICENCIA *</label>
+            <label id="modal-wompi-email-label" class="block text-[10px] font-mono text-slate-400 mb-0.5">CORREO PARA DESPACHO DE LICENCIA *</label>
             <input type="email" id="wompi-email" required placeholder="tu-correo@empresa.com" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white font-mono focus:border-emerald-400 focus:outline-none">
           </div>
           <div class="grid grid-cols-2 gap-2">
             <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-0.5">MÉTODO DE PAGO *</label>
+              <label id="modal-wompi-method-label" class="block text-[10px] font-mono text-slate-400 mb-0.5">MÉTODO DE PAGO *</label>
               <select id="wompi-method" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white font-mono focus:border-emerald-400 focus:outline-none">
-                <option value="tarjeta">Tarjeta Crédito / Débito</option>
-                <option value="transferencia">Transferencia Bancaria / QR</option>
-                <option value="nequi">Nequi / PSE</option>
+                <option id="modal-wompi-opt-card" value="tarjeta">Tarjeta Crédito / Débito</option>
+                <option id="modal-wompi-opt-trans" value="transferencia">Transferencia Bancaria / QR</option>
+                <option id="modal-wompi-opt-nequi" value="nequi">Nequi / PSE</option>
               </select>
             </div>
             <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-0.5">TITULAR / REFERENCIA *</label>
+              <label id="modal-wompi-ref-label" class="block text-[10px] font-mono text-slate-400 mb-0.5">TITULAR / REFERENCIA *</label>
               <input type="text" id="wompi-ref" required placeholder="Nombre o Ref de Transferencia" class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs text-white font-mono focus:border-emerald-400 focus:outline-none">
             </div>
           </div>
@@ -919,7 +919,7 @@
       </div>
 
       <div class="mt-4 pt-2.5 border-t border-slate-800/80 text-center">
-        <p class="text-[10px] font-mono text-slate-500">
+        <p id="modal-footer-contact" class="text-[10px] font-mono text-slate-500">
           ¿Dudas sobre facturación corporativa? Contacto directo: <span class="text-slate-400">rick2818@strike.me</span>
         </p>
       </div>
@@ -1443,7 +1443,39 @@
         btnP2: 'Desplegar Centinela ($69 USD/mes)',
         p3Title: 'Flota Multi-Agente Soberana',
         p3Desc: 'Para empresas con operaciones críticas en varios países que requieren agentes coordinados para marketing, ventas, cobros y defensa.',
-        btnP3: 'Hablar con Ingeniería ($490 USD)'
+        btnP3: 'Hablar con Ingeniería ($490 USD)',
+
+        badgeActiveGatewaysTitle: '💳 Rieles de Cobro Activos:',
+        badgeActiveGatewaysDesc: 'Strike Lightning (0% comisión a rick2818@strike.me), Wompi SV / Red Bancaria (Visa, Mastercard)',
+        badgeOpenCheckoutLink: 'Abrir Checkout Fiduciario →',
+
+        modalAgentTitle: 'Centinela de Cobro IA',
+        modalAgentLiveTag: 'EN VIVO',
+        modalAgentStatus: '● Vigilando transacción en tiempo real',
+        modalFaqWarranty: '🛡️ ¿Garantía 7 Días?',
+        modalFaqDelivery: '⚡ ¿Cómo se Entrega?',
+        modalFaqSupport: '💬 Ayuda Humana',
+        modalProductTitle: 'Activación de Solución',
+        modalTabStrikeTitle: '<span class="flex items-center gap-1">⚡ Bitcoin Lightning</span>',
+        modalTabStrikeSub: 'Strike rick2818@strike.me (0% Fee)',
+        modalTabWompiTitle: '<span class="flex items-center gap-1">💳 Tarjetas / Wompi SV</span>',
+        modalTabWompiSub: 'Visa, MC & Transferencias',
+        modalStrikeTitle: 'Dirección Lightning:',
+        modalStrikeDesc: 'Escanea desde cualquier app (Strike, Cash App, Blink, Muun, Binance) o copia la dirección para transferir en USD/Satoshis con 0% comisión.',
+        labelCopyLightning: 'Copiar rick2818@strike.me',
+        labelOpenWallet: 'Abrir Billetera / App',
+        modalBtnConfirmLightning: '✓ Ya transferí: Notificar al Centinela para Aprovisionamiento Inmediato',
+        modalWompiRailTitle: 'Riel Fiduciario de Tarjetas:',
+        modalWompiRailName: 'Wompi SV / Bancaria',
+        modalWompiRailDesc: 'Acepta tarjetas de crédito/débito Visa, Mastercard y transferencias locales directas. El Centinela concilia la referencia y emite tu licencia de inmediato.',
+        modalWompiEmailLabel: 'CORREO PARA DESPACHO DE LICENCIA *',
+        modalWompiMethodLabel: 'MÉTODO DE PAGO *',
+        modalWompiOptCard: 'Tarjeta Crédito / Débito',
+        modalWompiOptTrans: 'Transferencia Bancaria / QR',
+        modalWompiOptNequi: 'Nequi / PSE',
+        modalWompiRefLabel: 'TITULAR / REFERENCIA *',
+        labelWompiSubmit: 'Confirmar y Activar Licencia',
+        modalFooterContact: '¿Dudas sobre facturación corporativa? Contacto directo: <span class="text-slate-400">rick2818@strike.me</span>'
       },
       en: {
         logoSub: 'Autonomous Operational Solutions & Cyber-Defense',
@@ -1596,7 +1628,39 @@
         btnP2: 'Deploy Pro Sentinel ($69 USD/mo)',
         p3Title: 'Sovereign Multi-Agent Fleet',
         p3Desc: 'For organizations with multi-country operations requiring coordinated autonomous agents for marketing, sales, settlement, and defense.',
-        btnP3: 'Talk with Engineering ($490 USD)'
+        btnP3: 'Talk with Engineering ($490 USD)',
+
+        badgeActiveGatewaysTitle: '💳 Active Payment Rails:',
+        badgeActiveGatewaysDesc: 'Strike Lightning (0% fee to rick2818@strike.me), Wompi SV / Banking Rail (Visa, Mastercard)',
+        badgeOpenCheckoutLink: 'Open Fiduciary Checkout →',
+
+        modalAgentTitle: 'AI Billing Sentinel',
+        modalAgentLiveTag: 'LIVE',
+        modalAgentStatus: '● Monitoring transaction in real time',
+        modalFaqWarranty: '🛡️ 7-Day Guarantee?',
+        modalFaqDelivery: '⚡ How is it Delivered?',
+        modalFaqSupport: '💬 Human Support',
+        modalProductTitle: 'Solution License Activation',
+        modalTabStrikeTitle: '<span class="flex items-center gap-1">⚡ Bitcoin Lightning</span>',
+        modalTabStrikeSub: 'Strike rick2818@strike.me (0% Fee)',
+        modalTabWompiTitle: '<span class="flex items-center gap-1">💳 Cards / Wompi SV</span>',
+        modalTabWompiSub: 'Visa, MC & Direct Wire',
+        modalStrikeTitle: 'Lightning Address:',
+        modalStrikeDesc: 'Scan with any Lightning app (Strike, Cash App, Blink, Muun, Binance) or copy the address to transfer in USD/Satoshis with 0% fee.',
+        labelCopyLightning: 'Copy rick2818@strike.me',
+        labelOpenWallet: 'Open Wallet / App',
+        modalBtnConfirmLightning: '✓ I already paid: Notify Sentinel for Instant Provisioning',
+        modalWompiRailTitle: 'Card & Direct Rail:',
+        modalWompiRailName: 'Wompi SV / Banking Rail',
+        modalWompiRailDesc: 'Accepts Visa, Mastercard credit/debit cards and direct bank transfers. The Sentinel reconciles the reference and issues your license instantly.',
+        modalWompiEmailLabel: 'BUSINESS EMAIL FOR LICENSE DISPATCH *',
+        modalWompiMethodLabel: 'PAYMENT METHOD *',
+        modalWompiOptCard: 'Credit / Debit Card',
+        modalWompiOptTrans: 'Bank Wire / QR',
+        modalWompiOptNequi: 'Nequi / PSE',
+        modalWompiRefLabel: 'CARDHOLDER / REFERENCE *',
+        labelWompiSubmit: 'Confirm & Activate License',
+        modalFooterContact: 'Questions about corporate invoicing? Direct contact: <span class="text-slate-400">rick2818@strike.me</span>'
       }
     };
 
@@ -1773,6 +1837,7 @@
       safeSet('case-3-tag', t.case3Tag);
       safeSet('case-3-p', t.case3P);
       safeSet('case-3-lbl-save', t.case3LblSave);
+      
       // Pricing
       safeSet('pricing-title', t.pricingTitle);
       safeSet('pricing-desc', t.pricingDesc);
@@ -1785,6 +1850,45 @@
       safeSet('p3-title', t.p3Title);
       safeSet('p3-desc', t.p3Desc);
       safeSet('btn-p3', t.btnP3);
+
+      // Bottom Rails Badge
+      safeSet('badge-active-gateways-title', t.badgeActiveGatewaysTitle);
+      safeSet('badge-active-gateways-desc', t.badgeActiveGatewaysDesc);
+      safeSet('badge-open-checkout-link', t.badgeOpenCheckoutLink);
+
+      // Modal Elements
+      safeSet('modal-agent-title', t.modalAgentTitle);
+      safeSet('modal-agent-live-tag', t.modalAgentLiveTag);
+      safeSet('modal-agent-status', t.modalAgentStatus);
+      safeSet('modal-faq-warranty', t.modalFaqWarranty);
+      safeSet('modal-faq-delivery', t.modalFaqDelivery);
+      safeSet('modal-faq-support', t.modalFaqSupport);
+      safeSet('modal-tab-strike-title', t.modalTabStrikeTitle, true);
+      safeSet('modal-tab-strike-sub', t.modalTabStrikeSub);
+      safeSet('modal-tab-wompi-title', t.modalTabWompiTitle, true);
+      safeSet('modal-tab-wompi-sub', t.modalTabWompiSub);
+      safeSet('modal-strike-title', t.modalStrikeTitle);
+      safeSet('modal-strike-desc', t.modalStrikeDesc);
+      safeSet('label-copy-lightning', t.labelCopyLightning);
+      safeSet('label-open-wallet', t.labelOpenWallet);
+      safeSet('modal-btn-confirm-lightning', t.modalBtnConfirmLightning);
+      safeSet('modal-wompi-rail-title', t.modalWompiRailTitle);
+      safeSet('modal-wompi-rail-name', t.modalWompiRailName);
+      safeSet('modal-wompi-rail-desc', t.modalWompiRailDesc);
+      safeSet('modal-wompi-email-label', t.modalWompiEmailLabel);
+      safeSet('modal-wompi-method-label', t.modalWompiMethodLabel);
+      safeSet('modal-wompi-opt-card', t.modalWompiOptCard);
+      safeSet('modal-wompi-opt-trans', t.modalWompiOptTrans);
+      safeSet('modal-wompi-opt-nequi', t.modalWompiOptNequi);
+      safeSet('modal-wompi-ref-label', t.modalWompiRefLabel);
+      safeSet('label-wompi-submit', t.labelWompiSubmit);
+      safeSet('modal-footer-contact', t.modalFooterContact, true);
+
+      // Update current product name in modal if open
+      if (currentProduct) {
+        const prodName = getLocalizedProductName(currentProduct.id, currentLanguage) || currentProduct.name;
+        safeSet('modal-product-title', prodName);
+      }
 
       syncVideosLanguage(currentLanguage);
 
@@ -2102,13 +2206,32 @@
       document.getElementById('manual-modal').classList.add('hidden');
     }
 
-    // FUNCIONES DEL MODAL DE PAGO Y PASARELAS (STRIKE, STRIPE, WOMPI)
-    function openPaymentModal(productId, price, name) {
-      currentProduct = { id: productId, price, name };
-      document.getElementById('modal-product-title').innerText = name;
-      document.getElementById('modal-product-price').innerText = '$' + price + ' USD';
+    function getLocalizedProductName(planId, lang) {
+      const isEn = (lang === 'en');
+      if (planId === 'flash') return isEn ? 'Perimeter Flash Armor' : 'Blindaje Perimetral Flash';
+      if (planId === 'pro') return isEn ? '24/7 Autonomous Sentinel' : 'Centinela Autónomo 24/7';
+      if (planId === 'enterprise') return isEn ? 'Sovereign Multi-Agent Fleet' : 'Flota Multi-Agente Soberana';
+      return null;
+    }
+
+    // FUNCIONES DEL MODAL DE PAGO Y PASARELAS (STRIKE LIGHTNING, WOMPI SV)
+    function openPaymentModal(productId, price, customName) {
+      const isEn = (currentLanguage === 'en');
+      const resolvedName = customName || getLocalizedProductName(productId, currentLanguage) || (isEn ? 'Solution License' : 'Activación de Solución');
+      currentProduct = { id: productId, price, name: resolvedName };
+
+      const titleEl = document.getElementById('modal-product-title');
+      if (titleEl) titleEl.innerText = resolvedName;
+      const priceEl = document.getElementById('modal-product-price');
+      if (priceEl) priceEl.innerText = '$' + price + ' USD';
+
       document.getElementById('payment-modal').classList.remove('hidden');
-      setAgentMessage(`👋 <strong>He reservado tu licencia para ${name} ($${price} USD).</strong> Selecciona tu pasarela preferida. Si pagas con Lightning (Strike), la activación toma menos de 10 segundos.`);
+
+      if (isEn) {
+        setAgentMessage(`👋 <strong>I have reserved your license for ${resolvedName} ($${price} USD).</strong> Choose your preferred payment rail below. With Bitcoin Lightning (Strike), instant activation takes under 10 seconds.`);
+      } else {
+        setAgentMessage(`👋 <strong>He reservado tu licencia para ${resolvedName} ($${price} USD).</strong> Selecciona tu pasarela preferida. Si pagas con Lightning (Strike), la activación toma menos de 10 segundos.`);
+      }
       switchGatewayTab('strike');
     }
 
@@ -2126,16 +2249,30 @@
     }
 
     function askAgentAbout(topic) {
+      const isEn = (currentLanguage === 'en');
       if (topic === 'garantia') {
-        setAgentMessage('🛡️ <strong>Garantía Incondicional de 7 Días:</strong> Si en los primeros 7 días el sistema no le ahorra al menos 10 horas de trabajo operativo a tu equipo, te reembolsamos el 100% de tu dinero de inmediato sin preguntas.');
+        if (isEn) {
+          setAgentMessage('🛡️ <strong>Unconditional 7-Day Guarantee:</strong> If the system does not save your team at least 10 hours of manual workload in the first 7 days, 100% of your funds are refunded immediately with zero questions asked.');
+        } else {
+          setAgentMessage('🛡️ <strong>Garantía Incondicional de 7 Días:</strong> Si en los primeros 7 días el sistema no le ahorra al menos 10 horas de trabajo operativo a tu equipo, te reembolsamos el 100% de tu dinero de inmediato sin preguntas.');
+        }
       } else if (topic === 'entrega') {
-        setAgentMessage('⚡ <strong>Aprovisionamiento Inmediato:</strong> En cuanto la red confirma los fondos, el centinela genera tu token de licencia fiduciaria y te despacha un correo formal con el acceso a tu cabina cloud.');
+        if (isEn) {
+          setAgentMessage('⚡ <strong>Instant Provisioning:</strong> As soon as the network confirms payment, the sentinel generates your fiduciary license token and dispatches an executive confirmation with your 24/7 cloud cabina credentials.');
+        } else {
+          setAgentMessage('⚡ <strong>Aprovisionamiento Inmediato:</strong> En cuanto la red confirma los fondos, el centinela genera tu token de licencia fiduciaria y te despacha un correo formal con el acceso a tu cabina cloud.');
+        }
       } else if (topic === 'soporte') {
-        setAgentMessage('🎧 <strong>Contacto Humano Directo:</strong> Puedes escribirle a Don Ricardo a <a href="mailto:ricardo.destrabaai@gmail.com" class="text-cyan-400 underline">ricardo.destrabaai@gmail.com</a> o por WhatsApp al <a href="https://wa.me/50375743444" target="_blank" class="text-emerald-400 underline">+503 7574 3444</a>.');
+        if (isEn) {
+          setAgentMessage('🎧 <strong>Direct Human Contact:</strong> Reach out to Don Ricardo at <a href="mailto:ricardo.destrabaai@gmail.com" class="text-cyan-400 underline">ricardo.destrabaai@gmail.com</a> or via WhatsApp at <a href="https://wa.me/50375743444" target="_blank" class="text-emerald-400 underline">+503 7574 3444</a>.');
+        } else {
+          setAgentMessage('🎧 <strong>Contacto Humano Directo:</strong> Puedes escribirle a Don Ricardo a <a href="mailto:ricardo.destrabaai@gmail.com" class="text-cyan-400 underline">ricardo.destrabaai@gmail.com</a> o por WhatsApp al <a href="https://wa.me/50375743444" target="_blank" class="text-emerald-400 underline">+503 7574 3444</a>.');
+        }
       }
     }
 
     function switchGatewayTab(tab) {
+      const isEn = (currentLanguage === 'en');
       const tabs = ['strike', 'wompi'];
       tabs.forEach(t => {
         const btn = document.getElementById('tab-' + t);
@@ -2144,10 +2281,18 @@
           if (content) content.classList.remove('hidden');
           if (t === 'strike') {
             if (btn) btn.className = 'py-2.5 px-2 rounded-xl bg-amber-500/20 border-2 border-amber-500 text-amber-300 font-bold flex flex-col items-center gap-1 cursor-pointer transition-all';
-            setAgentMessage('⚡ <strong>Canal Bitcoin Lightning (0% comisión):</strong> Escanea el código QR o envía $' + (currentProduct ? currentProduct.price : 69) + ' USD a <code>rick2818@strike.me</code> desde cualquier billetera Lightning.');
+            if (isEn) {
+              setAgentMessage('⚡ <strong>Bitcoin Lightning Rail (0% fee):</strong> Scan the QR code or send $' + (currentProduct ? currentProduct.price : 69) + ' USD to <code>rick2818@strike.me</code> from any Lightning wallet.');
+            } else {
+              setAgentMessage('⚡ <strong>Canal Bitcoin Lightning (0% comisión):</strong> Escanea el código QR o envía $' + (currentProduct ? currentProduct.price : 69) + ' USD a <code>rick2818@strike.me</code> desde cualquier billetera Lightning.');
+            }
           } else {
             if (btn) btn.className = 'py-2.5 px-2 rounded-xl bg-emerald-500/20 border-2 border-emerald-500 text-emerald-300 font-bold flex flex-col items-center gap-1 cursor-pointer transition-all';
-            setAgentMessage('💳 <strong>Canal Tarjetas & Transferencias (Wompi SV):</strong> Procesa tu tarjeta Visa/Mastercard o transferencia bancaria en USD para activación inmediata.');
+            if (isEn) {
+              setAgentMessage('💳 <strong>Card & Direct Wire Rail (Wompi SV):</strong> Process your Visa/Mastercard or bank wire in USD for instant license provisioning.');
+            } else {
+              setAgentMessage('💳 <strong>Canal Tarjetas & Transferencias (Wompi SV):</strong> Procesa tu tarjeta Visa/Mastercard o transferencia bancaria en USD para activación inmediata.');
+            }
           }
         } else {
           if (content) content.classList.add('hidden');
@@ -2157,26 +2302,36 @@
     }
 
     function copyLightningAddress() {
+      const isEn = (currentLanguage === 'en');
       navigator.clipboard.writeText('rick2818@strike.me').then(() => {
         const lbl = document.getElementById('label-copy-lightning');
         if (lbl) {
-          lbl.innerText = '¡Copiado al Portapapeles! ✓';
-          setTimeout(() => { lbl.innerText = 'Copiar rick2818@strike.me'; }, 3000);
+          lbl.innerText = isEn ? 'Copied to Clipboard! ✓' : '¡Copiado al Portapapeles! ✓';
+          setTimeout(() => { lbl.innerText = isEn ? 'Copy rick2818@strike.me' : 'Copiar rick2818@strike.me'; }, 3000);
         }
-        setAgentMessage('⚡ <strong>¡Dirección Lightning Copiada!</strong> Pega <code>rick2818@strike.me</code> en tu app de Strike, Cash App o Muun e ingresa $' + (currentProduct ? currentProduct.price : 69) + ' USD.');
+        if (isEn) {
+          setAgentMessage('⚡ <strong>Lightning Address Copied!</strong> Paste <code>rick2818@strike.me</code> in your Strike, Cash App, or Muun wallet and send $' + (currentProduct ? currentProduct.price : 69) + ' USD.');
+        } else {
+          setAgentMessage('⚡ <strong>¡Dirección Lightning Copiada!</strong> Pega <code>rick2818@strike.me</code> en tu app de Strike, Cash App o Muun e ingresa $' + (currentProduct ? currentProduct.price : 69) + ' USD.');
+        }
       }).catch(() => {
-        prompt('Copia la dirección Lightning fiduciaria:', 'rick2818@strike.me');
+        prompt(isEn ? 'Copy the fiduciary Lightning address:' : 'Copia la dirección Lightning fiduciaria:', 'rick2818@strike.me');
       });
     }
 
     async function confirmLightningPaymentSent() {
-      const email = prompt('Por favor ingresa tu correo electrónico corporativo para vincular tu licencia fiduciaria:', '');
+      const isEn = (currentLanguage === 'en');
+      const email = prompt(isEn ? 'Please enter your business email to bind your fiduciary license:' : 'Por favor ingresa tu correo electrónico corporativo para vincular tu licencia fiduciaria:', '');
       if (!email || !email.includes('@')) {
-        alert('Por favor ingresa un correo válido.');
+        alert(isEn ? 'Please enter a valid email address.' : 'Por favor ingresa un correo válido.');
         return;
       }
 
-      setAgentMessage(`⏳ <strong>Centinela verificando liquidación en blockchain...</strong> Consultando fondos recibidos para ${email}...`);
+      if (isEn) {
+        setAgentMessage(`⏳ <strong>Sentinel verifying blockchain settlement...</strong> Checking received funds for ${email}...`);
+      } else {
+        setAgentMessage(`⏳ <strong>Centinela verificando liquidación en blockchain...</strong> Consultando fondos recibidos para ${email}...`);
+      }
       
       try {
         const resp = await fetch('/api/verify-lightning', {
@@ -2192,76 +2347,25 @@
         });
         const data = await resp.json();
         if (data.ok) {
-          setAgentMessage(`✅ <strong>¡Orden Liquidada con Éxito!</strong> Se ha emitido tu token de licencia y despachado a <code>${email}</code>. Revisa tu bandeja de entrada.`);
-          alert(`✅ ¡Orden Fiduciaria Registrada! Se ha enviado la confirmación y acceso a tu cabina al correo: ${email}`);
+          if (isEn) {
+            setAgentMessage(`✅ <strong>Order Successfully Settled!</strong> Your license token has been generated and dispatched to <code>${email}</code>. Check your inbox.`);
+            alert(`✅ Fiduciary Order Registered! Confirmation and 24/7 cloud cabina access sent to: ${email}`);
+          } else {
+            setAgentMessage(`✅ <strong>¡Orden Liquidada con Éxito!</strong> Se ha emitido tu token de licencia y despachado a <code>${email}</code>. Revisa tu bandeja de entrada.`);
+            alert(`✅ ¡Orden Fiduciaria Registrada! Se ha enviado la confirmación y acceso a tu cabina al correo: ${email}`);
+          }
           closePaymentModal();
         } else {
-          setAgentMessage(`⚠️ Verificación en curso. Los fondos tardan unos segundos en asentarse en la red Lightning.`);
+          setAgentMessage(isEn ? `⚠️ Verification in progress. Settlement on the Lightning network takes a few moments.` : `⚠️ Verificación en curso. Los fondos tardan unos segundos en asentarse en la red Lightning.`);
         }
       } catch (err) {
-        setAgentMessage(`✅ Tu aviso fue registrado para ${email}. Un ingeniero del holding validará el hash de inmediato.`);
-      }
-    }
-
-    async function handleDirectCardCheckout(event) {
-      event.preventDefault();
-      const emailInput = document.getElementById('card-email');
-      const nameInput = document.getElementById('card-name');
-      const numberInput = document.getElementById('card-number');
-      const expiryInput = document.getElementById('card-expiry');
-      const cvcInput = document.getElementById('card-cvc');
-      const submitBtn = document.getElementById('btn-card-submit');
-      const submitLabel = document.getElementById('label-card-submit');
-
-      const email = emailInput ? emailInput.value.trim() : '';
-      const name = nameInput ? nameInput.value.trim() : '';
-      const cardNumber = numberInput ? numberInput.value.replace(/\s+/g, '') : '';
-      const expiry = expiryInput ? expiryInput.value.trim() : '';
-      const cvc = cvcInput ? cvcInput.value.trim() : '';
-
-      if (!email || !cardNumber || !expiry || !cvc) {
-        alert('Por favor completa todos los datos de la tarjeta.');
-        return;
-      }
-
-      if (submitBtn) submitBtn.disabled = true;
-      if (submitLabel) submitLabel.innerText = 'Cifrando y Validando con Stripe 3DS...';
-
-      setAgentMessage(`🔒 <strong>Centinela procesando tarjeta en memoria RAM:</strong> Cifrando transacción TLS 1.3 de $${currentProduct.price} USD para ${name || email}...`);
-
-      const txId = `BOL-CARD-${Date.now()}`;
-
-      try {
-        const resp = await fetch('/api/verify-lightning', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            transactionId: txId,
-            amountUSD: currentProduct.price,
-            customerEmail: email,
-            domain: currentScannedDomain || 'empresa.com',
-            planId: currentProduct.id,
-            channel: 'STRIPE_CREDIT_CARD',
-            cardholderName: name
-          })
-        });
-
-        const data = await resp.json();
-        setAgentMessage(`✅ <strong>¡Pago Aprobado y Liquidado en USD!</strong> Tu licencia fiduciaria para ${currentProduct.name} ha sido despachada a <code>${email}</code>. Transacción: ${txId}.`);
-        alert(`✅ ¡Pago Exitoso con Tarjeta!\n\nTransacción: ${txId}\nMonto: $${currentProduct.price} USD\nSe ha emitido tu token de licencia y despachado a tu correo: ${email}`);
-        closePaymentModal();
-      } catch (err) {
-        setAgentMessage(`✅ Pago asentado en el ledger fiduciario. Licencia emitida y enviada a ${email}.`);
-        alert(`✅ ¡Transacción Completada! Tu comprobante fue enviado a: ${email}`);
-        closePaymentModal();
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-        if (submitLabel) submitLabel.innerText = 'Procesar Pago Seguro con Tarjeta';
+        setAgentMessage(isEn ? `✅ Notice registered for ${email}. An engineer will validate the hash immediately.` : `✅ Tu aviso fue registrado para ${email}. Un ingeniero del holding validará el hash de inmediato.`);
       }
     }
 
     async function handleDirectWompiCheckout(event) {
       event.preventDefault();
+      const isEn = (currentLanguage === 'en');
       const emailInput = document.getElementById('wompi-email');
       const methodInput = document.getElementById('wompi-method');
       const refInput = document.getElementById('wompi-ref');
@@ -2269,18 +2373,22 @@
       const submitLabel = document.getElementById('label-wompi-submit');
 
       const email = emailInput ? emailInput.value.trim() : '';
-      const method = methodInput ? methodInput.value : 'nequi';
+      const method = methodInput ? methodInput.value : 'tarjeta';
       const ref = refInput ? refInput.value.trim() : '';
 
       if (!email || !ref) {
-        alert('Por favor ingresa tu correo y referencia de pago / celular.');
+        alert(isEn ? 'Please enter your business email and payment reference.' : 'Por favor ingresa tu correo y referencia de pago / titular.');
         return;
       }
 
       if (submitBtn) submitBtn.disabled = true;
-      if (submitLabel) submitLabel.innerText = 'Conciliando con Wompi / PSE...';
+      if (submitLabel) submitLabel.innerText = isEn ? 'Reconciling transaction...' : 'Conciliando transacción...';
 
-      setAgentMessage(`🇨🇴 <strong>Centinela conciliando liquidación local:</strong> Validando referencia de ${method.toUpperCase()} (${ref}) para ${email}...`);
+      if (isEn) {
+        setAgentMessage(`💳 <strong>Sentinel reconciling payment:</strong> Validating reference (${ref}) for ${email}...`);
+      } else {
+        setAgentMessage(`💳 <strong>Centinela conciliando liquidación:</strong> Validando referencia (${ref}) para ${email}...`);
+      }
 
       const txId = `BOL-WOMPI-${Date.now()}`;
 
@@ -2299,15 +2407,20 @@
           })
         });
 
-        setAgentMessage(`✅ <strong>¡Activación Confirmada!</strong> Se conciliaron los fondos de ${method.toUpperCase()} y se despachó tu licencia a <code>${email}</code>.`);
-        alert(`✅ ¡Orden Fiduciaria Confirmada!\n\nMétodo: ${method.toUpperCase()}\nReferencia: ${ref}\nSe ha emitido tu token de licencia y despachado a: ${email}`);
+        if (isEn) {
+          setAgentMessage(`✅ <strong>Activation Confirmed!</strong> Payment reconciled and your license has been dispatched to <code>${email}</code>.`);
+          alert(`✅ Fiduciary Order Confirmed!\n\nReference: ${ref}\nLicense token issued and dispatched to: ${email}`);
+        } else {
+          setAgentMessage(`✅ <strong>¡Activación Confirmada!</strong> Se conciliaron los fondos y se despachó tu licencia a <code>${email}</code>.`);
+          alert(`✅ ¡Orden Fiduciaria Confirmada!\n\nReferencia: ${ref}\nSe ha emitido tu token de licencia y despachado a: ${email}`);
+        }
         closePaymentModal();
       } catch (err) {
-        setAgentMessage(`✅ Orden asentada para ${email}. Recibirás la confirmación de inmediato.`);
+        setAgentMessage(isEn ? `✅ Order recorded for ${email}. Confirmation dispatched immediately.` : `✅ Orden asentada para ${email}. Recibirás la confirmación de inmediato.`);
         closePaymentModal();
       } finally {
         if (submitBtn) submitBtn.disabled = false;
-        if (submitLabel) submitLabel.innerText = 'Confirmar y Activar con Nequi / PSE';
+        if (submitLabel) submitLabel.innerText = isEn ? 'Confirm & Activate License' : 'Confirmar y Activar Licencia';
       }
     }
 
