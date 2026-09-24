@@ -141,5 +141,27 @@
     "domain": "enterprise.com",
     "status": "SETTLED_USD",
     "settledAt": "2026-09-24T16:25:52.583Z"
+  },
+  {
+    "transactionId": "BOL-TEST-1790267515128",
+    "channel": "BITCOIN_LIGHTNING_STRIKE",
+    "destination": "rick2818@strike.me",
+    "planId": "pro",
+    "amountUSD": 69,
+    "customerEmail": "test-audit@boltech.group",
+    "domain": "audit-domain.com",
+    "status": "SETTLED_USD",
+    "settledAt": "2026-09-24T16:31:55.130Z"
+  },
+  {
+    "transactionId": "BOL-1790267515138-G8XHOV",
+    "channel": "BITCOIN_LIGHTNING_STRIKE",
+    "destination": "rick2818@strike.me",
+    "planId": "pro",
+    "amountUSD": 69,
+    "customerEmail": "react-ceo@enterprise.com",
+    "domain": "enterprise.com",
+    "status": "SETTLED_USD",
+    "settledAt": "2026-09-24T16:31:55.141Z"
   }
 ]
