@@ -631,103 +631,6 @@
     </div>
   </section>
 
-  <!-- MÓDULO INTERACTIVO DE DOLOR OPERATIVO (¿QUÉ DOLOR NO HAS RESUELTO?) -->
-  <section class="py-16 bg-cyber-black border-t border-slate-800/80 relative">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase mb-3">
-          <span id="pain-module-badge">⚡ Diagnóstico Fiduciario Express</span>
-        </div>
-        <h2 id="pain-module-title" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          ¿Tu problema no es solo ciberseguridad?
-        </h2>
-        <p id="pain-module-desc" class="text-xs sm:text-sm text-slate-400 mt-2">
-          Selecciona el dolor operativo que hoy está quemando tu nómina y descubre cómo resolverlo en 60 segundos:
-        </p>
-      </div>
-
-      <div class="p-6 rounded-2xl glass-shield glow-card border border-cyan-500/30 max-w-3xl mx-auto">
-        <!-- Pills de Dolor -->
-        <div class="flex flex-wrap gap-2 justify-center mb-6">
-          <button onclick="selectOperationalPain('whatsapp')" id="pain-btn-whatsapp" class="px-3.5 py-2 rounded-xl bg-cyan-500/20 border-2 border-cyan-400 text-cyan-300 font-mono text-xs font-bold transition-all cursor-pointer">
-            💬 Clientes esperando en WhatsApp
-          </button>
-          <button onclick="selectOperationalPain('cobranza')" id="pain-btn-cobranza" class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-400 font-mono text-xs font-bold hover:border-slate-500 transition-all cursor-pointer">
-            📊 Cobranza manual y morosos
-          </button>
-          <button onclick="selectOperationalPain('logistica')" id="pain-btn-logistica" class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-400 font-mono text-xs font-bold hover:border-slate-500 transition-all cursor-pointer">
-            🚚 Guías y stock desfasado
-          </button>
-          <button onclick="selectOperationalPain('ventas')" id="pain-btn-ventas" class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-400 font-mono text-xs font-bold hover:border-slate-500 transition-all cursor-pointer">
-            💼 Leads sin seguimiento comercial
-          </button>
-        </div>
-
-        <!-- Tarjeta de Resolución Dinámica -->
-        <div id="pain-resolution-box" class="p-4 rounded-xl bg-slate-950/90 border border-slate-800 text-left font-mono space-y-3">
-          <!-- Inyectado dinámicamente vía selectOperationalPain() -->
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECCIÓN FÁCIL DE CONFIGURAR (CONFIGURADOR EN 3 PASOS) -->
-  <section class="py-16 bg-cyber-dark/80 border-t border-slate-800/80">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono uppercase mb-3">
-          <span>⚙️ Cero Fricción Técnica</span>
-        </div>
-        <h2 id="steps-title" class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Fácil de Configurar en 3 Pasos
-        </h2>
-        <p id="steps-desc" class="text-xs sm:text-sm text-slate-400 mt-2">
-          No necesitas un equipo de ingenieros ni semanas de integración. El agente realiza el trabajo pesado.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
-        
-        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 text-left">
-          <div class="text-cyan-400 text-sm font-bold mb-2 flex items-center justify-between">
-            <span>PASO 01</span>
-            <span class="text-xs text-slate-500 font-sans">15 Segundos</span>
-          </div>
-          <h4 id="step-1-h" class="text-white font-bold text-sm mb-1.5 font-sans">Ingresa tu Dominio</h4>
-          <p id="step-1-p" class="text-xs text-slate-400 leading-relaxed font-sans">
-            El agente ejecuta un escaneo perimetral externo no invasivo. No pedimos contraseñas ni permisos internos.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 text-left">
-          <div class="text-emerald-400 text-sm font-bold mb-2 flex items-center justify-between">
-            <span>PASO 02</span>
-            <span class="text-xs text-slate-500 font-sans">30 Segundos</span>
-          </div>
-          <h4 id="step-2-h" class="text-white font-bold text-sm mb-1.5 font-sans">Elige tu Solución</h4>
-          <p id="step-2-p" class="text-xs text-slate-400 leading-relaxed font-sans">
-            Selecciona entre un parche de blindaje inmediato ($19 USD) o la operación desatendida de un agente 24/7 ($69 USD/mes).
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 text-left">
-          <div class="text-amber-400 text-sm font-bold mb-2 flex items-center justify-between">
-            <span>PASO 03</span>
-            <span class="text-xs text-slate-500 font-sans">60 Segundos</span>
-          </div>
-          <h4 id="step-3-h" class="text-white font-bold text-sm mb-1.5 font-sans">Activación y Paz Mental</h4>
-          <p id="step-3-p" class="text-xs text-slate-400 leading-relaxed font-sans">
-            Despliega los parches con un clic en tu servidor o déjanos monitorear tu operación desde la nube con garantía incondicional.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- SECCIÓN DE SOLUCIONES Y PRECIOS TRANSPARENTES -->
   <section id="soluciones" class="py-20 relative">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -852,134 +755,6 @@
     </div>
   </section>
 
-  <!-- LOS 5 ANCLAJES DE PAZ MENTAL Y CONFIANZA FIDUCIARIA -->
-  <section class="py-16 bg-cyber-dark/60 border-t border-slate-800/80">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <h3 id="trust-heading" class="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
-          Nuestros 5 Anclajes de Paz Mental (Riesgo Cero)
-        </h3>
-        <p id="trust-sub" class="text-xs text-slate-400 mt-2">
-          Diseñado para que ninguna objeción ni temor frene la certeza operativa de tu empresa.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
-        
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="font-bold text-cyan-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>01.</span> <span id="t1-h">Cero Invasión Previa</span>
-          </div>
-          <p id="t1-p" class="text-slate-400 leading-relaxed">
-            Jamás solicitamos contraseñas, credenciales de administración ni acceso a bases de datos internas. Todas las soluciones se entregan para despliegue no invasivo en tu nube.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="font-bold text-cyan-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>02.</span> <span id="t2-h">Micro-Riesgo y Entrada Asimétrica</span>
-          </div>
-          <p id="t2-p" class="text-slate-400 leading-relaxed">
-            Comienza con una auditoría gratuita en 15 segundos o adquiere parches de blindaje técnico por solo $19 USD. La barrera de entrada es microscópica frente al valor entregado.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="font-bold text-emerald-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>03.</span> <span id="t3-h">Garantía Incondicional de 7 Días</span>
-          </div>
-          <p id="t3-p" class="text-slate-400 leading-relaxed">
-            Si en los primeros 7 días el sistema no le ahorra al menos 10 horas de trabajo manual y dolores de cabeza a tu equipo, te reembolsamos el 100% de tu dinero sin preguntas ni condiciones ocultas.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="font-bold text-blue-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>04.</span> <span id="t4-h">Privacidad Bancaria SOC-2 (Retención Cero)</span>
-          </div>
-          <p id="t4-p" class="text-slate-400 leading-relaxed">
-            Procesamiento 100% en memoria volátil RAM; ninguna conversación sensible ni dato del cliente toca disco ni se usa para entrenar modelos.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="font-bold text-purple-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>05.</span> <span id="t5-h">Matemática de Ahorro y Retorno Objetivo</span>
-          </div>
-          <p id="t5-p" class="text-slate-400 leading-relaxed">
-            Un analista u operador cuesta $600+ USD/mes; el agente autónomo opera 24/7 por solo $2.30 USD al día ($69 USD/mes), pagándose solo con recuperar 1 venta o prevenir un incidente operativo.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECCIÓN DE MANUAL DE OPERACIÓN Y PREGUNTAS FRECUENTES -->
-    <div class="mt-16 pt-12 border-t border-slate-800/80">
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <h3 id="manual-title" class="text-2xl font-black text-white tracking-tight mb-3">Manual Operativo de Acceso Rápido</h3>
-        <p id="manual-subtitle" class="text-slate-400 text-sm">Todo lo que necesitas saber para auditar, blindar y automatizar tu negocio en minutos.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        <!-- Sección 1 -->
-        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-          <h4 id="m-s1-title" class="text-sm font-bold text-cyan-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>01.</span> <span>Filosofía Zero-Invasion</span>
-          </h4>
-          <p id="m-s1-desc" class="text-slate-400 text-xs leading-relaxed">
-            No necesitas entregarnos credenciales ni acceso root a tu infraestructura. Todo diagnóstico y servicio opera desde la nube perimetral, analizando cabeceras y puertos públicos.
-          </p>
-        </div>
-
-        <!-- Sección 2 -->
-        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-          <h4 id="m-s2-title" class="text-sm font-bold text-emerald-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>02.</span> <span>Cómo Usar el Escáner Perimetral</span>
-          </h4>
-          <ol id="m-s2-steps" class="space-y-1.5 list-decimal list-inside text-slate-400 text-xs">
-            <li>Ingresa el dominio web de tu empresa sin prefijos raros (ej. <code>mitienda.com</code>).</li>
-            <li>Haz clic en <strong>"Auditar y Blindar"</strong>. En unos segundos se revisarán las cabeceras de seguridad públicas de tu dominio (CSP, HSTS, anti-clickjacking, entre otras) y tu certificado TLS.</li>
-            <li>Descarga tus parches de blindaje por <strong>$19 USD</strong> o ingresa tu correo para recibir el informe técnico completo.</li>
-          </ol>
-        </div>
-
-        <!-- Sección 3 -->
-        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-          <h4 id="m-s3-title" class="text-sm font-bold text-amber-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>03.</span> <span>Despliegue de los 3 Niveles de Solución</span>
-          </h4>
-          <ul id="m-s3-levels" class="space-y-2 text-slate-400 text-xs font-mono">
-            <li>• <strong class="text-white">Plan Flash ($19 USD):</strong> Parches de remediación listos para pegar en Nginx, Apache, Cloudflare o Shopify en 60 segundos.</li>
-            <li>• <strong class="text-white">Plan Pro ($69 USD/mes):</strong> Centinela 24/7 en la nube que atiende consultas en WhatsApp y vigila tu plataforma por solo $2.30/día.</li>
-            <li>• <strong class="text-white">Flota Enterprise ($490 USD/mes):</strong> 5 agentes coordinados para marketing, ventas, cobros y ciberseguridad transfronteriza.</li>
-          </ul>
-        </div>
-
-        <!-- Sección 4 -->
-        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
-          <h4 id="m-s4-title" class="text-sm font-bold text-blue-400 font-mono mb-1.5 flex items-center gap-2">
-            <span>04.</span> <span>Garantía Fiduciaria Incondicional de 7 Días</span>
-          </h4>
-          <p id="m-s4-desc" class="text-slate-400 text-xs leading-relaxed">
-            Cuentas con <strong>7 días de garantía incondicional</strong>. Si el sistema no le ahorra al menos 10 horas de trabajo operativo a tu equipo, escribes a <strong>ricardo.destrabaai@gmail.com</strong> y se reembolsa el 100% de tu dinero sin preguntas ni fricciones.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <span class="text-[11px] font-mono text-slate-400">
-          Soporte: <button type="button" onclick="openSupportModal()" class="text-cyan-400 underline hover:text-cyan-300 cursor-pointer">ricardo.destrabaai@gmail.com</button>
-        </span>
-        <button type="button" onclick="closeManualModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs font-bold transition-all cursor-pointer">
-          Entendido, cerrar manual
-        </button>
-      </div>
-
-    </div>
-  </section>
-
   <!-- FOOTER INSTITUCIONAL: ACCESOS RÁPIDOS, MANUAL Y SOPORTE -->
   <footer class="py-12 bg-slate-950 border-t border-slate-800/80 text-center relative z-10">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-6">
@@ -1001,7 +776,7 @@
       </div>
 
       <div class="text-slate-500 text-xs font-mono space-y-1">
-        <p>© 2026 Boltech Group • Destraba AI. Operación Desatendida & Ciberseguridad Defensiva en la Nube.</p>
+        <p>© 2026 <strong id="footer-brand-name">Boltech Group</strong> • Destraba AI. Operación Desatendida & Ciberseguridad Defensiva en la Nube.</p>
         <p class="text-[11px] text-slate-600">Procesamiento 100% en memoria volátil RAM efímera • Cero retención en disco • SOC-2 Type II Compliant</p>
       </div>
     </div>
@@ -1373,29 +1148,6 @@
   </div>
 
 
-
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-800 bg-cyber-black py-10 text-center text-xs font-mono text-slate-500">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2 text-slate-400">
-        <span>🏢 <strong id="footer-brand-name">BolTech Group</strong></span>
-        <span>•</span>
-        <span>Tecnología Autónoma, Ciberdefensa & Certeza Operativa 24/7</span>
-      </div>
-      <div class="flex flex-wrap justify-center items-center gap-3 text-slate-400">
-        <a href="#unblock-shield-section" onclick="focusScanInput()" class="hover:text-cyan-400 transition-colors">🛡️ Unblock AI Shield</a>
-        <span>•</span>
-        <a href="#custom-agents-section" onclick="focusPainInput()" class="hover:text-indigo-400 transition-colors">🤖 Custom Agents</a>
-        <span>•</span>
-        <a href="/cabina" target="_blank" class="hover:text-amber-300 transition-colors">🚀 Cabina Cloud</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <span><a href="https://wa.me/50375743444" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline hover:text-emerald-300">💬 WhatsApp Soporte</a></span>
-        <span>•</span>
-        <span>Settlement: <a href="https://strike.me/rick2818" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">rick2818@strike.me</a></span>
-      </div>
-    </div>
-  </footer>
 
   <!-- SCRIPT DE INTERACTIVIDAD, ESCÁNER, PASARELAS Y MULTI-IDIOMA -->
   <script>
@@ -2010,27 +1762,6 @@
       safeSet('case-3-tag', t.case3Tag);
       safeSet('case-3-p', t.case3P);
       safeSet('case-3-lbl-save', t.case3LblSave);
-      safeSet('case-3-fric', t.case3Fric);
-
-      // Interactive Pain Module
-      safeSet('pain-module-badge', t.painModuleBadge);
-      safeSet('pain-module-title', t.painTitle);
-      safeSet('pain-module-desc', t.painDesc);
-      safeSet('pain-btn-whatsapp', t.painBtnWhatsapp);
-      safeSet('pain-btn-cobranza', t.painBtnCobranza);
-      safeSet('pain-btn-logistica', t.painBtnLogistica);
-      safeSet('pain-btn-ventas', t.painBtnVentas);
-
-      // Steps
-      safeSet('steps-title', t.stepsTitle);
-      safeSet('steps-desc', t.stepsDesc);
-      safeSet('step-1-h', t.step1h);
-      safeSet('step-1-p', t.step1p);
-      safeSet('step-2-h', t.step2h);
-      safeSet('step-2-p', t.step2p);
-      safeSet('step-3-h', t.step3h);
-      safeSet('step-3-p', t.step3p);
-
       // Pricing
       safeSet('pricing-title', t.pricingTitle);
       safeSet('pricing-desc', t.pricingDesc);
@@ -2044,22 +1775,6 @@
       safeSet('p3-desc', t.p3Desc);
       safeSet('btn-p3', t.btnP3);
 
-      // Trust Anchors
-      safeSet('trust-heading', t.trustHeading);
-      safeSet('trust-sub', t.trustSub);
-      safeSet('t1-h', t.t1h);
-      safeSet('t1-p', t.t1p);
-      safeSet('t2-h', t.t2h);
-      safeSet('t2-p', t.t2p);
-      safeSet('t3-h', t.t3h);
-      safeSet('t3-p', t.t3p);
-      safeSet('t4-h', t.t4h);
-      safeSet('t4-p', t.t4p);
-      safeSet('t5-h', t.t5h);
-      safeSet('t5-p', t.t5p);
-
-      // Dynamic modules update
-      selectOperationalPain(currentSelectedPain);
       syncVideosLanguage(currentLanguage);
 
       document.title = (currentLanguage === 'en')
