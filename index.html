@@ -872,6 +872,22 @@
     </div>
   </footer>
 
+  <!-- WIDGET FLOTANTE PERMANENTE: AGENTE IA EN VIVO 24/7 (SIEMPRE VISIBLE EN PANTALLA) -->
+  <div id="floating-agent-bubble" class="fixed bottom-5 right-5 z-40 flex items-center gap-3 p-2.5 sm:px-4 sm:py-2.5 rounded-full glass-shield border-2 border-cyan-400 bg-slate-950/90 shadow-2xl shadow-cyan-950/80 hover:scale-105 transition-all cursor-pointer group" onclick="scrollToOrOpenAgent()">
+    <div class="relative flex items-center justify-center w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-300 text-sm">
+      <span>🤖</span>
+      <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+      <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+    </div>
+    <div class="hidden sm:block text-left">
+      <div class="text-xs font-mono font-bold text-white flex items-center gap-1.5">
+        <span id="float-agent-label">Agente Asistente IA</span>
+        <span class="text-[9px] px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-mono font-bold">24/7</span>
+      </div>
+      <div id="float-agent-sub" class="text-[10px] text-cyan-300 font-sans">¿Dudas de precios ($19) o cobro? Clic aquí</div>
+    </div>
+  </div>
+
   <!-- MODAL DE PAGO Y PASARELAS FIDUCIARIAS (STRIKE, STRIPE, WOMPI) CON ASISTENTE IA EN VIVO -->
   <div id="payment-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" onclick="if(event.target === this) closePaymentModal()">
     <div class="relative w-full max-w-lg rounded-2xl glass-shield border-2 border-cyan-500/40 p-6 shadow-2xl shadow-cyan-950/80">
@@ -1550,6 +1566,8 @@
         pageAgentBtnWompi: '💳 ¿Cómo pago con Tarjeta / Wompi?',
         pageAgentBtnWarranty: '🛡️ ¿Tienen garantía de 7 días?',
         pageAgentCta: 'Abrir Checkout Custodiado por el Agente →',
+        floatAgentLabel: 'Agente Asistente IA',
+        floatAgentSub: '¿Dudas de precios ($19) o cobro? Clic aquí',
 
         modalAgentTitle: 'Centinela de Cobro IA',
         modalAgentLiveTag: 'EN VIVO',
@@ -1747,6 +1765,8 @@
         pageAgentBtnWompi: '💳 How to pay with Cards / Wompi?',
         pageAgentBtnWarranty: '🛡️ Is there a 7-day guarantee?',
         pageAgentCta: 'Open Agent-Guarded Checkout →',
+        floatAgentLabel: 'AI Assistant Sentinel',
+        floatAgentSub: 'Questions on $19 pricing or checkout? Click here',
 
         modalAgentTitle: 'AI Billing Sentinel',
         modalAgentLiveTag: 'LIVE',
@@ -1981,6 +2001,10 @@
       safeSet('page-agent-btn-wompi', t.pageAgentBtnWompi);
       safeSet('page-agent-btn-warranty', t.pageAgentBtnWarranty);
       safeSet('page-agent-cta', t.pageAgentCta);
+
+      // Floating Agent Widget
+      safeSet('float-agent-label', t.floatAgentLabel);
+      safeSet('float-agent-sub', t.floatAgentSub);
 
       // Modal Elements
       safeSet('modal-agent-title', t.modalAgentTitle);
@@ -2455,6 +2479,20 @@
       if (box) {
         box.classList.add('border-cyan-400');
         setTimeout(() => box.classList.remove('border-cyan-400'), 1000);
+      }
+    }
+
+    function scrollToOrOpenAgent() {
+      const agentSection = document.getElementById('page-agent-speech');
+      if (agentSection) {
+        agentSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const box = agentSection.closest('.glass-shield') || agentSection.parentElement;
+        if (box) {
+          box.classList.add('border-cyan-400');
+          setTimeout(() => box.classList.remove('border-cyan-400'), 1500);
+        }
+      } else {
+        openPaymentModal('pro', 69, 'Centinela Autónomo 24/7');
       }
     }
 
