@@ -62,3 +62,27 @@ test('4. Liquidación y Conciliación Inmutable de Pagos Bitcoin Lightning (Stri
   });
   assert.equal(duplicate.alreadyProcessed, true, 'Debe prevenir doble liquidación por idempotencia');
 });
+
+test('5. Bucle Cognitivo ReAct (Reasoning + Acting + Observation) opera con traza completa', async () => {
+  const { executeReActBillingLoop } = await import('../lib/billing_settlement_sentinel.js');
+  
+  const reactResult = await executeReActBillingLoop({
+    eventType: 'NEW_CHECKOUT_INTENT',
+    payload: {
+      planId: 'pro',
+      customerEmail: 'react-ceo@enterprise.com',
+      domain: 'enterprise.com',
+      channel: 'BITCOIN_LIGHTNING_STRIKE'
+    }
+  });
+
+  assert.equal(reactResult.ok, true, 'El bucle ReAct debe concluir con éxito');
+  assert.equal(reactResult.amountUSD, 69, 'Monto del plan Pro');
+  assert.ok(Array.isArray(reactResult.reactTrace), 'Debe generar la traza ReAct');
+  
+  const stepTypes = reactResult.reactTrace.map(s => s.type);
+  assert.ok(stepTypes.includes('Thought'), 'Debe contener pasos de Razonamiento (Thought)');
+  assert.ok(stepTypes.includes('Action'), 'Debe contener pasos de Acción (Action)');
+  assert.ok(stepTypes.includes('Observation'), 'Debe contener pasos de Observación (Observation)');
+  assert.ok(stepTypes.includes('Final_Answer'), 'Debe contener la Respuesta Final (Final Answer)');
+});
