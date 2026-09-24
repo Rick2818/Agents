@@ -1,0 +1,42 @@
+name: "Boltech Group — Cadencia Diaria B2B 8:45 AM (Regla de Oro 18)"
+
+on:
+  schedule:
+    # 8:45 AM CST (UTC-6) = 14:45 UTC (Lunes a Viernes)
+    - cron: "45 14 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  fiduciary_cadence_845am:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: 📥 Checkout Repositorio
+        uses: actions/checkout@v4
+
+      - name: 🟢 Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: 📦 Instalar Dependencias del Stack Base
+        run: npm ci || npm install --no-audit
+
+      - name: 🚀 Ejecutar Pipeline Fiduciario Maestro (Apollo + Explee + Airtable)
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET || 'destraba_cron_sec_2026_prod' }}
+          APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY || '' }}
+          EXPLEE_API_KEY: ${{ secrets.EXPLEE_API_KEY || '' }}
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY || '' }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID || '' }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || '' }}
+        run: node scripts/outbound/master_fiduciary_b2b_engine.mjs
+
+      - name: 💾 Persistir Registros Sincronizados de Airtable
+        uses: actions/upload-artifact@v4
+        with:
+          name: airtable-pipeline-sync-845am
+          path: pipeline/airtable_b2b_pipeline_master.json
+          retention-days: 30

@@ -67,8 +67,22 @@
 15. **Regla de Oro de Responsabilidad y Despacho 100% Autónomo del Agente de Ventas (Cero Carga Manual para el Usuario / Cero Solicitudes de Copiar y Pegar):**
    - **Responsabilidad Fiduciaria Total del Agente:** El Agente de Ventas & Especialista en Cierre (`sales-closer-specialist`) es el único y total responsable de redactar, gestionar y despachar de forma 100% desatendida las respuestas a todos los correos y leads (anteriores, presentes y nuevos).
    - **Prohibición de Carga Manual:** Queda terminantemente prohibido pedirle a Don Ricardo o al usuario que copie, pegue o conteste correos manualmente. El agente debe ejecutar el despacho y seguimiento de forma automatizada por APIs, conectores y transporte de red real.
-16. **Regla de Oro de Venta Asíncrona Internacional (Cero Llamadas en Idiomas No Nativos de Oficina):**
-   - **Venta 100% Digital y Asíncrona:** Queda estrictamente prohibido ofrecer llamadas telefónicas, videollamadas o reuniones por voz a prospectos en idiomas no hablados en la oficina (ej. francés o cualquier idioma extranjero no dominado por el equipo).
-   - **Canales de Cierre Autorizados:** Para todo prospecto en estos mercados, el cierre opera mediante diagnósticos web en vivo en su idioma (`unblock-shield.vercel.app`), notas técnicas ejecutivas de 2 páginas y enlaces directos de autoservicio y cobro (\$19 USD Flash / \$69 USD Pro / \$490 USD Enterprise).
+17. **Regla de Oro del Logo Oficial y Emblema Definitivo de Boltech-Group:**
+   - **Emblema Maestro Oficial:** El único logotipo autorizado y definitivo para todo el holding Boltech-Group, material corporativo, videos, portales web, firmas y presentaciones es el **monograma tridimensional dorado 'B / A' en relieve sobre muro arquitectónico oscuro**, acompañado de la tipografía institucional dorada **'BOLTECH GROUP'** y el subtítulo **'Autonomous Enterprise AI Agents'** (junto al dominio `boltech-group.vercel.app`).
+   - **Ubicación Canónica de Archivos:**
+     - Master Screenshot: `assets/brand/boltech_group_official_logo_master.png`
+     - Emblema Dorado Recortado: `assets/brand/boltech_logo_emblem_gold.png`
+     - Asset Raíz: `assets/boltech_official_logo.png`
+   - **Invariante de Memoria:** Queda prohibido alterar, reemplazar o generar variantes sintéticas discordantes de este logotipo. Cada vez que Don Ricardo o el equipo lo solicite, se proveerá de inmediato este activo fiduciario exacto.
+18. **Regla de Oro del Protocolo Fiduciario Maestro de Tracción B2B, Observabilidad y Cierre Desatendido (Apollo, Explee, Airtable y Auto-Mejora Continua):**
+   - **Base Universal de Tracción Comercial:** Todo el esfuerzo de crecimiento, captación y monetización de Boltech-Group se rige obligatoriamente por el flujo fiduciario integrado:
+     1. **Apollo.io API:** Extracción quirúrgica por stack tecnológico compatible y decisores técnicos (CTO, CISO, COO) con validación MX Zero-Bounce en RAM (`deep-email-validator`).
+     2. **Motor Dual:** Diagnóstico perimetral inobjetable (`Unblock AI Shield`) + Telemetría de latencia pública y benchmarks de ineficiencia por industria (`Custom Agents`).
+     3. **Explee Engine:** Renderizado dinámico de micro-auditorías animadas de 45 segundos (Riesgo + Alivio de Cuello de Botella + 5 Anclajes de Confianza) sin forzar llamadas de Zoom.
+     4. **Cadencia Desatendida de 3 Impactos:** Despacho en red real por correo autenticado y LinkedIn sin utilizar jamás vocabulario comercial invasivo (*ventas, vender, comprar*).
+     5. **Cierre y Liquidación Fiduciaria:** SLA escalonado (<30s parche descargable, <15min stacks estándar, 24-48h legacy) liquidado vía Strike Lightning (`rick2818@strike.me`), Stripe y Wompi.
+     6. **Exportación Diaria y Dashboarding en Airtable:** Cada lead, interacción, estado de auditoría y cobro liquidado se exporta automáticamente a la base central de Airtable (`B2B_Pipeline_Master`).
+   - **Objetivo Diario Fiduciario Obligatorio:** Procesar, auditar y despachar de 35 a 50 prospectos calificados por jornada hábil, manteniendo una tasa de entrega a bandeja principal >98%, tasa de apertura >45% y respuesta >15%.
+   - **Bucle Autónomo de Auto-Evaluación y Optimización Continua:** Al final de cada ciclo diario (21:00 UTC), el sistema evalúa automáticamente las métricas de respuesta, ajusta dinámicamente las plantillas de Explee y los filtros de Apollo, elevando la precisión sin requerir intervención humana.
 
 
