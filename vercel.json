@@ -8,7 +8,8 @@
     { "source": "/cockpit", "destination": "/COCKPIT_EJECUTIVO_RICARDO" },
     { "source": "/cabina", "destination": "/COCKPIT_EJECUTIVO_RICARDO" },
     { "source": "/audit", "destination": "/index.html" },
-    { "source": "/patch/(.*)", "destination": "/index.html" }
+    { "source": "/patch/(.*)", "destination": "/index.html" },
+    { "source": "/api/(.*)", "destination": "/api" }
   ],
   "headers": [
     {

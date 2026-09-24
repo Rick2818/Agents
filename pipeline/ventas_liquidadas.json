@@ -493,5 +493,49 @@
     "domain": "enterprise.com",
     "status": "SETTLED_USD",
     "settledAt": "2026-09-24T18:12:33.797Z"
+  },
+  {
+    "transactionId": "BOL-TEST-1790274013232",
+    "channel": "BITCOIN_LIGHTNING_STRIKE",
+    "destination": "rick2818@strike.me",
+    "planId": "pro",
+    "amountUSD": 69,
+    "customerEmail": "test-audit@boltech.group",
+    "domain": "audit-domain.com",
+    "status": "SETTLED_USD",
+    "settledAt": "2026-09-24T18:20:13.233Z"
+  },
+  {
+    "transactionId": "BOL-1790274013237-JJ_VGQ",
+    "channel": "BITCOIN_LIGHTNING_STRIKE",
+    "destination": "rick2818@strike.me",
+    "planId": "pro",
+    "amountUSD": 69,
+    "customerEmail": "react-ceo@enterprise.com",
+    "domain": "enterprise.com",
+    "status": "SETTLED_USD",
+    "settledAt": "2026-09-24T18:20:13.238Z"
+  },
+  {
+    "transactionId": "BOL-TEST-1790274665811",
+    "channel": "BITCOIN_LIGHTNING_STRIKE",
+    "destination": "rick2818@strike.me",
+    "planId": "pro",
+    "amountUSD": 69,
+    "customerEmail": "test-audit@boltech.group",
+    "domain": "audit-domain.com",
+    "status": "SETTLED_USD",
+    "settledAt": "2026-09-24T18:31:05.812Z"
+  },
+  {
+    "transactionId": "BOL-1790274665815-DHDF7-",
+    "channel": "BITCOIN_LIGHTNING_STRIKE",
+    "destination": "rick2818@strike.me",
+    "planId": "pro",
+    "amountUSD": 69,
+    "customerEmail": "react-ceo@enterprise.com",
+    "domain": "enterprise.com",
+    "status": "SETTLED_USD",
+    "settledAt": "2026-09-24T18:31:05.816Z"
   }
 ]
