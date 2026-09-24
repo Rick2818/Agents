@@ -29,64 +29,48 @@
 
 ---
 
+## 💎 Nuevo Plan Comercial y Matriz de Precios Fiduciaria
+
+| Nivel de Solución | Tarifa Oficial | Modalidad | Entregables y Cobertura |
+| :--- | :--- | :--- | :--- |
+| **Plan Flash** *(Parche Ciberseguridad)* | **\$19.00 USD** / falla | Pago Único | • **1 vulnerabilidad = \$19.00 USD**<br>• **2 vulnerabilidades = \$38.00 USD** (\$19×2)<br>• **3 vulnerabilidades = \$57.00 USD** (\$19×3)<br>• **5 vulnerabilidades = \$95.00 USD** (\$19×5)<br>• Parches listos para Nginx / Cloudflare / Apache / Vercel<br>• Auditoría perimetral profunda (15s) y re-escaneo automático<br>• Cero acceso a claves o contraseñas |
+| **Plan Pro** *(Centinela Autónomo 24/7)* | **\$69.00 USD** / mes *(ó \$2.30/día)* | Suscripción | • **Recomendado desde 4 vulnerabilidades** (ahorro inmediato vs. \$76+ USD)<br>• Parches y remediaciones ilimitadas<br>• Monitoreo 24/7 con comprobación cada 60s<br>• Concierge comercial para WhatsApp y web<br>• **Garantía Fiduciaria Incondicional de 7 Días (100% Reembolso)**<br>• Privacidad SOC-2 (100% memoria RAM) |
+| **Flota Enterprise** *(Multi-Agente Soberana)* | **\$490.00 USD** / mes | Multi-Jurisdicción | • Enjambre de 5 agentes fiduciarios coordinados<br>• Integración CRM (HubSpot & Salesforce) y WhatsApp Business (Twilio)<br>• Pasarelas multidivisa y canal dedicado con SLA de 15 minutos |
+
+---
+
+## 💳 Rieles de Cobro Soberanos y Liquidación Fiduciaria
+
+1. **⚡ Riel 1: Bitcoin Lightning Network (0% Comisión):**
+   - **Dirección Soberana:** `rick2818@strike.me`
+   - **Ventaja:** Liquidación instantánea en USD/Satoshis con cero comisión bancaria y aprovisionamiento automático en <10 segundos.
+   - **Apps Soportadas:** Strike, Cash App, Blink, Muun, Binance y cualquier billetera Lightning.
+2. **💳 Riel 2: Tarjetas Bancarias / Wompi SV:**
+   - **Métodos:** Tarjetas de crédito/débito Visa y Mastercard, transferencias locales 365, Nequi y PSE.
+   - **Seguridad:** Idempotencia en RAM (`recordAndVerifyIdempotency`) con bloqueo estricto contra doble cargo.
+3. **🛠️ Servidor MCP `boltech-payments`:**
+   - Herramientas nativas para Antigravity: `strike_create_invoice`, `strike_get_invoice`, `wompi_create_payment_link`, `wompi_get_transaction` y `payments_status`.
+   - **Sandbox Failsafe Simulator:** Modo de simulación integrado para pruebas y validaciones sin depender de llaves en vivo.
+
+---
+
 ## 🛡️ Estándares de Grado Bancario & Seguridad
 
 - **Cero Invasión:** Sin acceso a bases de datos ni contraseñas maestras. Todo análisis opera de forma perimetral desde la nube.
 - **Privacidad SOC-2:** Procesamiento 100% en memoria volátil RAM; sin retención en disco ni entrenamiento de modelos con datos de clientes.
-- **Liquidación Multidivisa:** Wompi (COP/SV), Stripe (USD Global) y Strike Lightning Network (Bitcoin / USD instantáneo).
+- **Coherencia A+:** Cabeceras CSP estrictas, `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff` y HSTS precargado 2 años.
 - **Infraestructura:** Google Antigravity 2.0 Cloud & Vercel Edge Network.
-
----
-
-## 🏛️ Los 7 Pilares Inviolables de la Arquitectura Fiduciaria Enterprise
-
-1. **Arquitectura Cloud-Native 24/7 (Cero Dependencia Local):**
-   - El sistema corre 100% en la nube a través de Vercel Serverless.
-2. **Retención Cero en Disco (100% Memoria Volátil RAM):**
-   - Ninguna nota de voz, archivo adjunto o mensaje sensible toca el disco del servidor. Todo se procesa en `Buffer` volátil y se destruye en bloques `finally`.
-3. **Secretos Fail-Closed e Inviolabilidad de Credenciales:**
-   - La falta de variables críticas aborta el inicio con HTTP 503. Cero fallbacks a credenciales por defecto.
-4. **Mitigación Criptográfica de Timing Attacks:**
-   - Comparaciones de tokens ejecutadas en tiempo constante vía `crypto.timingSafeEqual`.
-5. **Anti-DoS, ReDoS y Rate Limiting en Memoria:**
-   - Ventanas deslizantes de rate limiting por IP, cuotas de payload y sanitización universal anti-XSS.
-6. **Cabeceras de Ciberseguridad Bancaria y CORS Restringido:**
-   - HSTS 2 años preload, `X-Frame-Options`, `X-Content-Type-Options: nosniff` y orígenes estrictamente controlados.
-7. **Liquidación Fiduciaria Directa (Strike Lightning & Wompi):**
-   - Recaudación sin intermediarios hacia `rick2818@strike.me` y pasarela Wompi con verificación HMAC SHA-256.
 
 ---
 
 ## 🛠️ Stack Base de SDKs & Servidor MCP (Prerrequisito Obligatorio Antigravity)
 
-> **Directiva Fiduciaria:** Todo nuevo entorno de desarrollo de MicroSaaS o instalación de Antigravity en otra computadora DEBE contar con el servidor MCP `mcp-agent-generator` y el Stack Base de 12 SDKs preinstalados antes de iniciar desarrollo:
+> **Directiva Fiduciaria:** Todo nuevo entorno de desarrollo de MicroSaaS o instalación de Antigravity en otra computadora DEBE contar con el servidor MCP `mcp-agent-generator` y el Stack Base de SDKs preinstalados antes de iniciar desarrollo:
 
 ```bash
 # Instalación universal del stack base y extensiones empresariales
 npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator ai @ai-sdk/google @ai-sdk/openai @hubspot/api-client jsforce twilio @tavily/core @upstash/redis @modelcontextprotocol/sdk
 ```
-
-### Componentes del Stack Fiduciario & Extensiones Enterprise:
-1. **`@google/genai` (v2.23.0):** Motor cognitivo oficial para Gemini 2.5 Flash/Pro y function calling.
-2. **`zod` (v3.24.2):** Validación de contratos y tipado estricto en RAM (cero alucinaciones).
-3. **`dotenv` (v16.4.7):** Custodia de credenciales y variables de entorno (`.env`).
-4. **`docx` (v9.5.1):** Generación de documentos Word en memoria RAM con marcas de revisión y redlines (AuditFlow AI).
-5. **`pdf-lib` (v1.17.1):** Generación de informes técnicos en PDF en RAM volátil (SOC-2 Pilar 2: Cero retención en disco).
-6. **`stripe` (v17.7.0):** Puente fiduciario de pagos cross-border (EE.UU./Europa canalizados a Strike Lightning/Wompi).
-7. **`cheerio` (v1.0.0):** Parser DOM ultraligero de 15ms para escaneo perimetral sin sobrecarga de navegador headless.
-8. **`resend` (v4.1.2):** Despacho serverless de correos a Bandeja Principal (Cero Sandbox / Cero Spam).
-9. **`@supabase/supabase-js` (v2.49.1):** Persistencia PostgreSQL con RLS y autenticación multi-inquilino.
-10. **`nanoid` (v5.1.3):** Identificadores criptográficos inmutables para licencias y transacciones.
-11. **`validator` (v13.12.0):** Sanitización RFC contra inyecciones XSS y CRLF.
-12. **`deep-email-validator` (v0.1.21):** Validación MX y DNS en tiempo real para 0% tasa de rebote.
-13. **`ai` + `@ai-sdk/google` + `@ai-sdk/openai`:** Orquestación Vercel AI SDK para streaming HTTP y modelos multi-proveedor.
-14. **`@hubspot/api-client`:** Sincronización e ingesta de contactos, tratos (*deals*) y pipelines de ventas calificados.
-15. **`jsforce`:** Conexión nativa REST/SOAP con Salesforce Enterprise para creación y gestión de Leads.
-16. **`twilio`:** Despacho automatizado de mensajes por WhatsApp Business y SMS para cierre acelerado en LATAM.
-17. **`@tavily/core`:** Motor de búsqueda cognitiva e inteligencia profunda de prospectos y empresas en tiempo real.
-18. **`@upstash/redis`:** Memoria distribuida e idempotencia global sobre HTTP para lambdas serverless en Vercel.
-19. **`@modelcontextprotocol/sdk`:** Servidor MCP estándar para integración bidireccional con Google Antigravity.
-* **Servidor MCP Local:** `mcp-agent-generator` (`~/.gemini/antigravity/mcp/mcp-agent-generator`) para síntesis y topología multi-agente.
 
 ---
 
@@ -94,6 +78,13 @@ npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabas
 
 1. **`marketing-director` (Directora de Mercadeo)**: Posicionamiento fiduciario, distribución desatendida y siembra de autoridad.
 2. **`sales-closer-specialist` (Especialista en Ventas & Cierre)**: Cadencias de prospección hiperpersonalizada (3 impactos) y enlaces de cobro.
-3. **`cfo-financial-strategist` (Director Financiero & Precios)**: Custodia del presupuesto, unit economics (LTV/CAC > 4.5x) y pricing por tramos.
-4. **`international-trade-specialist` (Comercio Internacional & Cross-Border)**: Expansión multijurisdicción, conciliación multidivisa y liquidación fiduciaria.
-5. **`consumer-psychology-diagnostician` (Psicólogo de Ventas & Persuasión Cognitiva)**: Auditoría de sesgos y desactivación preventiva de objeciones.
+3. **`cfo-financial-strategist` (Director Financiero & Precios)**: Custodia del presupuesto, unit economics (LTV/CAC > 4.5x) y pricing por tramos (\$19 / \$69 / \$490).
+4. **`international-trade-specialist` (Comercio Internacional & Cross-Border)**: Expansión multijurisdicción, conciliación multidivisa y liquidación fiduciaria soberana (`rick2818@strike.me` y Wompi SV).
+5. **`consumer-psychology-diagnostician` (Psicólogo de Ventas & Persuasión Cognitiva)**: Auditoría de sesgos y desactivación preventiva de objeciones con los 5 Anclajes de Apertura.
+
+---
+
+## 🌐 Verificación y Telemetría
+
+- **Portal Web Oficial:** [https://boltech-group.vercel.app](https://boltech-group.vercel.app)
+- **Suite de Pruebas Automatizadas:** `npm test` (32/32 tests en verde)
