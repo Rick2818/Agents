@@ -137,7 +137,7 @@ async function main() {
           offer: r.monetization.offer,
           strikePaymentDestination: "rick2818@strike.me",
           checkoutUrl: r.monetization.checkoutDirectApp,
-          directStrikePaymentUrl: "https://strike.me/rick2818",
+          directStrikePaymentUrl: "https://boltech-group.vercel.app/#soluciones",
           status: "AUDITADO_Y_LISTO_PARA_NOTIFICACION",
           contactEmail: r.contactEmail,
           outboundMessage: r.generatedDispatchMessage,

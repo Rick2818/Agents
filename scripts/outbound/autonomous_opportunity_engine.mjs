@@ -83,7 +83,7 @@ export class AutonomousOpportunityEngine {
       estimatedLossUsdMonth: companyData.loss || 1480,
       matchedOffer: companyData.offer || "$69 USD/mes (Pro Operator)",
       checkoutUrl: "https://rick2818.github.io/Agents/?plan=pro",
-      strikePaymentUrl: "https://strike.me/rick2818",
+      strikePaymentUrl: "https://boltech-group.vercel.app/#soluciones",
       detectedAt: new Date().toISOString(),
       status: "CALIFICADO_LISTO_PARA_DESPACHO",
       outboundCadence: {

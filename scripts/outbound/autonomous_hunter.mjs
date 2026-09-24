@@ -158,7 +158,7 @@ export class AutonomousHunter {
           severity,
           monetization: {
             offer: isEnglish ? "$19 USD (Forensic Flash Audit + Security Patch) / $69 USD/mo (Autonomous 24/7 Agent)" : "$19 USD (Auditoría Forense Flash + Parche de Blindaje) / $69 USD (Agente Autónomo 24/7)",
-            checkoutStrike: "https://strike.me/rick2818",
+            checkoutStrike: "https://boltech-group.vercel.app/#soluciones",
             checkoutDirectApp: `https://unblock-shield.vercel.app/?${isEnglish ? 'lang=en&' : ''}domain=${domain}`,
             destinationAddress: "rick2818@strike.me"
           },

@@ -39,7 +39,8 @@ export default async function handler(req, res) {
       transactionId: intent.transactionId,
       amountUSD: intent.amountUSD,
       strikeAddress: intent.strikeLightningAddress,
-      strikeUrl: `https://strike.me/rick2818?amount=${intent.amountUSD}&note=${intent.transactionId}`
+      lightningUri: `lightning:${intent.strikeLightningAddress}`,
+      checkoutUrl: `https://boltech-group.vercel.app/#soluciones`
     });
   } catch (error) {
     console.error('Checkout error:', error);

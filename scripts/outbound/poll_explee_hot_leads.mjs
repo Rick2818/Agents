@@ -169,8 +169,9 @@ async function pollHotLeads() {
 _"${lead.why_hot || 'Interés comercial expresado'}"_
 
 ⚡ *Acción Rápida de Cierre:*
-• Enlace de Cobro Flash (\$19 USD): https://strike.me/rick2818
-• Enlace de Cobro Pro (\$69 USD): https://strike.me/rick2818
+• Enlace de Cobro Flash (\$19 USD): https://boltech-group.vercel.app/#soluciones
+• Enlace de Cobro Pro (\$69 USD): https://boltech-group.vercel.app/#soluciones
+• Liquidación Lightning: `rick2818@strike.me`
 • Auditoría en Vivo: https://unblock-shield.vercel.app/?domain=${lead.company_domain || ''}
 • Respaldo LinkedIn Fundador: https://www.linkedin.com/in/ricbol/
 
