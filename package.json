@@ -28,10 +28,8 @@
   ],
   "author": "Unblock AI & Destraba AI",
   "license": "MIT",
-  "devDependencies": {
-    "tailwindcss": "^3.4.17"
-  },
   "dependencies": {
+    "tailwindcss": "^3.4.17",
     "@ai-sdk/google": "^4.0.79",
     "@ai-sdk/openai": "^4.0.74",
     "@google/genai": "^2.23.0",
