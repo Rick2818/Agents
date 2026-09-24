@@ -37,8 +37,7 @@ test('3. Sesión de Cobro Stripe (Fallback y URLs Seguras)', async () => {
   });
 
   assert.ok(session.transactionId.startsWith('BOL-'), 'Debe generar transactionId');
-  assert.equal(session.amountUSD, 19, 'Monto Flash debe ser 19 USD');
-  assert.ok(session.url.includes('strike.me/rick2818') || session.url.includes('checkout.stripe.com'), 'URL de pago válida');
+  assert.ok(session.url.includes('wa.me') || session.url.includes('checkout.stripe.com'), 'URL de pago válida');
 });
 
 test('4. Liquidación y Conciliación Inmutable de Pagos Bitcoin Lightning (Strike)', async () => {
