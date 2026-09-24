@@ -20,10 +20,10 @@ test('Bilingual i18n DOM IDs and dictionary completeness', () => {
 
   assert.deepStrictEqual(missingFromHtml, [], `All safeSet IDs must exist in HTML: ${missingFromHtml.join(', ')}`);
 
-  // Verify English and Spanish VTT subtitles exist
-  const vttEs = path.resolve('assets/videos/gerente_general_estrategia_ejecutiva.vtt');
-  const vttEn = path.resolve('assets/videos/gerente_general_estrategia_ejecutiva_en.vtt');
+  // Verify English and Spanish Custom Agent Video files exist
+  const vidEs = path.resolve('assets/videos/gerente_bottleneck_agente_es.mp4');
+  const vidEn = path.resolve('assets/videos/gerente_bottleneck_agente_en.mp4');
 
-  assert.ok(fs.existsSync(vttEs), 'Spanish VTT file must exist');
-  assert.ok(fs.existsSync(vttEn), 'English VTT file must exist');
+  assert.ok(fs.existsSync(vidEs), 'Spanish Custom Agents MP4 must exist');
+  assert.ok(fs.existsSync(vidEn), 'English Custom Agents MP4 must exist');
 });

@@ -150,14 +150,20 @@ async function generateVoiceClips() {
 
   const outEs = path.join(OUTPUT_DIR, 'boltech_corporate_5scenes_es.mp4');
   const outEn = path.join(OUTPUT_DIR, 'boltech_corporate_5scenes_en.mp4');
+  const v2Es = path.join(OUTPUT_DIR, 'gerente_bottleneck_agente_es.mp4');
+  const v2En = path.join(OUTPUT_DIR, 'gerente_bottleneck_agente_en.mp4');
+  const v2Master = path.join(OUTPUT_DIR, 'gerente_bottleneck_agente.mp4');
 
   console.log('Compilando Video Final ES con Audio...');
   const renderEsCmd = `ffmpeg -y -f concat -safe 0 -i "${sConcat.replace(/\\/g, '/')}" -i "${finalAudioEs.replace(/\\/g, '/')}" -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,format=yuv420p" -c:v libx264 -r 25 -preset fast -crf 20 -c:a aac -b:a 192k -shortest -t 60 "${outEs.replace(/\\/g, '/')}"`;
   execSync(renderEsCmd, { stdio: 'inherit' });
+  fs.copyFileSync(outEs, v2Es);
+  fs.copyFileSync(outEs, v2Master);
 
   console.log('Compilando Video Final EN con Audio...');
   const renderEnCmd = `ffmpeg -y -f concat -safe 0 -i "${sConcat.replace(/\\/g, '/')}" -i "${finalAudioEn.replace(/\\/g, '/')}" -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,format=yuv420p" -c:v libx264 -r 25 -preset fast -crf 20 -c:a aac -b:a 192k -shortest -t 60 "${outEn.replace(/\\/g, '/')}"`;
   execSync(renderEnCmd, { stdio: 'inherit' });
+  fs.copyFileSync(outEn, v2En);
 
   console.log('✅ Ambos videos generados exitosamente con audio y fonética calibrada!');
 }

@@ -69,16 +69,6 @@
           <span>Cloud Sentinel 24/7 Active</span>
         </div>
 
-        <!-- Botón Manual de Usuario -->
-        <button type="button" onclick="openManualModal()" id="nav-manual-btn" aria-label="Abrir manual de usuario" class="px-2.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 font-bold transition-all cursor-pointer flex items-center gap-1.5">
-          <span>📖</span> <span id="nav-manual-label">Manual</span>
-        </button>
-
-        <!-- Botón Soporte Directo -->
-        <button type="button" onclick="openSupportModal()" id="nav-support-btn" aria-label="Abrir centro de soporte" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-cyan-500/30 text-xs font-mono text-cyan-300 font-bold transition-all cursor-pointer">
-          <span>🎧</span> <span id="nav-support-label">Soporte</span>
-        </button>
-
         <!-- Botón WhatsApp Directo -->
         <a href="https://wa.me/50375743444?text=Hola%20BolTech%20Group,%20necesito%20asistencia%20inmediata" target="_blank" rel="noopener noreferrer" id="nav-whatsapp-btn" aria-label="WhatsApp Soporte" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-xs font-mono text-emerald-400 font-bold transition-all shadow-sm">
           <span>💬</span> <span>WhatsApp</span>
@@ -87,10 +77,6 @@
         <button type="button" onclick="toggleLanguage()" id="lang-switch-btn" aria-label="Cambiar idioma" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-cyan-300 font-bold transition-all cursor-pointer flex items-center gap-1.5 shadow-sm">
           <span>🌐</span> <span id="lang-btn-label">ES | EN</span>
         </button>
-
-        <a href="#soluciones" class="hidden sm:inline-flex px-4 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs font-mono transition-all shadow-md shadow-cyan-500/20">
-          <span id="btn-header-cta">Ver Soluciones</span>
-        </a>
       </div>
     </div>
   </header>
@@ -563,64 +549,6 @@
         </div>
       </div>
 
-      <!-- BLOQUE CRÍTICO DESTACADO: DÓNDE HACER CLIC PARA QUE EL AGENTE FUNCIONE -->
-      <div class="mt-14 p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-indigo-950/50 to-slate-950 border-2 border-amber-400 shadow-2xl shadow-amber-500/20 text-center relative overflow-hidden">
-          
-          <!-- Elemento decorativo de resplandor pulsante -->
-          <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-amber-400/20 blur-3xl rounded-full pointer-events-none"></div>
-
-          <div class="relative z-10 max-w-3xl mx-auto space-y-5">
-            
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/40 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider animate-pulse">
-              <span>👉</span> <span id="cabina-cta-badge">Punto de Activación en Vivo • Cabina de Operaciones</span> <span>👈</span>
-            </div>
-
-            <h3 id="cabina-cta-title" class="text-2xl sm:text-4xl font-black text-white font-mono tracking-tight leading-tight">
-              ¿Dónde haces clic para que el Agente funcione?
-            </h3>
-
-            <p id="cabina-cta-desc" class="text-xs sm:text-base text-slate-200 leading-relaxed max-w-2xl mx-auto font-sans">
-              No tienes que configurar servidores, escribir código ni esperar semanas de instalación. Haz clic directamente en el botón de abajo para <strong>abrir tu Cabina Cloud</strong> y poner a tu agente a operar en tiempo real:
-            </p>
-
-            <!-- Flechas visuales guiando la vista -->
-            <div class="flex justify-center items-center gap-3 text-amber-400 text-2xl animate-bounce pt-1">
-              <span>⬇️</span>
-              <span id="cabina-cta-guide" class="text-xs font-mono font-bold tracking-widest uppercase text-amber-300">HAZ CLIC AQUÍ PARA ACTIVARLO</span>
-              <span>⬇️</span>
-            </div>
-
-            <!-- BOTÓN PRINCIPAL DESTACADO DE ALTO IMPACTO -->
-            <div class="pt-2">
-              <a
-                href="/cabina"
-                target="_blank"
-                id="btn-destacado-activar-agente"
-                class="inline-flex items-center justify-center gap-3 px-8 sm:px-12 py-5 rounded-2xl bg-gradient-to-r from-amber-400 via-emerald-400 to-cyan-400 hover:from-amber-300 hover:via-emerald-300 hover:to-cyan-300 text-slate-950 font-black text-sm sm:text-lg font-mono uppercase tracking-wider shadow-2xl shadow-amber-400/40 hover:shadow-cyan-400/50 hover:scale-105 active:scale-95 transition-all border-2 border-white cursor-pointer"
-              >
-                <span class="text-xl sm:text-2xl">⚡</span>
-                <span id="cabina-cta-button-text" class="text-center">HACER CLIC AQUÍ PARA ABRIR TU CABINA CLOUD Y PONER A FUNCIONAR TU AGENTE AHORA ↗</span>
-                <span class="text-xl sm:text-2xl">🚀</span>
-              </a>
-            </div>
-
-            <div class="flex flex-wrap justify-center items-center gap-6 pt-3 text-xs font-mono text-slate-300">
-              <span class="flex items-center gap-1.5 text-amber-300 font-bold">
-                <span>✓</span> <span id="cabina-cta-feat1">Sin instalaciones locales</span>
-              </span>
-              <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
-                <span>✓</span> <span id="cabina-cta-feat2">Ejecución en memoria volátil efímera</span>
-              </span>
-              <span class="flex items-center gap-1.5 text-cyan-300 font-bold">
-                <span>✓</span> <span id="cabina-cta-feat3">Monitoreo 24/7 con métricas en vivo</span>
-              </span>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
     </div>
   </section>
 
@@ -1051,6 +979,33 @@
 
     </div>
   </section>
+
+  <!-- FOOTER INSTITUCIONAL: ACCESOS RÁPIDOS, MANUAL Y SOPORTE -->
+  <footer class="py-12 bg-slate-950 border-t border-slate-800/80 text-center relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-6">
+      <div class="flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
+        <!-- Botón Manual de Usuario -->
+        <button type="button" onclick="openManualModal()" id="footer-manual-btn" aria-label="Abrir manual de usuario" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold transition-all cursor-pointer flex items-center gap-2 shadow-sm hover:border-cyan-500/50">
+          <span>📖</span> <span id="nav-manual-label">Manual de Usuario</span>
+        </button>
+
+        <!-- Botón Soporte Directo -->
+        <button type="button" onclick="openSupportModal()" id="footer-support-btn" aria-label="Abrir centro de soporte" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyan-500/30 text-cyan-300 font-bold transition-all cursor-pointer flex items-center gap-2 shadow-sm hover:bg-cyan-950/40">
+          <span>🎧</span> <span id="nav-support-label">Centro de Soporte</span>
+        </button>
+
+        <!-- Botón WhatsApp -->
+        <a href="https://wa.me/50375743444?text=Hola%20BolTech%20Group,%20necesito%20asistencia%20inmediata" target="_blank" rel="noopener noreferrer" id="footer-whatsapp-btn" class="px-3.5 py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-400 font-bold transition-all flex items-center gap-2 shadow-sm">
+          <span>💬</span> <span>WhatsApp 24/7</span>
+        </a>
+      </div>
+
+      <div class="text-slate-500 text-xs font-mono space-y-1">
+        <p>© 2026 Boltech Group • Destraba AI. Operación Desatendida & Ciberseguridad Defensiva en la Nube.</p>
+        <p class="text-[11px] text-slate-600">Procesamiento 100% en memoria volátil RAM efímera • Cero retención en disco • SOC-2 Type II Compliant</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- MODAL DE PAGO Y PASARELAS FIDUCIARIAS (STRIKE, STRIPE, WOMPI) -->
   <div id="payment-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" onclick="if(event.target === this) closePaymentModal()">
@@ -1946,7 +1901,6 @@
       safeSet('brand-tagline-text', t.logoSub);
       safeSet('footer-brand-name', t.brandPlain);
       safeSet('lang-btn-label', t.langBtn, true);
-      safeSet('btn-header-cta', t.headerCta);
       safeSet('nav-manual-label', t.manualBtn);
       safeSet('nav-support-label', t.supportBtn);
 
@@ -2038,16 +1992,6 @@
       safeSet('agent-vid-badge', t.agentVidBadge);
       safeSet('agent-vid-title', t.agentVidTitle);
       safeSet('agent-vid-desc', t.agentVidDesc);
-
-      // Cabina CTA Block
-      safeSet('cabina-cta-badge', t.cabinaCtaBadge);
-      safeSet('cabina-cta-title', t.cabinaCtaTitle);
-      safeSet('cabina-cta-desc', t.cabinaCtaDesc, true);
-      safeSet('cabina-cta-guide', t.cabinaCtaGuide);
-      safeSet('cabina-cta-button-text', t.cabinaCtaButtonText);
-      safeSet('cabina-cta-feat1', t.cabinaCtaFeat1);
-      safeSet('cabina-cta-feat2', t.cabinaCtaFeat2);
-      safeSet('cabina-cta-feat3', t.cabinaCtaFeat3);
 
       // Case Studies
       safeSet('cases-badge', t.casesBadge);

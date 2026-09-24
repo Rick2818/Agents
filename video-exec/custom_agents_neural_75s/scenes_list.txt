@@ -1,0 +1,6 @@
+file 'C:/Users/Ricardo/Desktop/Boltech-Group/video-exec/custom_agents_neural_75s/scene_clip_1.mp4'
+file 'C:/Users/Ricardo/Desktop/Boltech-Group/video-exec/custom_agents_neural_75s/scene_clip_2.mp4'
+file 'C:/Users/Ricardo/Desktop/Boltech-Group/video-exec/custom_agents_neural_75s/scene_clip_3.mp4'
+file 'C:/Users/Ricardo/Desktop/Boltech-Group/video-exec/custom_agents_neural_75s/scene_clip_4.mp4'
+file 'C:/Users/Ricardo/Desktop/Boltech-Group/video-exec/custom_agents_neural_75s/scene_clip_5.mp4'
+file 'C:/Users/Ricardo/Desktop/Boltech-Group/video-exec/custom_agents_neural_75s/scene_clip_6.mp4'

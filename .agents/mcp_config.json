@@ -26,6 +26,25 @@
         "inject_security_middleware",
         "configure_payment_gateway"
       ]
+    },
+    "fal-ai": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@fal-ai/server-mcp"
+      ],
+      "env": {
+        "FAL_KEY": "tu_api_key_aqui"
+      },
+      "description": "Servidor MCP para generación y renderizado de cinemáticas y video con IA generativa (Kling, Luma, Runway, Wan)."
+    },
+    "ffmpeg-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-ffmpeg"
+      ],
+      "description": "Servidor MCP para manipulación, ensamble, recorte, audio mixing y procesamiento multimedia con FFmpeg."
     }
   }
 }

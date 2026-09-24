@@ -986,14 +986,6 @@
       }
 
       /* ─── TRANSITION OVERLAYS ─────────────────────────────────── */
-      #fade-overlay {
-        position: absolute;
-        inset: 0;
-        background: #000;
-        z-index: 998;
-        pointer-events: none;
-        opacity: 0;
-      }
     </style>
   </head>
   <body>
@@ -1006,7 +998,6 @@
       data-height="1080"
     >
       <div class="noise-overlay" data-layout-allow-occlusion></div>
-      <div id="fade-overlay"></div>
 
       <!-- ══════════════════════════════════════════════════════════ -->
       <!--  SCENE 1 — The CEO's Office at Night (0–10s)              -->
@@ -1586,25 +1577,10 @@
       // ─────────────────────────────────────────────────────────────
       const tl = gsap.timeline({ paused: true });
 
-      // ── GLOBAL: Fade overlay (scene transitions) ──────────────────
-      // Between each scene: quick dip to black
-      const SCENES = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
-      SCENES.forEach((id, i) => {
-        const t = i * 10;
-        if (i > 0) {
-          // Fade in from black at scene start
-          tl.fromTo('#fade-overlay', { opacity: 1 }, { opacity: 0, duration: 0.5 }, t);
-        }
-        if (i < SCENES.length - 1) {
-          // Fade out to black near scene end
-          tl.to('#fade-overlay', { opacity: 1, duration: 0.4 }, t + 9.5);
-        }
-      });
-
       // ── SCENE 1 — 0-10s ───────────────────────────────────────────
       // Intro Presentation Card (0.0s – 3.8s)
-      tl.fromTo('#s1-intro-card', { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' }, 0.0);
-      tl.to('#s1-intro-card', { opacity: 0, scale: 1.06, duration: 0.8, ease: 'power2.inOut' }, 3.0);
+      tl.set('#s1-intro-card', { opacity: 1, scale: 1 }, 0);
+      tl.to('#s1-intro-card', { opacity: 0, scale: 1.06, duration: 0.8, ease: 'power2.inOut' }, 3.2);
 
       // Midnight Operations Scene (fades in behind and continues)
       tl.fromTo('#s1-time',        { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.7 }, 2.6);
@@ -1744,8 +1720,6 @@
       }, 72.5);
 
       // ── SCENE 9 — 80-90s ──────────────────────────────────────────
-      // Initial fade in from black (no dip at very start)
-      tl.fromTo('#fade-overlay', { opacity: 1 }, { opacity: 0, duration: 0.8 }, 80);
       // Rings expand
       tl.fromTo(['#s9-ring1','#s9-ring2','#s9-ring3'],
         { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, stagger: 0.2, duration: 2, ease: 'power2.out' }, 80.5);
