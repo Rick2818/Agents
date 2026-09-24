@@ -767,8 +767,70 @@
 
       </div>
 
+      <!-- AGENTE ASISTENTE EN VIVO DE PASARELAS Y PRECIOS (DIRECTO EN PÁGINA) -->
+      <div class="mt-12 rounded-2xl glass-shield border-2 border-cyan-500/40 p-6 shadow-2xl shadow-cyan-950/60 relative">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div class="flex items-center gap-3">
+            <div class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-500/20 border-2 border-cyan-400 text-cyan-300 text-2xl shadow-lg shadow-cyan-500/20">
+              <span>🤖</span>
+              <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border border-slate-900"></span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h4 id="page-agent-title" class="text-base font-bold text-white font-mono">Centinela de Cobro & Asesor IA</h4>
+                <span id="page-agent-live-badge" class="px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold animate-pulse">● EN VIVO 24/7</span>
+              </div>
+              <p id="page-agent-subtitle" class="text-xs text-slate-400 font-sans">Asistente desatendido para cálculo de vulnerabilidades ($19 c/u), pasarelas y aprovisionamiento.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-400">⚡ 0% Fee Lightning</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-400">💳 Wompi SV / Visa MC</span>
+          </div>
+        </div>
+
+        <!-- Burbuja interactiva del Agente en la página -->
+        <div class="mt-4 p-4 rounded-xl bg-slate-950/90 border border-slate-800/80">
+          <div id="page-agent-speech" class="text-xs sm:text-sm text-slate-200 font-sans leading-relaxed">
+            👋 <strong>¡Hola! Soy el Agente Centinela de BolTech Group.</strong> Estoy vigilando esta sección en tiempo real. Puedo calcular el costo exacto de tus parches ($19.00 USD por cada vulnerabilidad detectada), orientarte si te conviene más el Plan Pro ($69 USD/mes con parches ilimitados) o guiarte en el pago sin comisiones por Strike Lightning (<span class="text-cyan-400 font-mono">rick2818@strike.me</span>) o Wompi SV.
+          </div>
+
+          <!-- Píldoras interactivas de consulta rápida al agente -->
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-2">
+            <span class="text-[11px] font-mono text-slate-400 flex items-center gap-1">Pregúntame:</span>
+            <button type="button" onclick="askPageAgent('calculo')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-mono border border-amber-500/30 transition-all cursor-pointer">
+              <span id="page-agent-btn-calc">🔢 ¿Cómo calculan $19 por falla?</span>
+            </button>
+            <button type="button" onclick="askPageAgent('pro_vs_flash')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-400 text-xs font-mono border border-cyan-500/30 transition-all cursor-pointer">
+              <span id="page-agent-btn-pro">💡 ¿Cuándo conviene el Plan Pro ($69)?</span>
+            </button>
+            <button type="button" onclick="askPageAgent('lightning')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-yellow-400 text-xs font-mono border border-yellow-500/30 transition-all cursor-pointer">
+              <span id="page-agent-btn-strike">⚡ ¿Cómo pago con Strike (0% fee)?</span>
+            </button>
+            <button type="button" onclick="askPageAgent('wompi')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-blue-400 text-xs font-mono border border-blue-500/30 transition-all cursor-pointer">
+              <span id="page-agent-btn-wompi">💳 ¿Cómo pago con Tarjeta / Wompi?</span>
+            </button>
+            <button type="button" onclick="askPageAgent('garantia')" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-emerald-400 text-xs font-mono border border-emerald-500/30 transition-all cursor-pointer">
+              <span id="page-agent-btn-warranty">🛡️ ¿Tienen garantía de 7 días?</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Botón de apertura de checkout guiado -->
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
+          <div class="text-slate-400 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>Rieles fiduciarios monitoreados y listos para emisión automática en RAM.</span>
+          </div>
+          <button onclick="openPaymentModal('pro', 69, 'Centinela Autónomo 24/7')" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-black text-xs font-mono uppercase tracking-wider shadow-lg shadow-cyan-500/20 transition-all cursor-pointer flex items-center justify-center gap-2">
+            <span>🤖</span> <span id="page-agent-cta">Abrir Checkout Custodiado por el Agente →</span>
+          </button>
+        </div>
+      </div>
+
       <!-- Pasarelas Activas Badge Bar -->
-      <div class="mt-12 p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
+      <div class="mt-6 p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
           <span id="badge-active-gateways-title" class="text-cyan-400 font-bold">💳 Rieles de Cobro Activos:</span>
           <span id="badge-active-gateways-desc">Strike Lightning (0% comisión a rick2818@strike.me), Wompi SV / Red Bancaria (Visa, Mastercard)</span>
@@ -1477,6 +1539,18 @@
         badgeActiveGatewaysDesc: 'Strike Lightning (0% comisión a rick2818@strike.me), Wompi SV / Red Bancaria (Visa, Mastercard)',
         badgeOpenCheckoutLink: 'Abrir Checkout Fiduciario →',
 
+        // Agente Asistente en la Página
+        pageAgentTitle: 'Centinela de Cobro & Asesor IA',
+        pageAgentLiveBadge: '● EN VIVO 24/7',
+        pageAgentSubtitle: 'Asistente desatendido para cálculo de vulnerabilidades ($19 c/u), pasarelas y aprovisionamiento.',
+        pageAgentSpeechDefault: '👋 <strong>¡Hola! Soy el Agente Centinela de BolTech Group.</strong> Estoy vigilando esta sección en tiempo real. Puedo calcular el costo exacto de tus parches ($19.00 USD por cada vulnerabilidad detectada), orientarte si te conviene más el Plan Pro ($69 USD/mes con parches ilimitados) o guiarte en el pago sin comisiones por Strike Lightning (<span class="text-cyan-400 font-mono">rick2818@strike.me</span>) o Wompi SV.',
+        pageAgentBtnCalc: '🔢 ¿Cómo calculan $19 por falla?',
+        pageAgentBtnPro: '💡 ¿Cuándo conviene el Plan Pro ($69)?',
+        pageAgentBtnStrike: '⚡ ¿Cómo pago con Strike (0% fee)?',
+        pageAgentBtnWompi: '💳 ¿Cómo pago con Tarjeta / Wompi?',
+        pageAgentBtnWarranty: '🛡️ ¿Tienen garantía de 7 días?',
+        pageAgentCta: 'Abrir Checkout Custodiado por el Agente →',
+
         modalAgentTitle: 'Centinela de Cobro IA',
         modalAgentLiveTag: 'EN VIVO',
         modalAgentStatus: '● Vigilando transacción en tiempo real',
@@ -1661,6 +1735,18 @@
         badgeActiveGatewaysTitle: '💳 Active Payment Rails:',
         badgeActiveGatewaysDesc: 'Strike Lightning (0% fee to rick2818@strike.me), Wompi SV / Banking Rail (Visa, Mastercard)',
         badgeOpenCheckoutLink: 'Open Fiduciary Checkout →',
+
+        // On-Page AI Agent Assistant
+        pageAgentTitle: 'AI Billing & Remediation Sentinel',
+        pageAgentLiveBadge: '● LIVE 24/7',
+        pageAgentSubtitle: 'Unattended assistant for vulnerability calculations ($19 each), payment rails, and provisioning.',
+        pageAgentSpeechDefault: '👋 <strong>Hello! I am the BolTech Group Billing Sentinel.</strong> I am monitoring this section in real time. I can calculate the exact cost of your patches ($19.00 USD per detected flaw), advise if the Pro Plan ($69 USD/mo unlimited) is better, or guide your payment with 0% fee via Strike Lightning (<span class="text-cyan-400 font-mono">rick2818@strike.me</span>) or Wompi SV.',
+        pageAgentBtnCalc: '🔢 How is $19/flaw calculated?',
+        pageAgentBtnPro: '💡 When is Pro Plan ($69) better?',
+        pageAgentBtnStrike: '⚡ How to pay with Strike (0% fee)?',
+        pageAgentBtnWompi: '💳 How to pay with Cards / Wompi?',
+        pageAgentBtnWarranty: '🛡️ Is there a 7-day guarantee?',
+        pageAgentCta: 'Open Agent-Guarded Checkout →',
 
         modalAgentTitle: 'AI Billing Sentinel',
         modalAgentLiveTag: 'LIVE',
@@ -1883,6 +1969,18 @@
       safeSet('badge-active-gateways-title', t.badgeActiveGatewaysTitle);
       safeSet('badge-active-gateways-desc', t.badgeActiveGatewaysDesc);
       safeSet('badge-open-checkout-link', t.badgeOpenCheckoutLink);
+
+      // On-Page Agent Assistant
+      safeSet('page-agent-title', t.pageAgentTitle);
+      safeSet('page-agent-live-badge', t.pageAgentLiveBadge);
+      safeSet('page-agent-subtitle', t.pageAgentSubtitle);
+      safeSet('page-agent-speech', t.pageAgentSpeechDefault, true);
+      safeSet('page-agent-btn-calc', t.pageAgentBtnCalc);
+      safeSet('page-agent-btn-pro', t.pageAgentBtnPro);
+      safeSet('page-agent-btn-strike', t.pageAgentBtnStrike);
+      safeSet('page-agent-btn-wompi', t.pageAgentBtnWompi);
+      safeSet('page-agent-btn-warranty', t.pageAgentBtnWarranty);
+      safeSet('page-agent-cta', t.pageAgentCta);
 
       // Modal Elements
       safeSet('modal-agent-title', t.modalAgentTitle);
@@ -2321,6 +2419,42 @@
         } else {
           setAgentMessage('🎧 <strong>Contacto Humano Directo:</strong> Puedes escribirle a Don Ricardo a <a href="mailto:ricardo.destrabaai@gmail.com" class="text-cyan-400 underline">ricardo.destrabaai@gmail.com</a> o por WhatsApp al <a href="https://wa.me/50375743444" target="_blank" class="text-emerald-400 underline">+503 7574 3444</a>.');
         }
+      }
+    }
+
+    function askPageAgent(topic) {
+      const speechEl = document.getElementById('page-agent-speech');
+      const isEn = (currentLanguage === 'en');
+      if (!speechEl) return;
+
+      let html = '';
+      if (topic === 'calculo') {
+        html = isEn
+          ? '🔢 <strong>Exact $19 Formula:</strong> We charge a flat <strong>$19.00 USD per detected vulnerability</strong>. If your scan found 1 flaw = $19, 2 flaws = $38, 3 flaws = $57, 5 flaws = $95 USD. You receive instant, production-ready server patches (Nginx, Vercel, Cloudflare, Apache) with zero internal access needed.'
+          : '🔢 <strong>Cálculo Exacto de $19:</strong> Cobramos una tarifa fija de <strong>$19.00 USD por cada vulnerabilidad detectada</strong>. Si tu sitio tiene 1 falla = $19, 2 fallas = $38, 3 fallas = $57, 5 fallas = $95 USD. Recibes parches técnicos listos para producción (Nginx, Vercel, Cloudflare, Apache) con cero contraseñas.';
+      } else if (topic === 'pro_vs_flash') {
+        html = isEn
+          ? '💡 <strong>Pro Plan Savings:</strong> If your site has <strong>4 or more flaws</strong> ($76 or $95 USD in separate patches), activating the <strong>Pro Plan ($69.00 USD/mo)</strong> saves you money right away, includes unlimited patches for all flaws, and gives you 24/7 cloud sentinel monitoring every 60s.'
+          : '💡 <strong>Ahorro con Plan Pro:</strong> Si tu sitio tiene <strong>4 o más fallas</strong> ($76 o $95 USD en parches sueltos), activar el <strong>Plan Pro ($69.00 USD/mes)</strong> te ahorra dinero desde el primer día, incluye parches ilimitados para todas las fallas y activa monitoreo centinela 24/7 cada 60s.';
+      } else if (topic === 'lightning') {
+        html = isEn
+          ? '⚡ <strong>Strike Bitcoin Lightning (0% Fee):</strong> Transfer in USD or Satoshis to <strong class="text-cyan-400">rick2818@strike.me</strong> from Strike, Cash App, Blink, Muun, or Binance. Zero banking intermediary fees and instant license provisioning in &lt;10 seconds.'
+          : '⚡ <strong>Strike Bitcoin Lightning (0% Comisión):</strong> Transfiere en USD o Satoshis a <strong class="text-cyan-400">rick2818@strike.me</strong> desde Strike, Cash App, Blink, Muun o Binance. Cero comisiones bancarias y emisión inmediata de tu licencia en &lt;10 segundos.';
+      } else if (topic === 'wompi') {
+        html = isEn
+          ? '💳 <strong>Cards & Direct Wire (Wompi SV):</strong> Pay with Visa, Mastercard credit/debit cards or local bank transfers in USD. The sentinel reconciles your transaction reference and delivers your access code on the spot.'
+          : '💳 <strong>Tarjetas & Red Bancaria Wompi SV:</strong> Paga con tarjetas Visa, Mastercard o transferencia bancaria directa en USD. El centinela concilia tu referencia de pago y emite tu código de acceso al instante.';
+      } else if (topic === 'garantia') {
+        html = isEn
+          ? '🛡️ <strong>7-Day Fiduciary Guarantee:</strong> If in the first 7 days the system does not save your team at least 10 hours of manual work or resolve your flaws, 100% of your funds are refunded immediately with zero questions.'
+          : '🛡️ <strong>Garantía Fiduciaria de 7 Días:</strong> Si en los primeros 7 días el sistema no le ahorra al menos 10 horas de trabajo a tu equipo o no resuelve tus fallas, te reembolsamos el 100% de tu dinero de inmediato sin preguntas.';
+      }
+
+      speechEl.innerHTML = html;
+      const box = speechEl.closest('.glass-shield') || speechEl.parentElement;
+      if (box) {
+        box.classList.add('border-cyan-400');
+        setTimeout(() => box.classList.remove('border-cyan-400'), 1000);
       }
     }
 
