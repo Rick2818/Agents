@@ -9,7 +9,7 @@
     "phone": null,
     "jobTitle": "Deputy Managing Director",
     "country": "FR",
-    "status": "HOT_LEAD_SEGUIMIENTO_ACTIVO",
+    "status": "RESPUESTA_DESPACHADA_POR_AGENTE",
     "whyHot": "Bonjour,\r\n\r\nAvec plaisir.\r\nVoyons ce que ca donne.\r\n\r\nMerci et à bientôt,\r\nIvan\r\n\r\n\r\nDe : Evan Murphy <e@joinglide.org>\r\nEnvoyé : mercredi 23 septembre 2026 09:50\r\nÀ : Ivan Pavlovic <ivan.pavlovic@52-entertainment.com>\r\nObjet : Support et facturation chez 52 Entertainment\r\n\r\nBonjour Ivan,\r\n\r\nVous pilotez la division Community Games chez 52 Entertainment, avec 28 millions de joueurs actifs chaque mois sur des jeux à abonnement.\r\n\r\nJe suis Evan Murphy, Unblock AI Shield. Notre plateforme autonome surveille les paiements et les requêtes membres en continu. Sur un éditeur comparable, elle a repéré les échecs de renouvellement et répondu aux questions des abonnés plus vite, ce qui a réduit les annulations.\r\n\r\nSi vous voulez, je vous envoie une analyse des points de friction de paiement possibles sur vos jeux, sans engagement.\r\n\r\nVous voulez que je vous l'envoie ?\r\n\r\nBien à vous,\r\nEvan\r\n",
     "becameHotAt": "2026-09-23T11:43:19Z",
     "priority": "CRITICA_ALTO_VALOR",
@@ -17,7 +17,9 @@
     "draftReply": "Bonjour Ivan,\n\nRavi de votre retour.\n\nPour un écosystème comme 52 Entertainment (28 millions de joueurs mensuels sur des jeux à abonnement), la perte silencieuse de revenus provient généralement de deux points de friction critiques :\n1. Les échecs de paiement et renouvellements passifs non interceptés en temps réel (cartes expirées, blocages 3D-Secure ou alertes bancaires sans relance immédiate).\n2. La saturation du support membre sur les questions de facturation et de réclamations de crédits en jeu.\n\nNotre agent autonome Unblock AI Shield s'exécute 100% en mémoire RAM (SOC-2, zéro rétention de données sensibles) et surveille ces flux 24/7 pour récupérer automatiquement les abonnés en risque de désabonnement.\n\nVous pouvez tester l'analyse de votre périmètre ici :\n👉 https://unblock-shield.vercel.app/?domain=52-entertainment.com&lang=en\n\nSeriez-vous ouvert à ce que je vous prépare une courte note technique de 2 pages avec les 3 optimisations immédiates pour vos jeux, ou préférez-vous un échange de 10 minutes ?\n\nBien à vous,\nEvan Murphy — Unblock AI Shield",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=52-entertainment.com&lang=en",
     "strikeDestination": "rick2818@strike.me",
-    "lastUpdated": "2026-09-23T16:29:51.092Z"
+    "lastUpdated": "2026-09-24T19:12:15.000Z",
+    "lastRepliedAt": "2026-09-24T19:12:15.000Z",
+    "messageId": "smtp_1790277135487_7ac14a"
   },
   {
     "id": "lead_hot_explee_062e6668-43ff-4f72-924e-2a379dd78862",
@@ -51,7 +53,7 @@
     "phone": "503-804-9202",
     "jobTitle": "Founder",
     "country": "US/EU",
-    "status": "HOT_LEAD_SEGUIMIENTO_ACTIVO",
+    "status": "RESPUESTA_DESPACHADA_POR_AGENTE",
     "whyHot": "Hey Evan!\r\n\r\nCall me I have some questions!\r\n\r\n503-804-9202\r\n\r\nSent from my T-Mobile 5G Device\r\nGet Outlook for Android<https://aka.ms/AAb9ysg>\r\n________________________________\r\nFrom: Evan Murphy <e@forgeclear.org>\r\nSent: Tuesday, 22 September 2026 10:35:25\r\nTo: James Kramer <jkramer@legacy-wireless.com>\r\nSubject: Checkout questions at Legacy Wireless\r\n\r\nHi Mario,\r\n\r\nI saw Legacy Wireless sells electronics online and in retail, from gaming consoles to phone accessories. With a small team, I imagine checkout questions and unanswered shopper messages can slow revenue fast.\r\n\r\nI’m Evan from Unblock AI Shield. I help ecommerce teams protect checkout flow and handle buyer questions without adding more manual work.\r\n\r\nI can map out 3 places your checkout or WhatsApp flow may be losing sales, and show how to reduce abandoned carts with autonomous support. If it is not useful, I will leave you with the outline anyway.\r\n\r\nOpen to a short reply and I’ll send the outline?\r\n\r\nBest,\r\nEvan\r\n",
     "becameHotAt": "2026-09-22T17:44:07Z",
     "priority": "CRITICA_LLAMADA_DIRECTA",
@@ -59,6 +61,8 @@
     "draftReply": "Hey Mario,\n\nGreat hearing from you!\n\nI have your direct number (503-804-9202) on file. Before I give you a quick call, here is the quick 3-point outline for Legacy Wireless to protect checkout revenue:\n\n1. Autonomous Cart Protection: Instantly intercept visitors who hesitate at checkout due to payment gateway hiccups or shipping questions before they bounce.\n2. 24/7 Shopper Assistance: Autonomous agent that answers device/accessory availability and order tracking with zero human delay.\n3. Zero-Invasion Setup: No database credentials required; operates purely on perimeter edge (Cloudflare/Vercel) with SOC-2 bank-grade privacy.\n\nI'll reach out to your number today. In the meantime, you can review your live store diagnostic here:\n👉 https://unblock-shield.vercel.app/?domain=legacywireless.org&lang=en\n\nTalk soon,\nEvan Murphy — Unblock AI Shield\nDirect: 503-804-9202",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=legacywireless.org&lang=en",
     "strikeDestination": "rick2818@strike.me",
-    "lastUpdated": "2026-09-23T16:29:51.095Z"
+    "lastUpdated": "2026-09-23T16:29:51.095Z",
+    "lastRepliedAt": "2026-09-24T19:12:30.336Z",
+    "messageId": "smtp_1790277150335_df0f95"
   }
 ]
