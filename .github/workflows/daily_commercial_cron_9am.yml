@@ -36,8 +36,9 @@ jobs:
           git config --global user.email "bot@boltech-group.com"
           if [[ -n $(git status -s data/dashboard_feed.json) ]]; then
             git add data/dashboard_feed.json
-            git commit -m "chore(cron): actualización diaria comercial 09:00 AM [skip ci]"
-            git push origin main
+            git commit -m "chore(cron): actualización diaria comercial 09:00 AM [skip ci]" || true
+            git pull --rebase origin main || true
+            git push origin main || true
           else
             echo "Sin cambios en data/dashboard_feed.json para hoy."
           fi
