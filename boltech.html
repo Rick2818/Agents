@@ -278,8 +278,8 @@
       </div>
 
       <div class="relative w-full aspect-video rounded-2xl overflow-hidden glass-card border-2 border-cyan-500/30 shadow-2xl shadow-cyan-950/60">
-        <video id="boltech-pitch-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/scenes/scene1_operations_report.jpg" class="w-full h-full object-cover">
-          <source src="assets/videos/boltech_corporate_5scenes_es.mp4" type="video/mp4">
+        <video id="boltech-pitch-video" controls playsinline webkit-playsinline controlsList="nodownload" preload="metadata" poster="assets/videos/scenes/scene1_operations_report.jpg?v=20260925_master" class="w-full h-full object-cover">
+          <source src="assets/videos/boltech_corporate_5scenes_es.mp4?v=20260925_master" type="video/mp4">
           Tu navegador no soporta reproducción de video HTML5.
         </video>
       </div>
@@ -752,15 +752,15 @@
       const pitchVid = document.getElementById('boltech-pitch-video');
       if (pitchVid) {
         const targetSrc = (lang === 'en')
-          ? 'assets/videos/boltech_corporate_5scenes_en.mp4'
-          : 'assets/videos/boltech_corporate_5scenes_es.mp4';
+          ? 'assets/videos/boltech_corporate_5scenes_en.mp4?v=20260925_master'
+          : 'assets/videos/boltech_corporate_5scenes_es.mp4?v=20260925_master';
         const sourceTag = pitchVid.querySelector('source');
         if (sourceTag && sourceTag.getAttribute('src') !== targetSrc) {
           const wasPlaying = !pitchVid.paused && !pitchVid.ended && pitchVid.currentTime > 0;
           const prevTime = pitchVid.currentTime;
           sourceTag.src = targetSrc;
           pitchVid.src = targetSrc;
-          pitchVid.poster = 'assets/videos/scenes/scene1_operations_report.jpg';
+          pitchVid.poster = 'assets/videos/scenes/scene1_operations_report.jpg?v=20260925_master';
           pitchVid.load();
           if (wasPlaying) {
             pitchVid.currentTime = prevTime;
