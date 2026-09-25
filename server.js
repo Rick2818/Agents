@@ -240,6 +240,9 @@ app.get('/boltech', (req, res) => {
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'dashboard.html'));
 });
+app.get('/cockpit', (req, res) => {
+  res.sendFile(path.join(__dirname, 'COCKPIT_EJECUTIVO_RICARDO.html'));
+});
 app.get('/video2', (req, res) => {
   res.send(`<!DOCTYPE html>
 <html lang="es">
