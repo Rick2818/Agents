@@ -10,7 +10,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=chilexpress.cl",
     "directStrikePaymentUrl": "https://boltech-group.vercel.app/#soluciones",
-    "status": "TRANSMISION_SIMULADA_OK",
+    "status": "ENVIADO_REAL_EN_RED",
     "contactEmail": "empresas@chilexpress.cl",
     "outboundMessage": {
       "to": "empresas@chilexpress.cl",
@@ -23,11 +23,13 @@
     ],
     "severity": "MEDIA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:27.464Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:14.129Z",
+      "mode": "LIVE",
       "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377754129_c03f42",
       "recipient": "empresas@chilexpress.cl",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "currentImpact": 1
   },
@@ -42,7 +44,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=mrw.es",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "TRANSMISION_SIMULADA_OK",
+    "status": "ENVIADO_REAL_EN_RED",
     "contactEmail": "informacion@mrw.es",
     "outboundMessage": {
       "to": "informacion@mrw.es",
@@ -55,11 +57,13 @@
     ],
     "severity": "MEDIA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:30.672Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:18.972Z",
+      "mode": "LIVE",
       "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377758972_beaf41",
       "recipient": "informacion@mrw.es",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "currentImpact": 1
   },
@@ -74,7 +78,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?lang=en&domain=logisfashion.com",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "TRANSMISION_SIMULADA_OK",
+    "status": "ENVIADO_REAL_EN_RED",
     "contactEmail": "info@logisfashion.com",
     "outboundMessage": {
       "to": "info@logisfashion.com",
@@ -89,11 +93,13 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:33.614Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:23.068Z",
+      "mode": "LIVE",
       "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377763068_0f5641",
       "recipient": "info@logisfashion.com",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "currentImpact": 1
   },
@@ -108,7 +114,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=packlink.es",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "TRANSMISION_SIMULADA_OK",
+    "status": "ENVIADO_REAL_EN_RED",
     "contactEmail": "pro@packlink.es",
     "outboundMessage": {
       "to": "pro@packlink.es",
@@ -123,11 +129,13 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:37.349Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:27.112Z",
+      "mode": "LIVE",
       "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377767112_85fc35",
       "recipient": "pro@packlink.es",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "currentImpact": 1
   },
@@ -142,7 +150,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=ontime.es",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "TRANSMISION_SIMULADA_OK",
+    "status": "ENVIADO_REAL_EN_RED",
     "contactEmail": "info@ontime.es",
     "outboundMessage": {
       "to": "info@ontime.es",
@@ -156,11 +164,13 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:40.671Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:31.662Z",
+      "mode": "LIVE",
       "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377771662_72882c",
       "recipient": "info@ontime.es",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "currentImpact": 1
   },
@@ -175,7 +185,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=seur.com",
     "directStrikePaymentUrl": "https://strike.me/rick2818",
-    "status": "TRANSMISION_SIMULADA_OK",
+    "status": "ENVIADO_REAL_EN_RED",
     "contactEmail": "empresas@seur.net",
     "outboundMessage": {
       "to": "empresas@seur.net",
@@ -189,11 +199,13 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:44.432Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:35.120Z",
+      "mode": "LIVE",
       "impact": 1,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377775120_2aab62",
       "recipient": "empresas@seur.net",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "currentImpact": 1
   },
@@ -337,7 +349,7 @@
     "targetImpact": 2
   },
   {
-    "id": "audit_1790363364032_635",
+    "id": "audit_1790377749606_32",
     "company": "Estafeta Carga",
     "domain": "estafeta.com",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -347,7 +359,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=estafeta.com",
     "directStrikePaymentUrl": "https://boltech-group.vercel.app/#soluciones",
-    "status": "TRANSMISION_SIMULADA_IMPACTO_2_OK",
+    "status": "ENVIADO_IMPACTO_2",
     "contactEmail": "proyectos@estafeta.com",
     "outboundMessage": {
       "to": "proyectos@estafeta.com",
@@ -362,18 +374,20 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:47.090Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:39.189Z",
+      "mode": "LIVE",
       "impact": 2,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377779189_1bbed1",
       "recipient": "proyectos@estafeta.com",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "cadenceModel": "HARVARD_PRINCIPLED_FOLLOWUP",
     "currentImpact": 2,
     "targetImpact": 2
   },
   {
-    "id": "audit_1790363362710_990",
+    "id": "audit_1790377748475_419",
     "company": "Redpack Logística",
     "domain": "redpack.com.mx",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -383,7 +397,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?domain=redpack.com.mx",
     "directStrikePaymentUrl": "https://boltech-group.vercel.app/#soluciones",
-    "status": "TRANSMISION_SIMULADA_IMPACTO_2_OK",
+    "status": "ENVIADO_IMPACTO_2",
     "contactEmail": "contacto@redpack.com.mx",
     "outboundMessage": {
       "to": "contacto@redpack.com.mx",
@@ -398,18 +412,20 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:50.301Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:44.014Z",
+      "mode": "LIVE",
       "impact": 2,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377784013_ca3fbb",
       "recipient": "contacto@redpack.com.mx",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "cadenceModel": "HARVARD_PRINCIPLED_FOLLOWUP",
     "currentImpact": 2,
     "targetImpact": 2
   },
   {
-    "id": "audit_1790363361317_595",
+    "id": "audit_1790377747118_166",
     "company": "SGS Logistics Central America",
     "domain": "sgs.com",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -419,7 +435,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?lang=en&domain=sgs.com",
     "directStrikePaymentUrl": "https://boltech-group.vercel.app/#soluciones",
-    "status": "TRANSMISION_SIMULADA_IMPACTO_2_OK",
+    "status": "ENVIADO_IMPACTO_2",
     "contactEmail": "enquiry@sgs.com",
     "outboundMessage": {
       "to": "enquiry@sgs.com",
@@ -434,18 +450,20 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:52.887Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:48.445Z",
+      "mode": "LIVE",
       "impact": 2,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377788445_efb0f8",
       "recipient": "enquiry@sgs.com",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "targetImpact": 2,
     "cadenceModel": "HARVARD_PRINCIPLED_FOLLOWUP",
     "currentImpact": 2
   },
   {
-    "id": "audit_1790363359915_475",
+    "id": "audit_1790377745705_433",
     "company": "Intertek Centroamérica",
     "domain": "intertek.com",
     "decisionMakerRole": "Oficial de Seguridad / Dirección de Operaciones",
@@ -455,7 +473,7 @@
     "strikePaymentDestination": "rick2818@strike.me",
     "checkoutUrl": "https://unblock-shield.vercel.app/?lang=en&domain=intertek.com",
     "directStrikePaymentUrl": "https://boltech-group.vercel.app/#soluciones",
-    "status": "TRANSMISION_SIMULADA_IMPACTO_2_OK",
+    "status": "ENVIADO_IMPACTO_2",
     "contactEmail": "info.latam@intertek.com",
     "outboundMessage": {
       "to": "info.latam@intertek.com",
@@ -470,11 +488,13 @@
     ],
     "severity": "CRITICA",
     "deliveryAudit": {
-      "dispatchedAt": "2026-09-25T19:09:55.841Z",
-      "mode": "DRY_RUN_SIMULATION",
+      "dispatchedAt": "2026-09-25T23:09:52.185Z",
+      "mode": "LIVE",
       "impact": 2,
+      "transport": "GMAIL_SMTPS",
+      "messageId": "smtp_1790377792184_47cb33",
       "recipient": "info.latam@intertek.com",
-      "status": "VERIFICADO_LISTO_PARA_TRANSMISION"
+      "status": "TRANSMITIDO_EXITOSO"
     },
     "targetImpact": 2,
     "cadenceModel": "HARVARD_PRINCIPLED_FOLLOWUP",
@@ -674,7 +694,7 @@
       "subject": "Elimina 80 horas de consultas repetitivas en WhatsApp de tu operación",
       "body": "Hola,\n\n¿Cuánto tiempo dedica el equipo de Coordinadora a responder consultas idénticas por WhatsApp, rastrear guías de clientes impacientes y actualizar novedades manuales?\n\nBoltech Group implementa un Concierge Autónomo en 60 segundos que responde en milisegundos 24/7 y erradica ese cuello de botella en piloto automático.\n\nPuedes probarlo y activar la licencia por $69 USD/mes aquí:\nhttps://unblock-shield.vercel.app/?domain=coordinadora.com\n\nO liquidar en satoshis vía Lightning sin comisiones a rick2818@strike.me.\n\nAtentamente,\nEquipo de Soluciones B2B — Boltech Group"
     },
-    "dispatchedAt": "2026-09-25T19:09:27.454Z",
+    "dispatchedAt": "2026-09-25T23:09:13.036Z",
     "nextFollowUpDate": "2026-09-27",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-25T15:51:17.738Z",
@@ -709,7 +729,7 @@
       "subject": "Respuesta a cotizaciones B2B en 60 segundos sin nómina extra",
       "body": "Estimado Gerente de Operaciones en TCC,\n\nEn el sector logístico B2B, responder una solicitud de flete 4 horas tarde significa perder la cuenta frente a la competencia.\n\nBoltech Group sintetiza un agente calificador que atiende a tus prospectos corporativos, calcula tarifas estimadas y agenda el cierre al instante.\n\nActiva tu prueba operativa hoy por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=tcc.com.co\n\nLiquidación directa vía Lightning: rick2818@strike.me.\n\nAtentamente,\nBoltech Group"
     },
-    "dispatchedAt": "2026-09-25T19:09:27.454Z",
+    "dispatchedAt": "2026-09-25T23:09:13.036Z",
     "nextFollowUpDate": "2026-09-27",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-25T15:51:20.687Z",
@@ -744,7 +764,7 @@
       "subject": "Reduce en un 70% la carga de reclamos y soporte en tu operación",
       "body": "Hola,\n\nAtender manualmente estados de envío y reclamos de mercancía genera sobrecostos de nómina y fatiga en tus agentes humanos.\n\nNuestros agentes soberanos para Google Antigravity asumen el triaje automático y resuelven el 70% de las consultas sin intervención humana.\n\nConoce la plataforma y comienza por $69 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=enviacolvanes.com\n\nAtentamente,\nBoltech Group"
     },
-    "dispatchedAt": "2026-09-25T19:09:27.454Z",
+    "dispatchedAt": "2026-09-25T23:09:13.036Z",
     "nextFollowUpDate": "2026-09-27",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-25T15:51:23.910Z",
@@ -775,7 +795,7 @@
       "subject": "Automatiza la trazabilidad y cobro de envíos express en 60 segundos",
       "body": "Hola,\n\nLos clientes corporativos de paquetería express exigen confirmaciones en tiempo real y facturación inmediata.\n\nBoltech Group genera un flujo desatendido que notifica y concilia pagos en segundos con protocolos bancarios seguros.\n\nAccede a la consola ejecutiva aquí por $89 USD/mes:\nhttps://unblock-shield.vercel.app/?domain=deprisa.com\n\nAtentamente,\nBoltech Group"
     },
-    "dispatchedAt": "2026-09-25T19:09:27.454Z",
+    "dispatchedAt": "2026-09-25T23:09:13.036Z",
     "nextFollowUpDate": "2026-09-27",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-25T15:51:25.979Z",
@@ -813,7 +833,7 @@
       "subject": "Auditoría de integración operativa y seguridad perimetral en 60 segundos",
       "body": "Estimado VP de Tecnología en Servientrega,\n\nDesplegamos agentes soberanos con protocolo MCP que se conectan a tu infraestructura sin tocar código legacy ni exponer datos sensibles.\n\nRealiza un diagnóstico de cuellos de botella y seguridad perimetral por $19 USD aquí:\nhttps://rick2818.github.io/Agents/?plan=flash&ref=colombia_b2b\n\nO liquidación instantánea por Lightning a rick2818@strike.me.\n\nAtentamente,\nEquipo de Ingeniería — Boltech Group\n🎬 Video Demostración (70s):\nhttps://unblock-shield.vercel.app/?domain=servientrega.com\n"
     },
-    "dispatchedAt": "2026-09-25T19:09:27.454Z",
+    "dispatchedAt": "2026-09-25T23:09:13.036Z",
     "nextFollowUpDate": "2026-09-27",
     "deliveryAudit": {
       "dispatchedAt": "2026-09-25T15:51:28.373Z",
