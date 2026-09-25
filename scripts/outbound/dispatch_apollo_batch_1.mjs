@@ -5,7 +5,7 @@
  * Agente de Ventas & Cierre (sales-closer-specialist) — Boltech-Group
  * - Despacho 100% Desatendido por SMTPS TLS 465 (Gmail / Resend)
  * - Los 5 Anclajes de Confianza (SOC-2, Garantía 7 días, Micro-riesgo $19)
- * - Enlaces directos a Strike (rick2818@strike.me) y Unblock AI / Destraba AI
+ * - Enlaces directos a Strike (rick2818@strike.me) y Unblock AI / Boltech Group
  * =============================================================================
  */
 
@@ -44,7 +44,7 @@ async function dispatchApolloBatch() {
       subject = `Diagnóstico de Seguridad Perimetral y Eficiencia Operativa: ${lead.company} [${lead.domain}]`;
       textBody = `Estimado/a ${lead.name},
 
-Le saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity & Vercel Cloud 24/7).
+Le saluda el equipo de Boltech Group (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity & Vercel Cloud 24/7).
 
 Durante nuestra inspección perimetral no invasiva sobre ${lead.domain}, identificamos oportunidades clave de blindaje y optimización de flujos:
 • Estado de Cabeceras: ${lead.securityStatus}
@@ -66,13 +66,13 @@ Audite su portal en vivo o active su agente autónomo:
 O liquidación instantánea vía Bitcoin Lightning Network a: ${lead.strikeLightningAddress}
 
 Atentamente,
-Especialista Senior de Ciberseguridad & Automatización — Destraba AI
+Especialista Senior de Ciberseguridad & Automatización — Boltech Group
 Boltech Group Holding`;
 
       htmlBody = `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #1e293b; max-width: 600px;">
   <p>Estimado/a <strong>${lead.name}</strong>,</p>
-  <p>Le saluda el equipo de <strong>Destraba AI</strong> (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity & Cloud 24/7).</p>
+  <p>Le saluda el equipo de <strong>Boltech Group</strong> (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity & Cloud 24/7).</p>
   <p>Durante nuestra inspección perimetral no invasiva sobre <strong>${lead.domain}</strong>, identificamos oportunidades clave de blindaje:</p>
   <ul>
     <li><strong>Estado de Cabeceras:</strong> ${lead.securityStatus}</li>
@@ -95,7 +95,7 @@ Boltech Group Holding`;
   </p>
   <p style="font-size: 12px; color: #64748b; margin-top: 24px;">
     Liquidación fiduciaria directa vía Lightning Network a: <code>${lead.strikeLightningAddress}</code><br>
-    Destraba AI • Boltech Group Holding
+    Boltech Group • Boltech Group Holding
   </p>
 </div>`;
 

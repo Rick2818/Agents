@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * DISPATCHER DIARIO DE CADENCIAS B2B — DESTRABA AI
+ * DISPATCHER DIARIO DE CADENCIAS B2B — Boltech Group
  * Procesa y activa los leads del día según el cronograma fiduciario
  * Destino de cobro: rick2818@strike.me
  * =============================================================================

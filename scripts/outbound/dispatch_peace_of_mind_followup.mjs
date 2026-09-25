@@ -153,7 +153,7 @@ Liquidación directa e instantánea por Bitcoin Lightning Network a: rick2818@st
 Quedo a su entera disposición.
 
 Atentamente,
-Especialista Senior en Seguridad y Automatización Fiduciaria — Destraba AI`;
+Especialista Senior en Seguridad y Automatización Fiduciaria — Boltech Group`;
 
     console.log(`-----------------------------------------------------------------------------`);
     console.log(`Empresa: ${company} (${domain}) | Idioma: ${isEn ? 'EN' : 'ES'}`);

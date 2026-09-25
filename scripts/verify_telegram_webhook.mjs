@@ -34,7 +34,7 @@ function loadEnv() {
 loadEnv();
 
 const BOT_TOKEN = (process.env.TELEGRAM_BOT_TOKEN || '').trim();
-const EXPECTED_PROD_URL = (process.env.VERCEL_APP_URL || 'https://destraba-ai.vercel.app').trim().replace(/\/+$/, '') + '/api/telegram';
+const EXPECTED_PROD_URL = (process.env.VERCEL_APP_URL || 'https://boltech-group.vercel.app').trim().replace(/\/+$/, '') + '/api/telegram';
 
 if (!BOT_TOKEN) {
   console.warn('⚠️ [AVISO]: TELEGRAM_BOT_TOKEN no configurado en este entorno. Omitiendo watchdog con salida limpia.');

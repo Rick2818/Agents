@@ -102,7 +102,7 @@ export default async function handler(req, res) {
 
       if (!verification.valid) {
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
-        return res.status(400).send(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Enlace Inválido</title><style>body{font-family:-apple-system,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}.card{background:#1e293b;padding:32px;border-radius:12px;max-width:480px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.5);}h1{color:#f43f5e;font-size:20px;margin-bottom:12px;}p{color:#94a3b8;font-size:14px;line-height:1.6;}</style></head><body><div class="card"><h1>Enlace de Desuscripción Inválido o Expirado</h1><p>El token de baja no pudo ser validado criptográficamente. Si deseas solicitar la exclusión manual inmediata, escribe a soporte@destraba.ai.</p></div></body></html>`);
+        return res.status(400).send(`<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Enlace Inválido</title><style>body{font-family:-apple-system,sans-serif;background:#0f172a;color:#f8fafc;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}.card{background:#1e293b;padding:32px;border-radius:12px;max-width:480px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,0.5);}h1{color:#f43f5e;font-size:20px;margin-bottom:12px;}p{color:#94a3b8;font-size:14px;line-height:1.6;}</style></head><body><div class="card"><h1>Enlace de Desuscripción Inválido o Expirado</h1><p>El token de baja no pudo ser validado criptográficamente. Si deseas solicitar la exclusión manual inmediata, escribe a soporte@boltech.ai.</p></div></body></html>`);
       }
 
       await addToDncBlacklist(verification.email, 'WEB_ONE_CLICK_UNSUBSCRIBE');
@@ -138,8 +138,8 @@ export default async function handler(req, res) {
           configured: isSmtpReady,
           host: process.env.SMTP_HOST || 'smtp.gmail.com',
           port: parseInt(process.env.SMTP_PORT, 10) || 465,
-          user: process.env.SMTP_USER || 'ricardo.destrabaai@gmail.com',
-          from: process.env.SMTP_FROM || `Destraba AI <${process.env.SMTP_USER || 'ricardo.destrabaai@gmail.com'}>`,
+          user: process.env.SMTP_USER || 'ricardo.boltechai@gmail.com',
+          from: process.env.SMTP_FROM || `Boltech Group <${process.env.SMTP_USER || 'ricardo.boltechai@gmail.com'}>`,
           status: isSmtpReady ? 'OPERATIONAL_LIVE' : 'PENDING_APP_PASSWORD'
         },
         resend: {
@@ -176,8 +176,8 @@ export default async function handler(req, res) {
     if (req.method === 'GET' && (pathname === '/api/catalog' || pathname.endsWith('/catalog'))) {
       return res.status(200).json({
         success: true,
-        brand: 'Destraba AI / Unblock AI',
-        supportEmail: 'soporte@destraba.ai',
+        brand: 'Boltech Group / Unblock AI',
+        supportEmail: 'soporte@boltech.ai',
         strikeLightningAddress: 'rick2818@strike.me',
         catalog: CATALOGO_PRECIOS_USD
       });

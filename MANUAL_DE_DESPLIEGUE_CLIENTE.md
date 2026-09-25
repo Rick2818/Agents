@@ -1,5 +1,5 @@
 # 🛡️ Manual Oficial de Despliegue y Activación 24/7 en la Nube
-## Guía de Onboarding Corporativo para Clientes — Destraba AI / Unblock AI
+## Guía de Onboarding Corporativo para Clientes — Boltech Group / Unblock AI
 
 > **Para Directores Ejecutivos, Gerentes Generales y Equipos de Operaciones**  
 > *"Erradica tus cuellos de botella operativos en 60 segundos. Tu agente inteligente ya está listo para trabajar en la nube 24/7 sin interrumpir tu jornada."*
@@ -10,7 +10,7 @@
 
 Estimado Cliente:
 
-Bienvenido a **Destraba AI**. Tu suscripción fiduciaria ha sido confirmada y tu agente autónomo ha sido sintetizado bajo los estándares de máxima seguridad empresarial con **Google Gemini Flash 2.5**.
+Bienvenido a **Boltech Group**. Tu suscripción fiduciaria ha sido confirmada y tu agente autónomo ha sido sintetizado bajo los estándares de máxima seguridad empresarial con **Google Gemini Flash 2.5**.
 
 A diferencia de los chatbots tradicionales que requieren servidores locales, computadoras encendidas o configuraciones técnicas complejas, tu agente opera bajo una **Arquitectura Cloud-Native 24/7**:
 * **Cero Instalaciones Locales:** Vive permanentemente en nuestra infraestructura en la nube.
@@ -23,7 +23,7 @@ Este manual describe el procedimiento exacto de 3 pasos para poner a tu agente e
 
 ## 📬 2. Paso 1: Recepción de tu Credencial Fiduciaria por Correo
 
-Al completar tu pago a través de **Wompi SV** (Tarjeta Bancaria Internacional) o **Strike Lightning** (Bitcoin / USD), el sistema fiduciario despacha un correo electrónico formal desde `soporte@destraba.ai` con el asunto:
+Al completar tu pago a través de **Wompi SV** (Tarjeta Bancaria Internacional) o **Strike Lightning** (Bitcoin / USD), el sistema fiduciario despacha un correo electrónico formal desde `soporte@boltech.ai` con el asunto:
 
 > `🛡️ Paquete de Activación y Licencia Fiduciaria 24/7 — [Nombre de tu Empresa]`
 
@@ -40,14 +40,14 @@ Al completar tu pago a través de **Wompi SV** (Tarjeta Bancaria Internacional) 
 1. Abre el correo de bienvenida y haz clic en el botón:  
    **`🚀 Activar mi Agente en la Plataforma Cloud 24/7`**.
 2. Tu navegador abrirá automáticamente la plataforma en:  
-   `https://destraba-ai.vercel.app/?licencia=TU_CODIGO&plan=TU_PLAN`
+   `https://boltech-group.vercel.app/?licencia=TU_CODIGO&plan=TU_PLAN`
 3. La plataforma detectará tu licencia de inmediato y desplegará la **Cabina de Bienvenida Corporativa**:
    * Verás el nombre de tu agente asignado (Soporte, Ventas B2B, Cobranza, Inventario o Mercadeo).
    * Verás el estado de tu licencia: `🟢 VERIFICADA Y ACTIVA`.
 
 ### Método B: Activación Manual mediante Carga de Paquete (.zip)
 Si prefieres ingresar directamente o abrir una sesión nueva:
-1. Ingresa a [https://destraba-ai.vercel.app](https://destraba-ai.vercel.app).
+1. Ingresa a [https://boltech-group.vercel.app](https://boltech-group.vercel.app).
 2. En la barra superior, haz clic en **`Portal: Ingresar`**.
 3. Selecciona la opción **`📦 Cargar Paquete de Agente (.zip)`**.
 4. Arrastra el archivo `.zip` que recibiste adjunto en tu correo.
@@ -103,12 +103,12 @@ flowchart TD
 Si requieres asistencia técnica, cambio de clave maestra o integración con sistemas internos (ERP, bases de datos o pasarelas locales):
 
 * **Correo Oficial de Soporte Corporativo:**  
-  📧 [`soporte@destraba.ai`](mailto:soporte@destraba.ai)
+  📧 [`soporte@boltech.ai`](mailto:soporte@boltech.ai)
 * **Atención Directa de Ingeniería:**  
   Menos de 4 horas hábiles de respuesta garantizada.
 * **Garantía de Satisfacción Fiduciaria:**  
   Si durante los primeros 7 días tu agente no ha optimizado los tiempos operativos de tu negocio, cancelas tu suscripción con un solo clic sin penalizaciones ni letras pequeñas.
 
 ---
-*Destraba AI / Unblock AI — Plataforma Fiduciaria de Custom Agents Desatendidos*  
+*Boltech Group / Unblock AI — Plataforma Fiduciaria de Custom Agents Desatendidos*  
 *San Salvador, El Salvador • Operaciones Internacionales en USD*

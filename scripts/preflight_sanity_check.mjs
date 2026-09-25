@@ -73,7 +73,7 @@ async function checkEmailEngine() {
   );
   return {
     success: isSmtpReady,
-    user: process.env.SMTP_USER || 'ricardo.destrabaai@gmail.com',
+    user: process.env.SMTP_USER || 'ricardo.boltechai@gmail.com',
     carrier: isSmtpReady ? 'GMAIL_SMTPS (Autenticado)' : 'RESEND_FALLBACK'
   };
 }
@@ -125,7 +125,7 @@ function checkCryptographicCore() {
 
 async function runFullSanityCheck() {
   console.log('\n🔍 ========================================================');
-  console.log('   DESTRABA AI — PRE-FLIGHT SANITY CHECK (100% OPERATIVO)');
+  console.log('   Boltech Group — PRE-FLIGHT SANITY CHECK (100% OPERATIVO)');
   console.log('========================================================\n');
 
   // 1. Servidor Local & Dashboard

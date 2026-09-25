@@ -5,7 +5,7 @@ import { splitTelegramMessage } from '../lib/telegram_cloud_processor.js';
 const originalFetch = globalThis.fetch;
 
 // Configurar entorno aislado de pruebas (100% Mock, sin depender de red ni tokens reales)
-const MOCK_SECRET = 'mock_destraba_tele_sec_2026';
+const MOCK_SECRET = 'mock_boltech_tele_sec_2026';
 const MOCK_TOKEN = '123456789:MOCK_TOKEN_FOR_TESTS';
 const MOCK_USER_ID = '6311509947';
 
@@ -52,7 +52,7 @@ globalThis.fetch = async (url, options = {}) => {
         json: async () => ({
           ok: true,
           result: {
-            url: 'https://destraba-ai.vercel.app/api/telegram',
+            url: 'https://boltech-group.vercel.app/api/telegram',
             has_custom_certificate: false,
             pending_update_count: 0
           }

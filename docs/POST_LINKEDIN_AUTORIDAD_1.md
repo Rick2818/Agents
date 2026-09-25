@@ -1,4 +1,4 @@
-# 📢 Post de Autoridad B2B #1 — Destraba AI (LinkedIn / X / Buffer)
+# 📢 Post de Autoridad B2B #1 — Boltech Group (LinkedIn / X / Buffer)
 > **Objetivo:** Siembra de autoridad para Fundadores, Directores de Operaciones y Líderes de E-commerce.  
 > **Ángulo Psicológico:** Aversión a la pérdida (Hemorragia oculta de nómina vs. Asistente Fiduciario de \$2.30/día).  
 > **Destino:** https://rick2818.github.io/Agents/
@@ -22,7 +22,7 @@ Para tapar esa fuga, muchas empresas cometen el error de contratar más personal
 
 Un analista de atención cuesta entre **$500 y $800 USD al mes** entre salario, cargas y software... y aun así, a las 8:00 PM o un domingo por la tarde, tu negocio queda ciego.
 
-En **Destraba AI** abordamos esto con una filosofía fiduciaria estricta:
+En **Boltech Group** abordamos esto con una filosofía fiduciaria estricta:
 El talento humano debe dedicarse a cerrar cuentas grandes y negociar; las respuestas repetitivas deben resolverse en milisegundos con agentes autónomos.
 
 Por eso construimos una arquitectura donde un concierge inteligente atiende 24/7 por **$2.30 USD al día ($69 USD/mes)**, sin tocar tu código legacy ni requerir semanas de implementación.

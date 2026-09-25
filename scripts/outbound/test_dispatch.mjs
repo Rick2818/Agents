@@ -1,7 +1,7 @@
 import { CAMPAIGNS, renderCampaignMessage } from './campaign_engine.mjs';
 
 console.log("==================================================================");
-console.log("🚀 DESTRABA AI / UNBLOCK AI — MOTOR DE MONETIZACIÓN DESATENDIDA");
+console.log("🚀 Boltech Group / UNBLOCK AI — MOTOR DE MONETIZACIÓN DESATENDIDA");
 console.log("Meta: $3,000 USD/mes ($100 USD/día) | Liquidación: rick2818@strike.me");
 console.log("==================================================================\n");
 

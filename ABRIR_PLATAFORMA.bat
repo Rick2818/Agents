@@ -1,4 +1,4 @@
 @echo off
-title Destraba AI - Iniciar Plataforma
+title Boltech Group - Iniciar Plataforma
 start dashboard.html
 exit

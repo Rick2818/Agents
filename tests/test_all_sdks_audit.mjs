@@ -135,7 +135,7 @@ try {
 // 11. validator
 try {
   const validator = (await import('validator')).default;
-  const isMail = validator.isEmail('ricardo@destraba.ai');
+  const isMail = validator.isEmail('ricardo@boltech.ai');
   const sanitized = validator.escape('<script>alert("xss")</script>');
   recordAudit(11, 'validator', 'Anti-Inyección', 'PASADO', `Email verificado: ${isMail}, XSS neutralizado`);
 } catch (e) {

@@ -172,7 +172,7 @@ Hemos recibido su consulta en el Centro de Soporte de Unblock AI Shield:
 Un ingeniero de soporte técnico y ciberseguridad defensiva revisará su requerimiento y le responderá en menos de 2 horas.
 
 Si su requerimiento es de carácter urgente, puede comunicarse de inmediato a:
-Correo Oficial: ricardo.destrabaai@gmail.com
+Correo Oficial: ricardo.boltechai@gmail.com
 Portal de Monitoreo: https://boltech-group.vercel.app
 
 Atentamente,

@@ -321,7 +321,7 @@
   <!-- ========================================================================= -->
   <script>
     const DEFAULT_GEMINI_KEY = '';
-    let GEMINI_API_KEY = localStorage.getItem("destraba_gemini_key") || '';
+    let GEMINI_API_KEY = localStorage.getItem("boltech_gemini_key") || '';
     let conversationHistory = [];
     let currentBtcPrice = 81000;
     let currentBtcChange = 0;
@@ -348,11 +348,11 @@
 
     function promptConfigureGeminiKey() {
       const current = GEMINI_API_KEY ? (GEMINI_API_KEY.substring(0, 8) + '...') : 'Predeterminada';
-      const input = prompt("Configuración de Google Gemini API Key:\n\nClave actual: " + current + "\n\nIngresa tu nueva API Key de Google (o déjala vacía para restaurar la predeterminada de Destraba AI):", GEMINI_API_KEY || DEFAULT_GEMINI_KEY);
+      const input = prompt("Configuración de Google Gemini API Key:\n\nClave actual: " + current + "\n\nIngresa tu nueva API Key de Google (o déjala vacía para restaurar la predeterminada de Boltech Group):", GEMINI_API_KEY || DEFAULT_GEMINI_KEY);
       if (input !== null) {
         const trimmed = input.trim();
         GEMINI_API_KEY = trimmed || DEFAULT_GEMINI_KEY;
-        localStorage.setItem("destraba_gemini_key", GEMINI_API_KEY);
+        localStorage.setItem("boltech_gemini_key", GEMINI_API_KEY);
         updateGeminiBadge();
         alert("✅ Gemini API Key configurada y guardada.");
       }
@@ -852,7 +852,7 @@
 Ricardo is an elite tech founder, investor, and builder based in San Salvador, El Salvador.
 
 Operational Context:
-- Platform: Destraba AI (unblock.ai) — sovereign AI custom agents.
+- Platform: Boltech Group (unblock.ai) — sovereign AI custom agents.
 - Settlement Rails: Bitcoin / Strike Lightning (rick2818@strike.me).
 - City Base: San Salvador, El Salvador (SAL Airport, Multiplaza / Gran Vía VIP cinemas, San Benito dining).
 - Live Real-Time Bitcoin Data: $${Number(currentBtcPrice).toLocaleString()} USD (${currentBtcChange >= 0 ? '+' : ''}${Number(currentBtcChange).toFixed(2)}%), Mempool fee: ${currentMempoolFee} sat/vB.
@@ -964,7 +964,7 @@ Mandate:
           appendMessage('assistant', `✉️ **Correo Despachado Exitosamente**\n\n• **Transporte:** ` + transportName + `\n• **Destinatario:** ` + to + `\n• **Asunto:** ` + subj + `\n• **ID de Mensaje:** ` + json.messageId + `\n\nEl mensaje está en tránsito sin restricciones de sandbox.`);
         } else if (json.reason === 'RESEND_SANDBOX_DOMAIN_REQUIRED' || json.isSandboxBlocked) {
           if (status) status.innerHTML = "<span class='text-amber-400'>⚠️ Sandbox Activo: Requiere Gmail SMTP</span>";
-          appendMessage('assistant', `⚠️ **Aviso de Sandbox Resend**\n\nResend requiere un dominio verificado para enviar a **` + to + `**.\n\n💡 **Solución Inmediata:** Configura tu contraseña de aplicación de Gmail (\`ricardo.destrabaai@gmail.com\`) en el archivo \`.env\` como \`SMTP_PASS\` o despacha directamente con el cliente local.`);
+          appendMessage('assistant', `⚠️ **Aviso de Sandbox Resend**\n\nResend requiere un dominio verificado para enviar a **` + to + `**.\n\n💡 **Solución Inmediata:** Configura tu contraseña de aplicación de Gmail (\`ricardo.boltechai@gmail.com\`) en el archivo \`.env\` como \`SMTP_PASS\` o despacha directamente con el cliente local.`);
         } else {
           throw new Error(json.error || json.message || "Fallo en el despacho");
         }
@@ -1009,7 +1009,7 @@ Mandate:
         .then(cfg => {
           if (cfg?.geminiApiKey) {
             GEMINI_API_KEY = cfg.geminiApiKey;
-            localStorage.setItem("destraba_gemini_key", cfg.geminiApiKey);
+            localStorage.setItem("boltech_gemini_key", cfg.geminiApiKey);
             updateGeminiBadge();
           }
         })

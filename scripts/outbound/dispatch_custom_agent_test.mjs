@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * DESPACHO DE AGENTE FIDUCIARIO PERSONALIZADO PARA RICARDO — DESTRABA AI
+ * DESPACHO DE AGENTE FIDUCIARIO PERSONALIZADO PARA RICARDO — Boltech Group
  * =============================================================================
  * Genera el paquete de arquitectura .agents en RAM y lo transmite a rick28191@gmail.com
  * =============================================================================
@@ -67,7 +67,7 @@ async function run() {
 `,
 
     'README_INSTRUCCIONES_RICARDO.txt': `=============================================================================
-DESTRABA AI — AGENTE ARQUITECTO DE SCRIPTS FIDUCIARIO
+Boltech Group — AGENTE ARQUITECTO DE SCRIPTS FIDUCIARIO
 Licencia VIP: LIC-VIP-RICARDO-TRUTH-2026
 Destinatario: Ricardo (rick28191@gmail.com)
 =============================================================================
@@ -80,7 +80,7 @@ Este agente fue diseñado específicamente para erradicar la frustración de:
 - Scripts que fallan al subirse a la nube por falta de previsión técnica.
 
 CÓMO USARLO EN LA PLATAFORMA EN LA NUBE 24/7:
-1. Ingresa a: https://destraba-ai.vercel.app/?licencia=LIC-VIP-RICARDO-TRUTH-2026&plan=custom_script_architect&email=rick28191@gmail.com
+1. Ingresa a: https://boltech-group.vercel.app/?licencia=LIC-VIP-RICARDO-TRUTH-2026&plan=custom_script_architect&email=rick28191@gmail.com
 2. Verás tu licencia cargada automáticamente.
 3. Puedes conversar libremente con él en la consola interactiva:
    - Pídele que revise cualquier script de tu app.
@@ -96,14 +96,14 @@ CÓMO USARLO EN LA PLATAFORMA EN LA NUBE 24/7:
   const zipBuffer = createInMemoryZip(agentSpec);
   console.log(`[DISPATCH AGENT]: Paquete ZIP ensamblado en RAM (${zipBuffer.length} bytes)`);
 
-  const activationUrl = `https://destraba-ai.vercel.app/?licencia=LIC-VIP-RICARDO-TRUTH-2026&plan=custom_script_architect&email=${encodeURIComponent(targetEmail)}`;
+  const activationUrl = `https://boltech-group.vercel.app/?licencia=LIC-VIP-RICARDO-TRUTH-2026&plan=custom_script_architect&email=${encodeURIComponent(targetEmail)}`;
 
   // 3. HTML del Correo Institucional Formal
   const htmlContent = `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; padding: 28px; color: #1e293b; background-color: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0;">
       <div style="text-align: center; margin-bottom: 24px;">
         <div style="display: inline-block; width: 52px; height: 52px; line-height: 52px; background: linear-gradient(135deg, #2563eb, #4f46e5); color: #ffffff; font-size: 26px; border-radius: 14px; margin-bottom: 12px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);">🛡️</div>
-        <h1 style="color: #0f172a; margin: 0 0 6px 0; font-size: 22px; font-weight: 800;">Destraba AI • Entrega de Agente Fiduciario</h1>
+        <h1 style="color: #0f172a; margin: 0 0 6px 0; font-size: 22px; font-weight: 800;">Boltech Group • Entrega de Agente Fiduciario</h1>
         <p style="color: #64748b; margin: 0; font-size: 13px; font-weight: 500;">Arquitecto de Scripts Cloud & Auditor Antialucinación (Licencia VIP)</p>
       </div>
 
@@ -144,13 +144,13 @@ CÓMO USARLO EN LA PLATAFORMA EN LA NUBE 24/7:
       </div>
 
       <div style="text-align: center; font-size: 12px; color: #94a3b8;">
-        <p style="margin: 0 0 4px 0;"><strong>Destraba AI / Unblock AI</strong> • Sistema Multi-Agente Soberano</p>
-        <p style="margin: 0;">Soporte Oficial: <code>soporte@destraba.ai</code></p>
+        <p style="margin: 0 0 4px 0;"><strong>Boltech Group / Unblock AI</strong> • Sistema Multi-Agente Soberano</p>
+        <p style="margin: 0;">Soporte Oficial: <code>soporte@boltech.ai</code></p>
       </div>
     </div>
   `;
 
-  const textContent = `Destraba AI • Entrega de Agente Fiduciario\nLicencia VIP para Ricardo (rick28191@gmail.com)\n\nTu agente Arquitecto de Scripts Cloud & Auditor Antialucinación está listo.\n\nPara activarlo e interactuar con él en la nube 24/7 ingresa a:\n${activationUrl}\n\nAdjunto encontrarás paquete_agente_arquitecto_fiduciario.zip.\nSoporte: soporte@destraba.ai`;
+  const textContent = `Boltech Group • Entrega de Agente Fiduciario\nLicencia VIP para Ricardo (rick28191@gmail.com)\n\nTu agente Arquitecto de Scripts Cloud & Auditor Antialucinación está listo.\n\nPara activarlo e interactuar con él en la nube 24/7 ingresa a:\n${activationUrl}\n\nAdjunto encontrarás paquete_agente_arquitecto_fiduciario.zip.\nSoporte: soporte@boltech.ai`;
 
   // 4. Despacho Vía Motor Universal
   try {

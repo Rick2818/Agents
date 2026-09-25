@@ -44,7 +44,7 @@ console.log('  ✅ Enmascaramiento de Secretos: PASADO');
 console.log('\n4. Probando Constructor Canónico MIME Multipart:');
 const dummyAttachment = Buffer.from('Contenido de prueba fiduciaria');
 const mime = buildMimeMessage({
-  from: 'Destraba AI <ricardo.destrabaai@gmail.com>',
+  from: 'Boltech Group <ricardo.boltechai@gmail.com>',
   to: 'prospecto@empresa.com',
   subject: 'Tu Reporte',
   text: 'Texto plano',
@@ -56,7 +56,7 @@ const mime = buildMimeMessage({
 
 console.assert(mime.includes('Content-Type: multipart/mixed;'), 'Debe contener multipart/mixed');
 console.assert(mime.includes('Content-Disposition: attachment; filename="reporte.txt"'), 'Debe incluir encabezado de adjunto');
-console.assert(mime.includes('X-Mailer: Destraba-AI-Universal-Email-Engine/3.0'), 'Debe incluir X-Mailer');
+console.assert(mime.includes('X-Mailer: boltech-group-Universal-Email-Engine/3.0'), 'Debe incluir X-Mailer');
 console.log('  ✅ Constructor MIME Multipart: PASADO');
 
 // 5. Consulta y Auditoría de Resend API

@@ -1,4 +1,4 @@
-# 📅 Plan y Listados de Prospección B2B por Día de la Semana — Destraba AI
+# 📅 Plan y Listados de Prospección B2B por Día de la Semana — Boltech Group
 
 > **Estrategia Geográfica & Sectorial de Alta Conversión B2B**  
 > Foco: Mercados con mayor presupuesto y disposición de pago comprobada para agentes de software y automatización operativa.

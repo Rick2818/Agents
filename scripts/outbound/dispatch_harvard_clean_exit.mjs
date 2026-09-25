@@ -8,7 +8,7 @@
  * - Solicita permiso explícito para cerrar y archivar el expediente técnico.
  * - Multiplica la tasa de respuesta C-Level al facilitar una respuesta de 1 palabra.
  * 
- * Marca Dual: Destraba AI (LatAm/España) vs. Unblock AI (Global/English).
+ * Marca Dual: Boltech Group (LatAm/España) vs. Unblock AI (Global/English).
  * Destino de liquidación: rick2818@strike.me
  * =============================================================================
  */
@@ -53,25 +53,25 @@ Senior Cyber-Defense & Fiduciary Operations — Unblock AI`;
     return { isEn, subject, body };
   }
 
-  // Español (Destraba AI)
+  // Español (Boltech Group)
   const subject = `📁 Permiso para archivar expediente de seguridad perimetral de ${cleanDomain || cleanCompany}`;
   const body = `Estimado equipo directivo en ${cleanCompany},
 
 Le escribo con una solicitud muy puntual y respetuosa: permiso para archivar definitivamente el expediente técnico de su portal.
 
-En Destraba AI priorizamos el respeto absoluto a la bandeja de entrada de los directivos. Con anterioridad le compartimos el diagnóstico no invasivo sobre ${cleanDomain} y las 3 alternativas objetivas de resolución (especificaciones abiertas para su equipo interno, parches llave en mano por $19 USD o el centinela autónomo 24/7 por $2.30 USD al día).
+En Boltech Group priorizamos el respeto absoluto a la bandeja de entrada de los directivos. Con anterioridad le compartimos el diagnóstico no invasivo sobre ${cleanDomain} y las 3 alternativas objetivas de resolución (especificaciones abiertas para su equipo interno, parches llave en mano por $19 USD o el centinela autónomo 24/7 por $2.30 USD al día).
 
 Si estos puntos ya fueron subsanados por su equipo de ingeniería o no representan una prioridad para su empresa en este trimestre, lo comprendemos plenamente:
 👉 Responda únicamente con la palabra «Archivar» o «Cerrar», y procederemos a dar de baja el expediente sin ninguna insistencia futura.
 
 Si antes del cierre formal desea verificar el diagnóstico o activar el blindaje asistido:
-🔗 Portal de verificación y aplicación inmediata: https://destraba-ai.vercel.app/?domain=${encodeURIComponent(cleanDomain)}
+🔗 Portal de verificación y aplicación inmediata: https://boltech-group.vercel.app/?domain=${encodeURIComponent(cleanDomain)}
 ⚡ Liquidación instantánea sin comisiones vía Bitcoin Lightning Network: rick2818@strike.me
 
 Agradecemos sinceramente su atención y le deseamos el mayor de los éxitos en sus operaciones.
 
 Atentamente,
-Dirección de Operaciones & Automatización Fiduciaria — Destraba AI`;
+Dirección de Operaciones & Automatización Fiduciaria — Boltech Group`;
 
   return { isEn, subject, body };
 }

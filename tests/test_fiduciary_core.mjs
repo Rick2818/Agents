@@ -40,7 +40,7 @@ console.log('  ✅ Rate Limiting en RAM: PASADO');
 
 // 4. Whitelist Estricta de CORS (Pilar 6)
 console.log('4. Probando Whitelist Estricta de CORS:');
-console.assert(resolveCorsOrigin('https://destraba.ai') === 'https://destraba.ai', 'destraba.ai debe ser permitido');
+console.assert(resolveCorsOrigin('https://boltech.ai') === 'https://boltech.ai', 'boltech.ai debe ser permitido');
 console.assert(resolveCorsOrigin('https://unblock.ai') === 'https://unblock.ai', 'unblock.ai debe ser permitido');
 console.assert(resolveCorsOrigin('http://localhost:8765', true) === 'http://localhost:8765', 'localhost en dev debe ser permitido');
 console.assert(resolveCorsOrigin('https://malicious-site.com') === null, 'Sitios no autorizados deben denegarse');

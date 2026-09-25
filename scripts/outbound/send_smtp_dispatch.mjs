@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * MOTOR AUTÓNOMO DE DESPACHO OUTBOUND (SMTP / REST API) — DESTRABA AI
+ * MOTOR AUTÓNOMO DE DESPACHO OUTBOUND (SMTP / REST API) — Boltech Group
  * Diseñado bajo estándares de seguridad Full Stack Senior (20+ años de experiencia)
  * - Cero dependencias externas requeridas (Usa Node.js nativo https/tls)
  * - Multi-transporte con failover automático (Gmail SMTPS / Resend REST API)
@@ -139,7 +139,7 @@ export async function executeOutboundDispatch(options = {}) {
   if (sandboxBlockedLeads.length > 0) {
     try {
       console.log('\n[DIGEST FIDUCIARIO]: Generando Resumen Ejecutivo para Ricardo...');
-      const digestSubject = `🎯 [DESTRABA AI] ${sandboxBlockedLeads.length} Oportunidades Auditadas en Internet`;
+      const digestSubject = `🎯 [Boltech Group] ${sandboxBlockedLeads.length} Oportunidades Auditadas en Internet`;
       let digestBody = `Hola Ricardo,\n\nEl Cazador Autónomo 24/7 completó el escaneo perimetral y detectó ${sandboxBlockedLeads.length} empresas con vulnerabilidades monetizables en el cohort de hoy.\n\nComo tu cuenta de Resend requiere verificar dominio en resend.com/domains para envíos directos a terceros y no se ha configurado la contraseña SMTP de Gmail, aquí tienes los prospectos con sus enlaces de cobro a rick2818@strike.me:\n\n`;
 
       for (const item of sandboxBlockedLeads) {
@@ -152,13 +152,13 @@ export async function executeOutboundDispatch(options = {}) {
         digestBody += `Mensaje preparado:\n${item.body}\n\n`;
       }
 
-      digestBody += `\nPara activar el envío directo e inmediato a cualquier tercero sin necesidad de dominio propio, ingresa tu contraseña de aplicación de Gmail (16 letras) en el archivo .env como:\nSMTP_HOST=smtp.gmail.com\nSMTP_PORT=465\nSMTP_USER=ricardo.destrabaai@gmail.com\nSMTP_PASS=tu_clave_de_16_letras\n\nDestino de liquidación: rick2818@strike.me\nDestraba AI Engine 3.0`;
+      digestBody += `\nPara activar el envío directo e inmediato a cualquier tercero sin necesidad de dominio propio, ingresa tu contraseña de aplicación de Gmail (16 letras) en el archivo .env como:\nSMTP_HOST=smtp.gmail.com\nSMTP_PORT=465\nSMTP_USER=ricardo.boltechai@gmail.com\nSMTP_PASS=tu_clave_de_16_letras\n\nDestino de liquidación: rick2818@strike.me\nBoltech Group Engine 3.0`;
 
       // Enviar digest a Ricardo vía Resend API (que en sandbox SÍ permite enviar a la cuenta registrada)
       if (resendKey) {
         const digestRes = await sendViaResendApi({
           apiKey: resendKey,
-          from: 'Destraba AI <onboarding@resend.dev>',
+          from: 'Boltech Group <onboarding@resend.dev>',
           to: 'rick28191@gmail.com',
           subject: digestSubject,
           text: digestBody

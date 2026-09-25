@@ -1,4 +1,4 @@
-# 🧠 MEMORIA PERMANENTE DEL SISTEMA MULTI-AGENTE — DESTRABA AI
+# 🧠 MEMORIA PERMANENTE DEL SISTEMA MULTI-AGENTE — Boltech Group
 
 > **Estado Actualizado:** 2026-09-14  
 > **Modelo de Ejecución:** Gemini Flash 2.5  

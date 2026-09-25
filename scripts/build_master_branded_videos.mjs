@@ -139,7 +139,7 @@ async function renderVideo1(lang = 'es') {
   const outputFinal = path.join(OUTPUT_DIR, lang === 'es' ? 'Unblock_AI_Shield_Oficial.mp4' : 'Unblock_AI_Shield_Oficial_en.mp4');
   const corporateCopy = path.join(OUTPUT_DIR, lang === 'es' ? 'boltech_corporate_5scenes_es.mp4' : 'boltech_corporate_5scenes_en.mp4');
 
-  const stampCmd = `ffmpeg -y -i "${rawVideo}" -i "${LOGO_PATH}" -filter_complex "[1:v]scale=240:-1[logo];[0:v][logo]overlay=40:40" -c:v libx264 -preset medium -crf 18 -c:a copy "${outputFinal}"`;
+  const stampCmd = `ffmpeg -y -i "${rawVideo}" -i "${LOGO_PATH}" -filter_complex "[1:v]scale=240:-1[logo];[0:v][logo]overlay=40:40" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a copy "${outputFinal}"`;
   execSync(stampCmd, { stdio: 'inherit' });
 
   fs.copyFileSync(outputFinal, corporateCopy);
@@ -156,7 +156,7 @@ async function brandVideo2() {
     const v2_root_out = path.join(OUTPUT_DIR, 'gerente_bottleneck_agente.mp4');
 
     console.log('  🌟 Aplicando logo dorado a Video 2 en la esquina superior izquierda...');
-    const cmd = `ffmpeg -y -i "${v2_es_raw}" -i "${LOGO_PATH}" -filter_complex "[1:v]scale=240:-1[logo];[0:v][logo]overlay=40:40" -c:v libx264 -preset medium -crf 18 -c:a copy "${v2_es_out}"`;
+    const cmd = `ffmpeg -y -i "${v2_es_raw}" -i "${LOGO_PATH}" -filter_complex "[1:v]scale=240:-1[logo];[0:v][logo]overlay=40:40" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a copy "${v2_es_out}"`;
     execSync(cmd, { stdio: 'ignore' });
     
     fs.copyFileSync(v2_es_out, v2_en_out);

@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * DESTRABA AI â€” SERVIDOR DE PASARELAS Y WEBHOOKS BLINDADOS
+ * Boltech Group â€” SERVIDOR DE PASARELAS Y WEBHOOKS BLINDADOS
  * Pasarelas: Wompi SV y Strike Lightning (rick2818@strike.me)
  * =============================================================================
  */
@@ -39,8 +39,8 @@ const server = http.createServer(async (req, res) => {
 
   // CORS blindado con whitelist fiduciaria
   const ALLOWED_ORIGINS = new Set([
-    'https://destraba.ai',
-    'https://app.destraba.ai',
+    'https://boltech.ai',
+    'https://app.boltech.ai',
     'https://rick2818.github.io',
     'http://localhost:8765',
     'http://localhost:8766',
@@ -52,7 +52,7 @@ const server = http.createServer(async (req, res) => {
   } else if (!reqOrigin) {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Herramientas locales o curl sin cabecera origin
   } else {
-    res.setHeader('Access-Control-Allow-Origin', 'https://destraba.ai');
+    res.setHeader('Access-Control-Allow-Origin', 'https://boltech.ai');
   }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Webhook-Signature, X-Strike-Signature, X-Event-Checksum, X-Idempotency-Key');
@@ -77,7 +77,7 @@ const server = http.createServer(async (req, res) => {
   // Health check
   if (req.method === 'GET' && url.pathname === '/api/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'ok', server: 'destraba-ai-gateway', timestamp: new Date().toISOString() }));
+    res.end(JSON.stringify({ status: 'ok', server: 'boltech-group-gateway', timestamp: new Date().toISOString() }));
     return;
   }
 
@@ -214,7 +214,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`ðŸ›¡ï¸ [DESTRABA AI] Servidor de Pasarelas Bancarias activo en http://localhost:${PORT}`);
+  console.log(`ðŸ›¡ï¸ [Boltech Group] Servidor de Pasarelas Bancarias activo en http://localhost:${PORT}`);
   console.log(`âš¡ Strike Lightning Address: rick2818@strike.me`);
   console.log(`ðŸ’³ Wompi SV Router: Preparado para liquidaciones en USD`);
 });

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * Motor de Cadencias B2B Desatendidas de Destraba AI
+ * Motor de Cadencias B2B Desatendidas de Boltech Group
  * Objetivo: Cubrir los $3,000 USD/mes ($100 USD/día) con ventas éticas y 100% legales.
  */
 
@@ -20,7 +20,7 @@ export const CAMPAIGNS = {
         subject_en: (companyName, domain) => `Perimeter Security Report: Critical flaws detected on ${domain || companyName}`,
         body_es: (companyName, domain = '') => `Estimado equipo directivo y técnico en ${companyName},
 
-Le saluda el equipo de Destraba AI (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).
+Le saluda el equipo de Boltech Group (firma de ingeniería en automatización operativa y ciberseguridad defensiva sobre Google Antigravity y Cloud 24/7).
 
 Durante nuestra inspección perimetral no invasiva sobre ${domain || companyName}, identificamos anomalías críticas en cabeceras de seguridad y endpoints que impactan la seguridad y conversión de su portal.
 
@@ -40,7 +40,7 @@ Audite su portal en vivo o aplique los parches en 60 segundos:
 O liquidación instantánea sin comisiones vía Bitcoin Lightning Network a: rick2818@strike.me
 
 Atentamente,
-Especialista Senior de Ciberseguridad & Ventas Fiduciarias — Destraba AI`,
+Especialista Senior de Ciberseguridad & Ventas Fiduciarias — Boltech Group`,
         body_en: (companyName, domain = '') => `Dear Leadership & Engineering Team at ${companyName},
 
 This is the team at Unblock AI (autonomous operations engineering & defensive cybersecurity built on Google Antigravity & 24/7 Cloud Infrastructure).
@@ -92,7 +92,7 @@ Liquidación directa por Bitcoin Lightning Network: rick2818@strike.me
 Quedo a su disposición si requieren aclaración técnica directa.
 
 Atentamente,
-Especialista en Seguridad y Automatización Fiduciaria — Destraba AI`,
+Especialista en Seguridad y Automatización Fiduciaria — Boltech Group`,
         body_en: (companyName, domain = '') => `Dear Executive Team at ${companyName},
 
 Following up on our perimeter security alert, we recorded a 70-Second Executive Video Briefing so you can inspect the exact technical findings without booking meetings or wading through complex reports:
@@ -133,7 +133,7 @@ Si desean asegurar sus pasarelas de pago y cerrar las brechas antes de que deriv
 
 Liquidación instantánea disponible en Strike Lightning: rick2818@strike.me
 
-Equipo de Operaciones — Destraba AI`,
+Equipo de Operaciones — Boltech Group`,
         body_en: (companyName, domain = '') => `Dear Executive Team at ${companyName},
 
 We are closing the technical audit review window for ${domain || companyName}.
@@ -166,7 +166,7 @@ Operations Team — Unblock AI`
 
 ¿Cuánto tiempo dedica su personal a cobranza manual, responder consultas idénticas por WhatsApp y conciliar transacciones?
 
-Destraba AI implementa un agente soberano en 60 segundos que asume esas tareas en piloto automático 24/7, permitiendo a sus directivos enfocarse en ventas de alto valor.
+Boltech Group implementa un agente soberano en 60 segundos que asume esas tareas en piloto automático 24/7, permitiendo a sus directivos enfocarse en ventas de alto valor.
 
 🎬 Video Demostración (70s):
 https://unblock-shield.vercel.app/?domain=${domain || ''}
@@ -177,7 +177,7 @@ Inicia tu prueba y activa tu agente por $69 USD/mes:
 Liquidación instantánea vía Strike Lightning: rick2818@strike.me
 
 Atentamente,
-Destraba AI`,
+Boltech Group`,
         body_en: (companyName, domain = '') => `Hello team at ${companyName},
 
 How much time does your staff waste on manual payment collection, repetitive WhatsApp inquiries, and bank reconciliation?

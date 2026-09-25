@@ -1,7 +1,7 @@
 /**
  * =============================================================================
  * SUITE AUTOMATIZADA DE 500 PRUEBAS FIDUCIARIAS — PASARELAS DE PAGO Y SEGURIDAD
- * Destraba AI — Wompi SV & Strike Lightning Network
+ * Boltech Group — Wompi SV & Strike Lightning Network
  * =============================================================================
  */
 
@@ -90,7 +90,7 @@ const uniqueWompiRefs = new Set();
 for (let i = 0; i < 75; i++) {
   const planKey = planKeys[i % planKeys.length];
   const wompiLocal = new WompiGateway();
-  const link = await wompiLocal.createPaymentLink(planKey, `empresa_${i}@corp.com`, 'https://destraba.ai/dashboard');
+  const link = await wompiLocal.createPaymentLink(planKey, `empresa_${i}@corp.com`, 'https://boltech.ai/dashboard');
   const isUnique = !uniqueWompiRefs.has(link.reference_id);
   uniqueWompiRefs.add(link.reference_id);
 

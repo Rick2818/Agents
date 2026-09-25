@@ -2,7 +2,7 @@
  * =============================================================================
  * ASISTENTE PERSONAL EJECUTIVO & CONCIERGE SOBERANO — TELEGRAM BOT 24/7 (10/10)
  * =============================================================================
- * Exclusivo para Ricardo (Destraba AI / Sovereign Hub).
+ * Exclusivo para Ricardo (Boltech Group / Sovereign Hub).
  * Zero-Trust Whitelisting | Bilingüe Nativo | Demonio de Calendario Proactivo
  * =============================================================================
  */
@@ -94,7 +94,7 @@ let AUTHORIZED_USER_ID = getStoredAuthorizedUserId();
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY || '').trim();
 const OPENAI_API_KEY = (process.env.OPENAI_API_KEY || '').trim();
 const RESEND_API_KEY = (process.env.RESEND_API_KEY || '').trim();
-const SMTP_FROM = (process.env.SMTP_FROM || 'Destraba AI <onboarding@resend.dev>').trim();
+const SMTP_FROM = (process.env.SMTP_FROM || 'Boltech Group <onboarding@resend.dev>').trim();
 const MASTER_KEY = (process.env.PLATFORM_MASTER_KEY || 'antigravity2026!').trim();
 const GEMINI_MODEL = 'gemini-3.6-flash';
 const TTS_MODEL = 'gemini-2.5-flash-preview-tts';
@@ -699,7 +699,7 @@ Hola <b>${userName}</b>, estoy a tu entera disposición 24/7 en inglés y españ
 ✈️ <b>/vuelos [destino]</b> — Vuelos desde San Salvador (SAL)
 🍷 <b>/restaurantes</b> — Selección gastronómica ejecutiva en San Benito / Escalón
 🎬 <b>/cine</b> — Carteleras de Multiplaza y La Gran Vía
-📊 <b>/proyectos</b> — Métricas del pipeline de Destraba AI
+📊 <b>/proyectos</b> — Métricas del pipeline de Boltech Group
 🎯 <b>/hunter</b> — Estado en vivo del Cazador Autónomo 24/7
 ✉️ <b>/email</b> — Redactar y despachar correos ejecutivos
 
@@ -823,10 +823,10 @@ ${list}
     }
 
     // /PROYECTOS
-    if (lower.startsWith('/proyectos') || lower.startsWith('/pipeline') || lower.includes('destraba')) {
+    if (lower.startsWith('/proyectos') || lower.startsWith('/pipeline') || lower.includes('boltech')) {
       const p = await mcpHub.getProjectTrackingData();
       const msg = `
-📊 <b>REPORTE EJECUTIVO — DESTRABA AI</b>
+📊 <b>REPORTE EJECUTIVO — Boltech Group</b>
 
 • <b>Costo mensual a cubrir:</b> <code>${p.monthly_cost_target_usd}</code>
 • <b>Meta de Break-Even:</b> <code>${p.break_even_needed}</code>
@@ -883,7 +883,7 @@ ${list}
 Ricardo is an elite tech founder, investor, and builder based in San Salvador, El Salvador.
 
 Key Operational Context:
-- Platform: Destraba AI (unblock.ai) — sovereign AI custom agents & perimeter security audits.
+- Platform: Boltech Group (unblock.ai) — sovereign AI custom agents & perimeter security audits.
 - Settlement Rails: Bitcoin / Strike Lightning (rick2818@strike.me), Wompi.
 - Base: San Salvador, El Salvador (SAL Airport, Multiplaza / Gran Vía VIP cinemas, San Benito / Santa Elena restaurants).
 - Connected Tools: Bitcoin MCP, SAL Flights MCP, San Salvador Venues MCP, Google Workspace MCP, Autonomous Hunter 24/7, Resend Outbound Email Engine.
@@ -923,7 +923,7 @@ Language & Demeanor Mandate:
     }
 
     // Fallback defensivo
-    await this.sendMessage(chatId, `🎩 Instrucción registrada, <b>${userName}</b>: <i>"${escapeHtml(text)}"</i>.\n\nPuedes usar comandos directos:\n• ⚡ <b>/btc</b> — Bitcoin & Lightning\n• 📅 <b>/agenda</b> — Reuniones y Alertas\n• ✈️ <b>/vuelos</b> — Vuelos desde SAL\n• 🍷 <b>/restaurantes</b> — Opciones Gastronómicas\n• 📊 <b>/proyectos</b> — Estado de Destraba AI\n• 🎯 <b>/hunter</b> — Cazador Autónomo 24/7`);
+    await this.sendMessage(chatId, `🎩 Instrucción registrada, <b>${userName}</b>: <i>"${escapeHtml(text)}"</i>.\n\nPuedes usar comandos directos:\n• ⚡ <b>/btc</b> — Bitcoin & Lightning\n• 📅 <b>/agenda</b> — Reuniones y Alertas\n• ✈️ <b>/vuelos</b> — Vuelos desde SAL\n• 🍷 <b>/restaurantes</b> — Opciones Gastronómicas\n• 📊 <b>/proyectos</b> — Estado de Boltech Group\n• 🎯 <b>/hunter</b> — Cazador Autónomo 24/7`);
   }
 
   async startPolling() {

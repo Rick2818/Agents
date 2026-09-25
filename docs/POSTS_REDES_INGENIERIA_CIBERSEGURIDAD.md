@@ -5,7 +5,7 @@
 > **A los ingenieros no se les vende con adjetivos; se les convence con código limpio, arquitectura transparente y eliminación de alertas a las 3:00 AM.**  
 > URL Oficial Global: `https://unblock-shield.vercel.app/?lang=en`  
 > URL Oficial LatAm: `https://unblock-shield.vercel.app/?lang=es`  
-> Soporte Oficial: `ricardo.destrabaai@gmail.com`
+> Soporte Oficial: `ricardo.boltechai@gmail.com`
 
 ---
 
@@ -110,7 +110,7 @@ We built a non-invasive external inspector that evaluates your live headers in 1
 2/ Test your public domain in 15 seconds for free:
 👉 https://unblock-shield.vercel.app/?lang=en
 
-(Or ping ricardo.destrabaai@gmail.com for enterprise multi-agent fleet setups).
+(Or ping ricardo.boltechai@gmail.com for enterprise multi-agent fleet setups).
 ```
 
 ---

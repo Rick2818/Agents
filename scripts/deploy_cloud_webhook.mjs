@@ -52,7 +52,7 @@ async function getWebhookInfo() {
 async function setCloudWebhook(vercelUrl) {
   let webhookSecret = (process.env.TELEGRAM_WEBHOOK_SECRET || '').trim();
   if (!webhookSecret) {
-    webhookSecret = `destraba_sec_${crypto.randomBytes(16).toString('hex')}`;
+    webhookSecret = `boltech_sec_${crypto.randomBytes(16).toString('hex')}`;
     process.env.TELEGRAM_WEBHOOK_SECRET = webhookSecret;
     // Persistir en .env local
     try {

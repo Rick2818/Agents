@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * AUDITOR Y DIAGNÓSTICO PROFUNDO DE CORREO & RESEND (DESTRABA AI)
+ * AUDITOR Y DIAGNÓSTICO PROFUNDO DE CORREO & RESEND (Boltech Group)
  * =============================================================================
  * Verifica en tiempo real:
  *  1. Resolución DNS IPv4/IPv6 hacia api.resend.com y smtp.gmail.com
@@ -24,7 +24,7 @@ import {
 try { process.loadEnvFile?.(); } catch (e) {}
 
 console.log(`\n=============================================================================`);
-console.log(`🛡️  AUDITORÍA FORENSE DE TRANSPORTE DE CORREO (DESTRABA AI 3.0)`);
+console.log(`🛡️  AUDITORÍA FORENSE DE TRANSPORTE DE CORREO (Boltech Group 3.0)`);
 console.log(`=============================================================================\n`);
 
 // 1. Diagnóstico DNS
@@ -74,7 +74,7 @@ if (resendKey) {
 console.log(`\n3. [GMAIL SMTP] Verificando transporte SMTPS nativo...`);
 const smtpHost = process.env.SMTP_HOST || 'smtp.gmail.com';
 const smtpPort = parseInt(process.env.SMTP_PORT, 10) || 465;
-const smtpUser = process.env.SMTP_USER || 'ricardo.destrabaai@gmail.com';
+const smtpUser = process.env.SMTP_USER || 'ricardo.boltechai@gmail.com';
 const smtpPass = process.env.SMTP_PASS;
 
 console.log(`  • Servidor: ${smtpHost}:${smtpPort}`);
@@ -112,7 +112,7 @@ if (smtpPass && smtpPass.trim().length >= 8) {
   console.log(`     3. En tu .env agrega:`);
   console.log(`        SMTP_HOST=smtp.gmail.com`);
   console.log(`        SMTP_PORT=465`);
-  console.log(`        SMTP_USER=ricardo.destrabaai@gmail.com`);
+  console.log(`        SMTP_USER=ricardo.boltechai@gmail.com`);
   console.log(`        SMTP_PASS=tu_contraseña_de_16_letras`);
 }
 

@@ -44,9 +44,9 @@ En marketing digital B2B para MicroSaaS, el 90% de los proyectos fracasan porque
 
 ## 🎯 3. Marco Estratégico Harvard: El Modelo de las 5 Cs y STP
 
-### 3.1. Las 5 Cs Aplicadas a Destraba AI
+### 3.1. Las 5 Cs Aplicadas a Boltech Group
 1. **Contexto (Context):** Las PYMEs y marcas D2C en LatAm y España enfrentan una crisis de rentabilidad por aumento de costos de nómina, saturación de consultas por WhatsApp y pérdida de carritos por atención tardía (>30 minutos).
-2. **Compañía (Company):** Destraba AI ofrece agentes soberanos y auditorías perimetrales no invasivas desplegables en 60 segundos, con pago micro sin fricción (\$19 - \$69 USD) y sin tocar código sensible.
+2. **Compañía (Company):** Boltech Group ofrece agentes soberanos y auditorías perimetrales no invasivas desplegables en 60 segundos, con pago micro sin fricción (\$19 - \$69 USD) y sin tocar código sensible.
 3. **Clientes (Customers):** Fundadores, Directores de Operaciones y Líderes de E-commerce de 10 a 100 empleados. Tienen tarjeta corporativa, poder de decisión autónomo y cero paciencia para presentaciones de ventas corporativas de 45 minutos.
 4. **Colaboradores (Collaborators):** Rieles de liquidación transfronteriza instantánea (Strike Lightning, Wompi, Stripe) y motores de automatización en la nube (GitHub Actions, Vercel).
 5. **Competidores (Competitors):** Software legacy hiper-costoso (Zendesk, Salesforce, agencias tradicionales de nómina) que exigen contratos anuales de \$5,000+ USD e implementaciones de 3 meses.
@@ -82,11 +82,11 @@ Para aquellos leads que visitan la web o reciben el impacto en frío pero no com
 
 ### 🏅 Prioridad 4: Alianzas y Siembra en Comunidades de E-commerce (Canal Indirecto)
 * **Acceso a Concentraciones de PYMEs:** Grupos de Shopify Merchants LatAm, comunidades de WooCommerce en Discord, foros de emprendedores y cámaras de comercio electrónico (CCCE Colombia, AMVO México).
-* **Propuesta Win-Win:** Compartir diagnósticos agregados de la industria (ej. *«Reporte Q3: Estado de la seguridad y respuesta en 50 tiendas de moda online en Colombia»*). Posiciona a Destraba AI como autoridad neutral y canaliza tráfico calificado masivo hacia la web.
+* **Propuesta Win-Win:** Compartir diagnósticos agregados de la industria (ej. *«Reporte Q3: Estado de la seguridad y respuesta en 50 tiendas de moda online en Colombia»*). Posiciona a Boltech Group como autoridad neutral y canaliza tráfico calificado masivo hacia la web.
 
 ### 🎖️ Prioridad 5: Viral Loop y Retención de Clientes (Marketing de Referidos B2B)
 * **Loop de Auditoría en Cada Entrega:** Cada reporte generado en PDF o ZIP incluye al pie:  
-  *«¿Trabajas con proveedores o clientes logísticos? Audita a tu contraparte gratis en Destraba AI y obtén 1 mes gratis de Plan Pro al referir a una empresa.»*
+  *«¿Trabajas con proveedores o clientes logísticos? Audita a tu contraparte gratis en Boltech Group y obtén 1 mes gratis de Plan Pro al referir a una empresa.»*
 * **Efecto Red:** Un cliente satisfecho que comparte su diagnóstico con sus socios comerciales genera nuevos leads B2B calificados con costo de adquisición (\$0 CAC).
 
 ### 🛡️ Prioridad 6: Expansión a Comunidades de Ingeniería, DevOps & Ciberseguridad (Canal Técnico)
@@ -110,7 +110,7 @@ A los ingenieros de redes, administradores de sistemas (SysAdmins) y líderes de
 | Fase | Plazo | Entregable Concreto | Responsable / Mecánica | Métrica de Éxito |
 | :---: | :---: | :--- | :--- | :--- |
 | **Fase 1** | **Hoy (Inmediato)** | Integración del Catálogo PYME de 30 leads y validación de motor de despacho a 25/día. | `send_smtp_dispatch.mjs` + GitHub Actions | 100% de la cola despachada por Gmail SMTPS. |
-| **Fase 2** | **Semana 1** | Lanzamiento del Escáner Rápido en `index.html` para captura de leads inbound. | Frontend Destraba AI + API `/api/scan` | Tasa de conversión de visitante a lead > 8%. |
+| **Fase 2** | **Semana 1** | Lanzamiento del Escáner Rápido en `index.html` para captura de leads inbound. | Frontend Boltech Group + API `/api/scan` | Tasa de conversión de visitante a lead > 8%. |
 | **Fase 3** | **Semana 1-2** | Publicación de los primeros 6 artículos/casos de autoridad en LinkedIn y Buffer. | `marketing-director` + Distribución Cloud | +500 visitas de decisores B2B a la web. |
 | **Fase 4** | **Semana 2** | Activación del canal técnico en Reddit (`r/sysadmin`) y Hacker News (Show HN). | Post técnico + `unblock-shield` | +1,000 escaneos técnicos perimetrales. |
 | **Fase 5** | **Semana 2-3** | Activación del bucle de retargeting educativo (Día 2, 4 y 7) en el pipeline. | `campaign_engine.mjs` | Tasa de respuesta acumulada > 18%. |

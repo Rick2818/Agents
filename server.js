@@ -231,7 +231,7 @@ app.get('/', (req, res) => {
 app.get('/app', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
-app.get('/destraba', (req, res) => {
+app.get('/boltech', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 app.get('/boltech', (req, res) => {

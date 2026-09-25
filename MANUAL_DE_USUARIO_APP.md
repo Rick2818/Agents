@@ -1,13 +1,13 @@
-# ðŸ“– Manual de Usuario Oficial â€” Destraba AI
+# ðŸ“– Manual de Usuario Oficial â€” Boltech Group
 
 > **Slogan & Llamado a la Acción:**  
 > *"Erradica tus cuellos de botella en 60 segundos. Activa tu agente soberano hoy y pon tu negocio en piloto automático."*
 
 ---
 
-## ðŸŒŸ Bienvenido a Destraba AI
+## ðŸŒŸ Bienvenido a Boltech Group
 
-**Destraba AI** es la plataforma fiduciaria de automatización desatendida impulsada por **Gemini Flash 2.5** para **Google Antigravity**. Diseñada específicamente para directores ejecutivos (CEOs, CFOs, COOs y dueños de empresas), transforma cualquier **dolor operativo no resuelto** en un agente de software inteligente y autónomo con **cero intervención humana**.
+**Boltech Group** es la plataforma fiduciaria de automatización desatendida impulsada por **Gemini Flash 2.5** para **Google Antigravity**. Diseñada específicamente para directores ejecutivos (CEOs, CFOs, COOs y dueños de empresas), transforma cualquier **dolor operativo no resuelto** en un agente de software inteligente y autónomo con **cero intervención humana**.
 
 ---
 
@@ -107,7 +107,7 @@ Puedes consultar las tarifas en cualquier momento desde el botÃ³n **`ðŸ·�
 Si tienes dudas sobre la configuración de tu agente, conectores MCP o pasarelas de pago, nuestro equipo fiduciario está a tu disposición:
 
 * **Correo Oficial de Soporte Técnico:**  
-  ðŸ“§ [`soporte@destraba.ai`](mailto:soporte@destraba.ai)
+  ðŸ“§ [`soporte@boltech.ai`](mailto:soporte@boltech.ai)
 * **Horario de Respuesta:** Menos de 4 horas hábiles.
 * **Compromiso Fiduciario:** Cero respuestas automáticas vacías. Soporte técnico directo y resolución verificada.
 

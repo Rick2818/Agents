@@ -1,5 +1,5 @@
 # 🏆 PLAN DE ACCIÓN COMERCIAL Y ESTRATEGIA DE VENTAS GANAR-GANAR GRADO 10 HARVARD
-## Destraba AI / MicroSaaS de Agentes Autónomos 24/7 B2B
+## Boltech Group / MicroSaaS de Agentes Autónomos 24/7 B2B
 > **Axioma Maestro Fundacional:**  
 > **«SIN CLIENTES NO HAY INGRESOS, Y SIN INGRESOS NO HAY TRABAJO.»**  
 > Todo agente, arquitectura técnica, script de software, correo electrónico y flujo automatizado existe con un único propósito fiduciario irrenunciable: **adquirir, deleitar, cerrar y retener clientes de pago reales para generar flujo de caja recurrente en USD con cero fricción**.
@@ -76,7 +76,7 @@ ick2818@strike.me) | **Stripe** | **Liquidación instantánea subsegundo, comisi
 | **12:00 - 01:00 PM** | **Bloque 3: Triaje & Cierre en Caliente** | Respuesta en <5 min con reframing Harvard y despacho de enlaces directos ( /  USD). | 100% consultas respondidas. |
 | **01:00 - 02:00 PM** | *Receso Fiduciario* | Pausa operativa. | — |
 | **02:00 - 03:30 PM** | **Bloque 4: Seguimiento Impacto 2 & 3** | Envío de follow-ups con matemáticas de ROI a prospectos calificados en pipeline. | **10 follow-ups de alta presión de valor.** |
-| **03:30 - 05:00 PM** | **Bloque 5: Cierre & Activación Cloud** | Acompañamiento en 1 clic para activación instantánea en https://destraba-ai.vercel.app. | **Mínimo 3 cierres intentados.** |
+| **03:30 - 05:00 PM** | **Bloque 5: Cierre & Activación Cloud** | Acompañamiento en 1 clic para activación instantánea en https://boltech-group.vercel.app. | **Mínimo 3 cierres intentados.** |
 | **05:00 - 06:00 PM** | **Bloque 6: Cierre de Caja Fiduciario** | Conciliación de balance en USD/Strike y emisión del informe diario a Telegram. | Reporte fiduciario completado. |
 
 ---
@@ -93,9 +93,9 @@ ick2818@strike.me) | **Stripe** | **Liquidación instantánea subsegundo, comisi
 ---
 
 ## 🔗 Pasarelas y Enlaces Operativos
-* **Plataforma Web Cloud 24/7:** https://destraba-ai.vercel.app
-* **Checkout Plan Flash ():** https://destraba-ai.vercel.app/?plan=flash
-* **Checkout Plan Pro ():** https://destraba-ai.vercel.app/?plan=pro
-* **Checkout Plan Suite ():** https://destraba-ai.vercel.app/?plan=suite
+* **Plataforma Web Cloud 24/7:** https://boltech-group.vercel.app
+* **Checkout Plan Flash ():** https://boltech-group.vercel.app/?plan=flash
+* **Checkout Plan Pro ():** https://boltech-group.vercel.app/?plan=pro
+* **Checkout Plan Suite ():** https://boltech-group.vercel.app/?plan=suite
 * **Cobro Instantáneo Strike Lightning (0% Comisiones):** https://strike.me/rick2818 (
 ick2818@strike.me)

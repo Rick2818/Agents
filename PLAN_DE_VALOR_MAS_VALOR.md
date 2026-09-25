@@ -13,10 +13,10 @@ En el 90% de las empresas en El Salvador y Latinoamérica, el dueño y sus emple
 - Vendedores perdiendo el 70% de su tiempo redactando correos fríos y actualizando tablas de Excel en vez de negociar.
 - **El Dueño:** Convertido en el "bombero en jefe", resolviendo urgencias de inventario, reclamos de clientes y trabas administrativas en lugar de cerrar alianzas estratégicas.
 
-### La Ecuación de Transformación Destraba AI / Unblock AI:
+### La Ecuación de Transformación Boltech Group / Unblock AI:
 $$\text{Valor Empresarial} = \frac{\text{Tiempo dedicado a Estrategia, Expansión y Cierres High-Ticket}}{\text{Horas consumidas en tareas repetitivas y fricción interna}}$$
 
-Al delegar el 100% de las tareas reactivas a los agentes de **Destraba AI**, la empresa reduce costos de nómina improductiva y redirige el talento hacia actividades que realmente mueven la aguja del flujo de caja.
+Al delegar el 100% de las tareas reactivas a los agentes de **Boltech Group**, la empresa reduce costos de nómina improductiva y redirige el talento hacia actividades que realmente mueven la aguja del flujo de caja.
 
 ---
 
@@ -34,7 +34,7 @@ Al delegar el 100% de las tareas reactivas a los agentes de **Destraba AI**, la 
 
 ## 👑 3. El Despegue del Dueño: De Autoempleado a Arquitecto de Crecimiento
 
-Cuando **Destraba AI** asume las fricciones del día a día, el dueño recupera entre **20 y 30 horas semanales**. Este tiempo liberado se invierte en los 4 pilares de máximo rendimiento:
+Cuando **Boltech Group** asume las fricciones del día a día, el dueño recupera entre **20 y 30 horas semanales**. Este tiempo liberado se invierte en los 4 pilares de máximo rendimiento:
 
 1. **Fusiones, Alianzas y Grandes Cuentas:** Negociar contratos que representan el 50% de la facturación anual, sin el estrés de estar revisando si el pedido de un cliente minorista ya salió de bodega.
 2. **Optimización de Márgenes y Precios:** Auditar con el agente financiero la rentabilidad real de cada línea de producto o servicio, eliminando clientes tóxicos y aumentando precios estratégicos.
@@ -55,12 +55,12 @@ El agente de ventas outbound utilizará este plan como su **argumento de venta f
 >  
 > La mayoría de directores con los que converso en El Salvador me dicen lo mismo: tienen a personal talentoso atrapado 4 horas al día respondiendo las mismas preguntas, persiguiendo comprobantes y apagando fuegos operativos.  
 >  
-> En **Destraba AI** no vendemos chatbots. Implementamos agentes autónomos que absorben el 100% de ese trabajo rutinario en 60 segundos, liberando a tu equipo para vender y a ti para hacer crecer la empresa.  
+> En **Boltech Group** no vendemos chatbots. Implementamos agentes autónomos que absorben el 100% de ese trabajo rutinario en 60 segundos, liberando a tu equipo para vender y a ti para hacer crecer la empresa.  
 >  
-> ¿Te gustaría ver un diagnóstico flash de 3 minutos de cómo destrabar tus cuellos de botella este mes?  
+> ¿Te gustaría ver un diagnóstico flash de 3 minutos de cómo boltechr tus cuellos de botella este mes?  
 >  
 > Saludos,  
-> **Especialista en Ventas & Cierre — Destraba AI**
+> **Especialista en Ventas & Cierre — Boltech Group**
 
 ### Script de Impacto 2: El Costo Oculto de la Inacción (Aversión a la Pérdida)
 > **Asunto:** El costo de $1,200 USD/mes que tu empresa está pagando sin darse cuenta  
@@ -71,7 +71,7 @@ El agente de ventas outbound utilizará este plan como su **argumento de venta f
 > Por una fracción de eso ($79 USD/mes), nuestro agente de ventas o cobranza corre desatendido 24/7, sin cargas sociales, sin vacaciones y con auditoría fiduciaria exacta.  
 >  
 > Aquí puedes ver cómo funciona la suite completa en menos de 60 segundos:  
-> [Enlace a Destraba AI / Unblock AI]  
+> [Enlace a Boltech Group / Unblock AI]  
 >  
 > ¿Hablamos 10 minutos el jueves?
 
@@ -86,7 +86,7 @@ El agente de ventas outbound utilizará este plan como su **argumento de venta f
 > [Link de Cobro Seguro]  
 >  
 > Quedo a tu disposición,  
-> **Destraba AI**
+> **Boltech Group**
 
 ---
 
@@ -100,4 +100,4 @@ Para asegurar que la integración aporte valor continuo y medible:
 4. **Margen Neto Operativo:** Incremento mínimo del 18% al no requerir nuevas contrataciones para escalar el volumen de negocio.
 
 ---
-*Destraba AI / Unblock AI © 2026. Plan de Valor Corporativo Inmutable.*
+*Boltech Group / Unblock AI © 2026. Plan de Valor Corporativo Inmutable.*

@@ -23,9 +23,9 @@
 - **Enfoque:** Auditoría clínica y redline automatizado de contratos comerciales B2B en menos de 10 segundos en memoria RAM volátil (GDPR Art. 28, cero retención en disco), blindando entre \$3,500 y \$18,500 USD por contrato en pasivos ocultos antes de la firma.
 - **Acceso:** [https://audiflowai.com](https://audiflowai.com)
 
-### 3. ⚡ Destraba AI / Custom Autonomous Agents
+### 3. ⚡ Boltech Group / Custom Autonomous Agents
 - **Enfoque:** Plataforma fiduciaria B2B para transformar dolores operativos no resueltos en Custom Agents autónomos listos para producción en Google Antigravity, impulsados nativamente por Google Gemini y desplegados 24/7 en Vercel Serverless.
-- **Acceso:** [https://destraba-ai.vercel.app](https://destraba-ai.vercel.app)
+- **Acceso:** [https://boltech-group.vercel.app](https://boltech-group.vercel.app)
 
 ---
 

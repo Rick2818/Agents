@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * MOTOR B2B APOLLO.IO & ENRIQUECIMIENTO FIDUCIARIO — UNBLOCK AI / DESTRABA AI
+ * MOTOR B2B APOLLO.IO & ENRIQUECIMIENTO FIDUCIARIO — UNBLOCK AI / Boltech Group
  * Optimizado para cuenta Apollo.io de Ricardo (75 Créditos Gratuitos Activos)
  * - organizations/enrich: Extrae datos corporativos, teléfonos y tecnologías
  * - contacts/search: Extrae contactos guardados en Apollo para despacho desatendido

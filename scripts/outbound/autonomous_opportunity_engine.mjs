@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * DESTRABA AI — RECOLECTOR AUTÓNOMO DE OPORTUNIDADES B2B EN INTERNET
+ * Boltech Group — RECOLECTOR AUTÓNOMO DE OPORTUNIDADES B2B EN INTERNET
  * Objetivo: Monitorear vacantes, fricción operativa y prospectos en Colombia,
  * México y Chile para cubrir la meta de $3,000 USD/mes ($100 USD/día).
  * Liquidación fiduciaria: rick2818@strike.me
@@ -89,7 +89,7 @@ export class AutonomousOpportunityEngine {
       outboundCadence: {
         impact1: {
           subject: `Elimina cuellos de botella en la operación de ${companyData.name}`,
-          body: `Hola,\n\nIdentificamos que empresas en el sector de ${companyData.industry} pierden hasta 90 horas mensuales atendiendo consultas manuales y rastreos.\n\nDestraba AI implementa un agente soberano en 60 segundos que asume la operación 24/7.\n\nActiva tu agente aquí por $69 USD/mes:\nhttps://rick2818.github.io/Agents/?plan=pro\n\nO liquidación directa vía Lightning a rick2818@strike.me.\n\nAtentamente,\nDestraba AI`
+          body: `Hola,\n\nIdentificamos que empresas en el sector de ${companyData.industry} pierden hasta 90 horas mensuales atendiendo consultas manuales y rastreos.\n\nBoltech Group implementa un agente soberano en 60 segundos que asume la operación 24/7.\n\nActiva tu agente aquí por $69 USD/mes:\nhttps://rick2818.github.io/Agents/?plan=pro\n\nO liquidación directa vía Lightning a rick2818@strike.me.\n\nAtentamente,\nBoltech Group`
         }
       }
     };
