@@ -42,7 +42,7 @@ for (let i = 0; i < apollo.length; i++) {
       industry: lead.industry,
       technologies: lead.technologies,
       operationalPain: `Estado de Cabeceras: ${lead.securityStatus} (Latencia: ${lead.latencyMs}ms)`,
-      offer: '$19 USD (Auditoría Forense Flash + Parche) / $69 USD (Agente Autónomo 24/7)',
+      offer: '$19 USD (auditoría técnica defensiva Flash + Parche) / $69 USD (Agente Autónomo 24/7)',
       strikePaymentDestination: 'rick2818@strike.me',
       checkoutUrl: lead.checkoutFlashUrl,
       visualAuditUrl: lead.visualAuditUrl,

@@ -55,7 +55,7 @@ $$\text{Clientes Necesarios} = \frac{\$9,000\text{ USD/mes}}{\$75\text{ USD/agen
 #### Ruta 2: Modelo de Licenciamiento Diario (Nuevas Adquisiciones por Día)
 Si se monetizan licencias directas diariamente:
 * **4 Licencias Pro / Agentes Especializados** (\$69 - \$79 USD) = **\$276 - \$316 USD**
-* **2 Diagnósticos Forenses Flash** (\$19 USD) = **\$38 USD**
+* **2 Diagnósticos técnicos Flash** (\$19 USD) = **\$38 USD**
 * **Total Diario Facturado:** **\$314 - \$354 USD/día** ✅ *(Supera la cuota de \$300 USD/día)*
 
 ---

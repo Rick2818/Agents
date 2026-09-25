@@ -4,7 +4,7 @@
  * =============================================================================
  * - Ingesta CSV oficial de Apollo.io (Lista 1)
  * - Validación Zero-Bounce en RAM (deep-email-validator)
- * - Inspección Forense Dual en Vivo (Vulnerabilidades perimetrales + Latencia)
+ * - Inspección técnico Dual en Vivo (Vulnerabilidades perimetrales + Latencia)
  * - Generación de Enlaces y Briefs Fiduciarios ($19 Flash / $69 Pro / rick2818@strike.me)
  * - Sincronización Inmutable a Airtable Master y Pipeline Activo
  * =============================================================================
@@ -118,7 +118,7 @@ export async function processApolloExportBatch() {
       continue;
     }
 
-    // 2. Inspección Forense Dual en Vivo
+    // 2. Inspección técnico Dual en Vivo
     const audit = await runDualEngineAudit(cleanDomain);
 
     // 3. Generación Visual Explee

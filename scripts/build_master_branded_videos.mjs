@@ -42,7 +42,7 @@ const SCENES_ES = [
   {
     id: 4,
     file: 'scene_4.jpg',
-    text: "Entrada con micro-riesgo: descarga tu informe forense con parches listos por solo diecinueve dólares, con privacidad bancaria SOC-2 y Garantía Total: si en siete días no te ahorra diez horas de trabajo, te devolvemos el cien por ciento."
+    text: "Entrada con micro-riesgo: descarga tu informe técnico ejecutivo con parches listos por solo diecinueve dólares, con privacidad bancaria SOC-2 y Garantía Total: si en siete días no te ahorra diez horas de trabajo, te devolvemos el cien por ciento."
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ const SCENES_EN = [
   {
     id: 4,
     file: 'scene_4.jpg',
-    text: "Micro-risk entry: download your forensic report with ready-to-deploy patches for just nineteen dollars, backed by SOC-2 banking privacy and our Unconditional 7-Day Guarantee: if it doesn't save you 10 hours, you get a full refund."
+    text: "Micro-risk entry: download your executive diagnostic report with ready-to-deploy patches for just nineteen dollars, backed by SOC-2 banking privacy and our Unconditional 7-Day Guarantee: if it doesn't save you 10 hours, you get a full refund."
   },
   {
     id: 5,
@@ -120,7 +120,7 @@ async function renderVideo1(lang = 'es') {
     console.log(`  > Escena ${s.id}: Audio ${audioDuration.toFixed(2)}s | Clip ${clipDuration.toFixed(2)}s...`);
     
     // Filtro visual cinematográfico con color grading cálido (ámbar, ISO 1500 filmic depth)
-    const vf = `scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,eq=contrast=1.06:brightness=0.01:saturation=1.12`;
+    const vf = `scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,eq=contrast=1.06:brightness=0.01:saturation=1.12,format=yuv420p`;
 
     const cmd = `ffmpeg -y -loop 1 -i "${imgPath}" -i "${audioPath}" -c:v libx264 -preset medium -crf 18 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -t ${clipDuration} -vf "${vf}" -shortest "${clipOut}"`;
     execSync(cmd, { stdio: 'ignore' });
@@ -136,13 +136,19 @@ async function renderVideo1(lang = 'es') {
 
   // Estampar el Logo Corporativo Dorado en la esquina superior izquierda
   console.log(`  🌟 Aplicando Logo Corporativo Dorado en la esquina superior izquierda (overlay=40:40)...`);
+  const brandedWorkOut = path.join(WORK_DIR, `branded_${lang}.mp4`);
   const outputFinal = path.join(OUTPUT_DIR, lang === 'es' ? 'Unblock_AI_Shield_Oficial.mp4' : 'Unblock_AI_Shield_Oficial_en.mp4');
   const corporateCopy = path.join(OUTPUT_DIR, lang === 'es' ? 'boltech_corporate_5scenes_es.mp4' : 'boltech_corporate_5scenes_en.mp4');
 
-  const stampCmd = `ffmpeg -y -i "${rawVideo}" -i "${LOGO_PATH}" -filter_complex "[1:v]scale=240:-1[logo];[0:v][logo]overlay=40:40" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a copy "${outputFinal}"`;
+  const stampCmd = `ffmpeg -y -i "${rawVideo}" -i "${LOGO_PATH}" -filter_complex "[0:v]format=yuv420p[base];[1:v]scale=240:-1[logo];[base][logo]overlay=40:40,format=yuv420p[out]" -map "[out]" -map 0:a? -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 192k "${brandedWorkOut}"`;
   execSync(stampCmd, { stdio: 'inherit' });
 
-  fs.copyFileSync(outputFinal, corporateCopy);
+  try {
+    fs.copyFileSync(brandedWorkOut, outputFinal);
+    fs.copyFileSync(brandedWorkOut, corporateCopy);
+  } catch (err) {
+    console.warn('⚠️ Nota de copia:', err.message);
+  }
   console.log(`  ✅ Video 1 (${lang.toUpperCase()}) finalizado: ${outputFinal}`);
 }
 
@@ -151,16 +157,22 @@ async function brandVideo2() {
   
   const v2_es_raw = path.resolve('video-exec/gerente-bottleneck/gerente_bottleneck_agente.mp4');
   if (fs.existsSync(v2_es_raw)) {
+    const brandedV2WorkOut = path.join(WORK_DIR, 'branded_v2.mp4');
     const v2_es_out = path.join(OUTPUT_DIR, 'gerente_bottleneck_agente_es.mp4');
     const v2_en_out = path.join(OUTPUT_DIR, 'gerente_bottleneck_agente_en.mp4');
     const v2_root_out = path.join(OUTPUT_DIR, 'gerente_bottleneck_agente.mp4');
 
     console.log('  🌟 Aplicando logo dorado a Video 2 en la esquina superior izquierda...');
-    const cmd = `ffmpeg -y -i "${v2_es_raw}" -i "${LOGO_PATH}" -filter_complex "[1:v]scale=240:-1[logo];[0:v][logo]overlay=40:40" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a copy "${v2_es_out}"`;
+    const cmd = `ffmpeg -y -i "${v2_es_raw}" -i "${LOGO_PATH}" -filter_complex "[0:v]format=yuv420p[base];[1:v]scale=240:-1[logo];[base][logo]overlay=40:40,format=yuv420p[out]" -map "[out]" -map 0:a? -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 192k "${brandedV2WorkOut}"`;
     execSync(cmd, { stdio: 'ignore' });
     
-    fs.copyFileSync(v2_es_out, v2_en_out);
-    fs.copyFileSync(v2_es_out, v2_root_out);
+    try {
+      fs.copyFileSync(brandedV2WorkOut, v2_es_out);
+      fs.copyFileSync(brandedV2WorkOut, v2_en_out);
+      fs.copyFileSync(brandedV2WorkOut, v2_root_out);
+    } catch (err) {
+      console.warn('⚠️ Nota de copia V2:', err.message);
+    }
     console.log(`  ✅ Video 2 (Custom Agents) actualizado con logo en ${v2_es_out}`);
   }
 }

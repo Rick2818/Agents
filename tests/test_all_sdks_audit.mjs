@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * BOLTECH GROUP — AUDITORÍA FORENSE INTEGRAL DE SDKS Y SERVIDOR MCP
+ * BOLTECH GROUP — auditoría técnica defensiva INTEGRAL DE SDKS Y SERVIDOR MCP
  * =============================================================================
  * Valida la instalación, instanciación en RAM y operatividad de:
  *  - 12 SDKs Fiduciarios Base (Institucionales de Ayer)
