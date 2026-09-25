@@ -131,7 +131,7 @@ Senior Solutions & Cyber-Defense Team — Unblock AI`
 
 Le escribo en seguimiento a nuestra notificación perimetral previa con una premisa clara:
 
-No vendemos horas de consultoría teórica, diagnósticos abstractos ni reuniones interminables. Entregamos soluciones llave en mano y la auténtica paz mental de operar 24/7 sin riesgos mientras usted y su equipo descansan.
+No ofrecemos horas de consultoría teórica, diagnósticos abstractos ni reuniones interminables. Entregamos soluciones llave en mano y la auténtica paz mental de operar 24/7 sin riesgos mientras usted y su equipo descansan.
 
 ¿Cuánto vale para su dirección tener la certeza absoluta de que sus pasarelas de pago no fallarán silenciosamente, que no existen cabeceras vulnerables a inyección y que los datos de sus clientes están blindados?
 
