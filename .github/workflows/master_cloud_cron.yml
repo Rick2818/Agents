@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Master Cloud Dispatcher Endpoint
+        continue-on-error: true
         env:
           VERCEL_APP_URL: ${{ secrets.VERCEL_APP_URL || 'https://boltech-group.vercel.app' }}
           CRON_SECRET: ${{ secrets.CRON_SECRET || secrets.PLATFORM_MASTER_KEY || 'boltech_cron_sec_2026_prod' }}

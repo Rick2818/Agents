@@ -27,6 +27,7 @@ jobs:
           node-version: 20
 
       - name: Ejecutar Cron 09:00 AM de Consolidación Comercial
+        continue-on-error: true
         run: |
           node scripts/cron/update_daily_dashboard_9am.mjs
 

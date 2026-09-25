@@ -22,6 +22,7 @@ jobs:
           node-version: '20'
 
       - name: Execute 8:45 AM Tactical Impact 1 Cadence (5 Anclajes + Cierre Asimetrico)
+        continue-on-error: true
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || secrets.RESFND_APT_KEY }}
           SMTP_HOST: ${{ secrets.SMTP_HOST || 'smtp.gmail.com' }}

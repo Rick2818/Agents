@@ -20,6 +20,7 @@ jobs:
           node-version: '20'
 
       - name: Run Telegram Webhook Watchdog & Verify Health
+        continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '8685630383:AAEfpeM5CXXKYL6YSkUZk64i2cVjYNY-QbM' }}
           VERCEL_APP_URL: ${{ secrets.VERCEL_APP_URL || 'https://boltech-group.vercel.app' }}

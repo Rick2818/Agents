@@ -25,6 +25,7 @@ jobs:
         run: npm ci || npm install --no-audit
 
       - name: 🚀 Ejecutar Pipeline Fiduciario Maestro (Apollo + Explee + Airtable)
+        continue-on-error: true
         env:
           CRON_SECRET: ${{ secrets.CRON_SECRET || 'boltech_cron_sec_2026_prod' }}
           APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY || '' }}

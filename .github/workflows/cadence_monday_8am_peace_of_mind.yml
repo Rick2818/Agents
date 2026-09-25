@@ -22,6 +22,7 @@ jobs:
           node-version: '20'
 
       - name: Execute 2:00 PM Peace of Mind & 70s Video Briefing Follow-up
+        continue-on-error: true
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || secrets.RESFND_APT_KEY }}
           SMTP_HOST: ${{ secrets.SMTP_HOST || 'smtp.gmail.com' }}

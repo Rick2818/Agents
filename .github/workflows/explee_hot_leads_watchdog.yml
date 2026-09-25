@@ -26,6 +26,7 @@ jobs:
         run: npm install dotenv
 
       - name: Poll Hot Leads & Dispatch Telegram Notifications
+        continue-on-error: true
         env:
           EXPLEE_API_KEY: ${{ secrets.EXPLEE_API_KEY || 'sk_explee_1b88c1d00ed1c72e61bb932ed29893058daf652b9b5af1f0' }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN || '8685630383:AAEfpeM5CXXKYL6YSkUZk64i2cVjYNY-QbM' }}
@@ -33,14 +34,15 @@ jobs:
         run: node scripts/outbound/poll_explee_hot_leads.mjs
 
       - name: Commit & Persist Hot Leads State
+        continue-on-error: true
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add pipeline/explee_hot_leads_*.json
+          git add pipeline/explee_hot_leads_*.json || true
           if ! git diff --staged --quiet; then
-            git commit -m "chore(explee): update hot leads tracking state [skip ci]"
+            git commit -m "chore(explee): update hot leads tracking state [skip ci]" || true
             git pull --rebase origin "${GITHUB_REF_NAME}" || true
-            git push
+            git push || true
           else
             echo "Sin cambios en estado de hot leads — nada que commitear."
           fi

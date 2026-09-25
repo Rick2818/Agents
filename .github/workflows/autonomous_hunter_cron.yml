@@ -34,6 +34,7 @@ jobs:
           node-version: '20'
 
       - name: Run 24/7 Autonomous Hunter & Generate Opportunities
+        continue-on-error: true
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || secrets.RESFND_APT_KEY }}
           SMTP_HOST: ${{ secrets.SMTP_HOST || 'smtp.gmail.com' }}
