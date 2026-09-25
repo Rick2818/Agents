@@ -28,7 +28,7 @@ jobs:
           SMTP_PORT: ${{ secrets.SMTP_PORT || '465' }}
           SMTP_USER: ${{ secrets.SMTP_USER || 'ricardo.destrabaai@gmail.com' }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          SMTP_FROM: ${{ secrets.SMTP_FROM || 'Destraba AI <ricardo.destrabaai@gmail.com>' }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM || 'Boltech Group <ricardo.destrabaai@gmail.com>' }}
           STRIKE_LIGHTNING_ADDRESS: ${{ secrets.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me' }}
           OFFICIAL_SUPPORT_EMAIL: ${{ secrets.OFFICIAL_SUPPORT_EMAIL || 'ricardo.destrabaai@gmail.com' }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

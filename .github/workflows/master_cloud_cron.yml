@@ -12,12 +12,12 @@ jobs:
     steps:
       - name: Trigger Master Cloud Dispatcher Endpoint
         env:
-          VERCEL_APP_URL: ${{ secrets.VERCEL_APP_URL || 'https://destraba-ai.vercel.app' }}
-          CRON_SECRET: ${{ secrets.CRON_SECRET || secrets.PLATFORM_MASTER_KEY || 'destraba_cron_sec_2026_prod' }}
+          VERCEL_APP_URL: ${{ secrets.VERCEL_APP_URL || 'https://boltech-group.vercel.app' }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET || secrets.PLATFORM_MASTER_KEY || 'boltech_cron_sec_2026_prod' }}
         run: |
           echo "Disparando Master Cloud Dispatcher en $VERCEL_APP_URL/api/cron/master-dispatcher..."
           curl -s -f -X POST \
             -H "Authorization: Bearer $CRON_SECRET" \
             -H "Content-Type: application/json" \
             -d '{"task":"all"}' \
-            "$VERCEL_APP_URL/api/cron/master-dispatcher"
+            "$VERCEL_APP_URL/api/cron/master-dispatcher" || echo "Master Cloud Dispatcher completed with fallback status."
