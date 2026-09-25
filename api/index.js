@@ -44,6 +44,8 @@ import aiHandler from './ai.js';
 import crmHandler from './crm.js';
 import whatsappHandler from './whatsapp.js';
 import intelHandler from './intel.js';
+import leadHandler from './lead.js';
+import scanHandler from './scan.js';
 
 export default async function handler(req, res) {
   applyStrictBankingHeaders(res);
@@ -64,6 +66,16 @@ export default async function handler(req, res) {
   try {
     const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
     const pathname = url.pathname;
+
+    // Enrutamiento a Captura y Despacho de Leads
+    if (pathname === '/api/lead' || pathname.endsWith('/lead')) {
+      return await leadHandler(req, res);
+    }
+
+    // Enrutamiento a Escaneo de Cabeceras
+    if (pathname === '/api/scan' || pathname.endsWith('/scan')) {
+      return await scanHandler(req, res);
+    }
 
     // Enrutamiento a Vercel AI SDK
     if (pathname === '/api/ai' || pathname.endsWith('/ai')) {
