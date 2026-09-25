@@ -23,13 +23,13 @@
 - **Enfoque:** Auditoría clínica y redline automatizado de contratos comerciales B2B en menos de 10 segundos en memoria RAM volátil (GDPR Art. 28, cero retención en disco), blindando entre \$3,500 y \$18,500 USD por contrato en pasivos ocultos antes de la firma.
 - **Acceso:** [https://audiflowai.com](https://audiflowai.com)
 
-### 3. ⚡ Boltech Group / Custom Autonomous Agents
-- **Enfoque:** Plataforma fiduciaria B2B para transformar dolores operativos no resueltos en Custom Agents autónomos listos para producción en Google Antigravity, impulsados nativamente por Google Gemini y desplegados 24/7 en Vercel Serverless.
+### 3. ⚡ Boltech Group / Custom Autonomous Agents & Arena AI Engine
+- **Enfoque:** Plataforma fiduciaria B2B para transformar dolores operativos no resueltos en Custom Agents autónomos listos para producción en Google Antigravity, impulsados nativamente por Google Gemini, clientes OpenRouter / Arena AI multi-modelo con reintentos exponenciales ante Rate Limits (429), y desplegados 24/7 en Vercel Serverless.
 - **Acceso:** [https://boltech-group.vercel.app](https://boltech-group.vercel.app)
 
 ---
 
-## 💎 Nuevo Plan Comercial y Matriz de Precios Fiduciaria
+## 💎 Plan Comercial y Matriz de Precios Fiduciaria Oficial
 
 | Nivel de Solución | Tarifa Oficial | Modalidad | Entregables y Cobertura |
 | :--- | :--- | :--- | :--- |
@@ -54,23 +54,29 @@
 
 ---
 
+## 🧪 Batería de Pruebas Fiduciarias Automatizadas (200 Iteraciones)
+
+El repositorio cuenta con una suite integral de estrés y validación de compras (`tests/test_boltech_200_purchases.mjs`):
+- **80 Compras Simuladas de Planes:** Validación estricta con el catálogo oficial (\$19, \$69, \$490 USD).
+- **60 Liquidaciones Lightning (Strike):** Verificación de facturas instantáneas hacia `rick2818@strike.me`.
+- **60 Pagos con Tarjeta (Wompi):** Cálculo y comprobación de firmas de integridad criptográfica SHA-256.
+
+```bash
+# Ejecución directa de la suite de 200 compras
+node tests/test_boltech_200_purchases.mjs
+
+# Ejecución de la suite completa de pruebas unitarias y de escaneo
+npm test
+```
+
+---
+
 ## 🛡️ Estándares de Grado Bancario & Seguridad
 
 - **Cero Invasión:** Sin acceso a bases de datos ni contraseñas maestras. Todo análisis opera de forma perimetral desde la nube.
 - **Privacidad SOC-2:** Procesamiento 100% en memoria volátil RAM; sin retención en disco ni entrenamiento de modelos con datos de clientes.
 - **Coherencia A+:** Cabeceras CSP estrictas, `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff` y HSTS precargado 2 años.
 - **Infraestructura:** Google Antigravity 2.0 Cloud & Vercel Edge Network.
-
----
-
-## 🛠️ Stack Base de SDKs & Servidor MCP (Prerrequisito Obligatorio Antigravity)
-
-> **Directiva Fiduciaria:** Todo nuevo entorno de desarrollo de MicroSaaS o instalación de Antigravity en otra computadora DEBE contar con el servidor MCP `mcp-agent-generator` y el Stack Base de SDKs preinstalados antes de iniciar desarrollo:
-
-```bash
-# Instalación universal del stack base y extensiones empresariales
-npm install @google/genai zod dotenv docx pdf-lib stripe cheerio resend @supabase/supabase-js nanoid validator deep-email-validator ai @ai-sdk/google @ai-sdk/openai @hubspot/api-client jsforce twilio @tavily/core @upstash/redis @modelcontextprotocol/sdk
-```
 
 ---
 
