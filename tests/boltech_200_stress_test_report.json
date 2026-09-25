@@ -1,7 +1,21 @@
 {
   "project": "Boltech-Group",
+  "official_pricing_catalog": {
+    "flash": {
+      "amountUSD": 19,
+      "name": "Parche de Ciberseguridad Flash"
+    },
+    "pro": {
+      "amountUSD": 69,
+      "name": "Centinela Autónomo 24/7"
+    },
+    "enterprise": {
+      "amountUSD": 490,
+      "name": "Flota Multi-Agente Soberana"
+    }
+  },
   "environment": "Production & Fiduciary Test Suite",
-  "timestamp": "2026-09-25T18:54:05.920Z",
+  "timestamp": "2026-09-25T18:58:16.156Z",
   "total_tests": 200,
   "total_passed": 200,
   "success_rate": "100.0%",
