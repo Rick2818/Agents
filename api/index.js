@@ -128,15 +128,11 @@ export default async function handler(req, res) {
     }
 
     // --- ENDPOINT CONFIGURACIÓN DE CABINA SOBERANA ---
-    if (req.method === 'GET' && (pathname === '/api/cockpit/config' || pathname.endsWith('/cockpit/config'))) {
-      return res.status(200).json({
-        success: true,
-        geminiApiKey: (process.env.GEMINI_API_KEY || '').trim(),
-        authorizedUserId: (process.env.TELEGRAM_AUTHORIZED_USER_ID || '6311509947').trim(),
-        strikeAddress: (process.env.STRIKE_LIGHTNING_ADDRESS || 'rick2818@strike.me').trim(),
-        serverOnline: true
-      });
-    }
+    // ELIMINADO del despliegue público de Vercel (2026-09-26): este endpoint
+    // filtraba GEMINI_API_KEY sin autenticación a cualquiera en internet.
+    // La Cabina Soberana es una herramienta LOCAL (server.js, localhost:8765);
+    // la config con la API key solo se sirve ahí. Ver server.js para el
+    // equivalente protegido con COCKPIT_ACCESS_TOKEN.
 
     // --- ENDPOINTS UNIVERSALES DE CORREO: ESTADO Y DESPACHO ---
     if (req.method === 'GET' && (pathname === '/api/email/status' || pathname.endsWith('/email/status'))) {

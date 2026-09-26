@@ -146,9 +146,13 @@ export async function syncLeadToAirtable(record) {
   fs.writeFileSync(AIRTABLE_SYNC_FILE, JSON.stringify(currentSync, null, 2), 'utf-8');
 
   // Si hay credenciales de Airtable activas, enviar a la API
+  const tableTarget = process.env.AIRTABLE_TABLE_ID || 'tblZaox2MX5uYA5PZ';
   if (AIRTABLE_API_KEY && AIRTABLE_BASE_ID) {
     try {
-      const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/B2B_Pipeline_Master`;
+      const url = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${tableTarget}`;
+      const statusMap = record.amountPaidUsd > 0 ? 'Done' : (record.cadenceStatus?.includes('Impacto 2') ? 'In progress' : 'To do');
+      const leadTitle = `${record.company || record.domain} • ${record.name || 'Decisor'} (${record.contactEmail || record.domain}) [${record.securityStatus || 'Auditado'}]`;
+
       await fetch(url, {
         method: 'POST',
         headers: {
@@ -157,21 +161,12 @@ export async function syncLeadToAirtable(record) {
         },
         body: JSON.stringify({
           fields: {
-            Lead_ID: record.leadId,
-            Empresa: record.company,
-            Dominio_Web: record.domain,
-            Decisor_Nombre: record.name,
-            Decisor_Cargo: record.title,
-            Email_Verificado: record.contactEmail,
-            Estado_Seguridad: record.securityStatus,
-            Cuello_Botella: `${record.estimatedBottleneckHours}h proyectadas`,
-            URL_Video_Explee: record.visualAuditUrl,
-            Estado_Cadencia: record.cadenceStatus || 'Impacto 1 Despachado',
-            Monto_Liquidado_USD: record.amountPaidUsd || 0
+            'Name': leadTitle,
+            'Status': statusMap
           }
         })
       });
-      console.log(`✅ [AIRTABLE API]: Lead guardado exitosamente en Airtable Cloud.`);
+      console.log(`✅ [AIRTABLE API]: Lead "${record.company}" guardado exitosamente en Airtable Cloud.`);
     } catch (err) {
       console.warn(`⚠️ [AIRTABLE API WARN]: Error al sincronizar en la nube (${err.message}). Buffer local preservado.`);
     }

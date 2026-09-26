@@ -95,8 +95,7 @@ const GEMINI_API_KEY = (process.env.GEMINI_API_KEY || '').trim();
 const OPENAI_API_KEY = (process.env.OPENAI_API_KEY || '').trim();
 const RESEND_API_KEY = (process.env.RESEND_API_KEY || '').trim();
 const SMTP_FROM = (process.env.SMTP_FROM || 'Boltech Group <onboarding@resend.dev>').trim();
-const MASTER_KEY = (process.env.PLATFORM_MASTER_KEY || 'antigravity2026!').trim();
-const GEMINI_MODEL = 'gemini-3.6-flash';
+const GEMINI_MODEL = 'gemini-2.5-flash';
 const TTS_MODEL = 'gemini-2.5-flash-preview-tts';
 
 const mcpHub = new ExecutiveAssistantMCPHub({
@@ -685,6 +684,26 @@ Para enviar un correo directo usa el formato con barras verticales (|):
       }
     }
 
+    // SALUDOS / CONVERSACIÓN DIRECTA
+    if (lower === 'hola' || lower === 'buenas' || lower === 'buenos dias' || lower === 'buenas tardes' || lower === 'buenas noches' || lower === 'hey' || lower === 'hello' || lower === 'hi' || lower.startsWith('hola') || lower.startsWith('buenas') || lower.includes('como estas') || lower.includes('cómo estás') || lower === 'que tal') {
+      const greeting = `
+🎩 <b>Saludos cordiales, Don Ricardo.</b>
+
+Tu Agente Ejecutivo Soberano de <b>Boltech Group</b> está 100% en línea y a tu disposición.
+
+¿En qué te puedo apoyar hoy?
+• ⚡ <b>/btc</b> — Cotización de Bitcoin, satoshis y fees de red
+• 📅 <b>/agenda</b> — Reuniones y recordatorios proactivos
+• 📊 <b>/proyectos</b> — Estado operativo y de tracción
+• 🎯 <b>/hunter</b> — Cazador autónomo de oportunidades
+• 🍷 <b>/restaurantes</b> — Recomendaciones gastronómicas ejecutivas
+
+<i>Puedes escribirme o pedirme redacción de correos en cualquier momento.</i>
+      `.trim();
+      await this.sendMessage(chatId, greeting, { isRawHtml: true });
+      return;
+    }
+
     // /START, /HELP, /AYUDA
     if (lower === '/start' || lower === '/help' || lower === '/ayuda') {
       const welcome = `
@@ -950,9 +969,9 @@ Language & Demeanor Mandate:
             }
           }
         } else if (updates.error_code === 409) {
-          console.warn('[TELEGRAM 409 CONFLICT]: Conflicto detectado (posible webhook en la nube u otra instancia activa).');
-          console.warn('Protección activa: NO se borrará el webhook. Pausando 15s antes de reintentar...');
-          await new Promise(r => setTimeout(r, 15000));
+          console.warn('[TELEGRAM 409 CONFLICT]: Conflicto de Webhook detectado. Liberando canal para Long Polling...');
+          await this.sendRequest('deleteWebhook', { drop_pending_updates: false });
+          await new Promise(r => setTimeout(r, 1000));
         } else if (updates.error_code === 429) {
           const retrySec = updates.parameters?.retry_after || 5;
           console.warn(`[TELEGRAM 429 RATE LIMIT]: Esperando ${retrySec}s...`);

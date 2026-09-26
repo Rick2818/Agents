@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boltech Group — Dashboard Ejecutivo Local 24/7</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased p-4 md:p-6 font-sans">
   <div class="max-w-6xl mx-auto space-y-6">
@@ -210,6 +211,72 @@
       </div>
     </div>
 
+    <!-- SECCIÓN DE GRÁFICOS PASTEL (DISTRIBUCIÓN FIDUCIARIA & CONVERSIÓN) -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span>📊</span> Visual Analytics: Gráficos de Distribución Fiduciaria
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">Composición de rieles de cobro en USD, sectores de prospección B2B y mix de tickets</p>
+        </div>
+        <span class="text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2.5 py-1 rounded-full">
+          ● Auto-Sync 24/7
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- PASTEL 1: RIELES DE COBRO -->
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 flex flex-col items-center">
+          <div class="w-full flex items-center justify-between mb-2 border-b border-slate-800 pb-2">
+            <span class="text-xs font-mono font-bold text-amber-400">⚡ Rieles de Cobro</span>
+            <span class="text-[10px] font-mono text-slate-400">Target $9,000</span>
+          </div>
+          <div class="w-full relative flex items-center justify-center py-2" style="height: 190px;">
+            <canvas id="execPaymentRailsPie"></canvas>
+          </div>
+          <div class="w-full grid grid-cols-3 gap-1.5 mt-2 pt-2 border-t border-slate-800 text-center font-mono text-[10px]">
+            <div class="bg-slate-900 p-1 rounded border border-amber-500/20 text-amber-400 font-bold">Strike 45%</div>
+            <div class="bg-slate-900 p-1 rounded border border-cyan-500/20 text-cyan-400 font-bold">Wompi 35%</div>
+            <div class="bg-slate-900 p-1 rounded border border-indigo-500/20 text-indigo-400 font-bold">Stripe 20%</div>
+          </div>
+        </div>
+
+        <!-- PASTEL 2: SECTORES AIRTABLE B2B -->
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 flex flex-col items-center">
+          <div class="w-full flex items-center justify-between mb-2 border-b border-slate-800 pb-2">
+            <span class="text-xs font-mono font-bold text-cyan-400">🎯 Sectores B2B</span>
+            <span class="text-[10px] font-mono text-slate-400">50 Leads/Día</span>
+          </div>
+          <div class="w-full relative flex items-center justify-center py-2" style="height: 190px;">
+            <canvas id="execSectorsPie"></canvas>
+          </div>
+          <div class="w-full grid grid-cols-2 gap-1 mt-2 pt-2 border-t border-slate-800 font-mono text-[9px] text-slate-300">
+            <div><span class="text-emerald-400">●</span> Logística (30%)</div>
+            <div><span class="text-cyan-400">●</span> E-Commerce (25%)</div>
+            <div><span class="text-purple-400">●</span> Software ES (20%)</div>
+            <div><span class="text-amber-400">●</span> Fintech (15%)</div>
+          </div>
+        </div>
+
+        <!-- PASTEL 3: MIX DE TICKETS -->
+        <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-4 flex flex-col items-center">
+          <div class="w-full flex items-center justify-between mb-2 border-b border-slate-800 pb-2">
+            <span class="text-xs font-mono font-bold text-emerald-400">🏷️ Mix de Tickets</span>
+            <span class="text-[10px] font-mono text-slate-400">Conversión</span>
+          </div>
+          <div class="w-full relative flex items-center justify-center py-2" style="height: 190px;">
+            <canvas id="execTicketMixPie"></canvas>
+          </div>
+          <div class="w-full grid grid-cols-3 gap-1.5 mt-2 pt-2 border-t border-slate-800 text-center font-mono text-[10px]">
+            <div class="bg-slate-900 p-1 rounded border border-emerald-500/20 text-emerald-400 font-bold">$19 Flash</div>
+            <div class="bg-slate-900 p-1 rounded border border-blue-500/20 text-blue-400 font-bold">$69 Pro</div>
+            <div class="bg-slate-900 p-1 rounded border border-purple-500/20 text-purple-400 font-bold">$490 Ent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- REGISTRO EN VIVO -->
     <div id="dispatch-log-panel" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
       <div class="flex items-center justify-between border-b border-slate-800 pb-2">
@@ -291,7 +358,122 @@
       );
     }
 
+    let execPaymentRailsChart = null;
+    let execSectorsChart = null;
+    let execTicketMixChart = null;
+
+    function initExecutivePieCharts() {
+      if (typeof Chart === 'undefined') return;
+      const chartFont = { family: 'monospace', size: 10 };
+
+      // 1. Chart Rieles de Cobro
+      const ctxRails = document.getElementById('execPaymentRailsPie');
+      if (ctxRails) {
+        if (execPaymentRailsChart) execPaymentRailsChart.destroy();
+        execPaymentRailsChart = new Chart(ctxRails, {
+          type: 'doughnut',
+          data: {
+            labels: ['Strike (USD)', 'Wompi SV', 'Stripe Bridge'],
+            datasets: [{
+              data: [45, 35, 20],
+              backgroundColor: ['#f59e0b', '#06b6d4', '#6366f1'],
+              borderColor: '#020617',
+              borderWidth: 2,
+              hoverOffset: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '65%',
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#0f172a',
+                titleFont: chartFont,
+                bodyFont: chartFont,
+                callbacks: {
+                  label: (ctx) => ` ${ctx.label}: ${ctx.raw}%`
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // 2. Chart Sectores B2B
+      const ctxSectors = document.getElementById('execSectorsPie');
+      if (ctxSectors) {
+        if (execSectorsChart) execSectorsChart.destroy();
+        execSectorsChart = new Chart(ctxSectors, {
+          type: 'doughnut',
+          data: {
+            labels: ['Logística 3PL', 'E-Commerce Colombia', 'Software España', 'Fintechs MX/CL', 'Ciberseguridad'],
+            datasets: [{
+              data: [30, 25, 20, 15, 10],
+              backgroundColor: ['#10b981', '#06b6d4', '#a855f7', '#f59e0b', '#ef4444'],
+              borderColor: '#020617',
+              borderWidth: 2,
+              hoverOffset: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '60%',
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#0f172a',
+                titleFont: chartFont,
+                bodyFont: chartFont,
+                callbacks: {
+                  label: (ctx) => ` ${ctx.label}: ${ctx.raw}%`
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // 3. Chart Mix de Tickets
+      const ctxTickets = document.getElementById('execTicketMixPie');
+      if (ctxTickets) {
+        if (execTicketMixChart) execTicketMixChart.destroy();
+        execTicketMixChart = new Chart(ctxTickets, {
+          type: 'doughnut',
+          data: {
+            labels: ['Flash ($19 USD)', 'Pro ($69 USD)', 'Enterprise ($490 USD)'],
+            datasets: [{
+              data: [50, 35, 15],
+              backgroundColor: ['#10b981', '#3b82f6', '#8b5cf6'],
+              borderColor: '#020617',
+              borderWidth: 2,
+              hoverOffset: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '65%',
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#0f172a',
+                titleFont: chartFont,
+                bodyFont: chartFont,
+                callbacks: {
+                  label: (ctx) => ` ${ctx.label}: ${ctx.raw}%`
+                }
+              }
+            }
+          }
+        });
+      }
+    }
+
     loadLiveMetrics();
+    initExecutivePieCharts();
   </script>
 </body>
 </html>

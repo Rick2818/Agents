@@ -1004,7 +1004,10 @@ Mandate:
       fetchBitcoinDataLive();
 
       // Consultar configuración del servidor local si está activo
-      fetch(getApiBaseUrl() + '/api/cockpit/config')
+      const cockpitToken = new URLSearchParams(window.location.search).get('token') || localStorage.getItem("boltech_cockpit_token") || 'boltech_cockpit_sec_2026_prod';
+      fetch(getApiBaseUrl() + '/api/cockpit/config?token=' + encodeURIComponent(cockpitToken), {
+        headers: { 'x-cockpit-token': cockpitToken }
+      })
         .then(r => r.json())
         .then(cfg => {
           if (cfg?.geminiApiKey) {

@@ -1,6 +1,6 @@
 [
   {
-    "leadId": "BOL_1790277392230_87B4",
+    "leadId": "BOL_1790378070662_J970",
     "company": "Logística Global",
     "domain": "coordinadora.com",
     "name": "Director de Operaciones",
@@ -8,16 +8,16 @@
     "contactEmail": "operaciones@coordinadora.com",
     "emailVerified": false,
     "securityStatus": "A+ (Blindado)",
-    "latencyMs": 293,
-    "estimatedBottleneckHours": 8,
+    "latencyMs": 510,
+    "estimatedBottleneckHours": 12,
     "visualAuditUrl": "https://boltech-group.vercel.app/audit?token=Y29vcmRpbmFk&domain=coordinadora.com",
     "cadenceStatus": "Impacto 1 Preparado",
     "impacto1Preview": "[Observabilidad] Diagnóstico de resguardo perimetral y optimización de flujos en Logística Global",
     "createdAt": "2026-09-24T15:31:43.482Z",
-    "updatedAt": "2026-09-24T19:16:32.231Z"
+    "updatedAt": "2026-09-25T23:14:30.667Z"
   },
   {
-    "leadId": "BOL_1790277392658_4Z5V",
+    "leadId": "BOL_1790378071937_CW42",
     "company": "Fintech Hub",
     "domain": "stripe.com",
     "name": "Chief Technology Officer",
@@ -25,16 +25,16 @@
     "contactEmail": "security@stripe.com",
     "emailVerified": false,
     "securityStatus": "A+ (Blindado)",
-    "latencyMs": 417,
+    "latencyMs": 482,
     "estimatedBottleneckHours": 12,
     "visualAuditUrl": "https://boltech-group.vercel.app/audit?token=c3RyaXBlLmNv&domain=stripe.com",
     "cadenceStatus": "Impacto 1 Preparado",
     "impacto1Preview": "[Observabilidad] Diagnóstico de resguardo perimetral y optimización de flujos en Fintech Hub",
     "createdAt": "2026-09-24T15:31:44.020Z",
-    "updatedAt": "2026-09-24T19:16:32.660Z"
+    "updatedAt": "2026-09-25T23:14:31.942Z"
   },
   {
-    "leadId": "BOL_1790277393316_MK40",
+    "leadId": "BOL_1790378072804_VF7O",
     "company": "Digital Retail",
     "domain": "shopify.com",
     "name": "VP de Ingeniería",
@@ -42,16 +42,16 @@
     "contactEmail": "engineering@shopify.com",
     "emailVerified": false,
     "securityStatus": "Alerta: 2 cabeceras expuestas",
-    "latencyMs": 648,
+    "latencyMs": 515,
     "estimatedBottleneckHours": 12,
     "visualAuditUrl": "https://boltech-group.vercel.app/audit?token=c2hvcGlmeS5j&domain=shopify.com",
     "cadenceStatus": "Impacto 1 Preparado",
     "impacto1Preview": "[Observabilidad] Diagnóstico de resguardo perimetral y optimización de flujos en Digital Retail",
     "createdAt": "2026-09-24T15:31:44.745Z",
-    "updatedAt": "2026-09-24T19:16:33.318Z"
+    "updatedAt": "2026-09-25T23:14:32.807Z"
   },
   {
-    "leadId": "BOL_1790277393772_7ZG7",
+    "leadId": "BOL_1790378073559_BQ0S",
     "company": "Omnichannel Corp",
     "domain": "falabella.com",
     "name": "Director TI",
@@ -59,13 +59,13 @@
     "contactEmail": "ti@falabella.com",
     "emailVerified": false,
     "securityStatus": "Alerta: 1 cabeceras expuestas",
-    "latencyMs": 444,
+    "latencyMs": 377,
     "estimatedBottleneckHours": 12,
     "visualAuditUrl": "https://boltech-group.vercel.app/audit?token=ZmFsYWJlbGxh&domain=falabella.com",
     "cadenceStatus": "Impacto 1 Preparado",
     "impacto1Preview": "[Observabilidad] Diagnóstico de resguardo perimetral y optimización de flujos en Omnichannel Corp",
     "createdAt": "2026-09-24T15:31:45.251Z",
-    "updatedAt": "2026-09-24T19:16:33.773Z"
+    "updatedAt": "2026-09-25T23:14:33.562Z"
   },
   {
     "leadId": "BOL_1790277408733_H91T",
@@ -1092,5 +1092,50 @@
     "source": "APOLLO_IO_VERIFIED_EXPORT_LISTA_1",
     "createdAt": "2026-09-25T15:44:51.101Z",
     "updatedAt": "2026-09-25T15:44:51.101Z"
+  },
+  {
+    "leadId": "lead_hot_ivan_pavlovic",
+    "company": "52 Entertainment",
+    "domain": "52-entertainment.com",
+    "name": "Ivan Pavlovic",
+    "title": "Deputy Managing Director",
+    "contactEmail": "ivan.pavlovic@52-entertainment.com",
+    "securityStatus": "A+ (En Seguimiento de Cierre)",
+    "estimatedBottleneckHours": 12,
+    "visualAuditUrl": "https://boltech-group.vercel.app/?domain=52-entertainment.com&lang=en",
+    "cadenceStatus": "Hot Lead • Seguimiento de Cierre Despachado",
+    "amountPaidUsd": 0,
+    "createdAt": "2026-09-25T23:26:15.519Z",
+    "updatedAt": "2026-09-25T23:26:15.519Z"
+  },
+  {
+    "leadId": "lead_hot_mario_chandler",
+    "company": "Legacy Wireless",
+    "domain": "legacywireless.org",
+    "name": "Mario Chandler",
+    "title": "Founder",
+    "contactEmail": "jkramer@legacy-wireless.com",
+    "securityStatus": "A+ (En Seguimiento de Cierre)",
+    "estimatedBottleneckHours": 12,
+    "visualAuditUrl": "https://boltech-group.vercel.app/?domain=legacywireless.org&lang=en",
+    "cadenceStatus": "Hot Lead • Seguimiento de Cierre Despachado",
+    "amountPaidUsd": 0,
+    "createdAt": "2026-09-25T23:26:19.301Z",
+    "updatedAt": "2026-09-25T23:26:19.301Z"
+  },
+  {
+    "leadId": "lead_hot_lucjan_kisiel",
+    "company": "CBytes / SDATA Hosting",
+    "domain": "sdata.net.pl",
+    "name": "Lucjan Kisiel",
+    "title": "Senior Linux Administrator & Founder",
+    "contactEmail": "lucjan.kisiel@sdata.net.pl",
+    "securityStatus": "A+ (En Seguimiento de Cierre)",
+    "estimatedBottleneckHours": 12,
+    "visualAuditUrl": "https://boltech-group.vercel.app/?domain=sdata.net.pl&lang=en",
+    "cadenceStatus": "Hot Lead • Seguimiento de Cierre Despachado",
+    "amountPaidUsd": 0,
+    "createdAt": "2026-09-25T23:26:20.735Z",
+    "updatedAt": "2026-09-25T23:26:20.735Z"
   }
 ]
